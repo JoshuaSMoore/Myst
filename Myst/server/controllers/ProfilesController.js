@@ -1,5 +1,6 @@
 import { profileService } from '../services/ProfileService.js'
 import BaseController from '../utils/BaseController'
+import { logger } from '../utils/Logger.js'
 
 export class ProfilesController extends BaseController {
   constructor() {
@@ -13,6 +14,7 @@ export class ProfilesController extends BaseController {
       .get('/:id/trackedgames', this.getTrackedGames)
       .post('/:id/follow', this.followGamer)
       .delete('/:id/posts/:postId/', this.deletePost)
+      .delete('/:id/unfollow', this.unfollowGamer)
   }
 
   async getProfiles(req, res, next) {
@@ -70,6 +72,36 @@ export class ProfilesController extends BaseController {
     } catch (error) {
       next(error)
       logger.error('error getting tracked games', error)
+    }
+  }
+
+  async getFollowing(req, res, next) {
+    try {
+      const following = await profileService.getFollowing(req.query)
+      res.send(following)
+    } catch (error) {
+      next(error)
+      logger.error('error getting following')
+    }
+  }
+
+  async followGamer(req, res, next) {
+    try {
+      const gamer = await profileService.getProfileById(req.query)
+      res.send(gamer)
+    } catch (error) {
+      next(error)
+      logger.error('error following gamer')
+    }
+  }
+
+  async unfollowGamer(req, res, next) {
+    try {
+      const gamer = await profileService.getProfileById(req.query)
+      res.send(gamer)
+    } catch (error) {
+      next(error)
+      logger.error('error unfollowing gamer')
     }
   }
 }

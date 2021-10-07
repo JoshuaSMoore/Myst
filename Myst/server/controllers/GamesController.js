@@ -1,5 +1,5 @@
 import BaseController from '../utils/BaseController.js'
-import { logger } from '../utils/Logger.js'
+// import { logger } from '../utils/Logger.js'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { gamesService } from '../services/GamesService.js'
 
@@ -9,8 +9,8 @@ export class GamesController extends BaseController {
     this.router
       .get('', this.getGames)
       .get('/:gameId', this.getGamesById)
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:gameId/trackedgames', this.getTrackedGames)
+      .use(Auth0Provider.getAuthorizedUserInfo)
   }
 
   async getGames(req, res, next) {
