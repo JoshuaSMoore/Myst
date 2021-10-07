@@ -6,8 +6,8 @@ export class TrackedGamesController extends BaseController {
   constructor() {
     super('api/trackedgames')
     this.router
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createTrackedGame)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .put('/:trackedGameId', this.favoriteTrackedGame)
       .delete('/:trackedGameId', this.deleteTrackedGame)
   }
