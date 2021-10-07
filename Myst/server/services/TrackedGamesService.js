@@ -3,19 +3,6 @@ import { BadRequest } from '../utils/Errors'
 import { logger } from '../utils/Logger'
 
 class TrackedGamesService {
-  async createTrackedGame(oldTracked, accountId, trackedGameData) {
-    for (let i = 0; i < oldTracked.length; i++) {
-      const check = oldTracked[i]
-      if (check.accountId.toString() === accountId) {
-        throw new BadRequest('You are already tracking this game')
-      }
-    }
-    const trackedGame = await dbContext.TrackedGame.create(trackedGameData)
-    await trackedGame.populate('game')
-    await trackedGame.populate('tracker')
-    return trackedGame
-  }
-
   async getTrackedGameById(trackedGameId) {
     const trackedGame = await dbContext.TrackedGame.findById(trackedGameId)
     await trackedGame.populate('game')
@@ -36,10 +23,10 @@ class TrackedGamesService {
     return deletedGame
   }
 
-  async createTrackedBug(data) {
-    const trackedBugs = await dbContext.TrackedGame.find({ gameId: data.gameId }).populate('tracker').populate('game')
-    for (let i = 0; i < trackedBugs.length; i++) {
-      const check = trackedBugs[i]
+  async createTrackedGame(data) {
+    const trackedGames = await dbContext.TrackedGame.find({ gameId: data.gameId }).populate('tracker').populate('game')
+    for (let i = 0; i < trackedGames.length; i++) {
+      const check = trackedGames[i]
       if (check.accountId.toString() === data.accountId) {
         throw new BadRequest('can only track one time')
       }

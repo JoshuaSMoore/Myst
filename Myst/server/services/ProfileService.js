@@ -80,7 +80,7 @@ class ProfileService {
   }
 
   async getTrackedGames(query) {
-    const trackedGames = await dbContext.TrackedGame.find(query).populate('creator', 'name picture')
+    const trackedGames = await dbContext.TrackedGame.find(query).populate('tracker').populate('game')
     return trackedGames
   }
 }

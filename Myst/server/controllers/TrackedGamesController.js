@@ -15,7 +15,7 @@ export class TrackedGamesController extends BaseController {
   async createTrackedGame(req, res, next) {
     try {
       req.body.accountId = req.userInfo.id
-      const trackedGame = await trackedGamesService.createTrackedBug(req.body)
+      const trackedGame = await trackedGamesService.createTrackedGame(req.body)
       res.send(trackedGame)
     } catch (error) {
       next(error)
