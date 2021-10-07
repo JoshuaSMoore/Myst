@@ -60,7 +60,8 @@ export class ProfilesController extends BaseController {
 
   async getFollowers(req, res, next) {
     try {
-      const followers = await profileService.getFollowers(req.query)
+      req.body.followerId = req.userInfo.id
+      const followers = await profileService.getFollowers(req.body.followerId)
       res.send(followers)
     } catch (error) {
       next(error)
@@ -81,7 +82,8 @@ export class ProfilesController extends BaseController {
 
   async getFollowing(req, res, next) {
     try {
-      const following = await profileService.getFollowing(req.query)
+      req.body.followingId = req.userInfo.id
+      const following = await profileService.getFollowing(req.body.followingId)
       res.send(following)
     } catch (error) {
       next(error)

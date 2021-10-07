@@ -46,13 +46,13 @@ class ProfileService {
     return post
   }
 
-  async getFollowers(query) {
-    const followers = await dbContext.Follow.find(query).populate('creator', 'name picture')
+  async getFollowers(followerId) {
+    const followers = await dbContext.Follow.find({ followerId }).populate('follower').populate('following')
     return followers
   }
 
-  async getFollowing(query) {
-    const following = await dbContext.Follow.find(query).populate('creator', 'name picture')
+  async getFollowing(followingId) {
+    const following = await dbContext.Follow.find({ followingId }).populate('follower').populate('following')
     return following
   }
 
