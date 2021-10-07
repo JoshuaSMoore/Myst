@@ -9,11 +9,11 @@ export class ProfilesController extends BaseController {
     this.router
       .get('', this.getProfiles)
       .get('/:id', this.getProfile)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:id/posts', this.getPosts)
       .get('/:id/followers', this.getFollowers)
       .get('/:id/following', this.getFollowing)
       .get('/:id/trackedgames', this.getTrackedGames)
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('/:id/follow', this.followGamer)
       .delete('/:id/posts/:postId/', this.deletePost)
       .delete('/:id/unfollow', this.unfollowGamer)
@@ -69,7 +69,8 @@ export class ProfilesController extends BaseController {
 
   async getTrackedGames(req, res, next) {
     try {
-      const trackedGames = await profileService.getTrackedGames(req.query)
+      req.body.accountId = req.userInfo.id
+      const trackedGames = await profileService.getTrackedGames(req.body)
       res.send(trackedGames)
     } catch (error) {
       next(error)
