@@ -35,6 +35,21 @@ class TrackedGamesService {
     const deletedGame = await dbContext.TrackedGame.findByIdAndDelete(trackedGameId)
     return deletedGame
   }
+
+  async createTrackedBug(data) {
+    const trackedBugs = await dbContext.TrackedGame.find({ gameId: data.gameId }).populate('tracker').populate('game')
+    for (let i = 0; i < trackedBugs.length; i++) {
+      const check = trackedBugs[i]
+      if (check.accountId.toString() === data.accountId) {
+        throw new BadRequest('can only track one time')
+      }
+    }
+
+    const trackBug = await dbContext.TrackedGame.create(data)
+    await trackBug.populate('tracker')
+    await trackBug.populate('game')
+    return trackBug
+  }
 }
 
 export const trackedGamesService = new TrackedGamesService()
