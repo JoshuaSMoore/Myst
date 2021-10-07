@@ -10,7 +10,7 @@
           />
         </div>
       </router-link>
-      <div class="input-group mb-3 d-flex" style="width: 80vw">
+      <div class="input-group mt-1 mb-1 d-flex" style="width: 80vw">
         <input type="text" class="form-control bg-secondary d-flex" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
         <button class="btn btn-outline-primary" type="button" id="button-addon2">
           Search
