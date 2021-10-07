@@ -9,7 +9,7 @@ export class TrackedGamesController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createTrackedGame)
       .put('/:trackedGameId', this.favoriteTrackedGame)
-      .delete('delete', this.deleteTrackedGame)
+      .delete('/:trackedGameId', this.deleteTrackedGame)
   }
 
   async createTrackedGame(req, res, next) {
