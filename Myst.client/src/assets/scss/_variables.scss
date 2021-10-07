@@ -1,12 +1,27 @@
-$body-bg: #e5e5e5;
-$primary: #3ba5dc;
-$secondary: #8392ab;
-$success: #00f867;
-$info: #5d0149;
-$warning: #fbcf33;
-$danger: #ea0606;
-$light: #e9ecef;
-$dark: #111927;
+@import url(https://fonts.googleapis.com/css?family=Muli:200,300,400,700);
+$font-family-base:Muli;
+
+// $enable-grid-classes:false;
+$primary:#7871B7;
+$secondary:#05668D;
+$success:#50588F;
+$danger:#cc330d;
+$info:#028090;
+$warning:#CC49D2;
+$light:#eceeec;
+$dark:#000000;
+
+
+$body-bg: #000000;
+
+// $primary: #3ba5dc;
+// $secondary: #8392ab;
+// $success: #00f867;
+// $info: #5d0149;
+// $warning: #fbcf33;
+// $danger: #ea0606;
+// $light: #e9ecef;
+// $dark: #111927;
 $grey: #cbcbcb;
 
 $font-sans-serif: Open Sans;
@@ -35,3 +50,4 @@ $color-ranges: (
   35: 35,
   40: 40,
 );
+

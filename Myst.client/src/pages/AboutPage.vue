@@ -1,11 +1,11 @@
 <template>
-  <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+  <div class="flex-grow-1 d-flex align-items-center justify-content-center m-5 p-5">
     <figure class="aboutCard">
       <img src="../assets/img/road.jpg" alt="sample87" />
       <figcaption>
         <img src="../assets/img/Josh.jpg" alt="profile-sample4" class="profile" />
         <h2>Joshua Moore<span>Full Stack Developer</span></h2>
-        <p>I'm the Batman </p>
+        <!-- <p>Placeholder Bio </p> -->
         <a href="https://www.linkedin.com/in/joshuasmoore7/" class="follow">Linkedin</a>
         <a href="https://github.com/JoshuaSMoore" class="info">GitHub</a>
       </figcaption>
@@ -15,7 +15,7 @@
       <figcaption>
         <img src="../assets/img/Kyle.jpg" alt="profile-sample2" class="profile" />
         <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
-        <p>No, I'm the Batman.</p>
+        <!-- <p>Placeholder Bio </p> -->
         <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="follow">Linkedin</a>
         <a href="https://github.com/KyleMHanna" class="info">GitHub</a>
       </figcaption>
@@ -25,7 +25,7 @@
       <figcaption>
         <img src="../assets/img/Talan.jpg" alt="profile-sample5" class="profile" />
         <h2>Talan Weeks<span>Full Stack Developer</span></h2>
-        <p>Yeah dude.</p>
+        <!-- <p>Placeholder Bio </p> -->
         <a href="https://www.linkedin.com/in/talan-weeks/" class="follow">Linkedin</a>
         <a href="https://github.com/TalanWeeks" class="info">GitHub</a>
       </figcaption>
@@ -35,7 +35,7 @@
       <figcaption>
         <img src="../assets/img/Nick.jpg" alt="profile-sample4" class="profile" />
         <h2>Nick Sondrup<span>Full Stack Developer</span></h2>
-        <p>I'm the Batman </p>
+        <!-- <p>Placeholder Bio </p> -->
         <a href="https://www.linkedin.com/in/nicholas-sondrup/" class="follow">Linkedin</a>
         <a href="https://github.com/NickSondrup" class="info">GitHub</a>
       </figcaption>
@@ -45,7 +45,7 @@
       <figcaption>
         <img src="../assets/img/Derek.jpg" alt="profile-sample4" class="profile" />
         <h2>Derek Shain<span>Full Stack Developer</span></h2>
-        <p>I'm the Batman </p>
+        <!-- <p>Placeholder Bio </p> -->
         <a href="www.linkedin.com/in/derekshain
 "
            class="follow"
@@ -85,6 +85,7 @@ export default {
   max-width: 100%;
   vertical-align: top;
   opacity: 0.85;
+
 }
 .aboutCard figcaption {
   width: 100%;

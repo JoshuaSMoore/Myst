@@ -2,7 +2,7 @@
   <header>
     <Navbar />
   </header>
-  <main>
+  <main class="bg-bg-grad">
     <router-view />
   </main>
 </template>
@@ -21,5 +21,6 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-
+.bg-bg-grad {
+  background: linear-gradient(41deg, #cc49d2 0%, #00d4ff 35%, #000000 100%);}
 </style>
