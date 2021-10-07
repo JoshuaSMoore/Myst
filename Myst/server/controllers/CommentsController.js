@@ -36,7 +36,7 @@ export class CommentsController extends BaseController {
   async editComment(req, res, next) {
     try {
       const comment = await commentsService.editComment(req.params.commentId, req.userInfo.id, req.body)
-      res.sent(comment)
+      res.send(comment)
     } catch (error) {
       next(error)
     }
