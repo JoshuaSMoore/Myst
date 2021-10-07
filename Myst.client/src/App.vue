@@ -1,6 +1,6 @@
 <template>
   <header>
-    <Navbar />
+    <NavbarTest />
   </header>
   <main class="bg-bg-grad">
     <router-view />
