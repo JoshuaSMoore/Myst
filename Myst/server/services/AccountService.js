@@ -1,4 +1,5 @@
 import { dbContext } from '../db/DbContext'
+import { Forbidden } from '../utils/Errors.js'
 
 // Private Methods
 
@@ -72,6 +73,27 @@ class AccountService {
       { $set: update },
       { runValidators: true, setDefaultsOnInsert: true, new: true }
     )
+    return account
+  }
+
+  // REVIEW editAccount may need to be Mick proofed.
+  async editAccount(user, body) {
+    const account = await this.getAccount(user)
+    if (user.id !== account.id) {
+      throw new Forbidden('The dark fire will not avail you, flame of Udûn! You Shall not pass!')
+    }
+    account.name = body.name || account.name
+    account.bio = body.bio || account.bio
+    account.picture = body.picture || account.picture
+    account.coverImg = body.coverImg || account.coverImg
+    account.profileClip = body.profileClip || account.profileClip
+    account.twitch = body.twitch || account.twitch
+    account.github = body.github || account.github
+    account.steam = body.steam || account.steam
+    account.xbox = body.xbox || account.xbox
+    account.playstation = body.playstation || account.playstation
+    account.nintendo = body.nintendo || account.nintendo
+    await account.save()
     return account
   }
 }
