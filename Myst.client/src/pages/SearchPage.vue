@@ -1,5 +1,5 @@
 <template>
-  PROFILE TEST PAGE
+  Test Search Page
 </template>
 
 <script>

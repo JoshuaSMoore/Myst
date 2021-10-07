@@ -61,6 +61,22 @@
                 About
               </div>
             </router-link>
+            <router-link :to="{ name: 'Search' }">
+              <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
+                Search
+              </div>
+            </router-link>
+            <router-link :to="{ name: 'Profile' }">
+              <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
+                Profile
+              </div>
+            </router-link>
+            <router-link :to="{ name: 'Game' }">
+              <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
+                Game
+              </div>
+            </router-link>
+
             <div
               class="list-group-item list-group-item-action hoverable bg-dark text-danger"
               @click="logout"
