@@ -19,7 +19,7 @@ class CommentsService {
 
   async deleteComment(commentId, userId) {
     const comment = await dbContext.Comment.findById(commentId)
-    if (userId !== comment.creatorId.toSting()) {
+    if (userId !== comment.creatorId.toString()) {
       throw new Forbidden('The dark fire will not avail you, flame of Udûn! You Shall not pass!')
     }
     await comment.remove()
