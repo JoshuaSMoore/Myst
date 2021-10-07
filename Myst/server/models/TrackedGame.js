@@ -3,8 +3,8 @@ const Schema = mongoose.Schema
 
 export const TrackedGameSchema = new Schema(
   {
-    gameName: { type: String, required: true },
-    gamePic: { type: String, required: true },
+    gameName: { type: String, required: false },
+    gamePic: { type: String, required: false },
     gameId: { type: Schema.Types.ObjectId, required: true, ref: 'Game' },
     favorite: { type: Boolean, default: false },
     accountId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' }
