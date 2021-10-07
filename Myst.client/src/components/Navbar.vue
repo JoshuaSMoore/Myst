@@ -45,27 +45,43 @@
               height="40"
               class="rounded"
             />
-            <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
+            <!-- <span class="mx-3 text-success lighten-30">{{ user.name }}</span> -->
           </div>
           <div
-            class="dropdown-menu p-0 list-group w-100 bg-dark"
+            class="dropdown-menu p-0 list-group  bg-dark"
             aria-labelledby="authDropdown"
           >
             <router-link :to="{ name: 'Account' }">
-              <div class="list-group-item list-group-item-action hoverable">
+              <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
                 Manage Account
               </div>
             </router-link>
-            <li>
-              <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
+            <router-link :to="{ name: 'About' }">
+              <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
                 About
-              </router-link>
-            </li>
+              </div>
+            </router-link>
+            <router-link :to="{ name: 'Search' }">
+              <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
+                Search
+              </div>
+            </router-link>
+            <router-link :to="{ name: 'Profile' }">
+              <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
+                Profile
+              </div>
+            </router-link>
+            <router-link :to="{ name: 'Game' }">
+              <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
+                Game
+              </div>
+            </router-link>
+
             <div
-              class="list-group-item list-group-item-action hoverable text-danger"
+              class="list-group-item list-group-item-action hoverable bg-dark text-danger"
               @click="logout"
             >
-              <i class="mdi mdi-logout"></i>
+              <i class="mdi mdi-logout "></i>
               logout
             </div>
           </div>
