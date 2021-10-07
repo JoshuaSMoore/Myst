@@ -21,7 +21,7 @@ class GamesService {
   }
 
   async getTrackedGames(gameId) {
-    const trackedGames = await dbContext.TrackedGames.find({ gameId }).populate('bug').populate('tracker')
+    const trackedGames = await dbContext.TrackedGame.find({ gameId }).populate('game').populate('tracker')
     return trackedGames
   }
 }
