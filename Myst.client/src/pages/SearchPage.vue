@@ -1,5 +1,7 @@
 <template>
-  Test Search Page
+  <div class="row m-5">
+    <h3> Test Search Page</h3>
+  </div>
 </template>
 
 <script>

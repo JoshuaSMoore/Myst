@@ -1,5 +1,7 @@
 <template>
-  PROFILE TEST PAGE
+  <div class="row m-5">
+    <h3> Profile Page</h3>
+  </div>
 </template>
 
 <script>
