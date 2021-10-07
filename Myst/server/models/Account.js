@@ -21,6 +21,13 @@ export const AccountSchema = new Schema(
   { timestamps: true, toJSON: { virtuals: true } }
 )
 
+AccountSchema.virtual('creator', {
+  localField: 'creatorId',
+  foreignField: '_id',
+  ref: 'Account',
+  justOne: true
+})
+
 export const ProfileSchema = new Schema(
   {
     name: { type: String, required: true },
