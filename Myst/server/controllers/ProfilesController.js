@@ -40,7 +40,7 @@ export class ProfilesController extends BaseController {
   async getPosts(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
-      const posts = await profileService.getPosts(req.body)
+      const posts = await profileService.getPosts(req.body.creatorId)
       res.send(posts)
     } catch (error) {
       next(error)
