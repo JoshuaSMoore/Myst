@@ -2,7 +2,7 @@ import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { trackedGamesService } from '../services/TrackedGamesService'
 
-export class TrackedGames extends BaseController {
+export class TrackedGamesController extends BaseController {
   constructor() {
     super('api/trackedgames')
     this.router
