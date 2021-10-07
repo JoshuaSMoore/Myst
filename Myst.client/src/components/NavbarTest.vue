@@ -47,7 +47,7 @@
             </router-link>
             <li>
               <div
-                class="list-group-item list-group-item-action hoverable bg-dark text-danger"
+                class="list-group-item list-group-item-action hoverable bg-dark selectable text-danger"
                 @click="logout"
               >
                 <i class="mdi mdi-logout "></i>
