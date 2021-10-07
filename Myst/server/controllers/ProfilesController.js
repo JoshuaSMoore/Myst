@@ -1,3 +1,4 @@
+import { Auth0Provider } from '@bcwdev/auth0provider'
 import { profileService } from '../services/ProfileService.js'
 import BaseController from '../utils/BaseController'
 import { logger } from '../utils/Logger.js'
@@ -12,6 +13,7 @@ export class ProfilesController extends BaseController {
       .get('/:id/followers', this.getFollowers)
       .get('/:id/following', this.getFollowing)
       .get('/:id/trackedgames', this.getTrackedGames)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('/:id/follow', this.followGamer)
       .delete('/:id/posts/:postId/', this.deletePost)
       .delete('/:id/unfollow', this.unfollowGamer)
