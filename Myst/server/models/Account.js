@@ -5,10 +5,10 @@ export const AccountSchema = new Schema(
   {
     subs: [{ type: String, unique: true }],
     email: { type: String, lowercase: true, unique: true },
-    name: { type: String, required: true, maxlength: 20 },
+    name: { type: String, required: true, minlength: 3, maxlength: 20 },
     picture: { type: String },
     // NOTE If you wish to add additional properties do so here
-    bio: { type: String, maxlength: 500 },
+    bio: { type: String, maxlength: 500, minlength: 3 },
     coverImg: { type: String },
     profileClip: { type: String },
     twitch: { type: String },

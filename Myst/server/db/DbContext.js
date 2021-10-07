@@ -5,6 +5,7 @@ import { GameSchema } from '../models/Game'
 import { FollowSchema } from '../models/Follow'
 import { TrackedGameSchema } from '../models/TrackedGame'
 import { PostSchema } from '../models/Post'
+import { CommentSchema } from '../models/Comment.js'
 
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
@@ -17,6 +18,8 @@ class DbContext {
   TrackedGame = mongoose.model('TrackedGame', TrackedGameSchema);
 
   Post = mongoose.model('Post', PostSchema);
+
+  Comment = mongoose.model('Comment', CommentSchema)
 }
 
 export const dbContext = new DbContext()
