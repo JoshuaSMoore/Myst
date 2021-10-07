@@ -3,7 +3,7 @@ import { Auth0Provider } from '@bcwdev/auth0provider'
 import { postsService } from '../services/PostsService'
 import { logger } from '../utils/Logger.js'
 
-export class PostController extends BaseController {
+export class PostsController extends BaseController {
   constructor() {
     super('api/posts')
     this.router
