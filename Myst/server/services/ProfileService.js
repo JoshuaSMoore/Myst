@@ -51,25 +51,32 @@ class ProfileService {
     return followers
   }
 
-  async getTrackedGames(query) {
-    const trackedGames = await dbContext.TrackedGame.find(query).populate('creator', 'name picture')
-    return trackedGames
+  async getFollowerById(followerId) {
+    const follower = await dbContext.Follow.findById(followerId).populate('creator', 'name picture')
+    if (!follower) {
+      throw new BadRequest('unable to find')
+    }
+    return follower
   }
 
-  async createFollow(followData) {
+  async followGamer(followData) {
     const follow = await dbContext.Follow.create(followData)
     await follow.populate('creator', 'name picture')
     return follow
   }
 
-  async removeFollow(userId, followId) {
-    const follow = await dbContext.Follow.findOne({ _id: followId }).populate('creator', 'name picture')
-    if (userId !== follow.creatorId.toString()) {
-      throw new Forbidden('cant do that')
+  async unFollowGamer(followerId, userId) {
+    const follower = await this.getFollowerById(followerId)
+    if (follower.creatorId.toString() !== userId) {
+      throw new Forbidden('BAD BAD BAD BAD')
     }
-    await follow.delete()
-    return follow
+    await follower.remove()
+    return follower
+  }
+
+  async getTrackedGames(query) {
+    const trackedGames = await dbContext.TrackedGame.find(query).populate('creator', 'name picture')
+    return trackedGames
   }
 }
-
 export const profileService = new ProfileService()
