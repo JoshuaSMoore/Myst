@@ -25,6 +25,13 @@ class CommentsService {
     await comment.remove()
     return comment
   }
+
+  async createComment(body) {
+    const comment = await dbContext.Comment.create(body)
+    await comment.populate('creator')
+    await comment.populate('post')
+    return comment
+  }
 }
 
 export const commentsService = new CommentsService()
