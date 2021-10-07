@@ -3,7 +3,7 @@ import { BadRequest } from '../utils/Errors'
 import { logger } from '../utils/Logger'
 
 class TrackedGamesService {
-  async createTrackedGame(trackedGameData, oldTracked, accountId) {
+  async createTrackedGame(oldTracked, accountId, trackedGameData) {
     for (let i = 0; i < oldTracked.length; i++) {
       const check = oldTracked[i]
       if (check.accountId.toString() === accountId) {
