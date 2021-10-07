@@ -7,6 +7,12 @@ export class ProfilesController extends BaseController {
     this.router
       .get('', this.getProfiles)
       .get('/:id', this.getProfile)
+      .get('/:id/posts', this.getPosts)
+      .get('/:id/followers', this.getFollowers)
+      .get('/:id/following', this.getFollowing)
+      .get('/:id/trackedgames', this.getTrackedGames)
+      .post('/:id/follow', this.followGamer)
+      .delete('/:id/posts/:postId/', this.deletePost)
   }
 
   async getProfiles(req, res, next) {
