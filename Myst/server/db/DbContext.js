@@ -7,7 +7,7 @@ class DbContext {
   Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
   Profiles = mongoose.model('Profile', ProfileSchema, 'accounts');
-  Games = mongoose.model('Game', GameSchema);
+  Game = mongoose.model('Game', GameSchema);
 }
 
 export const dbContext = new DbContext()
