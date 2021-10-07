@@ -1,4 +1,7 @@
+import { ProfilesController } from '../controllers/ProfilesController.js'
 import { dbContext } from '../db/DbContext.js'
+import { logger } from '../utils/Logger.js'
+import { BadRequest, Forbidden } from '../utils/Errors.js'
 
 // IMPORTANT profiles should not be updated or modified in any way here. Use the AccountService
 
@@ -28,6 +31,57 @@ class ProfileService {
       .limit(20)
       .exec()
   }
-}
 
+  async getPosts(query) {
+    const posts = await dbContext.Profiles.find(query).populate('creator', 'name picture')
+    return posts
+  }
+
+  async deletePost(postId, userId) {
+    const post = await this.getPosts(postId)
+    if (userId !== post[0].creatorId.toString()) {
+      throw new Forbidden('Not Authorized')
+    }
+    await post[0].remove()
+    return post
+  }
+
+  async getFollowers(query) {
+    const followers = await dbContext.Follow.find(query).populate('creator', 'name picture')
+    return followers
+  }
+
+  async getFollowing(query) {
+    const following = await dbContext.Follow.find(query).populate('creator', 'name picture')
+    return following
+  }
+
+  async getFollowerById(followerId) {
+    const follower = await dbContext.Follow.findById(followerId).populate('creator', 'name picture')
+    if (!follower) {
+      throw new BadRequest('unable to find')
+    }
+    return follower
+  }
+
+  async followGamer(followData) {
+    const follow = await dbContext.Follow.create(followData)
+    await follow.populate('creator', 'name picture')
+    return follow
+  }
+
+  async unFollowGamer(followerId, userId) {
+    const follower = await this.getFollowerById(followerId)
+    if (follower.creatorId.toString() !== userId) {
+      throw new Forbidden('BAD BAD BAD BAD')
+    }
+    await follower.remove()
+    return follower
+  }
+
+  async getTrackedGames(query) {
+    const trackedGames = await dbContext.TrackedGame.find(query).populate('creator', 'name picture')
+    return trackedGames
+  }
+}
 export const profileService = new ProfileService()
