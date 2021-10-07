@@ -93,7 +93,9 @@ export class ProfilesController extends BaseController {
 
   async followGamer(req, res, next) {
     try {
-      const gamer = await profileService.getProfileById(req.query)
+      req.body.followerId = req.userInfo.id
+      req.body.followingId = req.params.profileId
+      const gamer = await profileService.followGamer(req.body)
       res.send(gamer)
     } catch (error) {
       next(error)

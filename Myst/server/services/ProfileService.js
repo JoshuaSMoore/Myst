@@ -66,7 +66,7 @@ class ProfileService {
 
   async followGamer(followData) {
     const follow = await dbContext.Follow.create(followData)
-    await follow.populate('creator', 'name picture')
+    await follow.populate('follower').populate('following')
     return follow
   }
 
