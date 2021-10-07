@@ -1,4 +1,3 @@
-
 {
   "folders": [
     {
@@ -58,6 +57,7 @@
       "titleBar.inactiveBackground": "#9f3dc299",
       "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#9f3dc2"
+    "peacock.color": "#9f3dc2",
+    "cSpell.words": ["maxlength", "trackedgames", "virtuals"]
   }
 }

@@ -1,4 +1,7 @@
+import { ProfilesController } from '../controllers/ProfilesController.js'
 import { dbContext } from '../db/DbContext.js'
+import { logger } from '../utils/Logger.js'
+import { BadRequest, Forbidden } from '../utils/Errors.js'
 
 // IMPORTANT profiles should not be updated or modified in any way here. Use the AccountService
 
@@ -27,6 +30,45 @@ class ProfileService {
       .skip(Number(offset))
       .limit(20)
       .exec()
+  }
+
+  async getPosts(query) {
+    const posts = await dbContext.Profiles.find(query).populate('creator', 'name picture')
+    return posts
+  }
+
+  async deletePost(postId, userId) {
+    const post = await this.getPosts(postId)
+    if (userId !== post[0].creatorId.toString()) {
+      throw new Forbidden('Not Authorized')
+    }
+    await post[0].remove()
+    return post
+  }
+
+  async getFollowers(query) {
+    const followers = await dbContext.Follow.find(query).populate('creator', 'name picture')
+    return followers
+  }
+
+  async getTrackedGames(query) {
+    const trackedGames = await dbContext.TrackedGame.find(query).populate('creator', 'name picture')
+    return trackedGames
+  }
+
+  async createFollow(followData) {
+    const follow = await dbContext.Follow.create(followData)
+    await follow.populate('creator', 'name picture')
+    return follow
+  }
+
+  async removeFollow(userId, followId) {
+    const follow = await dbContext.Follow.findOne({ _id: followId }).populate('creator', 'name picture')
+    if (userId !== follow.creatorId.toString()) {
+      throw new Forbidden('cant do that')
+    }
+    await follow.delete()
+    return follow
   }
 }
 
