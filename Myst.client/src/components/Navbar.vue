@@ -4,7 +4,7 @@
       <div class="d-flex flex-column align-items-center">
         <img
           alt="logo"
-          src="../assets/img/cw-logo.png"
+          src="../assets/img/myst-logo.png"
           height="45"
         />
       </div>
@@ -53,7 +53,7 @@
             <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
           </div>
           <div
-            class="dropdown-menu p-0 list-group w-100"
+            class="dropdown-menu p-0 list-group w-100 bg-dark"
             aria-labelledby="authDropdown"
           >
             <router-link :to="{ name: 'Account' }">
@@ -61,6 +61,11 @@
                 Manage Account
               </div>
             </router-link>
+            <li>
+              <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
+                About
+              </router-link>
+            </li>
             <div
               class="list-group-item list-group-item-action hoverable text-danger"
               @click="logout"
