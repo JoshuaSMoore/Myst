@@ -18,7 +18,7 @@ TrackedGameSchema.virtual('game', {
   justOne: true,
   ref: 'Game'
 })
-TrackedGameSchema.virtual('tacker', {
+TrackedGameSchema.virtual('tracker', {
   localField: 'accountId',
   foreignField: '_id',
   justOne: true,
