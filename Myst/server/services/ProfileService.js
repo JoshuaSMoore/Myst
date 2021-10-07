@@ -33,7 +33,7 @@ class ProfileService {
   }
 
   async getPosts(query) {
-    const posts = await dbContext.Profiles.find(query).populate('creator', 'name picture')
+    const posts = await dbContext.Post.find(query).populate('creator', 'name picture')
     return posts
   }
 
