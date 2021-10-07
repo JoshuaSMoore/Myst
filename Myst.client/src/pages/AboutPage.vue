@@ -1,7 +1,7 @@
 <template>
   <div class="flex-grow-1 d-flex align-items-center justify-content-center">
-    <figure class="snip1336">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+    <figure class="aboutCard">
+      <img src="../assets/img/road.jpg" alt="sample87" />
       <figcaption>
         <img src="../assets/img/Josh.jpg" alt="profile-sample4" class="profile" />
         <h2>Joshua Moore<span>Full Stack Developer</span></h2>
@@ -10,8 +10,8 @@
         <a href="https://github.com/JoshuaSMoore" class="info">GitHub</a>
       </figcaption>
     </figure>
-    <figure class="snip1336 hover">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample74.jpg" alt="sample74" />
+    <figure class="aboutCard">
+      <img src="../assets/img/lake.jpg" alt="sample74" />
       <figcaption>
         <img src="../assets/img/Kyle.jpg" alt="profile-sample2" class="profile" />
         <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
@@ -20,8 +20,8 @@
         <a href="https://github.com/KyleMHanna" class="info">GitHub</a>
       </figcaption>
     </figure>
-    <figure class="snip1336">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample69.jpg" alt="sample69" />
+    <figure class="aboutCard">
+      <img src="../assets/img/city.jpg" alt="sample69" />
       <figcaption>
         <img src="../assets/img/Talan.jpg" alt="profile-sample5" class="profile" />
         <h2>Talan Weeks<span>Full Stack Developer</span></h2>
@@ -30,8 +30,8 @@
         <a href="https://github.com/TalanWeeks" class="info">GitHub</a>
       </figcaption>
     </figure>
-    <figure class="snip1336">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+    <figure class="aboutCard">
+      <img src="../assets/img/lake2.jpg" alt="sample87" />
       <figcaption>
         <img src="../assets/img/Nick.jpg" alt="profile-sample4" class="profile" />
         <h2>Nick Sondrup<span>Full Stack Developer</span></h2>
@@ -40,8 +40,8 @@
         <a href="https://github.com/NickSondrup" class="info">GitHub</a>
       </figcaption>
     </figure>
-    <figure class="snip1336">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+    <figure class="aboutCard">
+      <img src="../assets/img/Nature.jpg" alt="sample87" />
       <figcaption>
         <img src="../assets/img/Derek.jpg" alt="profile-sample4" class="profile" />
         <h2>Derek Shain<span>Full Stack Developer</span></h2>
@@ -62,7 +62,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.snip1336 {
+.aboutCard {
   font-family: 'Roboto', Arial, sans-serif;
   position: relative;
   overflow: hidden;
@@ -75,24 +75,24 @@ export default {
   line-height: 1.4em;
   background-color: #141414;
 }
-.snip1336 * {
+.aboutCard * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-.snip1336 img {
+.aboutCard img {
   max-width: 100%;
   vertical-align: top;
   opacity: 0.85;
 }
-.snip1336 figcaption {
+.aboutCard figcaption {
   width: 100%;
   background-color: #141414;
   padding: 25px;
   position: relative;
 }
-.snip1336 figcaption:before {
+.aboutCard figcaption:before {
   position: absolute;
   content: '';
   bottom: 100%;
@@ -103,7 +103,7 @@ export default {
   border-width: 55px 0 0 400px;
   border-color: transparent transparent transparent #141414;
 }
-.snip1336 figcaption a {
+.aboutCard figcaption a {
   padding: 5px;
   border: 1px solid #ffffff;
   color: #ffffff;
@@ -118,10 +118,10 @@ export default {
   font-weight: 600;
   letter-spacing: 1px;
 }
-.snip1336 figcaption a:hover {
+.aboutCard figcaption a:hover {
   opacity: 1;
 }
-.snip1336 .profile {
+.aboutCard .profile {
   border-radius: 50%;
   position: absolute;
   bottom: 100%;
@@ -131,21 +131,21 @@ export default {
   opacity: 1;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
-.snip1336 .follow {
+.aboutCard .follow {
   margin-right: 4%;
   border-color: #2980b9;
   color: #2980b9;
 }
-.snip1336 h2 {
+.aboutCard h2 {
   margin: 0 0 5px;
   font-weight: 300;
 }
-.snip1336 h2 span {
+.aboutCard h2 span {
   display: block;
   font-size: 0.5em;
   color: #2980b9;
 }
-.snip1336 p {
+.aboutCard p {
   margin: 0 0 10px;
   font-size: 0.8em;
   letter-spacing: 1px;
