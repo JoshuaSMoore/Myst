@@ -17,7 +17,8 @@ class TrackedGamesService {
   }
 
   async getTrackedGameById(trackedGameId) {
-    const trackedGame = await dbContext.TrackedGame.findById(trackedGameId).populate('game')
+    const trackedGame = await dbContext.TrackedGame.findById(trackedGameId)
+    await trackedGame.populate('game')
     await trackedGame.populate('tracker')
     if (!trackedGame) {
       throw new BadRequest('Invalid Id or this game does not exist in your library')
