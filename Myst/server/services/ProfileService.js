@@ -79,8 +79,8 @@ class ProfileService {
     return follower
   }
 
-  async getTrackedGames(profileId) {
-    const trackedGames = await dbContext.TrackedGame.find({ accountId: profileId }).populate('tracker').populate('game')
+  async getTrackedGames(accountId) {
+    const trackedGames = await dbContext.TrackedGame.find(accountId).populate('tracker').populate('game')
     return trackedGames
   }
 }
