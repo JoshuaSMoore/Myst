@@ -1,5 +1,9 @@
 <template>
-  PROFILE TEST PAGE
+  <div class="component">
+    <div class="row">
+      <GameCard />
+    </div>
+  </div>
 </template>
 
 <script>
