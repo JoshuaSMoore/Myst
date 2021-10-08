@@ -110,6 +110,7 @@ export default {
     const query = ref('')
     return {
       query,
+      user: computed(() => AppState.user),
       async searchGames() {
         try {
           await gamesSearchService.getGamesSearched(query.value)
@@ -117,7 +118,7 @@ export default {
           Pop.toast(error, 'Cant find game or invalid search request')
         }
       },
-      user: computed(() => AppState.user),
+
       async login() {
         AuthService.loginWithPopup()
       },
