@@ -7,7 +7,6 @@
              name="name"
              placeholder="UserName"
              v-model="editable.name"
-             required
       >
     </div>
     <div class="form-group">
@@ -17,7 +16,6 @@
              name="title"
              placeholder="📸"
              v-model="editable.picture"
-             required
       >
     </div>
     <div class="form-group">
@@ -27,7 +25,6 @@
              name="bio"
              placeholder="bio"
              v-model="editable.bio"
-             required
       >
     </div>
     <div class="form-group">
@@ -37,7 +34,6 @@
              name="twitch"
              placeholder="Twitch"
              v-model="editable.twitch"
-             required
       >
     </div>
     <div class="form-group">
@@ -47,7 +43,6 @@
              name="github"
              placeholder="Github"
              v-model="editable.github"
-             required
       >
     </div>
     <div class="form-group">
@@ -57,7 +52,6 @@
              name="steam"
              placeholder="Steam"
              v-model="editable.steam"
-             required
       >
     </div>
     <div class="form-group">
@@ -67,7 +61,6 @@
              name="xbox"
              placeholder="Xbox"
              v-model="editable.xbox"
-             required
       >
     </div>
     <div class="form-group">
@@ -77,7 +70,6 @@
              name="playstation"
              placeholder="Playstation"
              v-model="editable.playstation"
-             required
       >
     </div>
     <div class="form-group">
@@ -87,7 +79,6 @@
              name="nintendo"
              placeholder="Nintendo"
              v-model="editable.nintendo"
-             required
       >
 
       <div class="form-group">
