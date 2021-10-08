@@ -4,8 +4,8 @@ export class News {
     this.title = data.title
     this.short_description = data.short_description
     this.thumbnail = data.thumbnail
-    this.img = data.main_image
-    this.body = data.article_content
+    this.main_image = data.main_image
+    this.article_content = data.article_content
     this.article_url = data.article_url
   }
 }

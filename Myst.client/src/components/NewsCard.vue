@@ -1,6 +1,6 @@
 <template>
-  <div class="card bg-dark text-light" style="width: 18rem;">
-    <img :src="news.thumbnail" class="card-img-top" alt="...">
+  <div class="card bg-dark text-light p-2" style="width: 18rem;">
+    <img :src="news.thumbnail" class="card-img-top selectable" data-bs-toggle="modal" data-bs-target="#a-modal" alt="...">
     <div class="card-body">
       <h5 class="card-title">
         {{ news.title }}
@@ -11,6 +11,15 @@
       <a :href="news.article_url" class="btn btn-primary">Read More</a>
     </div>
   </div>
+
+  <Modal id="a-modal">
+    <template #modal-title>
+      Content
+    </template>
+    <template #modal-body>
+      <NewsInfo />
+    </template>
+  </Modal>
 </template>
 
 <script>

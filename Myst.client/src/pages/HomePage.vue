@@ -7,11 +7,20 @@
       </h1>
     </div>
   </div>
-  <div class="news d-flex flex-column align-items-center justify-content-center">
+  <div class="news d-flex m-2 flex-column align-items-center justify-content-center">
     <div class="row news-card justify-content-center m-2 rounded elevation-3 bg-dark">
-      <NewsCard v-for="n in news" :key="n.id" :news="n" class="m-2" />
+      <NewsCard v-for="n in news" :key="n.id" :news="n" class="m-5" />
     </div>
   </div>
+
+  <Modal id="a-modal">
+    <template #modal-title>
+      Content
+    </template>
+    <template #modal-body>
+      <NewsInfo />
+    </template>
+  </Modal>
 </template>
 
 <script>
