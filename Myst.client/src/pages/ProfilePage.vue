@@ -9,14 +9,28 @@
 
         <img class="rounded" :src="profile.picture" alt="" height="100" width="100" />
         <h4>{{ profile.name }}</h4>
-        <p><b>Bio:</b> {{ profile.bio }}</p>
-        <p><b class="mdi mdi-twitch  mdi-24px"></b> {{ profile.twitch }}</p>
-        <p><b class="mdi mdi-github mdi-24px"></b> {{ profile.github }}</p>
-        <p><b class="mdi mdi-steam mdi-24px"></b> {{ profile.steam }}</p>
-        <p><b class="mdi mdi-microsoft-xbox mdi-24px"></b> {{ profile.xbox }}</p>
-        <p><b class="mdi mdi-sony-playstation mdi-24px"></b> {{ profile.playstation }} </p>
+        <p v-if="profile.bio">
+          <b>Bio:</b> {{ profile.bio }}
+        </p>
+        <p v-if="profile.twitch">
+          <b class="mdi mdi-twitch  mdi-24px"></b> {{ profile.twitch }}
+        </p>
+        <p v-if="profile.github">
+          <b class="mdi mdi-github mdi-24px"></b> {{ profile.github }}
+        </p>
+        <p v-if="profile.steam">
+          <b class="mdi mdi-steam mdi-24px"></b> {{ profile.steam }}
+        </p>
+        <p v-if="profile.xbox">
+          <b class="mdi mdi-microsoft-xbox mdi-24px"></b> {{ profile.xbox }}
+        </p>
+        <p v-if="profile.playstation">
+          <b class="mdi mdi-sony-playstation mdi-24px"></b> {{ profile.playstation }}
+        </p>
 
-        <p><b class="mdi mdi-nintendo-switch mdi-24px"></b> {{ profile.nintendo }}</p>
+        <p v-if="profile.nintendo">
+          <b class="mdi mdi-nintendo-switch mdi-24px"></b> {{ profile.nintendo }}
+        </p>
       </div>
     </div>
   </div>
