@@ -77,13 +77,15 @@ class ProfileService {
     return follow
   }
 
-  async unFollowGamer(followId, accountId) {
-    const gamer = await dbContext.Follow.findById(followId)
+  async unFollowGamer(followerId) {
+    const myFollower = await dbContext.Follow.findById({ followerId })
+    logger.log(myFollower)
+
     // if (accountId !== gamer.creatorId.toString()) {
     //   throw new Forbidden('BAD BAD BAD BAD')
     // }
-    await gamer.remove()
-    return gamer
+    // await myFollower.remove()
+    return myFollower
   }
 
   async getTrackedGames(accountId) {

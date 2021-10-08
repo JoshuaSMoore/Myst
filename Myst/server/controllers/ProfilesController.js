@@ -16,9 +16,10 @@ export class ProfilesController extends BaseController {
       .get('/:id/trackedgames', this.getTrackedGames)
       .post('/:id/follow', this.followGamer)
       .delete('/:id/posts/:postId/', this.deletePost)
-      .delete('/:id/unfollow', this.unfollowGamer)
+      .delete('/:id/unfollow/:unfollowId', this.unfollowGamer)
   }
 
+  // I THINK THIS NEED TO HAVE THE UNFOLLOW/ FOLLOW ID LEADING SO WE CAN USE  IT  TO ACCESS THE FOLLOWING ID THE FOLLOWER ID IS THE USERINFO.ID
   async getProfiles(req, res, next) {
     try {
       const profiles = await profileService.findProfiles(req.query.name, req.query.offset)
@@ -107,8 +108,8 @@ export class ProfilesController extends BaseController {
 
   async unfollowGamer(req, res, next) {
     try {
-      req.body.following = req.params.id
-      const gamer = await profileService.unFollowGamer(req.body)
+      req.body.followerId = req.params.unfollowId
+      const gamer = await profileService.unFollowGamer(req.body.followerId)
       res.send(gamer)
     } catch (error) {
       next(error)
