@@ -7,11 +7,9 @@
       </h1>
     </div>
   </div>
-  <div class="news flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="news-card p-5 bg-dark rounded elevation-3">
-      <h1 class="m-2 bg-dark text-white p-3 rounded">
-        <NewsCard v-for="n in news" :key="n.id" :news="n" />
-      </h1>
+  <div class="news d-flex flex-column align-items-center justify-content-center">
+    <div class="row news-card p-4 rounded elevation-3 bg-dark">
+      <NewsCard v-for="n in news" :key="n.id" :news="n" class="m-2" />
     </div>
   </div>
 </template>
@@ -59,7 +57,7 @@ export default {
 
 .news{
   display: grid;
-  // height: 80vh;
+  // height: 50vh;
   place-content: center;
   text-align: none;
   user-select: none;

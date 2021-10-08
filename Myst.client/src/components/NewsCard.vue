@@ -1,16 +1,14 @@
 <template>
-  <div class="card bg-primary">
-    <div class="card-header">
-      {{ news.title }}
-    </div>
+  <div class="card" style="width: 18rem;">
+    <img :src="news.thumbnail" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">
-        Placeholder
+        {{ news.title }}
       </h5>
       <p class="card-text">
-        {{ news.shortDescription }}
+        {{ news.short_description }}
       </p>
-      <a :href="news.url" class="btn btn-primary">Read More</a>
+      <a :href="news.article_url" class="btn btn-primary">Read More</a>
     </div>
   </div>
 </template>
@@ -18,11 +16,18 @@
 <script>
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import { logger } from '../utils/Logger'
+import { News } from '../models/NewsCard'
 export default {
-
-  setup() {
+  props: {
+    news: {
+      type: News,
+      required: true
+    }
+  },
+  setup(props) {
     return {
-      news: computed(() => AppState.news)
+
     }
   }
 }
