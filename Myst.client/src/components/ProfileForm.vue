@@ -35,7 +35,7 @@
       <input type="text"
              class="form-control bg-light"
              name="twitch"
-             placeholder="mdi mdi-twitch"
+             placeholder="Twitch"
              v-model="editable.twitch"
              required
       >
@@ -45,7 +45,7 @@
       <input type="text"
              class="form-control bg-light"
              name="github"
-             placeholder="mdi mdi-github"
+             placeholder="Github"
              v-model="editable.github"
              required
       >
@@ -55,7 +55,7 @@
       <input type="text"
              class="form-control bg-light"
              name="steam"
-             placeholder="mdi mdi-steam"
+             placeholder="Steam"
              v-model="editable.steam"
              required
       >
@@ -65,7 +65,7 @@
       <input type="text"
              class="form-control bg-light"
              name="xbox"
-             placeholder="mdi mdi-microsoft-xbox"
+             placeholder="Xbox"
              v-model="editable.xbox"
              required
       >
@@ -75,7 +75,7 @@
       <input type="text"
              class="form-control bg-light"
              name="playstation"
-             placeholder="mdi mdi-sony-playstation "
+             placeholder="Playstation"
              v-model="editable.playstation"
              required
       >
@@ -85,7 +85,7 @@
       <input type="text"
              class="form-control bg-light"
              name="nintendo"
-             placeholder="mdi mdi-nintendo-switch "
+             placeholder="Nintendo"
              v-model="editable.nintendo"
              required
       >
