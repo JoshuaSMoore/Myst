@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 export const FollowSchema = new Schema(
   {
     followerId: { type: Schema.Types.ObjectId, required: true },
-    followingId: { type: Schema.Types.ObjectId, required: true }
+    followingId: { type: Schema.Types.ObjectId, required: true },
+    creatorId: { type: Schema.Types.ObjectId, required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
