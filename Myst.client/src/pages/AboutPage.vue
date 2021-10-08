@@ -46,8 +46,7 @@
         <img src="../assets/img/Derek.jpg" alt="profile-sample4" class="profile" />
         <h2>Derek Shain<span>Full Stack Developer</span></h2>
         <!-- <p>Placeholder Bio </p> -->
-        <a href="www.linkedin.com/in/derekshain
-"
+        <a href="https://www.linkedin.com/in/derekshain"
            class="follow"
         >Linkedin</a>
         <a href="https://github.com/DerekShain" class="info">GitHub</a>

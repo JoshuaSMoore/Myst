@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="news d-flex flex-column align-items-center justify-content-center">
-    <div class="row news-card p-4 rounded elevation-3 bg-dark">
+    <div class="row news-card justify-content-center m-2 rounded elevation-3 bg-dark">
       <NewsCard v-for="n in news" :key="n.id" :news="n" class="m-2" />
     </div>
   </div>
@@ -62,7 +62,7 @@ export default {
   text-align: none;
   user-select: none;
   .news-card{
-    width: 50vw;
+    width: 75vw;
     > img{
       height: 200px;
       max-width: 200px;

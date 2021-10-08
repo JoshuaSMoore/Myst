@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 18rem;">
+  <div class="card bg-dark text-light" style="width: 18rem;">
     <img :src="news.thumbnail" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">
@@ -33,6 +33,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 
 </style>
