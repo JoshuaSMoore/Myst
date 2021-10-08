@@ -8,7 +8,7 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
-      .put('/:accountId', this.editAccount)
+      .put('', this.editAccount)
   }
 
   async getUserAccount(req, res, next) {
