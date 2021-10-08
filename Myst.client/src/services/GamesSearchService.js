@@ -37,5 +37,21 @@ class GamesSearchService {
     })
     router.push({ name: 'Search' })
   }
+
+  async getGameById(id) {
+    const game = {
+      method: 'GET',
+      url: `https://api.rawg.io/api/games/${id}?key=004cc6f4ef734a4a8725e3082070efd6`
+    }
+    axios.request(game).then(function(res) {
+      logger.log(res.data.results)
+      // AppState.currentPage = res.data.page
+      // AppState.totalPages = res.data.total_pages
+      AppState.games = res.data.results.map(g => new Game(g))
+    }).catch(function(error) {
+      logger.error(error)
+    })
+    router.push({ name: 'Game' })
+  }
 }
 export const gamesSearchService = new GamesSearchService()
