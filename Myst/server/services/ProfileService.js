@@ -68,16 +68,22 @@ class ProfileService {
     const follow = await dbContext.Follow.create(followData)
     await follow.populate('follower')
     await follow.populate('following')
+    for (let i = 0; i < followData.length; i++) {
+      const check = followData[i]
+      if (check.accountId.toString() === followData.followerId) {
+        throw new BadRequest('can only follow a gamer once')
+      }
+    }
     return follow
   }
 
-  async unFollowGamer(followingId, userId) {
-    const follower = await dbContext.Follow.findByIdAndDelete(followingId)
-    // if (follower.followerId.toString() !== userId) {
+  async unFollowGamer(followId, accountId) {
+    const gamer = await dbContext.Follow.findById(followId)
+    // if (accountId !== gamer.creatorId.toString()) {
     //   throw new Forbidden('BAD BAD BAD BAD')
     // }
-    await follower.remove()
-    return follower
+    await gamer.remove()
+    return gamer
   }
 
   async getTrackedGames(accountId) {
