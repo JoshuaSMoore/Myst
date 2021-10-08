@@ -1,6 +1,6 @@
 <template>
-  <div class="card" style="width: 18rem;" v-if="game">
-    <img :src="game.backgroundImage" class="card-img-top" alt="...">
+  <div class="card p-0" style="width: 18rem;" v-if="game">
+    <img :src="game.backgroundImage" class="card-img-top rounded" alt="...">
     <div class="card-body">
       <h5 class="card-title">
         {{ game.name }}
