@@ -82,7 +82,8 @@ export class ProfilesController extends BaseController {
 
   async getFollowing(req, res, next) {
     try {
-      req.body.followingId = req.userInfo.id
+      req.body.followerId = req.userInfo.id
+      req.body.followingId = req.params.id
       const following = await profileService.getFollowing(req.body.followingId)
       res.send(following)
     } catch (error) {
@@ -93,6 +94,7 @@ export class ProfilesController extends BaseController {
 
   async followGamer(req, res, next) {
     try {
+      req.body.creatorId = req.userInfo.id
       req.body.followerId = req.userInfo.id
       req.body.followingId = req.params.id
       const gamer = await profileService.followGamer(req.body)
@@ -105,7 +107,9 @@ export class ProfilesController extends BaseController {
 
   async unfollowGamer(req, res, next) {
     try {
-      const gamer = await profileService.getProfileById(req.query)
+      req.body.followerId = req.userInfo.id
+      req.body.followingId = req.params.id
+      const gamer = await profileService.unFollowGamer(req.body.followingId)
       res.send(gamer)
     } catch (error) {
       next(error)
