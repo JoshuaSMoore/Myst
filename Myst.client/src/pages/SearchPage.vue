@@ -1,6 +1,6 @@
 <template>
   <div class="row m-5 p-0">
-    <GameCard v-for="g in games" :key="g.id" :game="g" class="m-2" />
+    <GameSearchCard v-for="g in games" :key="g.id" :game="g" class="m-2" />
     <div v-if="currentPage > 0 && totalpages > 0 && query">
       <button class="selectable" v-for="page in totalPages" :key="page" @click="getPage(page)">
         {{ page }}
