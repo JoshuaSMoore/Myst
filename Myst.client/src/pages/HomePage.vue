@@ -39,7 +39,8 @@ export default {
       }
     })
     return {
-      news: computed(() => AppState.news)
+      news: computed(() => AppState.news),
+      games: computed(() => AppState.games)
     }
   }
 }

@@ -51,8 +51,8 @@ class ProfileService {
     return followers
   }
 
-  async getFollowing(followingId) {
-    const following = await dbContext.Follow.find({ followingId }).populate('follower').populate('following')
+  async getFollowing(accountId) {
+    const following = await dbContext.Follow.find({ accountId }).populate('follower').populate('following')
     return following
   }
 
@@ -71,11 +71,11 @@ class ProfileService {
     return follow
   }
 
-  async unFollowGamer(followerId, userId) {
-    const follower = await this.getFollowerById(followerId)
-    if (follower.creatorId.toString() !== userId) {
-      throw new Forbidden('BAD BAD BAD BAD')
-    }
+  async unFollowGamer(followingId, userId) {
+    const follower = await dbContext.Follow.findByIdAndDelete(followingId)
+    // if (follower.followerId.toString() !== userId) {
+    //   throw new Forbidden('BAD BAD BAD BAD')
+    // }
     await follower.remove()
     return follower
   }
