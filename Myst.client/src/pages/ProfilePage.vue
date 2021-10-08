@@ -7,6 +7,14 @@
 
         <img class="rounded" :src="profile.picture" alt="" height="65" width="65" />
         <h4>{{ profile.name }}</h4>
+        <p><b>Bio:</b> {{ profile.bio }}</p>
+        <p><b>Twitch:</b> {{ profile.twitch }}</p>
+        <p><b>Github:</b> {{ profile.github }}</p>
+        <p><b>Steam: </b> {{ profile.steam }}</p>
+        <p><b>Xbox:</b> {{ profile.xbox }}</p>
+        <p><b>playstation:</b> {{ profile.playstation }} </p>
+
+        <p><b>nintendo:</b> {{ profile.nintendo }}</p>
       </div>
     </div>
   </div>
