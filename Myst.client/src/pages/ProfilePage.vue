@@ -3,7 +3,7 @@
     <div class="col-12 d-flex justify-content-center">
       <div class="profile-card card bg-dark text-light">
         <h3>
-          Profile Page     <i class="mdi mdi-cog mdi-24px text-white elevation-5 " type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
+          Profile Page <i class="mdi mdi-cog mdi-24px text-white elevation-5 " type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
           </i>
         </h3>
 
