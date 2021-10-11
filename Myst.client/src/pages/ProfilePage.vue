@@ -15,6 +15,8 @@
               <div class=" bg-dark text-light d-flex justify-content-center align-items-center">
                 <iframe
                   :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
+                  width="500px"
+                  height="300px"
                 >
                 </iframe>
               </div>
