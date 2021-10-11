@@ -9,7 +9,8 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: loadPage('HomePage')
+    component: loadPage('HomePage'),
+    beforeEnter: authGuard
   },
   {
     path: '/about',
@@ -19,17 +20,20 @@ const routes = [
   {
     path: '/game/:gameId',
     name: 'Game',
-    component: loadPage('GamePage')
+    component: loadPage('GamePage'),
+    beforeEnter: authGuard
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: loadPage('ProfilePage')
+    component: loadPage('ProfilePage'),
+    beforeEnter: authGuard
   },
   {
     path: '/search',
     name: 'Search',
-    component: loadPage('SearchPage')
+    component: loadPage('SearchPage'),
+    beforeEnter: authGuard
   },
   {
     path: '/account',
