@@ -1,4 +1,4 @@
-export class PostModel {
+export class Post {
   constructor(postData) {
     this.id = postData.id
     this.body = postData.body

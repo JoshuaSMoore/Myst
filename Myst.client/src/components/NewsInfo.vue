@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <img :src="article.thumbnail" class="card-img-top selectable">
+    <img :src="article.main_image" class="card-img-top selectable">
     {{ article.title }}<p />
     <div v-html="article.article_content">
     </div>
