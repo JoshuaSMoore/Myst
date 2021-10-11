@@ -6,7 +6,9 @@ export const AppState = reactive({
   account: {},
   profile: {},
   currentPage: 0,
-  totalPages: 0,
+  previous: '',
+  next: '',
+  page: {},
   news: [],
   games: []
 })

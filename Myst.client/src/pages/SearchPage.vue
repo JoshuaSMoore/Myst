@@ -1,9 +1,16 @@
 <template>
   <div class="row m-5 p-0">
     <GameSearchCard v-for="g in games" :key="g.id" :game="g" class="m-2" />
-    <div v-if="currentPage > 0 && totalpages > 0 && query">
-      <button class="selectable" v-for="page in totalPages" :key="page" @click="getPage(page)">
-        {{ page }}
+    <div class="col-12 d-flex justify-content-around">
+      <button class="btn btn-secondary" @click="getOld()" v-if="page.new">
+        Previous
+      </button>
+      <div v-if="!page.new"></div>
+      <div class="text-muted text-dark">
+        {{ page.new }}
+      </div><div v-if="!page.old"></div>
+      <button class="btn btn-secondary" @click="getNew()" v-if="page.old">
+        Next
       </button>
     </div>
   </div>
@@ -29,13 +36,20 @@ export default {
     return {
       query,
       games: computed(() => AppState.games),
-      totalPages: computed(() => AppState.totalPages),
+      page: computed(() => AppState.page),
       currentPage: computed(() => AppState.currentPage),
-      async getPage(page) {
+      async getNew() {
         try {
-          await gamesSearchService.getGamesSearched(query.value, page)
+          await gamesSearchService.getNew()
         } catch (error) {
-          Pop.toast(error, 'error finding page')
+          Pop.toast('error', error)
+        }
+      },
+      async getOld() {
+        try {
+          await gamesSearchService.getOld()
+        } catch (error) {
+          Pop.toast('error', error)
         }
       }
     }
