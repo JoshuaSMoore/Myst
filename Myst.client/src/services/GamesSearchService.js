@@ -83,9 +83,6 @@ class GamesSearchService {
     }
     axios.request(game).then(function(res) {
       logger.log(res.data.results)
-
-      // AppState.currentPage = res.data.page
-      // AppState.totalPages = res.data.total_pages
       AppState.games = res.data.results.map(g => new Game(g))
     }).catch(function(error) {
       logger.error(error)

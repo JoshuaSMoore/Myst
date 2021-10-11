@@ -13,7 +13,13 @@
           <div class="row">
             <div class="col-md-4 m-auto">
               <div class="card live-card bg-light text-dark d-flex justify-content-center align-items-center">
-                <b>LIVE STREAM COMING SOON</b>
+                <iframe
+                  src="https://player.twitch.tv/?RealKraftyy&parent=studentauth.co"
+                  height="<height>"
+                  width="<width>"
+                  allowfullscreen="<allowfullscreen>"
+                >
+                </iframe>
               </div>
             </div>
             <div class="col-md-8">
