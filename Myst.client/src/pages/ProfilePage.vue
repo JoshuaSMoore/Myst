@@ -50,7 +50,7 @@
                   </p>
                 </div>
               </div>
-              <div class="card friend-card bg-light text-dark mx-5">
+              <div class="card friend-card bg-light text-dark mx-5 text-center">
                 <b>Friends here</b>
               </div>
             </div>

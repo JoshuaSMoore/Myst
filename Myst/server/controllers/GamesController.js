@@ -8,9 +8,9 @@ export class GamesController extends BaseController {
     super('api/games')
     this.router
       .get('', this.getGames)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:gameId', this.getGamesById)
       .get('/:gameId/trackedgames', this.getTrackedGames)
-      .use(Auth0Provider.getAuthorizedUserInfo)
   }
 
   async getGames(req, res, next) {

@@ -12,15 +12,15 @@
       <NewsCard v-for="n in news" :key="n.id" :news="n" class="m-5" />
     </div>
   </div>
-
+<!--
   <Modal id="a-modal">
     <template #modal-title>
       Content
     </template>
     <template #modal-body>
-      <NewsInfo />
+      <NewsInfo v-for="n in news" :key="n.id" :news="n" class="m-5" />
     </template>
-  </Modal>
+  </Modal> -->
 </template>
 
 <script>

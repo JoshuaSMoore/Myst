@@ -1,21 +1,27 @@
 <template>
-  <div class="component">
-    <!-- <img :src="news.main_image" alt=""> -->
-    <!-- <p>{{ news.article_content }} </p> -->
+  <div class="">
+    <img :src="article.thumbnail" class="card-img-top selectable">
+    {{ article.title }}<p />
+    <div v-html="article.article_content">
+    </div>
   </div>
 </template>
 
 <script>
+import { computed } from '@vue/runtime-core'
 import { News } from '../models/NewsCard'
+import { AppState } from '../AppState'
+import { logger } from '../utils/Logger'
 export default {
   props: {
-    news: {
-      type: News,
+    article: {
+      type: Object,
       required: true
     }
   },
-  setup(props) {
+  setup() {
     return {
+      news: computed(() => AppState.news)
 
     }
   }

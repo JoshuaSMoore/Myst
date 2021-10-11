@@ -4,7 +4,7 @@
       <img :src="game.backgroundImage" class="card-img-top rounded" alt="...">
       <div class="card-body">
         <h5 class="card-title">
-          {{ game.name }}
+          {{ game.name }} ({{ game.released }})
         </h5>
         <p class="card-text">
           {{ game.esrb_rating.name }}
