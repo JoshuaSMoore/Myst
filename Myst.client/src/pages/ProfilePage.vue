@@ -12,12 +12,11 @@
         <div class="profile-card container card bg-dark text-light">
           <div class="row">
             <div class="col-md-4 m-auto">
-              <div class="card live-card bg-light text-dark d-flex justify-content-center align-items-center">
+              <div class=" bg-dark text-light d-flex justify-content-center align-items-center">
                 <iframe
-                  src="https://player.twitch.tv/?RealKraftyy&parent=studentauth.co"
-                  height="<height>"
-                  width="<width>"
-                  allowfullscreen="<allowfullscreen>"
+                  :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
+                  width="500px"
+                  height="300px"
                 >
                 </iframe>
               </div>
