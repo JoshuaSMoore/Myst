@@ -17,7 +17,7 @@ const routes = [
     component: loadPage('AboutPage')
   },
   {
-    path: '/game',
+    path: '/game/:gameId',
     name: 'Game',
     component: loadPage('GamePage')
   },

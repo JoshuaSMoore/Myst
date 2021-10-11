@@ -72,11 +72,11 @@
                 Profile
               </div>
             </router-link>
-            <router-link :to="{ name: 'Game' }">
+            <!-- <router-link :to="{ name: 'Game' }">
               <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
                 Game
               </div>
-            </router-link>
+            </router-link> -->
             <li>
               <div
                 class="list-group-item list-group-item-action hoverable bg-dark selectable text-danger"
