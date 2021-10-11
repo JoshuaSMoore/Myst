@@ -10,5 +10,6 @@ export const AppState = reactive({
   next: '',
   page: {},
   news: [],
-  games: []
+  games: [],
+  game: {}
 })
