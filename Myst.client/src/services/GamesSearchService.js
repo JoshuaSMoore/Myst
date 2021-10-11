@@ -87,7 +87,6 @@ class GamesSearchService {
     }).catch(function(error) {
       logger.error(error)
     })
-    router.push({ name: 'Game' })
   }
 }
 export const gamesSearchService = new GamesSearchService()
