@@ -1,7 +1,9 @@
 <template>
   <div class="">
-    <!-- <img :src="news.main_image" alt=""> -->
-    <p>{{ article }} </p>
+    <img :src="article.thumbnail" class="card-img-top selectable">
+    {{ article.title }}<p />
+    <div v-html="article.article_content">
+    </div>
   </div>
 </template>
 
