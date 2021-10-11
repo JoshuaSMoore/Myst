@@ -25,10 +25,12 @@
             Released: {{ game.released }}
           </h4>
         </div>
-        <p>
-          <b> game description: </b>
-          {{ game.description_raw }}
-        </p>
+        <div class="text-start">
+          <p>
+            <b> game description: </b>
+            {{ game.description_raw }}
+          </p>
+        </div>
         <div class="d-flex justify-content-around">
           <div>
             <GamePlatforms v-for="p in game.platforms" :key="p.id" :platform="p" />
