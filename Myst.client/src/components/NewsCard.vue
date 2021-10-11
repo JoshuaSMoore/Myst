@@ -1,6 +1,6 @@
 <template>
   <div class="card bg-dark text-light p-2" style="width: 18rem;">
-    <img :src="news.thumbnail" class="card-img-top selectable" data-bs-toggle="modal" data-bs-target="#a-modal" alt="...">
+    <img :src="news.thumbnail" class="card-img-top selectable" data-bs-toggle="modal" :data-bs-target="'#a-modal-'+ news.id" alt="...">
     <div class="card-body">
       <h5 class="card-title">
         {{ news.title }}
@@ -12,12 +12,12 @@
     </div>
   </div>
 
-  <Modal id="a-modal">
+  <Modal :id="'a-modal-'+news.id">
     <template #modal-title>
       Content
     </template>
     <template #modal-body>
-      <NewsInfo v-for="n in news" :key="n.id" :news="n" class="m-5" />
+      <NewsInfo :article="news" class="m-5" />
     </template>
   </Modal>
 </template>
@@ -36,7 +36,9 @@ export default {
   },
   setup(props) {
     return {
+      setActive() {
 
+      }
     }
   }
 }
