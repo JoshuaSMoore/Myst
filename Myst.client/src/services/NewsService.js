@@ -14,8 +14,6 @@ class NewsService {
   async getNews() {
     axios.request(options).then(function(res) {
       logger.log('the res', res)
-      AppState.currentPage = res.data.page
-      AppState.totalPages = res.data.total_pages
       AppState.news = res.data
     })
   }
