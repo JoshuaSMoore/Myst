@@ -1,21 +1,19 @@
 <template>
-  <div class="component">
+  <div class="">
     <!-- <img :src="news.main_image" alt=""> -->
-    <!-- <p>{{ news.article_content }} </p> -->
+    <p>{{ news.id }} </p>
   </div>
 </template>
 
 <script>
+import { computed } from '@vue/runtime-core'
 import { News } from '../models/NewsCard'
+import { AppState } from '../AppState'
+import { logger } from '../utils/Logger'
 export default {
-  props: {
-    news: {
-      type: News,
-      required: true
-    }
-  },
-  setup(props) {
+  setup() {
     return {
+      news: computed(() => AppState.news)
 
     }
   }

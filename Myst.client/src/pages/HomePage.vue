@@ -18,7 +18,7 @@
       Content
     </template>
     <template #modal-body>
-      <NewsInfo />
+      <NewsInfo v-for="n in news" :key="n.id" :news="n" class="m-5" />
     </template>
   </Modal>
 </template>

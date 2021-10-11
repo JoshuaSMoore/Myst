@@ -15,7 +15,7 @@ export class ProfilesController extends BaseController {
       .get('/:id/following', this.getFollowing)
       .get('/:id/trackedgames', this.getTrackedGames)
       .post('/:id/follow', this.followGamer)
-      .delete('/:id/posts/:postId/', this.deletePost)
+      .delete('/:id/posts/:postId', this.deletePost)
       .delete('/:id/unfollow/:unfollowId', this.unfollowGamer)
   }
 
