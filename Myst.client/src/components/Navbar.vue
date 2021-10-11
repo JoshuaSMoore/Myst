@@ -11,7 +11,7 @@
         </div>
       </router-link>
       <form @submit.prevent="searchGames(query)">
-        <div class="input-group mt-1 mb-1 d-flex" style="width: 80vw">
+        <div class="input-group mt-1 mb-1 d-flex" style="width: 60vw">
           <input v-model="query"
                  type="text"
                  class="form-control bg-secondary d-flex"
