@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <!-- <img :src="news.main_image" alt=""> -->
-    <p>{{ news.id }} </p>
+    <p>{{ news }} </p>
   </div>
 </template>
 
