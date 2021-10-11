@@ -30,7 +30,7 @@ import { News } from '../models/NewsCard'
 export default {
   props: {
     news: {
-      type: News,
+      type: Object,
       required: true
     }
   },
