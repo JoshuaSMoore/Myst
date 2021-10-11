@@ -37,15 +37,6 @@ class ProfileService {
     return posts
   }
 
-  async deletePost(postId, userId) {
-    const post = await this.getPosts(postId)
-    if (userId !== post[0].creatorId.toString()) {
-      throw new Forbidden('Not Authorized')
-    }
-    await post[0].remove()
-    return post
-  }
-
   async getFollowers(followerId) {
     const followers = await dbContext.Follow.find({ followerId }).populate('follower').populate('following')
     return followers

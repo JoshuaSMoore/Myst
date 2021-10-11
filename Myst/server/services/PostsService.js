@@ -6,6 +6,11 @@ class PostsService {
     await post.populate('creator', 'name picture')
     return post
   }
+
+  async deletePost(postId) {
+    const post = await dbContext.Post.findByIdAndDelete(postId)
+    return post
+  }
 }
 
 export const postsService = new PostsService()

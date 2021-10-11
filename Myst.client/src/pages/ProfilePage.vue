@@ -80,6 +80,17 @@
             <h1>
               Posts go here
             </h1>
+            <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+              Create Post
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card shadow" v-if="userPosts.length > 0">
+            <Post v-for="p in posts" :key="p.id" :post="p" />
+          </div>
+          <div class="card shadow" v-else>
+            <h4>This user has no posts</h4>
           </div>
         </div>
       </div>
@@ -90,7 +101,15 @@
       <h4>Update Profile</h4>
     </template>
     <template #modal-body>
-      <ProfileForm />
+      <PostForm />
+    </template>
+  </Modal>
+  <Modal id="post-form">
+    <template #modal-title>
+      <h4>Create Post</h4>
+    </template>
+    <template #modal-body>
+      <PostForm />
     </template>
   </Modal>
 </template>
@@ -101,7 +120,9 @@ import { AppState } from '../AppState.js'
 export default {
   setup() {
     return {
-      profile: computed(() => AppState.profile)
+      profile: computed(() => AppState.profile),
+      user: computed(() => AppState.user),
+      userPosts: computed(() => AppState.usersPosts)
     }
   }
 }
