@@ -7,10 +7,10 @@
     </div>
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-4 card">
+      <div class="col-4 me-2 card">
         Game Image
       </div>
-      <div class="col-6 card">
+      <div class="col-6 ms-2 card">
         game description
       </div>
     </div>
