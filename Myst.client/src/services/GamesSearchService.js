@@ -23,13 +23,16 @@ class GamesSearchService {
   }
 
   async getGamesSearched(query, page = 1) {
+    AppState.currentSearch = query
+    AppState.currentPage = 1
     const searchGames = {
       method: 'GET',
       url: `https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${page}&search=${query}`
     }
     axios.request(searchGames).then(function(res) {
       logger.log(res.data.results)
-      AppState.currentPage = res.data.page
+
+      logger.log(res.data)
       AppState.next = res.data.next
       AppState.previous = res.data.previous
       AppState.games = res.data.results.map(g => new Game(g))
@@ -39,32 +42,34 @@ class GamesSearchService {
     router.push({ name: 'Search' })
   }
 
-  async getOld(query) {
+  async getOld() {
     AppState.currentPage--
     AppState.games = []
-    AppState.page = {}
     const oldGame = {
       method: 'GET',
-      url: `https://api/rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${AppState.currentPage}&search=${query}`
+      url: `https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${AppState.currentPage}&search=${AppState.currentSearch}`
     }
     axios.request(oldGame).then(function(res) {
       AppState.page = res.data
+      AppState.next = res.data.next
+      AppState.previous = res.data.previous
       AppState.games = res.data.results.map(g => new Game(g))
     }).catch(function(error) {
       logger.error(error)
     })
   }
 
-  async getNew(query) {
-    AppState.currentPage++
+  async getNew() {
     AppState.games = []
-    AppState.page = {}
+    AppState.currentPage++
     const newGame = {
       method: 'GET',
-      url: `https://api/rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${AppState.currentPage}&search=${query}`
+      url: `https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${AppState.currentPage}&search=${AppState.currentSearch}`
     }
     axios.request(newGame).then(function(res) {
       AppState.page = res.data
+      AppState.next = res.data.next
+      AppState.previous = res.data.previous
       AppState.games = res.data.results.map(g => new Game(g))
     }).catch(function(error) {
       logger.error(error)
@@ -78,6 +83,7 @@ class GamesSearchService {
     }
     axios.request(game).then(function(res) {
       logger.log(res.data.results)
+
       // AppState.currentPage = res.data.page
       // AppState.totalPages = res.data.total_pages
       AppState.games = res.data.results.map(g => new Game(g))

@@ -1,12 +1,14 @@
 <template>
-  <div class="container-fluid">
-    <div class="row my-5">
+  <div class="container">
+    <div class="row">
       <div class="col-12">
-        <h2>Welcome, {{ profile.name }}</h2>
+        <h2 class="my-5">
+          Welcome, {{ profile.name }}
+        </h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-12 d-flex justify-content-center">
+      <div class="col-12">
         <div class="profile-card container card bg-dark text-light">
           <div class="row">
             <div class="col-md-4 m-auto">
@@ -57,6 +59,26 @@
         </div>
       </div>
     </div>
+    <div>
+      <div class="row my-4">
+        <div class="col-12">
+          <div class="card library-card bg-dark text-light py-5 text-center">
+            <h1>
+              game library here
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col-12">
+          <div class="card library-card bg-dark text-light py-5 text-center">
+            <h1>
+              Posts go here
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <Modal id="profile-form">
     <template #modal-title>
@@ -91,6 +113,10 @@ export default {
 }
 
 .friend-card{
-  height: 5rem;
+  height: 7rem;
+}
+
+.library-card{
+  height: 20rem
 }
 </style>
