@@ -86,7 +86,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="card shadow" v-if="userPosts.length > 0">
+          <div class="card shadow" v-if="userPosts">
             <Post v-for="p in posts" :key="p.id" :post="p" />
           </div>
           <div class="card shadow" v-else>
@@ -101,7 +101,7 @@
       <h4>Update Profile</h4>
     </template>
     <template #modal-body>
-      <PostForm />
+      <ProfileForm />
     </template>
   </Modal>
   <Modal id="post-form">
@@ -115,10 +115,20 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState.js'
+import { postsService } from '../services/PostsService.js'
+import Pop from '../utils/Pop.js'
+
 export default {
   setup() {
+    onMounted(async() => {
+      try {
+        await postsService.getPostByProfileId()
+      } catch (error) {
+        Pop.toast(error, 'Error getting Posts')
+      }
+    })
     return {
       profile: computed(() => AppState.profile),
       user: computed(() => AppState.user),
