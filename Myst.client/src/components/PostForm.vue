@@ -12,12 +12,12 @@
         >
       </div>
       <div class="form-group">
-        <label for="title">Img Url</label>
+        <label for="img">Img Url</label>
         <input type="text"
                class="form-control bg-light"
-               name="imgUrl"
+               name="img"
                placeholder="Img Url...."
-               v-model="editable.imgUrl"
+               v-model="editable.img"
                required
         >
       </div>

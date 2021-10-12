@@ -86,7 +86,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="card shadow" v-if="userPosts">
+          <div class="card shadow" v-if="posts">
             <Post v-for="p in posts" :key="p.id" :post="p" />
           </div>
           <div class="card shadow" v-else>
@@ -132,7 +132,7 @@ export default {
     return {
       profile: computed(() => AppState.profile),
       user: computed(() => AppState.user),
-      userPosts: computed(() => AppState.usersPosts)
+      posts: computed(() => AppState.usersPosts)
     }
   }
 }
