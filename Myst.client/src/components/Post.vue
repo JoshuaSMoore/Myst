@@ -7,7 +7,7 @@
           <img :src="post.img" width="35" class="ms-3" alt="">
         </div>
         <div class="card-footer">
-          tester body spot
+          tester body spoting
           {{ post.body }}
           {{ post.title }}
           <i class="mdi mdi-delete-forever selectable text-danger f-20 mx-3" title="Delete Post" v-if="post.creatorId === account.id" @click="deletePost(post.id)"></i>
