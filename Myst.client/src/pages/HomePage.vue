@@ -1,7 +1,7 @@
 <template>
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="home-card p-5 bg-dark rounded elevation-3">
-      <img src="../assets/img/myst-logo.png" alt="MYST LOGO" class="rounded-circle">
+      <img src="../assets/img/myst-logo.png" alt="MYST LOGO" class="img-fluid">
       <h1 class="m-3 bg-dark text-white p-3 rounded text-center">
         Welcome
       </h1>
