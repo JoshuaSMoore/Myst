@@ -67,12 +67,12 @@
     <div>
       <div class="row my-4">
         <div class="col-12">
+          <h1 class="text-center fw-bold">
+            Game Library
+          </h1>
           <div class="card library-card bg-dark text-light py-5 text-center">
-            <h1>
-              Game Library
-            </h1>
             <div class="d-flex">
-              <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-2" />
+              <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-3" />
             </div>
           </div>
         </div>

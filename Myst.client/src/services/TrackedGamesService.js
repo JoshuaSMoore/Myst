@@ -3,6 +3,7 @@ import { logger } from '../utils/Logger.js'
 import { api } from './AxiosService.js'
 import { gamesSearchService } from './GamesSearchService.js'
 import axios from 'axios'
+import { accountService } from './AccountService.js'
 
 class TrackedGamesService {
   async createTrackedGame(gameId) {
@@ -34,6 +35,15 @@ class TrackedGamesService {
     }).catch(function(error) {
       logger.error(error)
     })
+  }
+
+  async deleteTrackedGame(gameId) {
+    await accountService.getTrackedGames(AppState.profile.id)
+    const trackedGames = AppState.trackedGames
+    const foundGame = trackedGames.find(f => f.gameId === gameId)
+    const res = await api.delete(`api/trackedgames/${foundGame.id}`)
+    logger.log('deleteTrackedGame', res)
+    AppState.trackedGames = AppState.trackedGames.filter(t => t.id !== foundGame.id)
   }
 }
 
