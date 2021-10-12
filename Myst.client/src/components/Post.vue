@@ -1,15 +1,12 @@
 <template>
   <div class="post">
-    <div class="row">
-      <div class="card">
-        <div class="card-body">
-          <img :src="post.img" width="35" class="ms-3" alt="">
-        </div>
-        <div class="card-footer">
-          {{ post.body }}
-          {{ post.title }}
-          <i class="mdi mdi-delete-forever selectable text-danger f-20 mx-3" title="Delete Post" v-if="post.creatorId === account.id" @click="deletePost(post.id)"></i>
-        </div>
+    <div class="card">
+      <div class="card-body container-fluid">
+        <img :src="post.img" width="300" class="ms-3 img-fluid" alt="">
+      </div>
+      <div class="card-footer text-dark">
+        <h5>{{ post.body }}</h5>
+        <i class="mdi mdi-delete-forever selectable text-danger f-20 mx-3" title="Delete Post" v-if="post.creatorId === account.id" @click="deletePost(post.id)"></i>
       </div>
     </div>
   </div>
