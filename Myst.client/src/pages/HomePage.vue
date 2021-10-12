@@ -2,8 +2,8 @@
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="home-card p-5 bg-dark rounded elevation-3">
       <img src="../assets/img/myst-logo.png" alt="MYST LOGO" class="img-fluid">
-      <h1 class="m-3 bg-dark text-white p-3 rounded text-center">
-        Welcome
+      <h1 class="m-3 bg-dark text-white p-3 rounded text-center" v-if="profile.name">
+        Welcome, {{ profile.name }}
       </h1>
     </div>
   </div>
@@ -61,6 +61,7 @@ export default {
     })
     return {
       newsOffset,
+      profile: computed(() => AppState.profile),
       news: computed(() => AppState.news.slice(newsOffset.value, newsOffset.value + 10)),
       games: computed(() => AppState.games)
     }
@@ -78,8 +79,8 @@ export default {
   .home-card{
     width: 50vw;
     > img{
-      height: 200px;
-      max-width: 200px;
+      height: 350px;
+      max-width: 350px;
       width: 100%;
       object-fit: contain;
       object-position: center;
