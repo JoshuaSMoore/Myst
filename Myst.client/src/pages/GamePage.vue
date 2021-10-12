@@ -11,9 +11,14 @@
       <div class="col-1"></div>
       <div class="col-lg-4 me-2 card">
         <img :src="game.background_image" alt="" class="img-fluid">
-        <button @click="createTrackedGame(game.id)" class="btn btn-info">
-          Follow game
-        </button>
+        <div class="d-flex justify-content-around">
+          <button @click="createTrackedGame(game.id)" class="btn btn-info">
+            Follow game
+          </button>
+          <button @click="deleteTrackedGame(game.id)" class="btn btn-warning">
+            Unfollow game
+          </button>
+        </div>
       </div>
       <div class="col-lg-6 ms-2 card description-card scrollable-y">
         <div class="d-flex justify-content-around">
@@ -81,6 +86,13 @@ export default {
       async createTrackedGame(gameId) {
         try {
           await trackedGamesService.createTrackedGame(gameId)
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
+      async deleteTrackedGame(gameId) {
+        try {
+          await trackedGamesService.deleteTrackedGame(gameId)
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
