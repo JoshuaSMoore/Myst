@@ -11,7 +11,8 @@
         <div class="modal-body bg-dark text-light">
           <slot name="modal-body"></slot>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer bg-dark text-light">
+          <img src="../assets/img/myst-logo.png" alt="MYST LOGO">
         </div>
       </div>
     </div>

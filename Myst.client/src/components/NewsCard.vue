@@ -14,7 +14,7 @@
 
   <Modal :id="'a-modal-'+news.id" class="bg-dark text-light">
     <template #modal-title>
-      Content
+      {{ news.title }}
     </template>
     <template #modal-body>
       <NewsInfo :article="news" class="m-5" />
@@ -23,10 +23,6 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
-import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
-import { News } from '../models/NewsCard'
 export default {
   props: {
     news: {
