@@ -1,6 +1,9 @@
 <template>
-  <div class="text-light">
-    {{ followedGame.name }}
+  <div>
+    <h5 class="text-light">
+      {{ followedGame.name }}
+    </h5>
+    <img :src="followedGame.background_image" width="200" alt="">
   </div>
 </template>
 

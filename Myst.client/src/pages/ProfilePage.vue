@@ -69,9 +69,11 @@
         <div class="col-12">
           <div class="card library-card bg-dark text-light py-5 text-center">
             <h1>
-              game library here
+              Game Library
             </h1>
-            <FollowedGames v-for="f in followedGames" :key="f.id" :followed-game="f" />
+            <div class="d-flex">
+              <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-2" />
+            </div>
           </div>
         </div>
       </div>
@@ -164,6 +166,8 @@ export default {
 }
 
 .library-card{
-  height: 20rem
+  height: 20rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 </style>
