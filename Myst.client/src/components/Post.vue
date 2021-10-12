@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           tester img
-          <img :src="posts.img" width="35" class="ms-3" alt="">
+          <img :src="post.img" width="35" class="ms-3" alt="">
         </div>
         <div class="card-footer">
           tester body spot
@@ -32,15 +32,16 @@ export default {
     return {
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
-      async deletePost(postId) {
+      async deletePost(id) {
         const yes = await Pop.confirm('Do you want to delete this?')
-        if (!yes) { Pop.toast('delete canceled', 'success') } else {
+        if (!yes) { Pop.toast('delete canceled', 'error') } else {
           try {
-            await postsService.deleteNote(postId)
+            await postsService.deletePost(id)
           } catch (error) {
             Pop.toast(error.message, 'error')
           }
         }
+        Pop.toast('Successful Delete', 'success')
       }
     }
   }
