@@ -1,9 +1,9 @@
 <template>
   <div class="d-fluid row align-items-center justify-content-space-evenly m-5">
     <div class="col-6">
-      <h3 class="text-white text-center" v-if="profile.name">
+      <h2 class="text-white text-center" v-if="profile.name">
         Welcome, {{ profile.name }}
-      </h3>
+      </h2>
     </div>
     <div class="col rounded">
       <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded">
