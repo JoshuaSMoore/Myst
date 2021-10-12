@@ -41,7 +41,6 @@ export default {
             Pop.toast(error.message, 'error')
           }
         }
-        Pop.toast('Successful Delete', 'success')
       }
     }
   }
