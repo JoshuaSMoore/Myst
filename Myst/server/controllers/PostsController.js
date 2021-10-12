@@ -9,6 +9,7 @@ export class PostsController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPost)
+      .delete('/:postId', this.deletePost)
   }
 
   async createPost(req, res, next) {
@@ -20,6 +21,16 @@ export class PostsController extends BaseController {
     } catch (error) {
       next(error)
       logger.error('create post error', Error)
+    }
+  }
+
+  async deletePost(req, res, next) {
+    try {
+      const post = await postsService.deletePost(req.params.postId)
+      res.send(post)
+    } catch (error) {
+      next(error)
+      logger.error('delete post error', Error)
     }
   }
 }

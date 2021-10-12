@@ -1,7 +1,9 @@
 <template>
-  <div class="">
-    <!-- <img :src="news.main_image" alt=""> -->
-    <p>{{ article }} </p>
+  <div class="bg-dark text-light">
+    <img :src="article.main_image" class="card-img-top selectable">
+    {{ article.title }}<p />
+    <div v-html="htmlFix(article.article_content)">
+    </div>
   </div>
 </template>
 
@@ -17,9 +19,17 @@ export default {
       required: true
     }
   },
-  setup() {
+  setup(props) {
     return {
-      news: computed(() => AppState.news)
+      news: computed(() => AppState.news),
+      htmlFix(content) {
+        const dotcomIndex = props.article.article_url.indexOf('.com/') + 5
+        // eslint-disable-next-line prefer-regex-literals
+        const regx = new RegExp('src="../', 'g')
+        const uri = props.article.article_url.slice(0, dotcomIndex)
+        const fixed = content.replace(regx, `loading="lazy" src="${uri}`)
+        return fixed
+      }
 
     }
   }

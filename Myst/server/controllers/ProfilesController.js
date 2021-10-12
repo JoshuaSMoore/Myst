@@ -15,7 +15,6 @@ export class ProfilesController extends BaseController {
       .get('/:id/following', this.getFollowing)
       .get('/:id/trackedgames', this.getTrackedGames)
       .post('/:id/follow', this.followGamer)
-      .delete('/:id/posts/:postId', this.deletePost)
       .delete('/:id/unfollow/:unfollowId', this.unfollowGamer)
   }
 
@@ -46,16 +45,6 @@ export class ProfilesController extends BaseController {
     } catch (error) {
       next(error)
       logger.error('get posts error', error)
-    }
-  }
-
-  async deletePost(req, res, next) {
-    try {
-      const post = await profileService.deletePost(req.params.postId, req.userInfo.id)
-      res.send(post)
-    } catch (error) {
-      next(error)
-      logger.error('delete post by id error', error)
     }
   }
 

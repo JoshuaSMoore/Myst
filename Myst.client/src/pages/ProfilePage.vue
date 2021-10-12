@@ -80,6 +80,17 @@
             <h1>
               Posts go here
             </h1>
+            <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+              Create Post
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card shadow" v-if="posts">
+            <Post v-for="p in posts" :key="p.id" :post="p" />
+          </div>
+          <div class="card shadow" v-else>
+            <h4>This user has no posts</h4>
           </div>
         </div>
       </div>
@@ -93,15 +104,35 @@
       <ProfileForm />
     </template>
   </Modal>
+  <Modal id="post-form">
+    <template #modal-title>
+      <h4>Create Post</h4>
+    </template>
+    <template #modal-body>
+      <PostForm />
+    </template>
+  </Modal>
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState.js'
+import { postsService } from '../services/PostsService.js'
+import Pop from '../utils/Pop.js'
+
 export default {
   setup() {
+    onMounted(async() => {
+      try {
+        await postsService.getPostByProfileId()
+      } catch (error) {
+        Pop.toast(error, 'Error getting Posts')
+      }
+    })
     return {
-      profile: computed(() => AppState.profile)
+      profile: computed(() => AppState.profile),
+      user: computed(() => AppState.user),
+      posts: computed(() => AppState.usersPosts)
     }
   }
 }

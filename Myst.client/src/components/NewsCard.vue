@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <Modal :id="'a-modal-'+news.id">
+  <Modal :id="'a-modal-'+news.id" class="bg-dark text-light">
     <template #modal-title>
       Content
     </template>
