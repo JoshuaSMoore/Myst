@@ -1,7 +1,8 @@
 <template>
   <div class="bg-dark text-light">
-    <img :src="article.main_image" class="card-img-top selectable">
-    {{ article.title }}<p />
+    <div class="form-group header">
+      {{ article.title }}
+    </div>
     <div v-html="htmlFix(article.article_content)">
     </div>
   </div>

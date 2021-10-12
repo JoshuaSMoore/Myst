@@ -14,7 +14,7 @@
 
   <Modal :id="'a-modal-'+news.id" class="bg-dark text-light">
     <template #modal-title>
-      Content
+      {{ news.title }}
     </template>
     <template #modal-body>
       <NewsInfo :article="news" class="m-5" />
