@@ -121,6 +121,7 @@ import { AppState } from '../AppState.js'
 import { postsService } from '../services/PostsService.js'
 import Pop from '../utils/Pop.js'
 import { accountService } from '../services/AccountService.js'
+import { trackedGamesService } from '../services/TrackedGamesService.js'
 
 export default {
   setup() {
@@ -132,8 +133,9 @@ export default {
       }
       try {
         await accountService.getTrackedGames(AppState.profile.id)
+        await trackedGamesService.getTrackedGames()
       } catch (error) {
-
+        Pop.toast(error, 'error')
       }
     })
     return {
