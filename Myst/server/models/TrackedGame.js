@@ -5,7 +5,7 @@ export const TrackedGameSchema = new Schema(
   {
     gameName: { type: String, required: false },
     gamePic: { type: String, required: false },
-    gameId: { type: Schema.Types.ObjectId, required: true, ref: 'Game' },
+    gameId: { type: Number, required: true },
     favorite: { type: Boolean, default: false },
     accountId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' }
   },

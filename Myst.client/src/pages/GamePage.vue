@@ -11,6 +11,9 @@
       <div class="col-1"></div>
       <div class="col-lg-4 me-2 card">
         <img :src="game.background_image" alt="" class="img-fluid">
+        <button @click="createTrackedGame(game.id)" class="btn btn-info">
+          Follow game
+        </button>
       </div>
       <div class="col-lg-6 ms-2 card description-card scrollable-y">
         <div class="d-flex justify-content-around">
@@ -62,7 +65,7 @@ import Pop from '../utils/Pop.js'
 import { gamesSearchService } from '../services/GamesSearchService.js'
 import { useRoute } from 'vue-router'
 import { AppState } from '../AppState.js'
-import { logger } from '../utils/Logger.js'
+import { trackedGamesService } from '../services/TrackedGamesService.js'
 export default {
   setup() {
     const route = useRoute()
@@ -74,7 +77,14 @@ export default {
       }
     })
     return {
-      game: computed(() => AppState.game)
+      game: computed(() => AppState.game),
+      async createTrackedGame(gameId) {
+        try {
+          await trackedGamesService.createTrackedGame(gameId)
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      }
     }
   }
 }
