@@ -19,6 +19,13 @@ class AccountService {
     AppState.account = res.data
     AppState.profile = res.data
   }
+
+  async getTrackedGames(profileId) {
+    const res = await api.get(`api/profiles/${profileId}/trackedgames`)
+    logger.log('getTrackedGames', res)
+    AppState.trackedGames = res.data
+    logger.log('AppstateTrackedGames', AppState.trackedGames)
+  }
 }
 
 export const accountService = new AccountService()

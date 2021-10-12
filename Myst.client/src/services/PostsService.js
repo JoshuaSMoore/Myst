@@ -26,7 +26,7 @@ class PostsService {
   async deletePost(postId) {
     const res = await api.delete(`api/posts/${postId}`)
     logger.log('your deleted post', res.data)
-    AppState.posts = AppState.posts.filter(p => p.id !== postId)
+    AppState.usersPosts = AppState.usersPosts.filter(p => p.id !== postId)
   }
 }
 

@@ -80,7 +80,7 @@ class ProfileService {
   }
 
   async getTrackedGames(accountId) {
-    const trackedGames = await dbContext.TrackedGame.find(accountId).populate('tracker').populate('game')
+    const trackedGames = await dbContext.TrackedGame.find({ accountId }).populate('tracker')
     return trackedGames
   }
 }
