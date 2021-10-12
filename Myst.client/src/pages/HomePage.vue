@@ -7,30 +7,34 @@
       </h1>
     </div>
   </div>
-  <div class="news d-flex m-2 flex-column align-items-center justify-content-center">
+  <div class="news d-flex m-2 p-1 flex-column align-items-center justify-content-center">
     <div class="row news-card justify-content-center m-2 rounded elevation-3 bg-dark">
       <NewsCard v-for="n in news" :key="n.id" :news="n" class="m-5" />
+      <div class="row ">
+        <div class="col d-flex justify-content-around">
+          <button class="btn btn-dark" @click="newsOffset -=10" v-if="newsOffset > 0">
+            Previous
+          </button>
+        </div>
+        <div class="col d-flex justify-content-around">
+          <button class="btn btn-dark" @click="newsOffset +=10" v-if="newsOffset < 40">
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-<!--
-  <Modal id="a-modal">
-    <template #modal-title>
-      Content
-    </template>
-    <template #modal-body>
-      <NewsInfo v-for="n in news" :key="n.id" :news="n" class="m-5" />
-    </template>
-  </Modal> -->
 </template>
 
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
+import { computed, onMounted, ref } from '@vue/runtime-core'
 import { newsService } from '../services/NewsService'
 import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
 export default {
   name: 'Home',
   setup() {
+    const newsOffset = ref(0)
     onMounted(async() => {
       try {
         await newsService.getNews()
@@ -39,7 +43,8 @@ export default {
       }
     })
     return {
-      news: computed(() => AppState.news),
+      newsOffset,
+      news: computed(() => AppState.news.slice(newsOffset.value, newsOffset.value + 10)),
       games: computed(() => AppState.games)
     }
   }
