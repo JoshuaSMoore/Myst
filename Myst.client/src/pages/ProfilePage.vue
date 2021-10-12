@@ -83,7 +83,7 @@
             <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
               Create Post
             </button>
-            <div class="row mx-2">
+            <div class="row mx-4">
               <div class="card shadow" v-if="posts">
                 <Post v-for="p in posts" :key="p.id" :post="p" />
               </div>
