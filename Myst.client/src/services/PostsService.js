@@ -8,11 +8,11 @@ class PostsService {
   async createPost(postData) {
     const res = await api.post('api/posts', postData)
     logger.log('Post was made', res.data)
-    AppState.posts.unshift(new Post(res.data))
+    AppState.usersPosts.unshift(new Post(res.data))
   }
 
   async getPostByProfileId(profileId) {
-    AppState.usersPost = []
+    AppState.usersPosts = []
     try {
       const res = await api.get(`api/profiles/${profileId}/posts`)
       logger.log('your data for posts related to this profile', res.data)
