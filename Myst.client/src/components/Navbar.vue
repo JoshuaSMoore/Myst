@@ -15,8 +15,9 @@
           <div class="input-group mt-1 mb-1 d-flex justify-content-end" style="width: 60vw">
             <input v-model="query"
                    type="text"
-                   class="form-control bg-secondary d-flex"
+                   class="form-control bg-secondary text-dark d-flex"
                    placeholder="Search"
+
                    aria-label="Search"
                    aria-describedby="button-addon2"
             >
@@ -133,5 +134,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
 
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
 </style>
