@@ -9,16 +9,33 @@
   </div>
   <div class="news d-flex m-2 p-1 flex-column align-items-center justify-content-center">
     <div class="row news-card justify-content-center m-2 rounded elevation-3 bg-dark">
-      <NewsCard v-for="n in news" :key="n.id" :news="n" class="m-5" />
-      <div class="row ">
+      <div class="row p-2">
         <div class="col d-flex justify-content-around">
-          <button class="btn btn-dark" @click="newsOffset -=10" v-if="newsOffset > 0">
-            Previous
+          <button class="btn btn-dark" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">
+            <i class="mdi mdi-chevron-triple-left f-20 ">Previous</i>
+          </button>
+        </div>
+        <div class="col d-flex justify-content-around text-light" title="Daily Gaming News">
+          <i class="mdi mdi-google-controller f-20">NEWS <i class="mdi mdi-google-controller f-20"></i></i>
+        </div>
+        <div class="col d-flex justify-content-around">
+          <button class="btn btn-dark" @click="newsOffset +=10" v-if="newsOffset < 40" title="Next Page">
+            <i class="mdi f-20 ">Next</i> <i class="mdi mdi-chevron-triple-right f-20 ">
+            </i>
+          </button>
+        </div>
+      </div>
+      <NewsCard v-for="n in news" :key="n.id" :news="n" class="m-5" />
+      <div class="row p-2">
+        <div class="col d-flex justify-content-around">
+          <button class="btn btn-dark" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">
+            <i class="mdi mdi-chevron-triple-left f-20 ">Previous</i>
           </button>
         </div>
         <div class="col d-flex justify-content-around">
-          <button class="btn btn-dark" @click="newsOffset +=10" v-if="newsOffset < 40">
-            Next
+          <button class="btn btn-dark" @click="newsOffset +=10" v-if="newsOffset < 40" title="Next Page">
+            <i class="mdi f-20 ">Next</i> <i class="mdi mdi-chevron-triple-right f-20 ">
+            </i>
           </button>
         </div>
       </div>
