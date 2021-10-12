@@ -28,7 +28,7 @@ export default {
         // eslint-disable-next-line prefer-regex-literals
         const regx = new RegExp('src="../', 'g')
         const uri = props.article.article_url.slice(0, dotcomIndex)
-        const fixed = content.replace(regx, `loading="lazy" src="${uri}`)
+        const fixed = content.replace(regx, ` loading="lazy" src="${uri}`)
         return fixed
       }
 
