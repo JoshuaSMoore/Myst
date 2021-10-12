@@ -1,6 +1,6 @@
 <template>
   <div class="post">
-    <div class="card">
+    <div class="card shadow p-0">
       <div class="card-body container-fluid">
         <img :src="post.img" width="300" class="ms-3 img-fluid" alt="">
       </div>
