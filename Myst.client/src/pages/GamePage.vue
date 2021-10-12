@@ -2,15 +2,15 @@
   <div class="container-fluid pt-5 text-center">
     <div class="row">
       <div class="col-12 d-flex justify-content-around my-4">
-        <h1>
+        <h1 class="">
           {{ game.name }}
         </h1>
       </div>
     </div>
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-lg-4 me-2 card">
-        <img :src="game.background_image" alt="" class="img-fluid">
+      <div class="col-lg-4 me-2 card bg-dark rounded-5 shadow-lg">
+        <img :src="game.background_image" alt="" class="img-fluid rounded my-2">
         <div class="d-flex justify-content-around">
           <button @click="createTrackedGame(game.id)" class="btn btn-info">
             Follow game
@@ -20,7 +20,7 @@
           </button>
         </div>
       </div>
-      <div class="col-lg-6 ms-2 card description-card scrollable-y">
+      <div class="col-lg-6 ms-2 card bg-dark shadow-lg text-light description-card scrollable-y">
         <div class="d-flex justify-content-around">
           <h4>
             Score: {{ game.rating }}
@@ -51,10 +51,10 @@
     </div>
     <div class="row pt-4">
       <div class="col-1"></div>
-      <div class="col-5 me-2 p-5 card">
+      <div class="col-5 me-2 p-5 card bg-dark text-light">
         related games
       </div>
-      <div class="col-5 ms-2 p-5 card">
+      <div class="col-5 ms-2 p-5 card bg-dark text-light">
         trailer/pictures
       </div>
     </div>
