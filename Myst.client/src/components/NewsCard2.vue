@@ -1,0 +1,51 @@
+<template>
+  <div class="card m-3 bg-dark text-light elevation-5" style="max-width: 1000px;">
+    <div class="row g-0">
+      <div class="col-md-4 p-1">
+        <img :src="news.thumbnail" class="img-fluid rounded-start selectable p-1" data-bs-toggle="modal" :data-bs-target="'#a-modal-'+ news.id" alt="Picture">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ news.title }}
+          </h5>
+          <p class="card-text">
+            {{ news.short_description }}
+          </p>
+          <a data-bs-toggle="modal" :data-bs-target="'#a-modal-'+ news.id" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Modal :id="'a-modal-'+news.id" class="bg-dark text-light">
+    <template #modal-title>
+      {{ news.title }}
+    </template>
+    <template #modal-body>
+      <NewsInfo :article="news" class="m-5" />
+    </template>
+  </Modal>
+</template>
+
+<script>
+export default {
+  props: {
+    news: {
+      type: Object,
+      required: true
+    }
+  },
+  setup(props) {
+    return {
+      setActive() {
+
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>

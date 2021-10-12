@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="news d-flex m-2 p-1 flex-column align-items-center justify-content-center">
-    <div class="row news-card justify-content-center m-2 rounded elevation-3 bg-dark">
+    <div class="row news-card justify-content-center rounded elevation-3 bg-primary">
       <div class="row p-2">
         <div class="col d-flex justify-content-around">
           <button class="btn btn-dark" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">
@@ -25,7 +25,7 @@
           </button>
         </div>
       </div>
-      <NewsCard v-for="n in news" :key="n.id" :news="n" class="m-5" />
+      <NewsCard2 v-for="n in news" :key="n.id" :news="n" class="m-5" />
       <div class="row p-2">
         <div class="col d-flex justify-content-around">
           <button class="btn btn-dark" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">

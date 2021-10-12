@@ -23,10 +23,6 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
-import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
-import { News } from '../models/NewsCard'
 export default {
   props: {
     news: {
