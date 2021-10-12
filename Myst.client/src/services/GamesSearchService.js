@@ -35,7 +35,9 @@ class GamesSearchService {
       logger.log(res.data)
       AppState.next = res.data.next
       AppState.previous = res.data.previous
-      AppState.games = res.data.results.map(g => new Game(g))
+      const unsortedGames = res.data.results.map(g => new Game(g))
+      AppState.games = unsortedGames.sort((a, b) => b.rating - a.rating)
+      logger.log('sorted games', AppState.games)
     }).catch(function(error) {
       logger.error(error)
     })
