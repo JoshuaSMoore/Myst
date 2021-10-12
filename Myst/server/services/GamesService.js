@@ -15,13 +15,13 @@ class GamesService {
   async getGamesById(gameId) {
     const game = await dbContext.Game.findById(gameId).populate('genre')
     if (!game) {
-      throw BadRequest('☠ invalid gameId from server gamesService')
+      throw new BadRequest('☠ invalid gameId from server gamesService')
     }
     return game
   }
 
-  async getTrackedGames(gameId) {
-    const trackedGames = await dbContext.TrackedGame.find({ gameId }).populate('game').populate('tracker')
+  async getTrackedGames(gameId, userId) {
+    const trackedGames = await dbContext.TrackedGame.findOne({ gameId: gameId, accountId: userId })
     return trackedGames
   }
 }

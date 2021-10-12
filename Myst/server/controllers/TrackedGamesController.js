@@ -1,6 +1,10 @@
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { trackedGamesService } from '../services/TrackedGamesService'
+import { gamesService } from '../services/GamesService.js'
+import { BadRequest } from '../utils/Errors.js'
+import mongoose from 'mongoose'
+import { logger } from '../utils/Logger.js'
 
 export class TrackedGamesController extends BaseController {
   constructor() {
@@ -16,8 +20,13 @@ export class TrackedGamesController extends BaseController {
   async createTrackedGame(req, res, next) {
     try {
       req.body.accountId = req.userInfo.id
-      const trackedGame = await trackedGamesService.createTrackedGame(req.body)
-      res.send(trackedGame)
+      const oldTracked = await gamesService.getTrackedGames(req.body.gameId, req.userInfo.id)
+      if (oldTracked) {
+        throw new BadRequest('you already follow this game')
+      } else {
+        const trackedGame = await trackedGamesService.createTrackedGame(req.body, oldTracked, req.userInfo.id)
+        res.send(trackedGame)
+      }
     } catch (error) {
       next(error)
     }
