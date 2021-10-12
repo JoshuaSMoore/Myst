@@ -1,11 +1,19 @@
 <template>
-  <div class="d-fluid row align-items-center justify-content-space-evenly m-5">
+  <div class="d-fluid row align-items-center m-5" style="justify-content: space-evenly">
     <div class="col-6">
       <h2 class="text-white text-center" v-if="profile.name">
         Welcome, {{ profile.name }}
       </h2>
+      <div class="card library-card bg-dark text-light py-5 text-center">
+        <h1>
+          Game Library
+        </h1>
+        <div class="d-flex" v-if="followedGames">
+          <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-2" />
+        </div>
+      </div>
     </div>
-    <div class="col rounded">
+    <div class="col-4 rounded">
       <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded">
     </div>
   </div>
@@ -50,6 +58,8 @@ import { computed, onMounted, ref } from '@vue/runtime-core'
 import { newsService } from '../services/NewsService'
 import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
+import { accountService } from '../services/AccountService'
+import { trackedGamesService } from '../services/TrackedGamesService'
 export default {
   name: 'Home',
   setup() {
@@ -57,6 +67,8 @@ export default {
     onMounted(async() => {
       try {
         await newsService.getNews()
+        await accountService.getTrackedGames(AppState.profile.id)
+        await trackedGamesService.getTrackedGames()
       } catch (error) {
         Pop.toast(error, 'Error grabbing news')
       }
@@ -65,7 +77,8 @@ export default {
       newsOffset,
       profile: computed(() => AppState.profile),
       news: computed(() => AppState.news.slice(newsOffset.value, newsOffset.value + 10)),
-      games: computed(() => AppState.games)
+      games: computed(() => AppState.games),
+      followedGames: computed(() => AppState.followedGames)
     }
   }
 }
@@ -109,5 +122,10 @@ export default {
 }
 html {
   scroll-behavior: smooth;
+}
+.library-card{
+  height: 20rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 </style>
