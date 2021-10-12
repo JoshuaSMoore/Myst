@@ -1,5 +1,5 @@
 <template>
-  <div class="card bg-dark text-light p-2" style="width: 18rem;">
+  <div class="card bg-dark text-light p-2 shadow-lg" style="width: 18rem;">
     <img :src="news.thumbnail" class="card-img-top selectable" data-bs-toggle="modal" :data-bs-target="'#a-modal-'+ news.id" alt="...">
     <div class="card-body">
       <h5 class="card-title">

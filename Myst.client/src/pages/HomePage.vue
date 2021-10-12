@@ -1,6 +1,6 @@
 <template>
   <div class="d-fluid row align-items-center m-5" style="justify-content: space-evenly">
-    <div class="col-6">
+    <div class="col-7">
       <h2 class="text-white text-center" v-if="profile.name">
         Welcome, {{ profile.name }}
       </h2>
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="col-5 rounded">
+    <div class="col-3 rounded text-center">
       <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded">
     </div>
   </div>
@@ -21,7 +21,7 @@
     <div class="row news-card justify-content-center rounded elevation-3 bg-primary">
       <div class="row p-2">
         <div class="col d-flex justify-content-around">
-          <button class="btn btn-dark" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">
+          <button class="btn btn-dark shadow" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">
             <i class="mdi mdi-chevron-triple-left f-20 ">Previous</i>
           </button>
         </div>
@@ -29,7 +29,7 @@
           <i class="mdi mdi-google-controller f-20">NEWS <i class="mdi mdi-google-controller f-20"></i></i>
         </div>
         <div class="col d-flex justify-content-around">
-          <button class="btn btn-dark" @click="newsOffset +=10" v-if="newsOffset < 40" title="Next Page">
+          <button class="btn btn-dark shadow" @click="newsOffset +=10" v-if="newsOffset < 40" title="Next Page">
             <i class="mdi f-20 ">Next</i> <i class="mdi mdi-chevron-triple-right f-20 ">
             </i>
           </button>
@@ -38,12 +38,12 @@
       <NewsCard2 v-for="n in news" :key="n.id" :news="n" class="m-5" />
       <div class="row p-2">
         <div class="col d-flex justify-content-around">
-          <button class="btn btn-dark" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">
+          <button class="btn btn-dark shadow" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">
             <i class="mdi mdi-chevron-triple-left f-20 ">Previous</i>
           </button>
         </div>
         <div class="col d-flex justify-content-around">
-          <button class="btn btn-dark" @click="newsOffset +=10" v-if="newsOffset < 40" title="Next Page">
+          <button class="btn btn-dark shadow" @click="newsOffset +=10" v-if="newsOffset < 40" title="Next Page">
             <i class="mdi f-20 ">Next</i> <i class="mdi mdi-chevron-triple-right f-20 ">
             </i>
           </button>
