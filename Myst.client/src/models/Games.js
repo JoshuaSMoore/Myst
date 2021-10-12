@@ -2,6 +2,7 @@ export class Game {
   constructor(data) {
     this.name = data.name || ''
     this.ratings = data.ratings || ''
+    this.rating = data.rating || ''
     this.platforms = data.platforms || ''
     this.description = data.description || ''
     this.genres = data.genres || ''
