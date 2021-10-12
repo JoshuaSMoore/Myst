@@ -7,14 +7,14 @@
       <h4>
         Game Library
       </h4>
-      <div class="card library-card bg-dark text-light py-5 text-center">
+      <div class="card library-card bg-dark text-light py-5 text-center shadow-lg">
         <div class="d-flex" v-if="followedGames">
           <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-2" />
         </div>
       </div>
     </div>
     <div class="col-3 rounded text-center">
-      <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded">
+      <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded shadow-lg">
     </div>
   </div>
   <div class="news d-flex m-2 p-1 flex-column align-items-center justify-content-center">
