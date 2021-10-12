@@ -71,6 +71,7 @@
             <h1>
               game library here
             </h1>
+            <FollowedGames v-for="f in followedGames" :key="f.id" :followed-game="f" />
           </div>
         </div>
       </div>
@@ -141,7 +142,8 @@ export default {
     return {
       profile: computed(() => AppState.profile),
       user: computed(() => AppState.user),
-      posts: computed(() => AppState.usersPosts)
+      posts: computed(() => AppState.usersPosts),
+      followedGames: computed(() => AppState.followedGames)
     }
   }
 }
