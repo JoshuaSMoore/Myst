@@ -15,7 +15,7 @@ class TrackedGamesService {
     const tracked = AppState.trackedGames
     tracked.forEach(async t => {
       const game = await gamesSearchService.getGameById(t.gameId)
-      AppState.trackedGames = [...AppState.followedGames, game]
+      AppState.trackedGames.push(game)
       logger.log('here trackedGames', AppState.trackedGames)
     })
   }
