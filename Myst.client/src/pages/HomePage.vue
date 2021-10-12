@@ -4,16 +4,16 @@
       <h2 class="text-white text-center" v-if="profile.name">
         Welcome, {{ profile.name }}
       </h2>
+      <h4>
+        Game Library
+      </h4>
       <div class="card library-card bg-dark text-light py-5 text-center">
-        <h1>
-          Game Library
-        </h1>
         <div class="d-flex" v-if="followedGames">
           <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-2" />
         </div>
       </div>
     </div>
-    <div class="col-4 rounded">
+    <div class="col-5 rounded">
       <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded">
     </div>
   </div>
