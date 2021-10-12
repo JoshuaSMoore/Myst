@@ -6,5 +6,6 @@ export class Post {
     this.img = postData.img
     this.video = postData.video
     this.creatorId = postData.creatorId
+    this.creator = postData.creator
   }
 }

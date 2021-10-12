@@ -16,7 +16,8 @@ class PostsService {
     try {
       const res = await api.get(`api/profiles/${profileId}/posts`)
       logger.log('your data for posts related to this profile', res.data)
-      AppState.usersPost = res.data.map(p => new Post(p))
+      AppState.usersPost = res.data
+      logger.log(AppState.usersPosts)
     } catch (error) {
       Pop.toast(error.message, error)
     }
