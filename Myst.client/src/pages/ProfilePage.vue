@@ -83,14 +83,14 @@
             <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
               Create Post
             </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="card shadow" v-if="posts">
-            <Post v-for="p in posts" :key="p.id" :post="p" />
-          </div>
-          <div class="card shadow" v-else>
-            <h4>This user has no posts</h4>
+            <div class="row mx-2">
+              <div class="card shadow" v-if="posts">
+                <Post v-for="p in posts" :key="p.id" :post="p" />
+              </div>
+              <div class="card shadow" v-else>
+                <h4>This user has no posts</h4>
+              </div>
+            </div>
           </div>
         </div>
       </div>
