@@ -1,7 +1,7 @@
 <template>
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="home-card p-5 bg-dark rounded elevation-3">
-      <img src="../assets/img/myst-logo.png" alt="MYST LOGO" class="img-fluid">
+      <img src="../assets/img/logo.gif" alt="MYST LOGO" class="img-fluid">
       <h1 class="m-3 bg-dark text-white p-3 rounded text-center" v-if="profile.name">
         Welcome, {{ profile.name }}
       </h1>

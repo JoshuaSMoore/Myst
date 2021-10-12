@@ -26,7 +26,7 @@
             </button>
           </div>
         </form>
-        <router-link class="navbar-brand d-flex p-2 ms-3" :to="{ name: 'Profile' }">
+        <router-link class="navbar-brand d-flex p-2 ms-3" :to="{ name: 'Profile', params: {profileId: account.id} }">
           <i class="mdi mdi-account-outline f-20 "></i>
         </router-link>
         <button
@@ -70,7 +70,7 @@
                 Search
               </div>
             </router-link>
-            <router-link :to="{ name: 'Profile' }">
+            <router-link :to="{ name: 'Profile', params: {profileId: profile.id }}">
               <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
                 Profile
               </div>
@@ -114,6 +114,8 @@ export default {
     return {
       query,
       user: computed(() => AppState.user),
+      account: computed(() => AppState.account),
+      profile: computed(() => AppState.profile),
       async searchGames() {
         try {
           await gamesSearchService.getGamesSearched(query.value)
