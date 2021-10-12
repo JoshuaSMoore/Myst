@@ -79,7 +79,7 @@
       </div>
       <div class="row my-4">
         <div class="col-12">
-          <div class="card library-card bg-dark text-light py-5 text-center">
+          <div class="card posts-card bg-dark text-light py-5 text-center">
             <h1>
               Posts go here
             </h1>
