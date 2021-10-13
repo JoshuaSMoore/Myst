@@ -16,4 +16,4 @@ class FirebaseService {
   }
 }
 
-export const firebaseservice = new FirebaseService()
+export const firebaseService = new FirebaseService()
