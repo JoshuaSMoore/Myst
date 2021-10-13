@@ -22,6 +22,7 @@ import { Post } from '../models/Post'
 import { AppState } from '../AppState'
 import { postsService } from '../services/PostsService'
 import Pop from '../utils/Pop'
+import { firebaseService } from '../services/FirebaseService.js'
 
 export default {
   props: {
@@ -35,7 +36,8 @@ export default {
         const yes = await Pop.confirm('Do you want to delete this?')
         if (!yes) { Pop.toast('delete canceled', 'error') } else {
           try {
-            await postsService.deletePost(id)
+            // await postsService.deletePost(id)
+            await firebaseService.remove(props.post.mediaUrl)
           } catch (error) {
             Pop.toast(error.message, 'error')
           }
