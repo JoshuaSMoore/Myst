@@ -19,9 +19,12 @@
         <video class="img-fluid" src="" id="video"></video>
       </div>
       <div class="form-group">
-        <button v-if="files[0] && editable.body" class="btn-btn-primary" type="button" @click="upload">
+        <button v-if="files[0] && editable.body" class="btn btn-primary text-light me-5" type="button" @click="upload">
           Create Post
         </button>
+        <div class="spinner-border text-light ms-5" role="status" v-if="files[0] && editable.body">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
     </form>
   </div>
@@ -37,6 +40,12 @@ import { AppState } from '../AppState'
 import { logger } from '../utils/Logger'
 import { firebaseService } from '../services/FirebaseService'
 export default {
+  data() {
+    return {
+      value: 33.333,
+      max: 50
+    }
+  },
   setup() {
     const editable = ref({ posts: [] })
     const files = ref([])
