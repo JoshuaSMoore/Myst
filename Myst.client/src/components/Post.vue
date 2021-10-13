@@ -1,6 +1,6 @@
 <template>
   <div class="post">
-    <div class="card shadow p-0">
+    <div class="card shadow p-0" style="width: 18rem">
       <div class="card-body container-fluid">
         <img :src="post.mediaUrl" v-if="post.mediaUrl?.includes('Image')" width="300" class="ms-3 img-fluid" alt="">
         <video class="img-fluid" controls v-else>

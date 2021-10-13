@@ -1,5 +1,5 @@
 <template>
-  <div class="card p-0" style="width: 18rem;" v-if="game">
+  <div class="card p-0" style="width: 25rem;" v-if="game">
     <router-link :to="{ name: 'Game', params: { gameId: game.id }}">
       <img :src="game.backgroundImage" class="card-img-top rounded" alt="...">
       <div class="card-body">

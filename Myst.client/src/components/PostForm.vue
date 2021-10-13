@@ -50,7 +50,7 @@ export default {
           this.print()
           editable.value = { posts: [] }
           files.value = []
-          document.getElembentById('image').src = ''
+          document.getElementById('image').src = ''
           document.getElementById('video').src = ''
           Pop.toast(' Post Created', 'success')
           const modal = Modal.getInstance(document.getElementById('post-form'))

@@ -87,13 +87,11 @@
               Create Post
             </button>
 
-            <div class="row mx-4 p-0">
-              <div class="card shadow p-0" v-if="posts">
-                <Post v-for="p in posts" :key="p.id" :post="p" />
-              </div>
-              <div class="card shadow" v-else>
-                <h4>This user has no posts</h4>
-              </div>
+            <div class="d-flex mx-4" v-if="posts">
+              <Post v-for="p in posts" :key="p.id" :post="p" class="m-2" />
+            </div>
+            <div class="card shadow text-center text-light" v-else>
+              <h4>This user has no posts</h4>
             </div>
           </div>
         </div>

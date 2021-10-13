@@ -12,6 +12,7 @@
     "node": "^14.17.0"
   },
   "dependencies": {
-    "firebase": "^9.1.2"
+    "firebase": "^9.1.2",
+    "firebase-admin": "^9.12.0"
   }
 }
