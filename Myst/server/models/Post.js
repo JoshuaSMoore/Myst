@@ -7,7 +7,8 @@ export const PostSchema = new Schema(
     title: { type: String, required: false },
     img: { type: String },
     video: { type: String },
-    creatorId: { type: Schema.Types.ObjectId, required: true }
+    creatorId: { type: Schema.Types.ObjectId, required: true },
+    mediaUrl: { type: String }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
