@@ -117,6 +117,7 @@ import { useRoute } from 'vue-router'
 import { AppState } from '../AppState'
 import Pop from '../utils/Pop'
 import { accountService } from '../services/AccountService'
+import { postsService } from '../services/PostsService'
 
 export default {
   setup() {
@@ -126,6 +127,11 @@ export default {
         await accountService.getAccountById(route.params.otheruserId)
       } catch (error) {
         Pop.toast(error.message, 'error')
+      }
+      try {
+        await postsService.getPostByProfileId()
+      } catch (error) {
+        Pop.toast(error, 'Error getting Posts')
       }
     })
     return {
