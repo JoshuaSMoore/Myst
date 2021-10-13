@@ -10,9 +10,17 @@
           />
         </div>
       </router-link>
+      <div>
+        <button class="btn btn-info p-1">
+          Search Users
+        </button>
+        <button class="btn btn-success p-1">
+          Search Games
+        </button>
+      </div>
       <div class="justify-content-flex-end d-flex">
         <form @submit.prevent="searchGames(query)">
-          <div class="input-group mt-1 mb-1 d-flex justify-content-end" style="width: 60vw">
+          <div class="input-group mt-1 mb-1 d-flex justify-content-end" style="width: 50vw">
             <input v-model="query"
                    type="text"
                    class="form-control bg-secondary text-dark d-flex"
