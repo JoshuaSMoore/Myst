@@ -60,8 +60,7 @@ export class ProfilesController extends BaseController {
 
   async getTrackedGames(req, res, next) {
     try {
-      req.body.accountId = req.userInfo.id
-      const trackedGames = await profileService.getTrackedGames(req.body.accountId)
+      const trackedGames = await profileService.getTrackedGames(req.params.id)
       res.send(trackedGames)
     } catch (error) {
       next(error)

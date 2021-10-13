@@ -57,7 +57,7 @@
           </div>
           <div class="row">
             <div class="col-12 d-flex justify-content-end">
-              <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
+              <i class="mdi mdi-plus f-20 text-light" type="button">
               </i>
             </div>
           </div>
@@ -86,9 +86,6 @@
           <div class="card shadow text-center text-light" v-else>
             <h4>This user has no posts</h4>
           </div>
-          <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
-            Create Post
-          </button>
         </div>
       </div>
     </div>
@@ -118,6 +115,7 @@ import { AppState } from '../AppState'
 import Pop from '../utils/Pop'
 import { accountService } from '../services/AccountService'
 import { postsService } from '../services/PostsService'
+import { trackedGamesService } from '../services/TrackedGamesService'
 
 export default {
   setup() {
@@ -133,16 +131,39 @@ export default {
       } catch (error) {
         Pop.toast(error, 'Error getting Posts')
       }
+      try {
+        await accountService.getTrackedGames(route.params.otheruserId)
+        await trackedGamesService.getTrackedGames()
+      } catch (error) {
+        Pop.toast(error, 'error')
+      }
     })
     return {
       profile: computed(() => AppState.otherUser),
       user: computed(() => AppState.user),
-      posts: computed(() => AppState.usersPosts)
+      posts: computed(() => AppState.usersPosts),
+      followedGames: computed(() => AppState.followedGames)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.live-card{
+  height: 15rem;
+}
 
+.friend-card{
+  height: 7rem;
+}
+
+.library-card{
+  height: 20rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.uploadss{
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
 </style>
