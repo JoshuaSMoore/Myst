@@ -7,5 +7,6 @@ export class Post {
     this.video = postData.video
     this.creatorId = postData.creatorId
     this.creator = postData.creator
+    this.mediaUrl = postData.mediaUrl || null
   }
 }
