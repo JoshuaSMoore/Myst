@@ -21,7 +21,8 @@
         <h5>{{ post.body }}</h5>
       </div>
     </div>
-    <div class=" bg-info text-dark shadow spinner-border text-light ms-5" role="status" v-else>
+    <div class=" bg-info text-dark shadow text-light ms-5" role="status" v-else>
+      <img src="../assets/img/transpine.png" class="spinner">
       <span class="visually-hidden text-light">Loading...</span>
     </div>
   </div>
