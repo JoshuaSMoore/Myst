@@ -17,6 +17,12 @@ class FirebaseService {
     return url
   }
 
+  async remove(fileName, type) {
+    const collection = storage.ref(type) // access sub folder in firebase (images or videos)
+    const resource = collection.child(fileName) // this needs to be the name of the file
+    resource.remove()
+  }
+
   async login() {
     try {
       const res = await api.get('/account/firebase-token')
