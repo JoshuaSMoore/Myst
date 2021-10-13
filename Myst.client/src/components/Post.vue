@@ -10,7 +10,7 @@
         >
         <video class="img-fluid" controls v-else>
           <source :src="post.mediaUrl" type="video/mp4" />
-          <source src="movie.ogg" type="video/ogg" />
+
         </video>
         <i class="mdi mdi-delete-forever selectable text-light f-20 mx-3" title="Delete Post" v-if="post.creatorId === account.id" @click="deletePost(post.id)"></i>
       </div>
@@ -21,7 +21,8 @@
         <h5>{{ post.body }}</h5>
       </div>
     </div>
-    <div class=" bg-info text-dark shadow spinner-border text-light ms-5" role="status" v-else>
+    <div class=" bg-dark text-dark shadow text-light ms-5" role="status" v-else>
+      <img src="../assets/img/transpine.png" class="spinner">
       <span class="visually-hidden text-light">Loading...</span>
     </div>
   </div>
@@ -68,5 +69,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.spinner{
+  animation-name: spin;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
 </style>

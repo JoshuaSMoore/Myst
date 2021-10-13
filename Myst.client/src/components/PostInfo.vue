@@ -10,7 +10,6 @@
         >
         <video class="img-fluid" controls v-else>
           <source :src="info.mediaUrl" type="video/mp4" />
-          <source src="movie.ogg" type="video/ogg" />
         </video>
       </div>
     </div>

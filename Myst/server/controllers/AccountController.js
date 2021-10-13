@@ -1,6 +1,6 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { accountService } from '../services/AccountService'
-import { firebaseservice } from '../services/FirebaseService.js'
+import { firebaseService } from '../services/FirebaseService.js'
 import BaseController from '../utils/BaseController'
 
 export class AccountController extends BaseController {
@@ -10,9 +10,9 @@ export class AccountController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
       .get('/search', this.getAccountsByQuery)
+      .get('/firebase-token', this.getFirebaseAuthToken)
       .get('/:accountId', this.getAccountById)
       .put('', this.editAccount)
-      .get('/firebase-token', this.getFirebaseAuthToken)
   }
 
   async getUserAccount(req, res, next) {
@@ -53,7 +53,7 @@ export class AccountController extends BaseController {
 
   async getFirebaseAuthToken(req, res, next) {
     try {
-      const token = await firebaseservice.getFirebaseAuthToken(req.userInfo)
+      const token = await firebaseService.getFirebaseAuthToken(req.userInfo)
       return res.send({ token })
     } catch (error) {
       next(error)
