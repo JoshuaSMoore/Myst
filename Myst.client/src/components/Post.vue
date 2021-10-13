@@ -36,7 +36,7 @@ export default {
         const yes = await Pop.confirm('Do you want to delete this?')
         if (!yes) { Pop.toast('delete canceled', 'error') } else {
           try {
-            // await postsService.deletePost(id)
+            await postsService.deletePost(id)
             await firebaseService.remove(props.post.mediaUrl)
           } catch (error) {
             Pop.toast(error.message, 'error')
