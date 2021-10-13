@@ -83,7 +83,7 @@ export default {
         const modal = Modal.getInstance(document.getElementById('post-form'))
         modal.hide()
         AppState.usersPosts.unshift({ body: 'loading' })
-        const url = await firebaseService.upload(files.value[0], editable.value.type, editable.value.body)
+        const url = await firebaseService.upload(files.value[0], editable.value.type)
         editable.value.mediaUrl = url
         logger.log(url)
         await this.createPost()
