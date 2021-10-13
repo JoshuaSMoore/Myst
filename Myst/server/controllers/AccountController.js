@@ -1,5 +1,6 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { accountService } from '../services/AccountService'
+import { firebaseservice } from '../services/FirebaseService.js'
 import BaseController from '../utils/BaseController'
 
 export class AccountController extends BaseController {
@@ -24,6 +25,15 @@ export class AccountController extends BaseController {
     try {
       const account = await accountService.editAccount(req.userInfo, req.body)
       res.send(account)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getFirebaseAuthToken(req, res, next) {
+    try {
+      const token = await firebaseservice.getFirebaseAuthToken(req.userInfo)
+      return res.send({ token })
     } catch (error) {
       next(error)
     }
