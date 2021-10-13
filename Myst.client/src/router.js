@@ -30,6 +30,12 @@ const routes = [
     beforeEnter: authGuard
   },
   {
+    path: '/otheruserpage/:otheruserId',
+    name: 'OtherUserPage',
+    component: loadPage('OtherUserPage'),
+    beforeEnter: authGuard
+  },
+  {
     path: '/search',
     name: 'Search',
     component: loadPage('SearchPage'),
