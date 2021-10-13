@@ -22,6 +22,13 @@
       </div>
     </div>
   </div>
+  <Modal :id="'p-modal-'+post.id" class="bg-dark text-light">
+    <template #modal-title>
+    </template>
+    <template #modal-body>
+      <PostInfo :info="post" class="m-5" />
+    </template>
+  </Modal>
 </template>
 
 <script>
