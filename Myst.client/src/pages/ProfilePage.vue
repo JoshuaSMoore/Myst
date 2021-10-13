@@ -78,22 +78,17 @@
         </div>
       </div>
       <div class="row my-4">
-        <div class="col-12">
-          <div class="card posts-card bg-dark text-light py-5 text-center">
-            <h1>
-              Posts go here
-            </h1>
-            <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
-              Create Post
-            </button>
-
-            <div class="d-flex mx-4" v-if="posts">
-              <Post v-for="p in posts" :key="p.id" :post="p" class="m-2" />
-            </div>
-            <div class="card shadow text-center text-light" v-else>
-              <h4>This user has no posts</h4>
-            </div>
+        <div class="bg-dark rounded uploadss text-light py-5">
+          <h2>POSTS</h2>
+          <div class="d-flex mx-4" v-if="posts">
+            <Post v-for="p in posts" :key="p.id" :post="p" class="m-2" />
           </div>
+          <div class="card shadow text-center text-light" v-else>
+            <h4>This user has no posts</h4>
+          </div>
+          <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+            Create Post
+          </button>
         </div>
       </div>
     </div>
@@ -165,6 +160,10 @@ export default {
 
 .library-card{
   height: 20rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.uploadss{
   overflow-x: scroll;
   overflow-y: hidden;
 }
