@@ -86,6 +86,7 @@ export default {
       async createTrackedGame(gameId) {
         try {
           await trackedGamesService.createTrackedGame(gameId)
+          Pop.toast("you've followed this game!", 'success')
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
@@ -93,6 +94,7 @@ export default {
       async deleteTrackedGame(gameId) {
         try {
           await trackedGamesService.deleteTrackedGame(gameId)
+          Pop.toast("you've unfollowed this game", 'success')
         } catch (error) {
           Pop.toast(error.message, 'error')
         }

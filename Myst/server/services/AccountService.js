@@ -76,6 +76,17 @@ class AccountService {
     return account
   }
 
+  getAccountById() {
+    throw new Error('Method not implemented.')
+  }
+
+  async getAccountsByQuery(query) {
+    const reg = new RegExp(query.name, 'ig')
+    const accounts = await dbContext.Account.find()
+    const foundAccounts = accounts.filter(f => reg.test(f.name))
+    return foundAccounts
+  }
+
   // REVIEW editAccount may need to be Mick proofed.
   async editAccount(user, body) {
     const account = await this.getAccount(user)
