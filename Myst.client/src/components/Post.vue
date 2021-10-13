@@ -1,6 +1,6 @@
 <template>
-  <div class="post">
-    <div class="card bg-info text-light shadow" style="width: 18rem">
+  <div class="post m-2">
+    <div class="card bg-info text-light shadow" style="width: 18rem" v-if="post.body != 'loading'">
       <div class="card-body container-fluid">
         <img :src="post.mediaUrl"
              v-if="post.mediaUrl?.includes('Image')"
@@ -12,14 +12,17 @@
           <source :src="post.mediaUrl" type="video/mp4" />
           <source src="movie.ogg" type="video/ogg" />
         </video>
+        <i class="mdi mdi-delete-forever selectable text-light f-20 mx-3" title="Delete Post" v-if="post.creatorId === account.id" @click="deletePost(post.id)"></i>
       </div>
       <div class="d-flex card-footer bg-primary text-dark selectable"
            data-bs-toggle="modal"
            :data-bs-target="'#p-modal-'+post.id"
       >
         <h5>{{ post.body }}</h5>
-        <i class="mdi mdi-delete-forever selectable text-light f-20 mx-3" title="Delete Post" v-if="post.creatorId === account.id" @click="deletePost(post.id)"></i>
       </div>
+    </div>
+    <div class="card bg-info text-dark shadow spinner-border text-light ms-5" role="status" v-else>
+      <span class="visually-hidden">Loading...</span>
     </div>
   </div>
   <Modal :id="'p-modal-'+post.id" class="bg-dark text-light">

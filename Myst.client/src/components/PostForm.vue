@@ -22,9 +22,9 @@
         <button v-if="files[0] && editable.body" class="btn btn-primary text-light me-5" type="button" @click="upload">
           Create Post
         </button>
-        <div class="spinner-border text-light ms-5" role="status" v-if="files[0] && editable.body">
+        <!-- <div class="spinner-border text-light ms-5" role="status" v-if="files[0] && editable.body">
           <span class="visually-hidden">Loading...</span>
-        </div>
+        </div> -->
       </div>
     </form>
   </div>
@@ -80,7 +80,10 @@ export default {
         files.value[0]?.type.includes('image') ? editable.value.type = 'Images' : editable.value.type = 'Videos'
       },
       async upload() {
-        const url = await firebaseService.upload(files.value[0], editable.value.type)
+        const modal = Modal.getInstance(document.getElementById('post-form'))
+        modal.hide()
+        AppState.usersPosts.unshift({ body: 'loading' })
+        const url = await firebaseService.upload(files.value[0], editable.value.type, editable.value.body)
         editable.value.mediaUrl = url
         logger.log(url)
         await this.createPost()
