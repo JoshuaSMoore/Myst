@@ -24,6 +24,7 @@
   </div>
   <Modal :id="'p-modal-'+post.id" class="bg-dark text-light">
     <template #modal-title>
+      {{ post.body }}
     </template>
     <template #modal-body>
       <PostInfo :info="post" class="m-5" />
