@@ -14,6 +14,16 @@ class AccountService {
     }
   }
 
+  async getAccountById(id) {
+    try {
+      const res = await api.get(`account/${id}`)
+      logger.log(res.data)
+      AppState.otherUser = res.data
+    } catch (err) {
+      logger.error('HAVE YOU STARTED YOUR SERVER YET???', err)
+    }
+  }
+
   async editProfile(editable) {
     const res = await api.put('account', editable)
     logger.log('editAccount', res)

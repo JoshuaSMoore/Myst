@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="profile">
     <div class="row">
       <div class="col-12">
         <h2 class="my-5">
@@ -112,9 +112,27 @@
 </template>
 
 <script>
+import { computed, onMounted } from '@vue/runtime-core'
+import { useRoute } from 'vue-router'
+import { AppState } from '../AppState'
+import Pop from '../utils/Pop'
+import { accountService } from '../services/AccountService'
+
 export default {
   setup() {
-    return {}
+    const route = useRoute()
+    onMounted(async() => {
+      try {
+        await accountService.getAccountById(route.params.otheruserId)
+      } catch (error) {
+        Pop.toast(error.message, 'error')
+      }
+    })
+    return {
+      profile: computed(() => AppState.otherUser),
+      user: computed(() => AppState.user),
+      posts: computed(() => AppState.usersPosts)
+    }
   }
 }
 </script>
