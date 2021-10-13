@@ -76,8 +76,9 @@ class AccountService {
     return account
   }
 
-  getAccountById() {
-    throw new Error('Method not implemented.')
+  async getAccountById(accountId) {
+    const account = await dbContext.Account.findById(accountId)
+    return account
   }
 
   async getAccountsByQuery(query) {

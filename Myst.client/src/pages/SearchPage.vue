@@ -1,26 +1,30 @@
 <template>
-  <div class="row m-5 p-0 align-items-center d-flex justify-content-center">
-    <div class="text-muted text-dark text-center mt-3">
-      <h2> PAGE {{ currentPage }} </h2>
-    </div>
-    <div v-if="games" class="d-flex">
-      <GameSearchCard v-for="g in games" :key="g.id" :game="g" class="m-2" />
-    </div>
-    <div v-if="searchedAccounts" class="d-flex">
-      <AccountSearchCard v-for="s in searchedAccounts" :key="s.id" :account="s" />
-    </div>
-    <div class="col-12 d-flex justify-content-around">
-      <button class="btn btn-secondary" @click="getOld()" v-if="previous">
-        Previous
-      </button>
-      <div v-if="!previous"></div>
-      <div class="text-muted text-dark">
+  <div class="container-fluid">
+    <div class="row my-5 p-0 align-items-center d-flex justify-content-center">
+      <div class="text-muted text-dark text-center mt-3">
         <h2> PAGE {{ currentPage }} </h2>
       </div>
-      <button class="btn btn-secondary" @click="getNew()" v-if="next">
-        Next
-      </button>
-      <div v-if="!next"></div>
+    </div>
+    <div v-if="games" class="row">
+      <GameSearchCard v-for="g in games" :key="g.id" :game="g" class="col-3 m-auto" />
+    </div>
+    <div v-if="searchedAccounts" class="col-3 m-2">
+      <AccountSearchCard v-for="s in searchedAccounts" :key="s.id" :account="s" />
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-around">
+        <button class="btn btn-secondary" @click="getOld()" v-if="previous">
+          Previous
+        </button>
+        <div v-if="!previous"></div>
+        <div class="text-muted text-dark">
+          <h2> PAGE {{ currentPage }} </h2>
+        </div>
+        <button class="btn btn-secondary" @click="getNew()" v-if="next">
+          Next
+        </button>
+        <div v-if="!next"></div>
+      </div>
     </div>
   </div>
 </template>
