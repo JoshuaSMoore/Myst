@@ -2,7 +2,11 @@
   <div class="post">
     <div class="card shadow p-0">
       <div class="card-body container-fluid">
-        <img :src="post.img" width="300" class="ms-3 img-fluid" alt="">
+        <img :src="post.mediaUrl" v-if="post.mediaUrl?.includes('Image')" width="300" class="ms-3 img-fluid" alt="">
+        <video class="img-fluid" controls v-else>
+          <source :src="post.mediaUrl" type="video/mp4" />
+          <source src="movie.ogg" type="video/ogg" />
+        </video>
       </div>
       <div class="card-footer text-dark">
         <h5>{{ post.body }}</h5>
