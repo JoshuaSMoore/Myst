@@ -129,7 +129,7 @@ export default {
         Pop.toast(error.message, 'error')
       }
       try {
-        await postsService.getPostByProfileId()
+        await postsService.getPostByProfileId(route.params.otheruserId)
       } catch (error) {
         Pop.toast(error, 'Error getting Posts')
       }

@@ -118,12 +118,14 @@ import { postsService } from '../services/PostsService.js'
 import Pop from '../utils/Pop.js'
 import { accountService } from '../services/AccountService.js'
 import { trackedGamesService } from '../services/TrackedGamesService.js'
+import { useRoute } from 'vue-router'
 
 export default {
   setup() {
+    const route = useRoute()
     onMounted(async() => {
       try {
-        await postsService.getPostByProfileId()
+        await postsService.getPostByProfileId(route.params.profileId)
       } catch (error) {
         Pop.toast(error, 'Error getting Posts')
       }
