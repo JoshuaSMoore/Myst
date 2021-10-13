@@ -11,26 +11,41 @@
         </div>
       </router-link>
       <div>
-        <button class="btn btn-info p-1">
+        <button v-if="searchToggle" class="btn btn-info p-1" @click="searchToggle = false">
           Search Users
         </button>
-        <button class="btn btn-success p-1">
+        <button v-else class="btn btn-success p-1" @click="searchToggle = true">
           Search Games
         </button>
       </div>
       <div class="justify-content-flex-end d-flex">
-        <form @submit.prevent="searchGames(query)">
+        <form @submit.prevent="searchGames(query)" v-if="searchToggle">
           <div class="input-group mt-1 mb-1 d-flex justify-content-end" style="width: 50vw">
             <input v-model="query"
                    type="text"
-                   class="form-control bg-secondary text-dark d-flex"
-                   placeholder="Search"
+                   class="form-control bg-success text-dark d-flex"
+                   placeholder="Search Game"
 
                    aria-label="Search"
                    aria-describedby="button-addon2"
             >
             <button class="btn btn-outline-primary" type="submit" id="button-addon2">
-              Search
+              Search Game
+            </button>
+          </div>
+        </form>
+        <form @submit.prevent="searchAccounts(query)" v-else>
+          <div class="input-group mt-1 mb-1 d-flex justify-content-end" style="width: 50vw">
+            <input v-model="query"
+                   type="text"
+                   class="form-control bg-info text-dark d-flex"
+                   placeholder="Search User"
+
+                   aria-label="Search"
+                   aria-describedby="button-addon2"
+            >
+            <button class="btn btn-outline-primary" type="submit" id="button-addon2">
+              Search User
             </button>
           </div>
         </form>
@@ -116,10 +131,13 @@ import { AppState } from '../AppState'
 import { computed, ref } from 'vue'
 import Pop from '../utils/Pop'
 import { gamesSearchService } from '../services/GamesSearchService'
+import { accountService } from '../services/AccountService.js'
 export default {
   setup() {
     const query = ref('')
+    const searchToggle = ref(true)
     return {
+      searchToggle,
       query,
       user: computed(() => AppState.user),
       account: computed(() => AppState.account),
@@ -129,6 +147,14 @@ export default {
           await gamesSearchService.getGamesSearched(query.value)
         } catch (error) {
           Pop.toast(error, 'Cant find game or invalid search request')
+        }
+      },
+
+      async searchAccounts() {
+        try {
+          await accountService.searchAccounts(query.value)
+        } catch (error) {
+          Pop.toast(error.message, 'error')
         }
       },
 

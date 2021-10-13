@@ -23,6 +23,7 @@ class GamesSearchService {
   }
 
   async getGamesSearched(query, page = 1) {
+    AppState.searchedAccounts = []
     AppState.currentSearch = query
     AppState.currentPage = 1
     const searchGames = {

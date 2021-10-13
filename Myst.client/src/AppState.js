@@ -4,6 +4,7 @@ import { reactive } from 'vue'
 export const AppState = reactive({
   user: {},
   account: {},
+  searchedAccounts: [],
   profile: {},
   currentPage: 1,
   previous: '',
