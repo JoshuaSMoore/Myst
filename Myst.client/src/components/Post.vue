@@ -21,8 +21,8 @@
         <h5>{{ post.body }}</h5>
       </div>
     </div>
-    <div class="card bg-info text-dark shadow spinner-border text-light ms-5" role="status" v-else>
-      <span class="visually-hidden">Loading...</span>
+    <div class=" bg-info text-dark shadow spinner-border text-light ms-5" role="status" v-else>
+      <span class="visually-hidden text-light">Loading...</span>
     </div>
   </div>
   <Modal :id="'p-modal-'+post.id" class="bg-dark text-light">
