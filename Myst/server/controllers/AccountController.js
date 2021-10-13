@@ -10,7 +10,7 @@ export class AccountController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
       .get('/search', this.getAccountsByQuery)
-      .get('/:accountId')
+      .get('/:accountId', this.getAccountById)
       .put('', this.editAccount)
       .get('/firebase-token', this.getFirebaseAuthToken)
   }
@@ -26,7 +26,8 @@ export class AccountController extends BaseController {
 
   async getAccountById(req, res, next) {
     try {
-      const account = await accountService.getAccountById()
+      const account = await accountService.getAccountById(req.params.accountId)
+      res.send(account)
     } catch (error) {
       next(error)
     }
