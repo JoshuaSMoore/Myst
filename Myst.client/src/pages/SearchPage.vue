@@ -3,7 +3,12 @@
     <div class="text-muted text-dark text-center mt-3">
       <h2> PAGE {{ currentPage }} </h2>
     </div>
-    <GameSearchCard v-for="g in games" :key="g.id" :game="g" class="m-2" />
+    <div v-if="games" class="d-flex">
+      <GameSearchCard v-for="g in games" :key="g.id" :game="g" class="m-2" />
+    </div>
+    <div v-if="searchedAccounts" class="d-flex">
+      <AccountSearchCard v-for="s in searchedAccounts" :key="s.id" :account="s" />
+    </div>
     <div class="col-12 d-flex justify-content-around">
       <button class="btn btn-secondary" @click="getOld()" v-if="previous">
         Previous
@@ -44,6 +49,7 @@ export default {
       next: computed(() => AppState.next),
       previous: computed(() => AppState.previous),
       currentPage: computed(() => AppState.currentPage),
+      searchedAccounts: computed(() => AppState.searchedAccounts),
       async getNew() {
         try {
           await gamesSearchService.getNew(AppState.currentPage)

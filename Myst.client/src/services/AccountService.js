@@ -26,6 +26,13 @@ class AccountService {
     AppState.trackedGames = res.data
     logger.log('AppstateTrackedGames', AppState.trackedGames)
   }
+
+  async searchAccounts(query) {
+    AppState.games = []
+    const res = await api.get(`account/search/?name=${query}`)
+    AppState.searchedAccounts = res.data
+    logger.log('searchAccounts', AppState.searchedAccounts)
+  }
 }
 
 export const accountService = new AccountService()
