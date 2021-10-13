@@ -81,7 +81,7 @@
         <div class="bg-dark rounded uploadss text-light py-5">
           <h2>POSTS</h2>
           <div class="d-flex mx-4" v-if="posts">
-            <Post v-for="p in posts" :key="p.id" :post="p" class="m-2" />
+            <Post v-for="p in posts" :key="p.id" :post="p" class="m-2 p-2" />
           </div>
           <div class="card shadow text-center text-light" v-else>
             <h4>This user has no posts</h4>

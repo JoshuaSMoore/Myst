@@ -8,6 +8,7 @@ class PostsService {
   async createPost(postData) {
     const res = await api.post('api/posts', postData)
     logger.log('Post was made', res.data)
+    AppState.usersPosts = AppState.usersPosts.filter(p => p.body !== 'loading')
     AppState.usersPosts.unshift(new Post(res.data))
   }
 

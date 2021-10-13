@@ -5,10 +5,10 @@ import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 
 class FirebaseService {
-  async upload(data, type) {
+  async upload(data, type, body) {
     const collection = storage.ref(type)
-    const resource = collection.child(data.name)
-    // const resource = collection.child(AppState.account.id).child(data.name)
+    // const resource = collection.child(data.name)
+    const resource = collection.child(data.name).child(body)
     const snapshot = await resource.put(data, {
       customMetadata: {
         uid: AppState.account.id, size: data.size, type: data.type
