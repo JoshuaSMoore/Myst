@@ -10,6 +10,7 @@ export class AccountController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
       .put('', this.editAccount)
+      .get('/firebase-token', this.getFirebaseAuthToken)
   }
 
   async getUserAccount(req, res, next) {

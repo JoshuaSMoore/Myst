@@ -5,6 +5,7 @@ const firebaseAccountKey = require('../../firebase.env.json')
 class FirebaseService {
   constructor() {
     firebaseAdmin.initializeApp({
+      // @ts-ignore
       credential: firebaseAdmin.credential.cert(firebaseAccountKey)
     })
   }
