@@ -67,8 +67,6 @@ export default {
     onMounted(async() => {
       try {
         await newsService.getNews()
-        await accountService.getTrackedGames(AppState.profile.id)
-        await trackedGamesService.getTrackedGames()
       } catch (error) {
         Pop.toast(error, 'Error grabbing news')
       }
