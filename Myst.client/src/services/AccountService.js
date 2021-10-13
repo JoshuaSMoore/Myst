@@ -1,6 +1,7 @@
 import { AppState } from '../AppState'
 import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
+import { router } from '../router'
 
 class AccountService {
   async getAccount() {
@@ -32,6 +33,7 @@ class AccountService {
     const res = await api.get(`account/search/?name=${query}`)
     AppState.searchedAccounts = res.data
     logger.log('searchAccounts', AppState.searchedAccounts)
+    router.push({ name: 'Search' })
   }
 }
 
