@@ -5,7 +5,7 @@
         <img :src="post.mediaUrl"
              v-if="post.mediaUrl?.includes('Image')"
              width="300"
-             class="img-fluid selectable"
+             class="img-fluid selectable rounded w-100"
              alt=""
         >
         <video class="img-fluid" controls v-else preload="none">
@@ -14,7 +14,7 @@
         </video>
         <i class="mdi mdi-delete-forever selectable text-light f-20 mx-3" title="Delete Post" v-if="post.creatorId === account.id" @click="deletePost(post.id)"></i>
       </div>
-      <div class="d-flex card-footer bg-primary text-dark selectable"
+      <div class="d-flex card-footer bg-dark text-light selectable"
            data-bs-toggle="modal"
            :data-bs-target="'#p-modal-'+post.id"
            @click="getComment()"
@@ -22,7 +22,7 @@
         <h5>{{ post.body }}</h5>
       </div>
     </div>
-    <div class=" bg-dark text-dark shadow text-light ms-5" role="status" v-else>
+    <div class=" bg-dark text-light shadow text-light ms-5" role="status" v-else>
       <img src="../assets/img/transpine.png" class="spinner">
       <span class="visually-hidden text-light">Loading...</span>
     </div>

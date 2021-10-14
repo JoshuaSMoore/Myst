@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary text-light">
+  <div class="bg-dark text-light">
     <div class="form-group header">
       <div class="card-body container-fluid">
         <img :src="info.mediaUrl"
@@ -13,7 +13,7 @@
         </video>
       </div>
     </div>
-    <div class="bg-secondary text-primary mt-2">
+    <div class="bg-dark text-light mt-2">
       <form @submit.prevent="createComment">
         <div class="input-group p-2">
           <input type="text"
@@ -31,7 +31,13 @@
         </div>
       </form>
     </div>
-    <Comment v-for="comment in comments" :key="comment.id" :comments="comment" />
+    <div class="m-2">
+      <Comment v-for="comment in comments"
+               :key="comment.id"
+               :comments="comment"
+               class="p-2"
+      />
+    </div>
   </div>
 </template>
 
@@ -76,6 +82,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="
+             scss"
+             scoped
+    >
 </style>

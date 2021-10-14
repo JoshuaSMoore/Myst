@@ -1,8 +1,11 @@
 <template>
-  <h3>
-    {{ comments.body }}
-    <i class="mdi mdi-delete-forever selectable text-light f-20 mx-3" title="Delete Comment" v-if="comments.creatorId === account.id" @click="deleteComment()"></i>
-  </h3>
+  <div class="bg-dark text-light">
+    <p>
+      <img :src="comments.creator.picture" class="rounded-circle" height="45" :title="comments.creator.name">
+      <i class="mdi mdi-delete-forever selectable text-light f-20 mx-3" title="Delete Comment" v-if="comments.creatorId === account.id" @click="deleteComment()"></i>
+      {{ comments.body }}
+    </p>
+  </div>
 </template>
 
 <script>
