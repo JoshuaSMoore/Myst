@@ -150,6 +150,8 @@ export default {
       user: computed(() => AppState.user),
       posts: computed(() => AppState.usersPosts),
       followedGames: computed(() => AppState.followedGames),
+      userPosts: computed(() => AppState.userPosts),
+      post: computed(() => AppState.post),
       following: computed(() => AppState.following)
     }
   }

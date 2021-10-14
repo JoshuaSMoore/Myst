@@ -57,6 +57,7 @@ export default {
     const route = useRoute()
     return {
       posts: computed(() => AppState.posts),
+      userPosts: computed(() => AppState.userPosts),
       comments: computed(() => AppState.comments),
       async createComment() {
         try {
