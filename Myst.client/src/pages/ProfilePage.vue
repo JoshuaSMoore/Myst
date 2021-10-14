@@ -50,8 +50,11 @@
                   </p>
                 </div>
               </div>
-              <div class="card friend-card bg-light text-dark mx-5 text-center">
-                <b>Friends here</b>
+              <div class="card friend-card bg-dark text-light border-light mx-5 text-center">
+                <b>Who you are following</b>
+                <div class="d-flex">
+                  <Following v-for="f in following" :key="f.id" :following="f" class="mx-2" />
+                </div>
               </div>
             </div>
           </div>
@@ -119,6 +122,7 @@ import Pop from '../utils/Pop.js'
 import { accountService } from '../services/AccountService.js'
 import { trackedGamesService } from '../services/TrackedGamesService.js'
 import { useRoute } from 'vue-router'
+import { followService } from '../services/FollowService.js'
 
 export default {
   setup() {
@@ -135,12 +139,18 @@ export default {
       } catch (error) {
         Pop.toast(error, 'error')
       }
+      try {
+        await followService.getFollowing(AppState.profile.id)
+      } catch (error) {
+        Pop.toast(error.message, 'error')
+      }
     })
     return {
       profile: computed(() => AppState.profile),
       user: computed(() => AppState.user),
       posts: computed(() => AppState.usersPosts),
-      followedGames: computed(() => AppState.followedGames)
+      followedGames: computed(() => AppState.followedGames),
+      following: computed(() => AppState.following)
     }
   }
 }
@@ -157,7 +167,9 @@ export default {
 }
 
 .friend-card{
-  height: 7rem;
+  height: 9rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .library-card{
