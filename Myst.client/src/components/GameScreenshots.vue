@@ -1,13 +1,14 @@
 <template>
-  <div class="component">
-    <p>{{ platform.platform.name }}</p>
+  <div>
+    <img :src="screenShot.image" width="200" alt="">
   </div>
 </template>
 
 <script>
+
 export default {
   props: {
-    screenshots: { type: Object, required: true }
+    screenShot: { type: Object, required: true }
   },
   setup() {
     return {}
