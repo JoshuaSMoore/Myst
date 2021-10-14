@@ -7,7 +7,7 @@
       <h4>
         Game Library
       </h4>
-      <div class="card flex-direction-row bg-dark text-light shadow-lg align-items-center">
+      <div class="card row d-flex flex-direction-row bg-dark text-light shadow-lg align-items-center">
         <div class="" v-if="followedGames">
           <button class="btn btn-dark shadow" @click="gamesOffset -=3" v-if="gamesOffset > 0" title="Previous Page">
             <i class="mdi mdi-chevron-left f-20 "></i>
