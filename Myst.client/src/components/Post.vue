@@ -17,6 +17,7 @@
       <div class="d-flex card-footer bg-primary text-dark selectable"
            data-bs-toggle="modal"
            :data-bs-target="'#p-modal-'+post.id"
+           @click="getComment()"
       >
         <h5>{{ post.body }}</h5>
       </div>
@@ -43,6 +44,8 @@ import { AppState } from '../AppState'
 import { postsService } from '../services/PostsService'
 import Pop from '../utils/Pop'
 import { firebaseService } from '../services/FirebaseService.js'
+import { logger } from '../utils/Logger'
+import { commentsService } from '../services/CommentsService'
 
 export default {
   props: {
@@ -61,6 +64,14 @@ export default {
           } catch (error) {
             Pop.toast(error.message, 'error')
           }
+        }
+      },
+      async getComment() {
+        try {
+          const res = await commentsService.getCommentByPostId(props.post.id)
+          return res
+        } catch (error) {
+          Pop.error(error)
         }
       }
     }

@@ -23,6 +23,7 @@
                  id="comment"
                  placeholder="SAY SOMETHING"
                  label="Add Comment"
+                 v-model="editable.body"
           >
           <button class="btn btn-dark justify-self-end" type="submit" style="">
             <i class="mdi mdi-plus-circle selectable"></i>
@@ -30,19 +31,19 @@
         </div>
       </form>
     </div>
-    <Comment />
+    <Comment v-for="comment in comments" :key="comment.id" :comments="comment" />
   </div>
 </template>
 
 <script>
 import { computed, ref } from '@vue/runtime-core'
-import { News } from '../models/NewsCard'
+
 import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
+
 import { Post } from '../models/Post'
 import { commentsService } from '../services/CommentsService'
 import Pop from '../utils/Pop'
-import { useRoute } from 'vue-router'
+
 export { commentsService } from '../services/CommentsService'
 
 export default {
@@ -54,17 +55,16 @@ export default {
   },
   setup(props) {
     const editable = ref({})
-    const route = useRoute()
     return {
+      editable,
       posts: computed(() => AppState.posts),
       userPosts: computed(() => AppState.userPosts),
       comments: computed(() => AppState.comments),
       async createComment() {
         try {
           // I NEED
-          editable.value.postId = props.infoId
-          editable.value.postId = route.params.infoId
-          await commentsService.createComment(editable.value.postId)
+          editable.value.postId = props.info.id
+          await commentsService.createComment(editable.value.postId, editable.value)
           editable.value = { comments: [] }
           Pop.toast('Comment Added', 'success')
         } catch (error) {
