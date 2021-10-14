@@ -28,7 +28,7 @@ class GamesSearchService {
     AppState.currentPage = 1
     const searchGames = {
       method: 'GET',
-      url: `https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${page}&search=${query}`
+      url: `https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${page}&search=${query}&search_precise=true`
     }
     axios.request(searchGames).then(function(res) {
       logger.log(res.data.results)
