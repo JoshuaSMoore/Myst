@@ -69,11 +69,11 @@ import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
 import { accountService } from '../services/AccountService'
 import { trackedGamesService } from '../services/TrackedGamesService'
-import { AuthService } from '../services/AuthService'
 export default {
   name: 'Home',
   setup() {
     const newsOffset = ref(0)
+    const gamesOffset = ref(0)
     onMounted(async() => {
       try {
         await newsService.getNews()
@@ -89,10 +89,11 @@ export default {
     })
     return {
       newsOffset,
+      gamesOffset,
       profile: computed(() => AppState.profile),
       news: computed(() => AppState.news.slice(newsOffset.value, newsOffset.value + 10)),
       games: computed(() => AppState.games),
-      followedGames: computed(() => AppState.followedGames)
+      followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 3))
     }
   }
 }
