@@ -10,6 +10,7 @@
     "@bcwdev/auth0provider-client": "0.0.7",
     "@mdi/font": "^5.9.55",
     "@popperjs/core": "^2.10.1",
+    "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "bootstrap": "^5.1.1",
     "firebase": "^9.1.2",
