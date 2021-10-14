@@ -60,7 +60,7 @@ export default {
       async createComment() {
         try {
           editable.value.infoId = route.params.infoId
-          await commentsService.createComment(editable.value)
+          await commentsService.createComment(editable.value, route.params.postId)
           editable.value = { comments: [] }
           Pop.toast('Comment Added', 'success')
         } catch (error) {
