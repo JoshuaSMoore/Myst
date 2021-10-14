@@ -59,6 +59,7 @@ export default {
       posts: computed(() => AppState.posts),
       async createComment() {
         try {
+          // I NEED
           editable.value.postId = props.infoId
           editable.value.postId = route.params.infoId
           await commentsService.createComment(editable.value, route.params.infoId)
