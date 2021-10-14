@@ -1,7 +1,7 @@
 <template>
   <div class="d-fluid row align-items-center m-5" style="justify-content: space-evenly">
     <div class="col-3">
-      <h2 class="text-white text-center" v-if="profile.name">
+      <h2 class="text-white text-center animate__rotateInDownLeft" v-if="profile.name">
         Welcome, {{ profile.name }}
       </h2>
       <h4>
@@ -13,7 +13,7 @@
             <i class="mdi mdi-chevron-left f-20 "></i>
           </button>
         </div>
-        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2 animate__bounceIn" />
+        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2 animate__slideInLeft" />
         <div class="">
           <button class="btn btn-dark shadow" @click="gamesOffset +=1" v-if="gamesOffset <= 6" title="Next Page">
             <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
