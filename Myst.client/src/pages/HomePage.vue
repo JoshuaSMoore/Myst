@@ -69,11 +69,8 @@ import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
 import { accountService } from '../services/AccountService'
 import { trackedGamesService } from '../services/TrackedGamesService'
-<<<<<<< HEAD
 import { logger } from '../utils/Logger.js'
-=======
 import 'animate.css'
->>>>>>> 6de97e58acadd9c2d9f79b67feed2581902a0584
 export default {
   name: 'Home',
   setup() {
