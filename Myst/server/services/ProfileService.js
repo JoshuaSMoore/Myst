@@ -58,7 +58,7 @@ class ProfileService {
   async followGamer(followData, oldFollowing) {
     for (let i = 0; i < oldFollowing.length; i++) {
       const check = oldFollowing[i]
-      if (check.creatorId.toString() === followData.creatorId) {
+      if (check.followingId.toString() === followData.followingId) {
         throw new BadRequest('can only follow a gamer once')
       }
     }
