@@ -8,6 +8,7 @@ export class Game {
     this.genres = data.genres || ''
     this.developer = data.developer || ''
     this.clip = data.clip || ''
+    this.screenshot = data.screenshot || ''
     this.website = data.website || ''
     this.backgroundImage = data.background_image || 'https://image.shutterstock.com/image-vector/gamepads-vector-icon-set-260nw-599550152.jpg'
     this.esrb_rating = data.esrb_rating || ''
