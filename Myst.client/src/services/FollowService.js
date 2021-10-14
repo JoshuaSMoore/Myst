@@ -9,6 +9,7 @@ class FollowService {
   }
 
   async getFollowing(id) {
+    AppState.following = []
     const res = await api.get(`api/profiles/${id}/following`)
     AppState.following = res.data
     logger.log('JKDLFLKS:DJJFLJ:DSLKF:SD', AppState.following)

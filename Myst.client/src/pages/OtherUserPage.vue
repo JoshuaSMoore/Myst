@@ -148,6 +148,7 @@ export default {
       async addFollower() {
         try {
           await followService.addFollower(route.params.otheruserId)
+          Pop.toast("You've followed this Gamer", 'success')
         } catch (error) {
           Pop.toast(error, 'error')
         }
