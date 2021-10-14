@@ -85,13 +85,18 @@ class GamesSearchService {
       method: 'GET',
       url: `https://api.rawg.io/api/games/${id}?key=004cc6f4ef734a4a8725e3082070efd6`
     }
-    axios.request(game).then(function(res) {
+    await axios.request(game).then(function(res) {
       logger.log(res.data)
       AppState.game = res.data
       logger.log('after getById', AppState.game)
     }).catch(function(error) {
       logger.error(error)
     })
+    this.getRelatedGames(AppState.game.genre[0].slug)
+  }
+
+  async getRelatedGames(genreName) {
+    logger.log('this is the genre name', genreName)
   }
 }
 export const gamesSearchService = new GamesSearchService()

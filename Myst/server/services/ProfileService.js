@@ -43,7 +43,7 @@ class ProfileService {
   }
 
   async getFollowing(accountId) {
-    const following = await dbContext.Follow.find({ accountId }).populate('follower').populate('following')
+    const following = await dbContext.Follow.find({ creatorId: accountId }).populate('follower').populate('following')
     return following
   }
 
