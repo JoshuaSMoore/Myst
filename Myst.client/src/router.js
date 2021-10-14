@@ -24,13 +24,13 @@ const routes = [
     beforeEnter: authGuard
   },
   {
-    path: '/profile/:profileId',
+    path: '/account/:profileId',
     name: 'Profile',
     component: loadPage('ProfilePage'),
     beforeEnter: authGuard
   },
   {
-    path: '/otheruserpage/:otheruserId',
+    path: '/profile/:otheruserId',
     name: 'OtherUserPage',
     component: loadPage('OtherUserPage'),
     beforeEnter: authGuard
