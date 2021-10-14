@@ -69,6 +69,7 @@ import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
 import { accountService } from '../services/AccountService'
 import { trackedGamesService } from '../services/TrackedGamesService'
+import { logger } from '../utils/Logger.js'
 export default {
   name: 'Home',
   setup() {
@@ -81,7 +82,8 @@ export default {
         Pop.toast(error, 'Error grabbing news')
       }
       try {
-        await accountService.getTrackedGames(AppState.account.id)
+        logger.log(AppState.profile)
+        await accountService.getTrackedGames(AppState.profile.id)
         await trackedGamesService.getTrackedGames()
       } catch (error) {
         Pop.toast(error, 'Error')

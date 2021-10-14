@@ -32,6 +32,7 @@ class AccountService {
   }
 
   async getTrackedGames(profileId) {
+    AppState.trackedGames = []
     const res = await api.get(`api/profiles/${profileId}/trackedgames`)
     logger.log('getTrackedGames', res)
     AppState.trackedGames = res.data

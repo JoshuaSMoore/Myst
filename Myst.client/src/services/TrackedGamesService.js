@@ -19,7 +19,7 @@ class TrackedGamesService {
     tracked.forEach(async t => {
       await this.getGameById(t.gameId)
     })
-    logger.log('here trackedGames', AppState.followedGames)
+    logger.log('trackedGames TRACKEDGAMESSERVICE', AppState.followedGames)
   }
 
   async getGameById(id) {
@@ -29,9 +29,7 @@ class TrackedGamesService {
       url: `https://api.rawg.io/api/games/${id}?key=004cc6f4ef734a4a8725e3082070efd6`
     }
     axios.request(game).then(function(res) {
-      logger.log(res.data)
       AppState.followedGames.push(res.data)
-      logger.log('after getGameById', AppState.followedGames)
     }).catch(function(error) {
       logger.error(error)
     })
