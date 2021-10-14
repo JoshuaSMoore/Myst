@@ -57,7 +57,7 @@
           </div>
           <div class="row">
             <div class="col-12 d-flex justify-content-end">
-              <i class="mdi mdi-plus f-20 text-light" type="button">
+              <i class="mdi mdi-plus f-20 text-light" type="button" @click="addFollower()">
               </i>
             </div>
           </div>
@@ -116,6 +116,8 @@ import Pop from '../utils/Pop'
 import { accountService } from '../services/AccountService'
 import { postsService } from '../services/PostsService'
 import { trackedGamesService } from '../services/TrackedGamesService'
+import { followService } from '../services/FollowService.js'
+import { logger } from '../utils/Logger.js'
 
 export default {
   setup() {
@@ -142,7 +144,14 @@ export default {
       profile: computed(() => AppState.otherUser),
       user: computed(() => AppState.user),
       posts: computed(() => AppState.usersPosts),
-      followedGames: computed(() => AppState.followedGames)
+      followedGames: computed(() => AppState.followedGames),
+      async addFollower() {
+        try {
+          await followService.addFollower(route.params.otheruserId)
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      }
     }
   }
 }
