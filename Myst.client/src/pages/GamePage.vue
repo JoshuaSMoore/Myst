@@ -83,6 +83,7 @@ export default {
     })
     return {
       game: computed(() => AppState.game),
+
       async createTrackedGame(gameId) {
         try {
           await trackedGamesService.createTrackedGame(gameId)
