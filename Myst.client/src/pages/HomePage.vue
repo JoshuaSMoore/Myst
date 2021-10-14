@@ -7,9 +7,18 @@
       <h4>
         Game Library
       </h4>
-      <div class="card library-card bg-dark text-light py-5 text-center shadow-lg">
-        <div class="d-flex" v-if="followedGames">
-          <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-2" />
+      <div class="card flex-direction-row bg-dark text-light shadow-lg align-items-center">
+        <div class="" v-if="followedGames">
+          <button class="btn btn-dark shadow" @click="gamesOffset -=3" v-if="gamesOffset > 0" title="Previous Page">
+            <i class="mdi mdi-chevron-left f-20 "></i>
+          </button>
+        </div>
+        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2" />
+        <div class="">
+          <button class="btn btn-dark shadow" @click="gamesOffset +=3" v-if="gamesOffset <= 0" title="Next Page">
+            <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
+            </i>
+          </button>
         </div>
       </div>
     </div>
@@ -64,6 +73,7 @@ export default {
   name: 'Home',
   setup() {
     const newsOffset = ref(0)
+    const gamesOffset = ref(0)
     onMounted(async() => {
       try {
         await newsService.getNews()
@@ -73,10 +83,11 @@ export default {
     })
     return {
       newsOffset,
+      gamesOffset,
       profile: computed(() => AppState.profile),
       news: computed(() => AppState.news.slice(newsOffset.value, newsOffset.value + 10)),
       games: computed(() => AppState.games),
-      followedGames: computed(() => AppState.followedGames)
+      followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 3))
     }
   }
 }

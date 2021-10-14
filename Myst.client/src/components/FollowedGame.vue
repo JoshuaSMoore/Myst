@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="col">
     <router-link :to="{ name: 'Game', params: { gameId: followedGame.id }}">
       <h5 class="text-light">
         {{ followedGame.name }}
