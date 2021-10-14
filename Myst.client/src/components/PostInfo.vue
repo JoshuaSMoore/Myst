@@ -70,7 +70,7 @@ export default {
         try {
           // I NEED
           editable.value.postId = props.info.id
-          await commentsService.createComment(editable.value.postId, editable.value)
+          await commentsService.createComment(editable.value.postId, editable.value, editable.value.comments)
           editable.value = { comments: [] }
           Pop.toast('Comment Added', 'success')
         } catch (error) {

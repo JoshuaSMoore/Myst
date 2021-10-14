@@ -59,6 +59,8 @@
             <div class="col-12 d-flex justify-content-end">
               <i class="mdi mdi-plus f-20 text-light" type="button" @click="addFollower()">
               </i>
+              <i class="mdi mdi-minus f-20 text-light" type="button" @click="deleteFollower()">
+              </i>
             </div>
           </div>
         </div>
@@ -148,9 +150,18 @@ export default {
       async addFollower() {
         try {
           await followService.addFollower(route.params.otheruserId)
+          await followService.getFollowing(AppState.profile.id)
           Pop.toast("You've followed this Gamer", 'success')
         } catch (error) {
           Pop.toast(error, 'error')
+        }
+      },
+      async deleteFollower() {
+        try {
+          await followService.deleteFollower(route.params.otheruserId)
+          Pop.toast("You've stopped following this Gamer", 'success')
+        } catch (error) {
+          Pop.toast(error.message, 'error')
         }
       }
     }
