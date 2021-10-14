@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-dark text-light">
+  <div class="bg-primary text-light">
     <div class="form-group header">
       <div class="card-body container-fluid">
         <img :src="info.mediaUrl"
@@ -9,12 +9,26 @@
              alt=""
         >
         <video class="img-fluid" controls v-else>
-          <source :src="info.mediaUrl" type="video/mp4" />
+          <source :src="info.mediaUrl" type="video/mp4" preload="none" />
         </video>
       </div>
     </div>
-    <div class="bg-secondary text-dark mt-2">
-      <h3>COMMENTS GO HERE</h3>
+    <div class="bg-secondary text-primary mt-2">
+      <form onsubmit="">
+        <div class="input-group p-2">
+          <input type="text"
+                 required
+                 class="form-control"
+                 name="comment"
+                 id="comment"
+                 placeholder="SAY SOMETHING"
+                 label="Add Comment"
+          >
+          <button class="btn btn-dark justify-self-end" type="submit" style="">
+            <i class="mdi mdi-plus-circle selectable"></i>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </template>
