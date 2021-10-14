@@ -49,7 +49,7 @@ export default {
   props: {
     info: {
       type: Post,
-      required: true
+      default: () => new Post()
     }
   },
   setup(props) {
@@ -59,8 +59,9 @@ export default {
       posts: computed(() => AppState.posts),
       async createComment() {
         try {
-          editable.value.infoId = route.params.infoId
-          await commentsService.createComment(editable.value, route.params.postId)
+          editable.value.postId = props.infoId
+          editable.value.postId = route.params.infoId
+          await commentsService.createComment(editable.value, route.params.infoId)
           editable.value = { comments: [] }
           Pop.toast('Comment Added', 'success')
         } catch (error) {
