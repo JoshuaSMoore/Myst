@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary text-light">
+  <div class="bg-dark text-light ">
     <div class="form-group header">
       <div class="card-body container-fluid">
         <img :src="info.mediaUrl"
@@ -13,7 +13,7 @@
         </video>
       </div>
     </div>
-    <div class="bg-secondary text-primary mt-2">
+    <div class="bg-dark text-light mt-2">
       <form @submit.prevent="createComment">
         <div class="input-group p-2">
           <input type="text"
@@ -23,26 +23,33 @@
                  id="comment"
                  placeholder="SAY SOMETHING"
                  label="Add Comment"
+                 v-model="editable.body"
           >
-          <button class="btn btn-dark justify-self-end" type="submit" style="">
+          <button class="btn btn-dark justify-self-end selectable" type="submit" style="" title="Comment">
             <i class="mdi mdi-plus-circle selectable"></i>
           </button>
         </div>
       </form>
     </div>
-    <Comment />
+    <div class="m-2">
+      <Comment v-for="comment in comments"
+               :key="comment.id"
+               :comments="comment"
+               class="p-2"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import { computed, ref } from '@vue/runtime-core'
-import { News } from '../models/NewsCard'
+
 import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
+
 import { Post } from '../models/Post'
 import { commentsService } from '../services/CommentsService'
 import Pop from '../utils/Pop'
-import { useRoute } from 'vue-router'
+
 export { commentsService } from '../services/CommentsService'
 
 export default {
@@ -54,17 +61,16 @@ export default {
   },
   setup(props) {
     const editable = ref({})
-    const route = useRoute()
     return {
+      editable,
       posts: computed(() => AppState.posts),
       userPosts: computed(() => AppState.userPosts),
       comments: computed(() => AppState.comments),
       async createComment() {
         try {
           // I NEED
-          editable.value.postId = props.infoId
-          editable.value.postId = route.params.infoId
-          await commentsService.createComment(editable.value.postId)
+          editable.value.postId = props.info.id
+          await commentsService.createComment(editable.value.postId, editable.value)
           editable.value = { comments: [] }
           Pop.toast('Comment Added', 'success')
         } catch (error) {
@@ -76,6 +82,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style     >
 </style>
