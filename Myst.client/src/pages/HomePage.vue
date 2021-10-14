@@ -1,7 +1,7 @@
 <template>
   <div class="d-fluid row align-items-center m-5" style="justify-content: space-evenly">
     <div class="col-3">
-      <h2 class="text-white text-center animate__rotateInDownLeft" v-if="profile.name">
+      <h2 class="text-white text-center animate__animated animate__rotateInDownLeft" v-if="profile.name">
         Welcome, {{ profile.name }}
       </h2>
       <h4>
@@ -13,7 +13,7 @@
             <i class="mdi mdi-chevron-left f-20 "></i>
           </button>
         </div>
-        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2 animate__slideInLeft" />
+        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2  animate__animated animate__slideInLeft" />
         <div class="">
           <button class="btn btn-dark shadow" @click="gamesOffset +=1" v-if="gamesOffset <= 6" title="Next Page">
             <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="col-3 rounded text-center">
-      <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded shadow-lg animate__bounceIn">
+      <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded shadow-lg  animate__animated animate__bounceIn">
     </div>
   </div>
   <div class="news d-flex m-2 p-1 flex-column align-items-center justify-content-center">
@@ -34,7 +34,7 @@
             <i class="mdi mdi-chevron-triple-left f-20 ">Previous</i>
           </button>
         </div>
-        <div class="col d-flex justify-content-around text-light" title="Daily Gaming News">
+        <div class="col d-flex justify-content-around text-light animate__animated animate__jackInTheBox" title="Daily Gaming News">
           <i class="mdi mdi-google-controller f-20">NEWS <i class="mdi mdi-google-controller f-20"></i></i>
         </div>
         <div class="col d-flex justify-content-around">
@@ -69,6 +69,7 @@ import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
 import { accountService } from '../services/AccountService'
 import { trackedGamesService } from '../services/TrackedGamesService'
+import { logger } from '../utils/Logger.js'
 import 'animate.css'
 export default {
   name: 'Home',
@@ -82,7 +83,8 @@ export default {
         Pop.toast(error, 'Error grabbing news')
       }
       try {
-        await accountService.getTrackedGames(AppState.account.id)
+        logger.log(AppState.profile)
+        await accountService.getTrackedGames(AppState.profile.id)
         await trackedGamesService.getTrackedGames()
       } catch (error) {
         Pop.toast(error, 'Error')

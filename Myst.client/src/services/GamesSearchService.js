@@ -15,7 +15,7 @@ const options = {
 class GamesSearchService {
   async getGames() {
     await axios.request(options).then(function(res) {
-      logger.log(res.data.results)
+      logger.log('getGames', res.data.results)
       AppState.games = res.data.results.map(g => new Game(g))
     }).catch(function(error) {
       logger.error(error)

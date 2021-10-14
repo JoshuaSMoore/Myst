@@ -2,7 +2,7 @@
   <div class="card m-3 bg-dark text-light elevation-5" style="max-width: 1000px;">
     <div class="row g-0">
       <div class="col-md-4 p-1">
-        <img :src="news.thumbnail" class="img-fluid rounded-start selectable p-1 animate__tada" data-bs-toggle="modal" :data-bs-target="'#a-modal-'+ news.id" alt="Picture">
+        <img :src="news.thumbnail" class="img-fluid rounded-start selectable p-1  animate__animated animate__tada" data-bs-toggle="modal" :data-bs-target="'#a-modal-'+ news.id" alt="Picture">
       </div>
       <div class="col-md-8">
         <div class="card-body">
