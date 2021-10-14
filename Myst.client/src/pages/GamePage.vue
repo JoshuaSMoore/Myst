@@ -62,13 +62,17 @@
         </div>
       </div>
       <div class="col-5 ms-2 p-5 card bg-dark text-light mb-3">
-        <GameScreenshots v-for="g in gameScreenShots" :key="g.id" :screen-shot="g" />
-        trailer/pictures
+        <h3 class="mb-5">
+          Game Screenshots
+        </h3>
+        <div class="d-flex screenshot-card">
+          <GameScreenshots v-for="g in gameScreenShots" :key="g.id" :screen-shot="g" class="mx-2" />
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <GameCard />
+    <div class="row">
+      <GameCard />
+    </div>
   </div>
 </template>
 
@@ -120,6 +124,11 @@ export default {
   height: 25rem;
 }
 .related-game-card{
+  height: 15rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.screenshot-card{
   height: 15rem;
   overflow-x: scroll;
   overflow-y: hidden;

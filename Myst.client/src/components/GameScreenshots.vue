@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="screenShot.image" width="200" alt="">
+    <img :src="screenShot.image" width="300" alt="">
   </div>
 </template>
 

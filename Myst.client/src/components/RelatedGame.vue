@@ -4,7 +4,7 @@
       <h5 class="text-light">
         {{ relatedGame.name }}
       </h5>
-      <img :src="relatedGame.background_image" width="200" alt="">
+      <img :src="relatedGame.background_image" width="300" alt="">
     </router-link>
   </div>
 </template>
