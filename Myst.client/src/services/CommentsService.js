@@ -31,10 +31,10 @@ class CommentsService {
     logger.log(AppState.comments)
   }
 
-  async deleteComment(postId, commentId, comment) {
+  async deleteComment(postId, commentId, comments) {
     if (await Pop.confirm()) {
       try {
-        const res = await api.delete(`api/posts/${postId}/comments/${commentId}`, comment)
+        const res = await api.delete(`api/posts/${postId}/comments/${commentId}`, comments)
         Pop.toast('Comment Deleted', 'success')
         AppState.comments = AppState.comments.filter(c => c.id !== commentId)
         logger.log('the res for delete comment', res)
