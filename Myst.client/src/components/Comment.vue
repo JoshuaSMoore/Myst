@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-dark text-light">
+  <div class="bg-dark text-light" v-if="comments">
     <p>
       <img :src="comments.creator.picture" class="rounded-circle" height="45" :title="comments.creator.name">
       <i class="mdi mdi-delete-forever selectable text-light f-20 mx-3" title="Delete Comment" v-if="comments.creatorId === account.id" @click="deleteComment()"></i>
