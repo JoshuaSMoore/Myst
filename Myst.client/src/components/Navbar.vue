@@ -78,11 +78,6 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <router-link :to="{ name: 'Account' }">
-              <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
-                Manage Account
-              </div>
-            </router-link>
             <router-link :to="{ name: 'About' }">
               <div class="list-group-item list-group-item-action hoverable selectable bg-dark text-secondary">
                 About
