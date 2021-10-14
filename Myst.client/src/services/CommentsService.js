@@ -1,4 +1,6 @@
+
 import { AppState } from '../AppState'
+import { Comment } from '../models/Comment.js'
 import { logger } from '../utils/Logger'
 import Pop from '../utils/Pop'
 import { api } from './AxiosService'
@@ -22,15 +24,24 @@ class CommentsService {
     }
   }
 
-  async editComment(postId, commentId) {
-    const res = await api.put(`api/posts/${postId}/comments/${commentId}`)
+  async editComment(postId, commentId, comment) {
+    const res = await api.put(`api/posts/${postId}/comments/${commentId}`, comment)
     logger.log('did the edit work', res.data)
-    AppState.comments = res.data
+    AppState.commet = new Comment(res.data)
     logger.log(AppState.comments)
   }
 
-  async deleteComment(commentId) {
-    await commentsService.deleteComment(commentId)
+  async deleteComment(postId, commentId, comments) {
+    if (await Pop.confirm()) {
+      try {
+        const res = await api.delete(`api/posts/${postId}/comments/${commentId}`, comments)
+        Pop.toast('Comment Deleted', 'success')
+        AppState.comments = AppState.comments.filter(c => c.id !== commentId)
+        logger.log('the res for delete comment', res)
+      } catch (error) {
+        Pop.toast(error)
+      }
+    }
   }
 }
 
