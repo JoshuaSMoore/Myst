@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="bg-secondary text-primary mt-2">
-      <form onsubmit="">
+      <form @submit.prevent="createComment">
         <div class="input-group p-2">
           <input type="text"
                  required
@@ -30,15 +30,21 @@
         </div>
       </form>
     </div>
+    <Comment v-for="c in comments" :comment="c" :key="c.id" />
   </div>
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, ref } from '@vue/runtime-core'
 import { News } from '../models/NewsCard'
 import { AppState } from '../AppState'
 import { logger } from '../utils/Logger'
 import { Post } from '../models/Post'
+import { commentsService } from '../services/CommentsService'
+import Pop from '../utils/Pop'
+import { useRoute } from 'vue-router'
+export { commentsService } from '../services/CommentsService'
+
 export default {
   props: {
     info: {
@@ -47,8 +53,20 @@ export default {
     }
   },
   setup(props) {
+    const editable = ref({})
+    const route = useRoute()
     return {
-      posts: computed(() => AppState.posts)
+      posts: computed(() => AppState.posts),
+      async createComment() {
+        try {
+          editable.value.infoId = route.params.infoId
+          await commentsService.createComment(editable.value, route.params.postId)
+          editable.value = { comments: [] }
+          Pop.toast('Comment Added', 'success')
+        } catch (error) {
+          Pop.toast('error making comment', error.message)
+        }
+      }
     }
   }
 }
