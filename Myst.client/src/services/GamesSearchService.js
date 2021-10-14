@@ -87,12 +87,29 @@ class GamesSearchService {
     }
     await axios.request(game).then(function(res) {
       logger.log(res.data)
+      logger.log('digging deep into the object mofk', res.data)
       AppState.game = res.data
       logger.log('after getById', AppState.game)
+      AppState.gameName = res.data.slug
     }).catch(function(error) {
       logger.error(error)
     })
     this.getRelatedGames(AppState.game.genres[0].slug)
+    this.getGameScreenshots(AppState.gameName)
+  }
+
+  async getGameScreenshots(gameName) {
+    AppState.gameScreenShots = {}
+    const screenshots = {
+      method: 'GET',
+      url: `https://api.rawg.io/api/games/${gameName}/screenshots?key=004cc6f4ef734a4a8725e3082070efd6`
+    }
+    await axios.request(screenshots).then(function(res) {
+      logger.log('this is the screen shots of the game you have selected', res.data.results)
+      AppState.gameScreenShots = res.data.results
+    }).catch(function(error) {
+      logger.error(error)
+    })
   }
 
   async getRelatedGames(genreName) {
