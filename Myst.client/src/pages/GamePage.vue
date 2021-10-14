@@ -62,6 +62,7 @@
         </div>
       </div>
       <div class="col-5 ms-2 p-5 card bg-dark text-light mb-3">
+        <GameScreenshots v-for="g in gameScreenShots" :key="g.id" :screen-shot="g" />
         trailer/pictures
       </div>
     </div>
@@ -91,6 +92,7 @@ export default {
     return {
       game: computed(() => AppState.game),
       relatedGames: computed(() => AppState.relatedGames),
+      gameScreenShots: computed(() => AppState.gameScreenShots),
 
       async createTrackedGame(gameId) {
         try {
