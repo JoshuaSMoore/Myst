@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-12 d-flex justify-content-around my-4">
         <h1 class="">
-          {{ game.name }}
+          <b>
+            {{ game.name }}
+          </b>
         </h1>
       </div>
     </div>
@@ -51,10 +53,15 @@
     </div>
     <div class="row pt-4">
       <div class="col-1"></div>
-      <div class="col-5 me-2 p-5 card bg-dark text-light">
-        related games
+      <div class="col-5 me-2 p-3 card bg-dark text-light mb-3">
+        <h3 class="mb-5">
+          Related Games
+        </h3>
+        <div class="d-flex related-game-card">
+          <RelatedGame v-for="g in relatedGames" :key="g.id" :related-game="g" class="mx-2" />
+        </div>
       </div>
-      <div class="col-5 ms-2 p-5 card bg-dark text-light">
+      <div class="col-5 ms-2 p-5 card bg-dark text-light mb-3">
         trailer/pictures
       </div>
     </div>
@@ -83,6 +90,7 @@ export default {
     })
     return {
       game: computed(() => AppState.game),
+      relatedGames: computed(() => AppState.relatedGames),
 
       async createTrackedGame(gameId) {
         try {
@@ -109,4 +117,10 @@ export default {
 .description-card{
   height: 25rem;
 }
+.related-game-card{
+  height: 15rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
 </style>
