@@ -1,5 +1,6 @@
 <template>
   <h2> THIS IS A TEST COMMENT</h2>
+  {{ comments.body }}
 </template>
 
 <script>
