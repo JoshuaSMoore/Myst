@@ -1,4 +1,6 @@
+import { apps } from 'firebase-admin'
 import { AppState } from '../AppState'
+import { Comment } from '../models/Comment.js'
 import { logger } from '../utils/Logger'
 import Pop from '../utils/Pop'
 import { api } from './AxiosService'
@@ -22,10 +24,10 @@ class CommentsService {
     }
   }
 
-  async editComment(postId, commentId) {
-    const res = await api.put(`api/posts/${postId}/comments/${commentId}`)
+  async editComment(postId, commentId, comment) {
+    const res = await api.put(`api/posts/${postId}/comments/${commentId}`, comment)
     logger.log('did the edit work', res.data)
-    AppState.comments = res.data
+    AppState.commet = new Comment(res.data)
     logger.log(AppState.comments)
   }
 
