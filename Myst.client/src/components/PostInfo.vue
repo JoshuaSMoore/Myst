@@ -8,8 +8,8 @@
              class="img-fluid selectable"
              alt=""
         >
-        <video class="img-fluid" controls v-else preload="none">
-          <source :src="info.mediaUrl" type="video/mp4" preload="none" />
+        <video class="img-fluid" controls v-else preload="metadata">
+          <source :src="info.mediaUrl" type="video/mp4" preload="metadata" />
         </video>
       </div>
     </div>
