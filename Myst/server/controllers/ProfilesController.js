@@ -96,8 +96,7 @@ export class ProfilesController extends BaseController {
 
   async unfollowGamer(req, res, next) {
     try {
-      req.body.followerId = req.params.unfollowId
-      const gamer = await profileService.unFollowGamer(req.body.followerId)
+      const gamer = await profileService.unFollowGamer(req.params.unfollowId, req.userInfo.id)
       res.send(gamer)
     } catch (error) {
       next(error)

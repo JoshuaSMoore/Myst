@@ -48,7 +48,7 @@ class ProfileService {
   }
 
   async getFollowerById(followerId) {
-    const follower = await dbContext.Follow.findById(followerId).populate('creator', 'name picture')
+    const follower = await dbContext.Follow.findById(followerId)
     if (!follower) {
       throw new BadRequest('unable to find')
     }
@@ -68,15 +68,13 @@ class ProfileService {
     return follow
   }
 
-  async unFollowGamer(followerId) {
-    const myFollower = await dbContext.Follow.findById({ followerId })
-    logger.log(myFollower)
-
-    // if (accountId !== gamer.creatorId.toString()) {
-    //   throw new Forbidden('BAD BAD BAD BAD')
-    // }
-    // await myFollower.remove()
-    return myFollower
+  async unFollowGamer(unfollowId, userId) {
+    const follow = await this.getFollowerById(unfollowId)
+    if (follow.creatorId.toString() === userId) {
+      await follow.remove()
+    } else {
+      throw new Forbidden('The dark fire will not avail you, flame of Udûn! You Shall not pass!')
+    }
   }
 
   async getTrackedGames(accountId) {
