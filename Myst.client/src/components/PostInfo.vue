@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-dark text-light">
+  <div class="bg-dark text-light ">
     <div class="form-group header">
       <div class="card-body container-fluid">
         <img :src="info.mediaUrl"
@@ -25,7 +25,7 @@
                  label="Add Comment"
                  v-model="editable.body"
           >
-          <button class="btn btn-dark justify-self-end" type="submit" style="">
+          <button class="btn btn-dark justify-self-end selectable" type="submit" style="" title="Comment">
             <i class="mdi mdi-plus-circle selectable"></i>
           </button>
         </div>
@@ -82,8 +82,5 @@ export default {
 }
 </script>
 
-<style lang="
-             scss"
-             scoped
-    >
+<style     >
 </style>

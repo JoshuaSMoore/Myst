@@ -55,6 +55,7 @@ export default {
     return {
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
+      comments: computed(() => AppState.comments),
       async deletePost(id) {
         const yes = await Pop.confirm('Do you want to delete this?')
         if (!yes) { Pop.toast('delete canceled', 'error') } else {
