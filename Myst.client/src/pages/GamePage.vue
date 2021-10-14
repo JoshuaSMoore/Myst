@@ -70,29 +70,26 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <GameCard />
-    </div>
   </div>
 </template>
 
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
+import { computed, onMounted, watchEffect } from '@vue/runtime-core'
 import Pop from '../utils/Pop.js'
 import { gamesSearchService } from '../services/GamesSearchService.js'
 import { useRoute } from 'vue-router'
 import { AppState } from '../AppState.js'
 import { trackedGamesService } from '../services/TrackedGamesService.js'
+
 export default {
   setup() {
     const route = useRoute()
-    onMounted(async() => {
-      try {
+    watchEffect(async() => {
+      if (route.params.gameId) {
         await gamesSearchService.getGameById(route.params.gameId)
-      } catch (error) {
-        Pop.toast(error.message, 'error')
       }
     })
+
     return {
       game: computed(() => AppState.game),
       relatedGames: computed(() => AppState.relatedGames),
