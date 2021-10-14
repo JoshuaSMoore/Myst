@@ -1,4 +1,4 @@
-import { apps } from 'firebase-admin'
+
 import { AppState } from '../AppState'
 import { Comment } from '../models/Comment.js'
 import { logger } from '../utils/Logger'
@@ -31,8 +31,17 @@ class CommentsService {
     logger.log(AppState.comments)
   }
 
-  async deleteComment(commentId) {
-    await commentsService.deleteComment(commentId)
+  async deleteComment(postId, commentId, comment) {
+    if (await Pop.confirm()) {
+      try {
+        const res = await api.delete(`api/posts/${postId}/comments/${commentId}`, comment)
+        Pop.toast('Comment Deleted', 'success')
+        AppState.comments = AppState.comments.filter(c => c.id !== commentId)
+        logger.log('the res for delete comment', res)
+      } catch (error) {
+        Pop.toast(error)
+      }
+    }
   }
 }
 
