@@ -55,16 +55,16 @@ class ProfileService {
     return follower
   }
 
-  async followGamer(followData) {
-    const follow = await dbContext.Follow.create(followData)
-    await follow.populate('follower')
-    await follow.populate('following')
-    for (let i = 0; i < followData.length; i++) {
-      const check = followData[i]
-      if (check.accountId.toString() === followData.followerId) {
+  async followGamer(followData, oldFollowing) {
+    for (let i = 0; i < oldFollowing.length; i++) {
+      const check = oldFollowing[i]
+      if (check.creatorId.toString() === followData.creatorId) {
         throw new BadRequest('can only follow a gamer once')
       }
     }
+    const follow = await dbContext.Follow.create(followData)
+    await follow.populate('follower')
+    await follow.populate('following')
     return follow
   }
 

@@ -85,7 +85,8 @@ export class ProfilesController extends BaseController {
       req.body.creatorId = req.userInfo.id
       req.body.followerId = req.userInfo.id
       req.body.followingId = req.params.id
-      const gamer = await profileService.followGamer(req.body)
+      const oldFollowing = await profileService.getFollowing(req.userInfo.id)
+      const gamer = await profileService.followGamer(req.body, oldFollowing)
       res.send(gamer)
     } catch (error) {
       next(error)
