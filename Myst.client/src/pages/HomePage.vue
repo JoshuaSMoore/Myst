@@ -34,7 +34,7 @@
             <i class="mdi mdi-chevron-triple-left f-20 ">Previous</i>
           </button>
         </div>
-        <div class="col d-flex justify-content-around text-light" title="Daily Gaming News">
+        <div class="col d-flex justify-content-around text-light animate__animated animate__jackInTheBox" title="Daily Gaming News">
           <i class="mdi mdi-google-controller f-20">NEWS <i class="mdi mdi-google-controller f-20"></i></i>
         </div>
         <div class="col d-flex justify-content-around">
