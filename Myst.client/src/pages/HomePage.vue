@@ -1,21 +1,21 @@
 <template>
   <div class="d-fluid row align-items-center m-5" style="justify-content: space-evenly">
-    <div class="col-7">
-      <h2 class="text-white text-center" v-if="profile.name">
+    <div class="col-3">
+      <h2 class="text-white text-center animate__animated animate__rotateInDownLeft" v-if="profile.name">
         Welcome, {{ profile.name }}
       </h2>
       <h4>
         Game Library
       </h4>
-      <div class="card row d-flex flex-direction-row bg-dark text-light shadow-lg align-items-center">
+      <div class="card-test bg-dark text-light shadow-lg align-items-center">
         <div class="" v-if="followedGames">
-          <button class="btn btn-dark shadow" @click="gamesOffset -=3" v-if="gamesOffset > 0" title="Previous Page">
+          <button class="btn btn-dark shadow" @click="gamesOffset -=1" v-if="gamesOffset > 0" title="Previous Page">
             <i class="mdi mdi-chevron-left f-20 "></i>
           </button>
         </div>
-        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2" />
+        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2  animate__animated animate__slideInLeft" />
         <div class="">
-          <button class="btn btn-dark shadow" @click="gamesOffset +=3" v-if="gamesOffset <= 0" title="Next Page">
+          <button class="btn btn-dark shadow" @click="gamesOffset +=1" v-if="gamesOffset <= 6" title="Next Page">
             <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
             </i>
           </button>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="col-3 rounded text-center">
-      <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded shadow-lg">
+      <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded shadow-lg  animate__animated animate__bounceIn">
     </div>
   </div>
   <div class="news d-flex m-2 p-1 flex-column align-items-center justify-content-center">
@@ -34,7 +34,7 @@
             <i class="mdi mdi-chevron-triple-left f-20 ">Previous</i>
           </button>
         </div>
-        <div class="col d-flex justify-content-around text-light" title="Daily Gaming News">
+        <div class="col d-flex justify-content-around text-light animate__animated animate__jackInTheBox" title="Daily Gaming News">
           <i class="mdi mdi-google-controller f-20">NEWS <i class="mdi mdi-google-controller f-20"></i></i>
         </div>
         <div class="col d-flex justify-content-around">
@@ -69,7 +69,11 @@ import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
 import { accountService } from '../services/AccountService'
 import { trackedGamesService } from '../services/TrackedGamesService'
+<<<<<<< HEAD
 import { logger } from '../utils/Logger.js'
+=======
+import 'animate.css'
+>>>>>>> 6de97e58acadd9c2d9f79b67feed2581902a0584
 export default {
   name: 'Home',
   setup() {
@@ -95,7 +99,7 @@ export default {
       profile: computed(() => AppState.profile),
       news: computed(() => AppState.news.slice(newsOffset.value, newsOffset.value + 10)),
       games: computed(() => AppState.games),
-      followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 3))
+      followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 1))
     }
   }
 }
@@ -145,4 +149,9 @@ html {
   overflow-x: scroll;
   overflow-y: hidden;
 }
+.card-test{
+  display: flex;
+  flex-direction: row;
+}
+
 </style>

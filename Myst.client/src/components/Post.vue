@@ -46,7 +46,7 @@ import Pop from '../utils/Pop'
 import { firebaseService } from '../services/FirebaseService.js'
 import { logger } from '../utils/Logger'
 import { commentsService } from '../services/CommentsService'
-
+import 'animate.css'
 export default {
   props: {
     post: { type: Post, required: true }
