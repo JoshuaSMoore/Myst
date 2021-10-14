@@ -30,7 +30,7 @@
         </div>
       </form>
     </div>
-    <Comment v-for="c in comments" :comment="c" :key="c.id" />
+    <Comment />
   </div>
 </template>
 
@@ -57,12 +57,13 @@ export default {
     const route = useRoute()
     return {
       posts: computed(() => AppState.posts),
+      comments: computed(() => AppState.comments),
       async createComment() {
         try {
           // I NEED
           editable.value.postId = props.infoId
           editable.value.postId = route.params.infoId
-          await commentsService.createComment(editable.value, route.params.infoId)
+          await commentsService.createComment(editable.value.postId)
           editable.value = { comments: [] }
           Pop.toast('Comment Added', 'success')
         } catch (error) {
