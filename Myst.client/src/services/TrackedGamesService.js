@@ -11,6 +11,8 @@ class TrackedGamesService {
     body.gameId = gameId
     const res = await api.post('api/trackedgames', body)
     logger.log('createTrackedGame', res)
+    await this.getTrackedGamesByGameId(gameId)
+    this.checkTracked()
   }
 
   async getTrackedGames() {
@@ -42,6 +44,8 @@ class TrackedGamesService {
     const res = await api.delete(`api/trackedgames/${foundGame.id}`)
     logger.log('deleteTrackedGame', res)
     AppState.trackedGames = AppState.trackedGames.filter(t => t.id !== foundGame.id)
+    await this.getTrackedGamesByGameId(gameId)
+    this.checkTracked()
   }
 
   async getTrackedGamesByGameId(gameId) {
