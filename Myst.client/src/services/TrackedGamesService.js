@@ -4,6 +4,7 @@ import { api } from './AxiosService.js'
 import { gamesSearchService } from './GamesSearchService.js'
 import axios from 'axios'
 import { accountService } from './AccountService.js'
+import Pop from '../utils/Pop.js'
 
 class TrackedGamesService {
   async createTrackedGame(gameId) {
@@ -27,15 +28,17 @@ class TrackedGamesService {
 
   // FIND THE GAME => FIND YOUR TRACKED GAME OF THAT GAME => FLIP THE BOOL
 
-  async favoriteTrackedGame(id) {
-    const games = await this.getTrackedGamesByGameId(id)
-    logger.log('get tracked games by game id', games)
-    // try {
-    //   const favorite = await api.put(`api/trackedgames/${id}`)
-    //   logger.log('you favorited this game sir', favorite.data)
-    // } catch (error) {
-    //   Pop.toast(error.message, error)
-    // }
+  async favoriteTrackedGame(gameId, userId) {
+    await this.getTrackedGamesByGameId(gameId)
+    const trackedGame = await AppState.gameFollowers.filter(g => g.accountId === userId)
+    logger.log('this is your  tracked game sir', trackedGame[0].id)
+    try {
+      const favorite = await api.put(`api/trackedgames/${trackedGame[0].id}`)
+      logger.log('you favorited this game sir', favorite.data)
+      AppState.yourFavoriteGames = favorite.data
+    } catch (error) {
+      Pop.toast(error.message, error)
+    }
   }
 
   async getGameById(id) {
