@@ -9,13 +9,13 @@
       </h4>
       <div class="card-test bg-dark text-light shadow-lg align-items-center">
         <div class="" v-if="followedGames">
-          <button class="btn btn-dark shadow" @click="gamesOffset -=1" v-if="gamesOffset > 0" title="Previous Page">
+          <button class="btn btn-dark shadow" @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
             <i class="mdi mdi-chevron-left f-20 "></i>
           </button>
         </div>
-        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2  animate__animated animate__slideInLeft" />
+        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2  animate__animated animate__backInLeft" />
         <div class="">
-          <button class="btn btn-dark shadow" @click="gamesOffset +=1" v-if="gamesOffset <= 6" title="Next Page">
+          <button class="btn btn-dark shadow" @click="gamesOffset +=2" v-if="gamesOffset <= 6" title="Next Page">
             <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
             </i>
           </button>
@@ -96,7 +96,7 @@ export default {
       profile: computed(() => AppState.profile),
       news: computed(() => AppState.news.slice(newsOffset.value, newsOffset.value + 10)),
       games: computed(() => AppState.games),
-      followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 1))
+      followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 2))
     }
   }
 }
