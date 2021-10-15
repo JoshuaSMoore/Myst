@@ -102,6 +102,7 @@ export default {
       relatedGames: computed(() => AppState.relatedGames),
       gameScreenShots: computed(() => AppState.gameScreenShots),
       gameFollowers: computed(() => AppState.gameFollowers),
+      gameFollowCheck: computed(() => AppState.gameFollowCheck),
 
       async createTrackedGame(gameId) {
         try {

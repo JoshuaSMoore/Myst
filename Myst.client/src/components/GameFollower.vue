@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <router-link :to="{ name: 'OtherUserPage', params: {otheruserId: tracker.tracker.id }}">
+    <router-link :to="{ name: 'OtherUserPage', params: { otheruserId: tracker.tracker.id }}">
       <img :src="tracker.tracker.picture" alt="" height="75">
     </router-link>
   </div>

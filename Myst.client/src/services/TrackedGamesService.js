@@ -50,6 +50,20 @@ class TrackedGamesService {
     AppState.gameFollowers = res.data
     logger.log('trackedgamesbyID', AppState.gameFollowers)
   }
+
+  async checkTracked() {
+    AppState.gameFollowCheck = false
+    const gameFollowers = AppState.gameFollowers
+    const accountId = AppState.account.id
+    for (let i = 0; i < gameFollowers.length; i++) {
+      const follower = gameFollowers[i]
+      if (follower.accountId === accountId) {
+        AppState.gameFollowCheck = true
+      } else {
+        AppState.gameFollowCheck = false
+      }
+    }
+  }
 }
 
 export const trackedGamesService = new TrackedGamesService()
