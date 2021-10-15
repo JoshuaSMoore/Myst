@@ -21,7 +21,7 @@ class GamesService {
   }
 
   async getTrackedGames(gameId, userId) {
-    const trackedGames = await dbContext.TrackedGame.findOne({ gameId: gameId, accountId: userId })
+    const trackedGames = await dbContext.TrackedGame.findOne({ gameId: gameId, accountId: userId }).populate('tracker').populate('game')
     return trackedGames
   }
 }

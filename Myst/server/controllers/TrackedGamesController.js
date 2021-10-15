@@ -13,6 +13,7 @@ export class TrackedGamesController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createTrackedGame)
       .get('/:trackedGameId', this.getTrackedGameById)
+      .get('/:gameId', this.getTrackedGamesByGameId)
       .put('/:trackedGameId', this.favoriteTrackedGame)
       .delete('/:trackedGameId', this.deleteTrackedGame)
   }
@@ -36,6 +37,15 @@ export class TrackedGamesController extends BaseController {
     try {
       const trackedGame = await trackedGamesService.getTrackedGameById(req.params.trackedGameId)
       res.send(trackedGame)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getTrackedGamesByGameId(req, res, next) {
+    try {
+      const trackedGames = await trackedGamesService.getTrackedGamesByGameId(req.params.GameId)
+      res.send(trackedGames)
     } catch (error) {
       next(error)
     }
