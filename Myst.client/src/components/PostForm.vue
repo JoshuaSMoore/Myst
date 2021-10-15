@@ -27,6 +27,7 @@
         </div> -->
       </div>
     </form>
+    <canvas id="preview" height="720" width="1280" class="visually-hidden"></canvas>
   </div>
 </template>
 
@@ -35,7 +36,7 @@ import { ref } from '@vue/reactivity'
 import Pop from '../utils/Pop'
 import { Modal } from 'bootstrap'
 import { postsService } from '../services/PostsService'
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { logger } from '../utils/Logger'
 import { firebaseService } from '../services/FirebaseService'
@@ -49,6 +50,20 @@ export default {
   setup() {
     const editable = ref({ posts: [] })
     const files = ref([])
+    let videoElem = null
+    let imgElem = null
+
+    onMounted(() => {
+      videoElem = document.getElementById('video')
+      imgElem = document.getElementById('image')
+    })
+    async function generateAndUploadThumbnail(elem, filename) {
+      const canvas = document.getElementById('preview')
+      canvas.getContext('2d').drawImage(elem, 0, 0, 1280, 720)
+      const base64 = canvas.toDataURL('image/jpeg', 0.5)
+      return await firebaseService.uploadBase64(base64, '_thumb_' + filename)
+    }
+
     return {
       editable,
       files,
@@ -59,8 +74,8 @@ export default {
           this.print()
           editable.value = { posts: [] }
           files.value = []
-          document.getElementById('image').src = ''
-          document.getElementById('video').src = ''
+          imgElem.src = ''
+          videoElem.src = ''
           Pop.toast(' Post Created', 'success')
           const modal = Modal.getInstance(document.getElementById('post-form'))
           modal.hide()
@@ -74,17 +89,24 @@ export default {
         const reader = new FileReader()
         reader.readAsDataURL(files.value[0])
         reader.onload = () => {
-          document.getElementById('image').src = reader.result
-          document.getElementById('video').src = reader.result
+          imgElem = imgElem || document.getElementById('image')
+          imgElem.src = reader.result
+
+          videoElem = videoElem || document.getElementById('video')
+          videoElem.src = reader.result
         }
         files.value[0]?.type.includes('image') ? editable.value.type = 'Images' : editable.value.type = 'Videos'
       },
       async upload() {
+        AppState.usersPosts.unshift({ body: 'loading' })
+        videoElem = videoElem || document.getElementById('video')
         const modal = Modal.getInstance(document.getElementById('post-form'))
         modal.hide()
-        AppState.usersPosts.unshift({ body: 'loading' })
+        const elem = editable.value.type === 'Images' ? imgElem : videoElem
+        const thumbnailUrl = await generateAndUploadThumbnail(elem, files.value[0].name)
         const url = await firebaseService.upload(files.value[0], editable.value.type)
         editable.value.mediaUrl = url
+        editable.value.thumbnailUrl = thumbnailUrl
         logger.log(url)
         await this.createPost()
       },

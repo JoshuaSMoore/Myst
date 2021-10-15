@@ -21,7 +21,7 @@
                 </iframe>
               </div>
             </div>
-            <div class="col-md-8">
+            <div id="test-elm" class="col-md-8">
               <div class="d-flex m-4">
                 <div>
                   <img class="rounded" :src="profile.picture" alt="" height="200" width="200" />
@@ -64,6 +64,13 @@
                 </div>
               </div>
             </div>
+            <!-- CANVAS ENDS HERE -->
+            <canvas class="canvas" id="canvas-test">
+            </canvas>
+            <button class="btn btn-outline-light" @click="testCanvas">
+              test canvas
+            </button>
+            <img :src="canvasTest" alt="nothing">
           </div>
           <div class="row">
             <div class="col-12 d-flex justify-content-end">
@@ -148,6 +155,7 @@ import { followService } from '../services/FollowService.js'
 export default {
   setup() {
     const route = useRoute()
+    const canvasTest = ref('')
     const gamesOffset = ref(0)
     const postsOffset = ref(0)
     const peopleOffset = ref(0)
@@ -180,61 +188,33 @@ export default {
       userPosts: computed(() => AppState.userPosts),
       post: computed(() => AppState.post),
       trackedGames: computed(() => AppState.trackedGames),
-      following: computed(() => AppState.following.slice(peopleOffset.value, peopleOffset.value + 5))
+
+      following: computed(() => AppState.following.slice(peopleOffset.value, peopleOffset.value + 5)),
+
+      canvasTest,
+      testCanvas() {
+        const canvas = document.getElementById('canvas-test')
+        const imageUrl = canvas.toDataURL('image/jpeg')
+        const videoElm = document.getElementById('test')
+      }
     }
   }
 }
 </script>
 
-<style lang="css" scoped>
-/* .profile-card{
-  width: 90rem;
-  height: 30rem;
-} */
-
-.live-card{
-  height: 15rem;
+<style lang="scss" scoped>
+// .profile-card{
+//   width: 90rem;
+//   height: 30rem;
+// }
+.canvas{
+  position: absolute;
+  outline: 1px red dotted;
+  right: 0;
+  top: 10;
+  z-index: 10;
+  width: 40vh;
+  height: 40vh;
 }
 
-/* .friend-card{
-  height: 9rem;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-    scrollbar-color: black;
-  scrollbar-track-color: black;
-  scrollbar-3dlight-color: blanchedalmond;
-  scrollbar-arrow-color: aquamarine;
-}
-.friend-card ::-webkit-scrollbar {
-  display: none;
-} */
-/* .library-card{
-  height: 20rem;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-    scrollbar-color: black;
-  scrollbar-track-color: black;
-  scrollbar-3dlight-color: blanchedalmond;
-  scrollbar-arrow-color: aquamarine;
-}
-.library-card ::-webkit-scrollbar {
-  display: none;
-} */
-/* .uploadss{
-  overflow-x: scroll;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  scrollbar-color: black;
-  scrollbar-track-color: black;
-  scrollbar-3dlight-color: blanchedalmond;
-  scrollbar-arrow-color: aquamarine;
-}
-.uploadss ::-webkit-scrollbar {
-  display: none;
-} */
 </style>

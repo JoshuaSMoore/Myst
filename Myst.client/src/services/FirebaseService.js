@@ -18,6 +18,18 @@ class FirebaseService {
     return url
   }
 
+  async uploadBase64(base64, name, path = 'Thumbs') {
+    const collection = storage.ref(path)
+    const resource = collection.child(name + Math.floor(Math.random() * 10000) + '.jpg')
+    const snapshot = await resource.putString(base64, 'data_url', {
+      customMetadata: {
+        uid: AppState.account.id
+      }
+    })
+    const url = await snapshot.ref.getDownloadURL()
+    return url
+  }
+
   async remove(mediaUrl, body) {
     const typeIndex = mediaUrl.indexOf('spot.com/o/')
     const type = mediaUrl.slice(typeIndex + 11, typeIndex + 17)
