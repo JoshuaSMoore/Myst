@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="editProfile()">
+  <form @submit.prevent="editProfile()" class="px-5 mx-5">
     <div class="form-group">
       <label for="title">UserName</label>
       <input type="text"
