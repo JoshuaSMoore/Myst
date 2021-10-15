@@ -22,7 +22,10 @@ class TrackedGamesService {
   }
 
   async favoriteTrackedGame(trackedGameId) {
-    const favoritedGame = await dbContext.TrackedGame.findOneAndUpdate(trackedGameId)
+    const favoritedGame = await dbContext.TrackedGame.findById(trackedGameId)
+    if (favoritedGame.favorite === true) { return }
+    favoritedGame.favorite = true
+    await favoritedGame.save()
     return favoritedGame
   }
 
