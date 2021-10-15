@@ -14,7 +14,7 @@ class TrackedGamesService {
   }
 
   async getTrackedGamesByGameId(GameId) {
-    const trackedGames = await dbContext.TrackedGame.find(GameId).populate('tracker')
+    const trackedGames = await dbContext.TrackedGame.find({ gameId: GameId }).populate('tracker')
     if (!trackedGames) {
       throw new BadRequest('Invalid Id or this has no trackers')
     }

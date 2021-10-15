@@ -20,6 +20,7 @@
           <button @click="deleteTrackedGame(game.id)" class="btn btn-warning">
             Unfollow game
           </button>
+          <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" />
         </div>
       </div>
       <div class="col-lg-6 ms-2 card bg-dark shadow-lg text-light description-card scrollable-y">
@@ -89,11 +90,18 @@ export default {
         await gamesSearchService.getGameById(route.params.gameId)
       }
     })
-
+    onMounted(async() => {
+      try {
+        await trackedGamesService.getTrackedGamesByGameId(route.params.gameId)
+      } catch (error) {
+        Pop.toast(error.message, 'error')
+      }
+    })
     return {
       game: computed(() => AppState.game),
       relatedGames: computed(() => AppState.relatedGames),
       gameScreenShots: computed(() => AppState.gameScreenShots),
+      gameFollowers: computed(() => AppState.gameFollowers),
 
       async createTrackedGame(gameId) {
         try {

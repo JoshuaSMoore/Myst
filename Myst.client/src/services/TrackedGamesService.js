@@ -43,6 +43,13 @@ class TrackedGamesService {
     logger.log('deleteTrackedGame', res)
     AppState.trackedGames = AppState.trackedGames.filter(t => t.id !== foundGame.id)
   }
+
+  async getTrackedGamesByGameId(gameId) {
+    AppState.gameFollowers = []
+    const res = await api.get(`api/trackedgames/followers/${gameId}`)
+    AppState.gameFollowers = res.data
+    logger.log('trackedgamesbyID', AppState.gameFollowers)
+  }
 }
 
 export const trackedGamesService = new TrackedGamesService()

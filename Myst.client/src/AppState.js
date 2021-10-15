@@ -22,5 +22,6 @@ export const AppState = reactive({
   trackedGames: [],
   followedGames: [],
   printing: false,
-  following: []
+  following: [],
+  gameFollowers: []
 })
