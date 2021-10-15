@@ -11,6 +11,7 @@ class TrackedGamesService {
     body.gameId = gameId
     const res = await api.post('api/trackedgames', body)
     logger.log('createTrackedGame', res)
+    AppState.followedGames.push(res.data)
     await this.getTrackedGamesByGameId(gameId)
     this.checkTracked()
   }
