@@ -174,6 +174,10 @@ export default {
   overflow-y: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
+    scrollbar-color: black;
+  scrollbar-track-color: black;
+  scrollbar-3dlight-color: blanchedalmond;
+  scrollbar-arrow-color: aquamarine;
 }
 .friend-card ::-webkit-scrollbar {
   display: none;
@@ -184,6 +188,10 @@ export default {
   overflow-y: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
+    scrollbar-color: black;
+  scrollbar-track-color: black;
+  scrollbar-3dlight-color: blanchedalmond;
+  scrollbar-arrow-color: aquamarine;
 }
 .library-card ::-webkit-scrollbar {
   display: none;
@@ -193,6 +201,10 @@ export default {
   overflow-y: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  scrollbar-color: black;
+  scrollbar-track-color: black;
+  scrollbar-3dlight-color: blanchedalmond;
+  scrollbar-arrow-color: aquamarine;
 }
 .uploadss ::-webkit-scrollbar {
   display: none;
