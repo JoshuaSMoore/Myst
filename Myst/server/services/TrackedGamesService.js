@@ -5,7 +5,7 @@ import { logger } from '../utils/Logger'
 class TrackedGamesService {
   async getTrackedGameById(trackedGameId) {
     const trackedGame = await dbContext.TrackedGame.findById(trackedGameId)
-    await trackedGame.populate('game')
+
     await trackedGame.populate('tracker')
     if (!trackedGame) {
       throw new BadRequest('Invalid Id or this game does not exist in your library')
@@ -44,7 +44,7 @@ class TrackedGamesService {
 
     const trackBug = await dbContext.TrackedGame.create(data)
     await trackBug.populate('tracker')
-    await trackBug.populate('game')
+
     return trackBug
   }
 }
