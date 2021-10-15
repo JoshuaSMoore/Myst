@@ -18,17 +18,32 @@
           </h5>
         </div>
       </router-link>
+      <i class="mdi mdi-heart f-20 text-light" type="button" title="favorite game" @click="favoriteGame(followedGame.id)">
+      </i>
     </div>
   </div>
 </template>
 
 <script>
+import { computed } from '@vue/runtime-core'
+import { trackedGamesService } from '../services/TrackedGamesService'
+import Pop from '../utils/Pop'
+import { AppState } from '../AppState'
 export default {
   props: {
     followedGame: { type: Object, required: true }
   },
   setup() {
-    return {}
+    return {
+      trackedGames: computed(() => AppState.trackedGames),
+      async favoriteGame(id) {
+        try {
+          await trackedGamesService.favoriteTrackedGame(id)
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      }
+    }
   }
 }
 </script>
