@@ -50,10 +50,17 @@
                   </p>
                 </div>
               </div>
-              <div class="card friend-card bg-dark text-light border-light mx-5 text-center">
+              <div class="bg-secondary text-light  mx-5 text-center rounded">
                 <b>Who you are following</b>
                 <div class="d-flex">
-                  <Following v-for="f in following" :key="f.id" :following="f" class="mx-2" />
+                  <button class="btn btn-secondary " @click="peopleOffset -=6" v-if="peopleOffset > 0" title="Previous Page">
+                    <i class="mdi mdi-chevron-left f-20"></i>
+                  </button>
+                  <Following v-for="f in following" :key="f.id" :following="f" class="m-2 shadow" />
+                  <button class="btn btn-secondary " @click="peopleOffset +=6" v-if="peopleOffset <= 6" title="Next Page">
+                    <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
+                    </i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -82,7 +89,14 @@
           </h1>
           <div class="card library-card bg-dark text-light py-5 text-center">
             <div class="d-flex">
+              <button class="btn btn-dark shadow" @click="gamesOffset -=5" v-if="gamesOffset > 0" title="Previous Page">
+                <i class="mdi mdi-chevron-left f-20 "></i>
+              </button>
               <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-3" />
+              <button class="btn btn-dark shadow" @click="gamesOffset +=5" v-if="gamesOffset <= 6" title="Next Page">
+                <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
+                </i>
+              </button>
             </div>
           </div>
         </div>
@@ -91,7 +105,14 @@
         <div class="bg-dark rounded uploadss text-light py-5">
           <h2>POSTS</h2>
           <div class="d-flex mx-4" v-if="posts">
+            <button class="btn btn-dark shadow" @click="postsOffset -=5" v-if="postsOffset > 0" title="Previous Page">
+              <i class="mdi mdi-chevron-left f-20 "></i>
+            </button>
             <Post v-for="p in posts" :key="p.id" :post="p" class="m-2 p-2" />
+            <button class="btn btn-dark shadow" @click="postsOffset +=5" v-if="postsOffset < 5" title="Next Page">
+              <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
+              </i>
+            </button>
           </div>
           <div class="card shadow text-center text-light" v-else>
             <h4>This user has no posts</h4>
@@ -134,7 +155,13 @@ import { followService } from '../services/FollowService.js'
 export default {
   setup() {
     const route = useRoute()
+<<<<<<< HEAD
     const canvasTest = ref('')
+=======
+    const gamesOffset = ref(0)
+    const postsOffset = ref(0)
+    const peopleOffset = ref(0)
+>>>>>>> f3ffab33aaa794a45d97c1b6e9eba0d7b6bbfd4f
     onMounted(async() => {
       try {
         await postsService.getPostByProfileId(route.params.profileId)
@@ -154,12 +181,16 @@ export default {
       }
     })
     return {
+      gamesOffset,
+      postsOffset,
+      peopleOffset,
       profile: computed(() => AppState.profile),
       user: computed(() => AppState.user),
-      posts: computed(() => AppState.usersPosts),
-      followedGames: computed(() => AppState.followedGames),
+      posts: computed(() => AppState.usersPosts.slice(postsOffset.value, postsOffset.value + 5)),
+      followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 5)),
       userPosts: computed(() => AppState.userPosts),
       post: computed(() => AppState.post),
+<<<<<<< HEAD
       following: computed(() => AppState.following),
       canvasTest,
       testCanvas() {
@@ -167,11 +198,15 @@ export default {
         const imageUrl = canvas.toDataURL('image/jpeg')
         const videoElm = document.getElementById('test')
       }
+=======
+      following: computed(() => AppState.following.slice(peopleOffset.value, peopleOffset.value + 5))
+>>>>>>> f3ffab33aaa794a45d97c1b6e9eba0d7b6bbfd4f
     }
   }
 }
 </script>
 
+<<<<<<< HEAD
 <style lang="scss" scoped>
 // .profile-card{
 //   width: 90rem;
@@ -186,24 +221,57 @@ export default {
   width: 40vh;
   height: 40vh;
 }
+=======
+<style lang="css" scoped>
+/* .profile-card{
+  width: 90rem;
+  height: 30rem;
+} */
+>>>>>>> f3ffab33aaa794a45d97c1b6e9eba0d7b6bbfd4f
 
 .live-card{
   height: 15rem;
 }
 
-.friend-card{
+/* .friend-card{
   height: 9rem;
   overflow-x: scroll;
   overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+    scrollbar-color: black;
+  scrollbar-track-color: black;
+  scrollbar-3dlight-color: blanchedalmond;
+  scrollbar-arrow-color: aquamarine;
 }
-
-.library-card{
+.friend-card ::-webkit-scrollbar {
+  display: none;
+} */
+/* .library-card{
   height: 20rem;
   overflow-x: scroll;
   overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+    scrollbar-color: black;
+  scrollbar-track-color: black;
+  scrollbar-3dlight-color: blanchedalmond;
+  scrollbar-arrow-color: aquamarine;
 }
-.uploadss{
+.library-card ::-webkit-scrollbar {
+  display: none;
+} */
+/* .uploadss{
   overflow-x: scroll;
   overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scrollbar-color: black;
+  scrollbar-track-color: black;
+  scrollbar-3dlight-color: blanchedalmond;
+  scrollbar-arrow-color: aquamarine;
 }
+.uploadss ::-webkit-scrollbar {
+  display: none;
+} */
 </style>

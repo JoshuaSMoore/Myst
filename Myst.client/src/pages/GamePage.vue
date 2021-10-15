@@ -13,14 +13,22 @@
       <div class="col-1"></div>
       <div class="col-lg-4 me-2 card bg-dark rounded-5 shadow-lg">
         <img :src="game.background_image" alt="" class="img-fluid rounded my-2">
-        <div class="d-flex justify-content-around">
-          <button @click="createTrackedGame(game.id)" class="btn btn-info">
-            Follow game
-          </button>
-          <button @click="deleteTrackedGame(game.id)" class="btn btn-warning">
-            Unfollow game
-          </button>
-          <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" />
+        <div class="">
+          <div v-if="gameFollowCheck">
+            <button @click="deleteTrackedGame(game.id)" class="btn btn-warning">
+              Unfollow game
+            </button>
+          </div>
+          <div v-else>
+            <button @click="createTrackedGame(game.id)" class="btn btn-info">
+              Follow game
+            </button>
+          </div>
+          <div class=" card follower-card bg-dark text-light border-light my-2">
+            <div class="d-flex">
+              <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" class="m-2" />
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-6 ms-2 card bg-dark shadow-lg text-light description-card scrollable-y">
@@ -93,6 +101,7 @@ export default {
     onMounted(async() => {
       try {
         await trackedGamesService.getTrackedGamesByGameId(route.params.gameId)
+        await trackedGamesService.checkTracked()
       } catch (error) {
         Pop.toast(error.message, 'error')
       }
@@ -107,6 +116,7 @@ export default {
       async createTrackedGame(gameId) {
         try {
           await trackedGamesService.createTrackedGame(gameId)
+          await trackedGamesService.checkTracked()
           Pop.toast("you've followed this game!", 'success')
         } catch (error) {
           Pop.toast(error.message, 'error')
@@ -115,6 +125,7 @@ export default {
       async deleteTrackedGame(gameId) {
         try {
           await trackedGamesService.deleteTrackedGame(gameId)
+          await trackedGamesService.checkTracked()
           Pop.toast("you've unfollowed this game", 'success')
         } catch (error) {
           Pop.toast(error.message, 'error')
@@ -138,6 +149,13 @@ export default {
   height: 15rem;
   overflow-x: scroll;
   overflow-y: hidden;
+}
+.follower-card{
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.follower-card ::-webkit-scrollbar {
+  display: none;
 }
 
 </style>

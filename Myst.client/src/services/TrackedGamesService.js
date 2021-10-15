@@ -11,6 +11,9 @@ class TrackedGamesService {
     body.gameId = gameId
     const res = await api.post('api/trackedgames', body)
     logger.log('createTrackedGame', res)
+    AppState.followedGames.push(res.data)
+    await this.getTrackedGamesByGameId(gameId)
+    this.checkTracked()
   }
 
   async getTrackedGames() {
@@ -20,6 +23,19 @@ class TrackedGamesService {
       await this.getGameById(t.gameId)
     })
     logger.log('trackedGames TRACKEDGAMESSERVICE', AppState.followedGames)
+  }
+
+  // FIND THE GAME => FIND YOUR TRACKED GAME OF THAT GAME => FLIP THE BOOL
+
+  async favoriteTrackedGame(id) {
+    const games = await this.getTrackedGamesByGameId(id)
+    logger.log('get tracked games by game id', games)
+    // try {
+    //   const favorite = await api.put(`api/trackedgames/${id}`)
+    //   logger.log('you favorited this game sir', favorite.data)
+    // } catch (error) {
+    //   Pop.toast(error.message, error)
+    // }
   }
 
   async getGameById(id) {
@@ -42,6 +58,8 @@ class TrackedGamesService {
     const res = await api.delete(`api/trackedgames/${foundGame.id}`)
     logger.log('deleteTrackedGame', res)
     AppState.trackedGames = AppState.trackedGames.filter(t => t.id !== foundGame.id)
+    await this.getTrackedGamesByGameId(gameId)
+    this.checkTracked()
   }
 
   async getTrackedGamesByGameId(gameId) {

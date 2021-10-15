@@ -52,6 +52,9 @@
               </div>
               <div class="card friend-card bg-light text-dark mx-5 text-center">
                 <b>Friends here</b>
+                <div class="d-flex">
+                  <Following v-for="f in following" :key="f.id" :following="f" class="mx-2" />
+                </div>
               </div>
             </div>
           </div>
@@ -147,6 +150,7 @@ export default {
       user: computed(() => AppState.user),
       posts: computed(() => AppState.usersPosts),
       followedGames: computed(() => AppState.followedGames),
+      following: computed(() => AppState.following),
       async addFollower() {
         try {
           await followService.addFollower(route.params.otheruserId)

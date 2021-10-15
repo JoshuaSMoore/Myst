@@ -26,7 +26,7 @@
     <div class="row news-card justify-content-center rounded elevation-3 bg-primary">
       <div class="row p-2">
         <div class="col d-flex justify-content-around">
-          <button class="btn btn-dark shadow" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">
+          <button class="btn btn-primary " @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">
             <i class="mdi mdi-chevron-triple-left f-20 ">Previous</i>
           </button>
         </div>
@@ -34,7 +34,7 @@
           <i class="mdi mdi-google-controller f-20">NEWS <i class="mdi mdi-google-controller f-20"></i></i>
         </div>
         <div class="col d-flex justify-content-around">
-          <button class="btn btn-dark shadow" @click="newsOffset +=10" v-if="newsOffset < 40" title="Next Page">
+          <button class="btn btn-primary " @click="newsOffset +=10" v-if="newsOffset < 40" title="Next Page">
             <i class="mdi f-20 ">Next</i> <i class="mdi mdi-chevron-triple-right f-20 ">
             </i>
           </button>
