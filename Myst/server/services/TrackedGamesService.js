@@ -33,7 +33,7 @@ class TrackedGamesService {
 
     const trackBug = await dbContext.TrackedGame.create(data)
     await trackBug.populate('tracker')
-    // await trackBug.populate('game')
+    await trackBug.populate('game')
     return trackBug
   }
 }
