@@ -51,13 +51,15 @@ export default {
     const editable = ref({ posts: [] })
     const files = ref([])
     let videoElem = null
+    let imgElem = null
+
     onMounted(() => {
       videoElem = document.getElementById('video')
+      imgElem = document.getElementById('image')
     })
-
-    async function generateAndUploadThumbnail(videoElem, filename) {
+    async function generateAndUploadThumbnail(elem, filename) {
       const canvas = document.getElementById('preview')
-      canvas.getContext('2d').drawImage(videoElem, 0, 0, 1280, 720)
+      canvas.getContext('2d').drawImage(elem, 0, 0, 1280, 720)
       const base64 = canvas.toDataURL('image/jpeg', 0.5)
       return await firebaseService.uploadBase64(base64, '_thumb_' + filename)
     }
@@ -72,8 +74,8 @@ export default {
           this.print()
           editable.value = { posts: [] }
           files.value = []
-          document.getElementById('image').src = ''
-          document.getElementById('video').src = ''
+          imgElem.src = ''
+          videoElem.src = ''
           Pop.toast(' Post Created', 'success')
           const modal = Modal.getInstance(document.getElementById('post-form'))
           modal.hide()
@@ -87,7 +89,9 @@ export default {
         const reader = new FileReader()
         reader.readAsDataURL(files.value[0])
         reader.onload = () => {
-          document.getElementById('image').src = reader.result
+          imgElem = imgElem || document.getElementById('image')
+          imgElem.src = reader.result
+
           videoElem = videoElem || document.getElementById('video')
           videoElem.src = reader.result
         }
@@ -98,7 +102,8 @@ export default {
         videoElem = videoElem || document.getElementById('video')
         const modal = Modal.getInstance(document.getElementById('post-form'))
         modal.hide()
-        const thumbnailUrl = await generateAndUploadThumbnail(videoElem, files.value[0].name)
+        const elem = editable.value.type === 'Images' ? imgElem : videoElem
+        const thumbnailUrl = await generateAndUploadThumbnail(elem, files.value[0].name)
         const url = await firebaseService.upload(files.value[0], editable.value.type)
         editable.value.mediaUrl = url
         editable.value.thumbnailUrl = thumbnailUrl

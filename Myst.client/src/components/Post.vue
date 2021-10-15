@@ -2,8 +2,8 @@
   <div class="post m-2">
     <div class="card bg-info text-light shadow" style="width: 18rem" v-if="post.body != 'loading'">
       <div class="card-body container-fluid">
-        <!-- <img :src="post.thumbnailUrl" alt="post-thumbnail" class="img-fluid"> -->
-        <img :src="post.mediaUrl"
+        <img :src="post.thumbnailUrl" alt="post-thumbnail" class="img-fluid">
+        <!-- <img :src="post.mediaUrl"
              v-if="post.mediaUrl?.includes('Image')"
              width="300"
              class="img-fluid selectable rounded w-100"
@@ -12,7 +12,7 @@
         <video class="img-fluid" controls v-else preload="none" :poster="post.thumbnailUrl">
           <source :src="post.mediaUrl" type="video/mp4" />
 
-        </video>
+        </video> -->
         <i class="mdi mdi-delete-forever selectable text-light f-20 mx-3" title="Delete Post" v-if="post.creatorId === account.id" @click="deletePost(post.id)"></i>
       </div>
       <div class="d-flex card-footer bg-dark text-light selectable"
