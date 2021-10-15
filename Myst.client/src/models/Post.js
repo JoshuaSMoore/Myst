@@ -8,5 +8,6 @@ export class Post {
     this.creatorId = postData.creatorId
     this.creator = postData.creator
     this.mediaUrl = postData.mediaUrl || null
+    this.thumbnailUrl = postData.thumbnailUrl || null
   }
 }

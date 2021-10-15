@@ -21,7 +21,7 @@
                 </iframe>
               </div>
             </div>
-            <div class="col-md-8">
+            <div id="test-elm" class="col-md-8">
               <div class="d-flex m-4">
                 <div>
                   <img class="rounded" :src="profile.picture" alt="" height="200" width="200" />
@@ -57,6 +57,13 @@
                 </div>
               </div>
             </div>
+            <!-- CANVAS ENDS HERE -->
+            <canvas class="canvas" id="canvas-test">
+            </canvas>
+            <button class="btn btn-outline-light" @click="testCanvas">
+              test canvas
+            </button>
+            <img :src="canvasTest" alt="nothing">
           </div>
           <div class="row">
             <div class="col-12 d-flex justify-content-end">
@@ -115,7 +122,7 @@
 </template>
 
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
+import { computed, onMounted, ref } from '@vue/runtime-core'
 import { AppState } from '../AppState.js'
 import { postsService } from '../services/PostsService.js'
 import Pop from '../utils/Pop.js'
@@ -127,6 +134,7 @@ import { followService } from '../services/FollowService.js'
 export default {
   setup() {
     const route = useRoute()
+    const canvasTest = ref('')
     onMounted(async() => {
       try {
         await postsService.getPostByProfileId(route.params.profileId)
@@ -152,7 +160,13 @@ export default {
       followedGames: computed(() => AppState.followedGames),
       userPosts: computed(() => AppState.userPosts),
       post: computed(() => AppState.post),
-      following: computed(() => AppState.following)
+      following: computed(() => AppState.following),
+      canvasTest,
+      testCanvas() {
+        const canvas = document.getElementById('canvas-test')
+        const imageUrl = canvas.toDataURL('image/jpeg')
+        const videoElm = document.getElementById('test')
+      }
     }
   }
 }
@@ -163,6 +177,15 @@ export default {
 //   width: 90rem;
 //   height: 30rem;
 // }
+.canvas{
+  position: absolute;
+  outline: 1px red dotted;
+  right: 0;
+  top: 10;
+  z-index: 10;
+  width: 40vh;
+  height: 40vh;
+}
 
 .live-card{
   height: 15rem;

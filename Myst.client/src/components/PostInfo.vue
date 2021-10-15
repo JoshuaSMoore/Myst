@@ -8,7 +8,7 @@
              class="img-fluid selectable"
              alt=""
         >
-        <video class="img-fluid" controls v-else preload="none">
+        <video class="img-fluid" controls v-else preload="none" :poster="info.thumbnailUrl">
           <source :src="info.mediaUrl" type="video/mp4" />
         </video>
       </div>
