@@ -158,11 +158,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-// .profile-card{
-//   width: 90rem;
-//   height: 30rem;
-// }
+<style lang="css" scoped>
+/* .profile-card{
+  width: 90rem;
+  height: 30rem;
+} */
 
 .live-card{
   height: 15rem;
@@ -172,15 +172,29 @@ export default {
   height: 9rem;
   overflow-x: scroll;
   overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
+.friend-card ::-webkit-scrollbar {
+  display: none;
+}
 .library-card{
   height: 20rem;
   overflow-x: scroll;
   overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.library-card ::-webkit-scrollbar {
+  display: none;
 }
 .uploadss{
   overflow-x: scroll;
   overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.uploadss ::-webkit-scrollbar {
+  display: none;
 }
 </style>
