@@ -25,6 +25,19 @@ class TrackedGamesService {
     logger.log('trackedGames TRACKEDGAMESSERVICE', AppState.followedGames)
   }
 
+  // FIND THE GAME => FIND YOUR TRACKED GAME OF THAT GAME => FLIP THE BOOL
+
+  async favoriteTrackedGame(id) {
+    const games = await this.getTrackedGamesByGameId(id)
+    logger.log('get tracked games by game id', games)
+    // try {
+    //   const favorite = await api.put(`api/trackedgames/${id}`)
+    //   logger.log('you favorited this game sir', favorite.data)
+    // } catch (error) {
+    //   Pop.toast(error.message, error)
+    // }
+  }
+
   async getGameById(id) {
     AppState.game = {}
     const game = {
