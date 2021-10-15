@@ -6,7 +6,7 @@
              class="form-control bg-light"
              name="name"
              placeholder="UserName"
-             v-model="editable.name"
+             v-model="account.name"
       >
     </div>
     <div class="form-group">
@@ -15,7 +15,7 @@
              class="form-control bg-light"
              name="title"
              placeholder="📸"
-             v-model="editable.picture"
+             v-model="account.picture"
       >
     </div>
     <div class="form-group">
@@ -24,7 +24,7 @@
              class="form-control bg-light"
              name="bio"
              placeholder="bio"
-             v-model="editable.bio"
+             v-model="account.bio"
       >
     </div>
     <div class="form-group">
@@ -33,7 +33,7 @@
              class="form-control bg-light"
              name="twitch"
              placeholder="Twitch"
-             v-model="editable.twitch"
+             v-model="account.twitch"
       >
     </div>
     <div class="form-group">
@@ -42,7 +42,7 @@
              class="form-control bg-light"
              name="github"
              placeholder="Github"
-             v-model="editable.github"
+             v-model="account.github"
       >
     </div>
     <div class="form-group">
@@ -51,7 +51,7 @@
              class="form-control bg-light"
              name="steam"
              placeholder="Steam"
-             v-model="editable.steam"
+             v-model="account.steam"
       >
     </div>
     <div class="form-group">
@@ -60,7 +60,7 @@
              class="form-control bg-light"
              name="xbox"
              placeholder="Xbox"
-             v-model="editable.xbox"
+             v-model="account.xbox"
       >
     </div>
     <div class="form-group">
@@ -69,7 +69,7 @@
              class="form-control bg-light"
              name="playstation"
              placeholder="Playstation"
-             v-model="editable.playstation"
+             v-model="account.playstation"
       >
     </div>
     <div class="form-group">
@@ -78,7 +78,7 @@
              class="form-control bg-light"
              name="nintendo"
              placeholder="Nintendo"
-             v-model="editable.nintendo"
+             v-model="account.nintendo"
       >
 
       <div class="form-group">
@@ -96,15 +96,19 @@ import Pop from '../utils/Pop'
 import { Modal } from 'bootstrap'
 import { accountService } from '../services/AccountService.js'
 import { logger } from '../utils/Logger.js'
+import { AppState } from '../AppState'
+import { computed } from '@vue/runtime-core'
 export default {
   setup() {
     const editable = ref({})
+    const account = computed(() => AppState.account)
     return {
       editable,
+      account,
       async editProfile() {
         try {
-          await accountService.editProfile(editable.value)
-          editable.value = {}
+          await accountService.editProfile(account.value)
+          account.value = {}
           Pop.toast('Profile edited much yes', 'success')
           const modal = Modal.getInstance(document.getElementById('profile-form'))
           modal.hide()

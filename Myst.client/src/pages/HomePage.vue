@@ -1,29 +1,25 @@
 <template>
-  <div class="d-fluid row align-items-center m-5" style="justify-content: space-evenly">
+  <div class="d-fluid row align-items-center m-5 " style="justify-content: space-evenly">
+    <h2 class="text-white text-center animate__animated animate__rotateInDownLeft" v-if="profile.name">
+      Welcome, {{ profile.name }}
+    </h2>
     <div class="col-3">
-      <h2 class="text-white text-center animate__animated animate__rotateInDownLeft" v-if="profile.name">
-        Welcome, {{ profile.name }}
-      </h2>
       <h4>
         Game Library
       </h4>
-      <div class="card-test bg-dark text-light shadow-lg align-items-center">
-        <div class="" v-if="followedGames">
-          <button class="btn btn-dark shadow" @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
-            <i class="mdi mdi-chevron-left f-20 "></i>
-          </button>
-        </div>
-        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2  animate__animated animate__backInLeft" />
-        <div class="">
-          <button class="btn btn-dark shadow" @click="gamesOffset +=2" v-if="gamesOffset <= 6" title="Next Page">
-            <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
-            </i>
-          </button>
-        </div>
+      <div class="card-test  text-light rounded order-2 order-md-1" v-if="followedGames">
+        <button class="btn btn-dark shadow" @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
+          <i class="mdi mdi-chevron-left f-20 "></i>
+        </button>
+        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2 bg-dark  animate__animated animate__backInLeft" />
+        <button class="btn btn-dark shadow" @click="gamesOffset +=2" v-if="gamesOffset <= 6" title="Next Page">
+          <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
+          </i>
+        </button>
       </div>
     </div>
-    <div class="col-3 rounded text-center">
-      <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-fluid rounded shadow-lg  animate__animated animate__bounceIn">
+    <div class="col-3 rounded text-center order-1 order-md-2">
+      <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-flex rounded shadow-lg  animate__animated animate__bounceIn">
     </div>
   </div>
   <div class="news d-flex m-2 p-1 flex-column align-items-center justify-content-center">
@@ -149,6 +145,7 @@ html {
 .card-test{
   display: flex;
   flex-direction: row;
+  background: black
 }
 
 </style>
