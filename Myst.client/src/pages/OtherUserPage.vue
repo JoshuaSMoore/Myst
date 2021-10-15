@@ -144,6 +144,12 @@ export default {
       } catch (error) {
         Pop.toast(error, 'error')
       }
+      try {
+        await followService.getFollowing(AppState.account.id)
+        await followService.checkFollow()
+      } catch (error) {
+        Pop.toast(error.message, 'error')
+      }
     })
     return {
       profile: computed(() => AppState.otherUser),

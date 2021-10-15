@@ -6,6 +6,7 @@ class FollowService {
   async addFollower(id) {
     const res = await api.post(`api/profiles/${id}/follow`)
     logger.log(res)
+    AppState.following.push(res.data)
   }
 
   async getFollowing(id) {
@@ -21,6 +22,13 @@ class FollowService {
     const res = await api.delete(`api/profiles/${otherUserId}/unfollow/${foundFollowing.id}`)
     logger.log('deleteFollower', res)
     AppState.following = AppState.following.filter(f => f.id !== foundFollowing.id)
+  }
+
+  async checkFollow() {
+    const foundFollowing = AppState.following.find(f => f.creatorId === AppState.account.id)
+    if (foundFollowing) {
+      logger.log('foundFollowing', foundFollowing)
+    }
   }
 }
 
