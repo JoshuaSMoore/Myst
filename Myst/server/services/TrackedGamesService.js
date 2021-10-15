@@ -13,6 +13,14 @@ class TrackedGamesService {
     return trackedGame
   }
 
+  async getTrackedGamesByGameId(GameId) {
+    const trackedGames = await dbContext.TrackedGame.find(GameId).populate('tracker')
+    if (!trackedGames) {
+      throw new BadRequest('Invalid Id or this has no trackers')
+    }
+    return trackedGames
+  }
+
   async favoriteTrackedGame(trackedGameId) {
     const favoritedGame = await dbContext.TrackedGame.findOneAndUpdate(trackedGameId)
     return favoritedGame
