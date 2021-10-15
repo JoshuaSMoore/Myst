@@ -1,6 +1,6 @@
 <template>
   <div class="d-fluid row align-items-center m-5 " style="justify-content: space-evenly">
-    <h2 class="text-white text-center animate__animated animate__rotateInDownLeft" v-if="profile.name">
+    <h2 class="text-white  animate__animated animate__rotateInDownLeft" v-if="profile.name">
       Welcome, {{ profile.name }}
     </h2>
     <div class="col-3">
@@ -18,8 +18,8 @@
         </button>
       </div>
     </div>
-    <div class="col-3 rounded text-center order-1 order-md-2">
-      <img src="../assets/img/Logo-Final.gif" alt="MYST LOGO" class="img-flex rounded shadow-lg  animate__animated animate__bounceIn">
+    <div class="col-6 rounded text-center order-1 order-md-2">
+      <img src="../assets/img/Logo-Final2.gif" alt="MYST LOGO" class="img-flex rounded shadow-lg  animate__animated animate__bounceIn w-100">
     </div>
   </div>
   <div class="news d-flex m-2 p-1 flex-column align-items-center justify-content-center">
