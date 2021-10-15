@@ -155,13 +155,10 @@ import { followService } from '../services/FollowService.js'
 export default {
   setup() {
     const route = useRoute()
-<<<<<<< HEAD
     const canvasTest = ref('')
-=======
     const gamesOffset = ref(0)
     const postsOffset = ref(0)
     const peopleOffset = ref(0)
->>>>>>> f3ffab33aaa794a45d97c1b6e9eba0d7b6bbfd4f
     onMounted(async() => {
       try {
         await postsService.getPostByProfileId(route.params.profileId)
@@ -190,23 +187,19 @@ export default {
       followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 5)),
       userPosts: computed(() => AppState.userPosts),
       post: computed(() => AppState.post),
-<<<<<<< HEAD
       following: computed(() => AppState.following),
+      following: computed(() => AppState.following.slice(peopleOffset.value, peopleOffset.value + 5))
       canvasTest,
       testCanvas() {
         const canvas = document.getElementById('canvas-test')
         const imageUrl = canvas.toDataURL('image/jpeg')
         const videoElm = document.getElementById('test')
       }
-=======
-      following: computed(() => AppState.following.slice(peopleOffset.value, peopleOffset.value + 5))
->>>>>>> f3ffab33aaa794a45d97c1b6e9eba0d7b6bbfd4f
     }
   }
 }
 </script>
 
-<<<<<<< HEAD
 <style lang="scss" scoped>
 // .profile-card{
 //   width: 90rem;
@@ -221,13 +214,11 @@ export default {
   width: 40vh;
   height: 40vh;
 }
-=======
 <style lang="css" scoped>
 /* .profile-card{
   width: 90rem;
   height: 30rem;
 } */
->>>>>>> f3ffab33aaa794a45d97c1b6e9eba0d7b6bbfd4f
 
 .live-card{
   height: 15rem;
