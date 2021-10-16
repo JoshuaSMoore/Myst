@@ -11,7 +11,7 @@
         <button class="btn btn-dark shadow" @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
           <i class="mdi mdi-chevron-up f-20 "></i>
         </button>
-        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2 bg-dark  animate__animated animate__backInDown" />
+        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" />
         <button class="btn btn-dark shadow" @click="gamesOffset +=2" v-if="gamesOffset <= 2" title="Next Page">
           <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-down f-20 ">
           </i>
@@ -40,7 +40,7 @@
           </button>
         </div>
       </div>
-      <NewsCard2 v-for="n in news" :key="n.id" :news="n" class="m-5" />
+      <NewsCard2 v-for="n in news" :key="n.id" :news="n" />
       <div class="row p-2">
         <div class="col d-flex justify-content-around">
           <button class="btn btn-dark shadow" @click="newsOffset -=10" v-if="newsOffset > 0" title="Previous Page">

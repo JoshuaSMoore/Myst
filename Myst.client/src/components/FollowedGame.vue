@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="m-2 bg-dark  animate__animated animate__backInDown">
     <div class="card h-100  bg-dark text-light" width="50px">
       <router-link :to="{ name: 'Game', params: { gameId: followedGame.id }}">
         <img :src="followedGame.background_image" class="card-img-top" alt="...">
@@ -22,6 +22,7 @@ import { computed } from '@vue/runtime-core'
 import { trackedGamesService } from '../services/TrackedGamesService'
 import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
+import 'animate.css'
 export default {
   props: {
     followedGame: { type: Object, required: true }
