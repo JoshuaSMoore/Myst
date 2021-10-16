@@ -9,11 +9,11 @@
       </h4>
       <div class="card bg-dark text-light rounded order-2 order-md-1" v-if="followedGames">
         <button class="btn btn-dark shadow" @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
-          <i class="mdi mdi-chevron-left f-20 "></i>
+          <i class="mdi mdi-chevron-up f-20 "></i>
         </button>
-        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2 bg-dark  animate__animated animate__backInLeft" />
+        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2 bg-dark  animate__animated animate__backInDown" />
         <button class="btn btn-dark shadow" @click="gamesOffset +=2" v-if="gamesOffset <= 2" title="Next Page">
-          <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
+          <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-down f-20 ">
           </i>
         </button>
       </div>
