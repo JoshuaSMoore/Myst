@@ -1,7 +1,7 @@
 <template>
   <div class="flex-grow-1 d-flex align-items-center justify-content-center m-5 p-5">
     <figure class="aboutCard">
-      <img src="../assets/img/road.jpg" alt="sample87" />
+      <img src="../assets/img/space1.jpg" alt="sample87" />
       <figcaption>
         <img src="../assets/img/Josh.jpg" alt="profile-sample4" class="profile" />
         <h2>Joshua Moore<span>Full Stack Developer</span></h2>
@@ -32,7 +32,7 @@
       </figcaption>
     </figure>
     <figure class="aboutCard">
-      <img src="../assets/img/Nature.jpg" alt="sample87" />
+      <img src="../assets/img/space2.jpg" alt="sample87" />
       <figcaption>
         <img src="../assets/img/Derek.jpg" alt="profile-sample4" class="profile" />
         <h2>Derek Shain<span>Full Stack Developer</span></h2>
@@ -65,12 +65,12 @@
       Hannah
     </h3>
   </div>
-  <div class="d-flex align-items-center justify-content-center parent">
-    <figure class="aboutCard overlay">
-      <img src="../assets/img/grave.jpg" alt="sample87" />
+  <div class="d-flex align-items-center justify-content-center ">
+    <figure class="aboutCard ">
+      <img src="../assets/img/city.jpg" alt="sample87" />
       <figcaption>
         <img src="../assets/img/kyle.jpg" alt="profile-sample4" class="profile sosad" />
-        <h2>Kyle Hanna<span>Spooky Dev</span></h2>
+        <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
         <!-- <p>Placeholder Bio </p> -->
         <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="">Linkedin</a>
         <a href="https://github.com/KyleMHanna" class="">GitHub</a>
@@ -177,7 +177,7 @@ export default {
 }
 
 .sosad{
-  filter: grayscale(1);
+  filter: grayscale(50%);
 }
 
 .parent{
@@ -188,16 +188,6 @@ export default {
 .overlay{
   background-color:rgba(0,0,0,.5);
   color:white;
-  // border:solid 1px white;
-  // position:absolute;
-  // left:0;
-  // top:0;
-  // right:0;
-  // bottom:0;
-  // margin:auto;
-  // width:80%;
-  // height:80%;
-  /*animate*/
   transition:all .3s ease-in;
 }
 /* hover effect*/
