@@ -11,19 +11,19 @@
     </div>
 
     <div class="row m-5 bg-dark text-light rounded justify-content-center wow">
-      <div class="col m-2">
-        <div class="bg-dark text-light d-flex justify-content-center align-items-center">
+      <div class="col m-5">
+        <div class="bg-dark m-5 text-light d-flex justify-content-center align-items-center">
           <iframe
             :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
-            width="500px"
-            height="300px"
+            width="800px"
+            height="400px"
           >
           </iframe>
         </div>
       </div>
 
-      <div class="col m-2 text-center">
-        <img class="rounded wow" :src="profile.picture" alt="" height="400" width="400" />
+      <div class="col mx-5 text-center">
+        <img class="rounded justify-content-center m-5 wow" :src="profile.picture" alt="" height="400" width="400" />
         <div v-if="profile.bio" class="m-1">
           <h3 class="fw-bold">
             About me..:
@@ -32,8 +32,8 @@
           </h4>
         </div>
       </div>
-      <div class="m-2 row">
-        <ul class="text-center">
+      <div class="row">
+        <ul class="text-center justify-content-center">
           <li>
             <div class="text-light bg-dark">
               <!-- {{ profile.twitch }} -->
@@ -85,10 +85,10 @@
       </div>
       <!-- NOTE end of cool things -->
       <div class="row rounded text-light m-5 justify-content-center">
-        <h5 class="fw-bold m-2 rounded">
+        <h5 class="fw-bold ms-5 rounded">
           {{ profile.name }}, these are your friends!
         </h5>
-        <div class="row rounded justify-content-center ">
+        <div class="row mx-5 rounded justify-content-center ">
           <div class="col-1 on-hover">
             <button class="btn btn-prev-next" @click="scroll('left', 'followScroll')" v-if="true">
               <i class="mdi mdi-chevron-left f-20 text-light"></i>
@@ -104,8 +104,8 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 d-flex justify-content-end">
+      <div class="row mx-5">
+        <div class="d-flex justify-content-end">
           <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
           </i>
         </div>
@@ -138,13 +138,16 @@
     </div>
     <!-- END FOLLOWED GAME NOTE START POSTS -->
     <div class="mx-5 text-light ">
-      <h2 class="fw-bold p-3 rounded">
-        POSTS
+      <h1 class="fw-bold
+         ps-3
+         rounded"
+      >
+        Posts
         <button v-if="user.isAuthenticated" class="btn btn-info w-25 ms-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
           Create a Post
         </button>
-      </h2>
-      <div class="row m-5 bg-dark rounded justify-content-center wow">
+      </h1>
+      <div class="row mx-5 mb-5 bg-dark rounded justify-content-center wow">
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
             <i class="mdi mdi-chevron-left f-20 text-light"></i>
