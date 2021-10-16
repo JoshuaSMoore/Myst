@@ -24,10 +24,8 @@
               Follow game
             </button>
           </div>
-          <div class=" card follower-card bg-dark text-light border-light my-2">
-            <div class="d-flex">
-              <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" class="m-2" />
-            </div>
+          <div class="card d-flex bg-dark text-light my-2">
+            <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" class="m-2" />
           </div>
         </div>
       </div>
@@ -69,16 +67,42 @@
         <h3 class="mb-5">
           Related Games
         </h3>
-        <div class="d-flex related-game-card">
-          <RelatedGame v-for="g in relatedGames" :key="g.id" :related-game="g" class="mx-2" />
+        <!-- NOTE Related Games -->
+        <div class="row justify-content-center">
+          <div class="col-1 text-center on-hover">
+            <button class="btn btn-prev-next" @click="scroll('left', 'relatedScroll')" v-if="true">
+              <i class="mdi mdi-chevron-left"></i>
+            </button>
+          </div>
+          <div class="col-10 d-flex related-game-card snappy-scroll" id="relatedScroll">
+            <RelatedGame v-for="g in relatedGames" :key="g.id" :related-game="g" class="mx-2" />
+          </div>
+          <div class="col-1 text-center on-hover">
+            <button class="btn btn-prev-next" @click="scroll('right', 'relatedScroll')" v-if="true">
+              <i class="mdi mdi-chevron-right"></i>
+            </button>
+          </div>
         </div>
       </div>
       <div class="col-5 ms-2 p-5 card bg-dark text-light mb-3">
         <h3 class="mb-5">
           Game Screenshots
         </h3>
-        <div class="d-flex screenshot-card">
-          <GameScreenshots v-for="g in gameScreenShots" :key="g.id" :screen-shot="g" class="mx-2" />
+        <!-- NOTE SCREENSHOTS -->
+        <div class="row justify-content-center">
+          <div class="col-1 text-center on-hover">
+            <button class="btn btn-prev-next" @click="scroll('left', 'gameScroll')" v-if="true">
+              <i class="mdi mdi-chevron-left"></i>
+            </button>
+          </div>
+          <div class=" col-10 d-flex screenshot-card snappy-scroll" id="gameScroll">
+            <GameScreenshots v-for="g in gameScreenShots" :key="g.id" :screen-shot="g" class="mx-2" />
+          </div>
+          <div class="col-1 text-center on-hover">
+            <button class="btn btn-prev-next" @click="scroll('right', 'gameScroll')" v-if="true">
+              <i class="mdi mdi-chevron-right"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -133,6 +157,18 @@ export default {
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
+      },
+      scroll(dir, elementId) {
+        const scrollAmmount = 400
+        const element = document.getElementById(elementId)
+        switch (dir) {
+          case 'right':
+            element.scrollTo({ left: element.scrollLeft + scrollAmmount, behavior: 'smooth' })
+            break
+          case 'left':
+            element.scrollTo({ left: element.scrollLeft - scrollAmmount, behavior: 'smooth' })
+            break
+        }
       }
     }
   }
@@ -161,4 +197,26 @@ export default {
   display: none;
 }
 
+.snappy-scroll{
+  flex-wrap: nowrap !important;
+  overflow-x: scroll;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+  &::-webkit-scrollbar{ }
+  &::-webkit-scrollbar-button{ /* 2 / }
+  &::-webkit-scrollbar-track{ / 3 / }
+  &::-webkit-scrollbar-track-piece{  background-color: rgba(255, 255, 255, 0.541); border-radius: 45%; }
+  &::-webkit-scrollbar-thumb{ background-color: rgba(255, 255, 255, 0.541); border-radius: 45%;}
+  &::-webkit-scrollbar-corner{ / 6 */ }
+}
+.snappy-scroll div{
+  scroll-snap-align: start;
+}
+
+.btn-prev-next{
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.63);
+  color: black;
+  scroll-behavior: smooth;
+}
 </style>
