@@ -10,16 +10,7 @@
         <a href="https://github.com/JoshuaSMoore" class="info">GitHub</a>
       </figcaption>
     </figure>
-    <figure class="aboutCard">
-      <img src="../assets/img/lake.jpg" alt="sample74" />
-      <figcaption>
-        <img src="../assets/img/Kyle.jpg" alt="profile-sample2" class="profile" />
-        <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
-        <!-- <p>Placeholder Bio </p> -->
-        <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="follow">Linkedin</a>
-        <a href="https://github.com/KyleMHanna" class="info">GitHub</a>
-      </figcaption>
-    </figure>
+
     <figure class="aboutCard">
       <img src="../assets/img/city.jpg" alt="sample69" />
       <figcaption>
@@ -52,6 +43,34 @@
         <a href="https://github.com/DerekShain" class="info">GitHub</a>
       </figcaption>
     </figure>
+    <!-- Kyle RIP FIXME -->
+    <!-- <figure class="aboutCard">
+      <img src="../assets/img/lake.jpg" alt="sample74" />
+      <figcaption>
+        <img src="../assets/img/Kyle.jpg" alt="profile-sample2" class="profile" />
+        <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
+        <p>Placeholder Bio </p>
+        <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="follow">Linkedin</a>
+        <a href="https://github.com/KyleMHanna" class="info">GitHub</a>
+      </figcaption>
+    </figure> -->
+  </div>
+  <div class="row text-center">
+    <h3 class="text-center">
+      Thanks to (not our sponsors) Twitch
+    </h3>
+    <br />
+    <h3 class="text-center">
+      RAWG.Io
+    </h3>
+    <br />
+    <h3 class="text-center">
+      MMOBOMB
+    </h3>
+    <br />
+    <h3 class="text-center">
+      The Codeworks Team
+    </h3>
   </div>
 </template>
 

@@ -10,17 +10,10 @@
           />
         </div>
       </router-link>
-      <div>
-        <button v-if="searchToggle" class="btn btn-info p-1" @click="searchToggle = false">
-          Search Users
-        </button>
-        <button v-else class="btn btn-success p-1" @click="searchToggle = true">
-          Search Games
-        </button>
-      </div>
+
       <div class="justify-content-flex-end d-flex">
         <form @submit.prevent="searchGames(query)" v-if="searchToggle">
-          <div class="input-group mt-1 mb-1 d-flex justify-content-end" style="width: 50vw">
+          <div class="input-group p-2 d-flex justify-content-end" style="width: 50vw">
             <input v-model="query"
                    type="text"
                    class="form-control bg-success text-dark d-flex"
@@ -35,7 +28,7 @@
           </div>
         </form>
         <form @submit.prevent="searchAccounts(query)" v-else>
-          <div class="input-group mt-1 mb-1 d-flex justify-content-end" style="width: 50vw">
+          <div class="input-group p-2 d-flex justify-content-end" style="width: 50vw">
             <input v-model="query"
                    type="text"
                    class="form-control bg-info text-dark d-flex"
@@ -49,6 +42,14 @@
             </button>
           </div>
         </form>
+        <div class="p-2 align-center">
+          <button v-if="searchToggle" class="btn btn-info " @click="searchToggle = false">
+            Search Users
+          </button>
+          <button v-else class="btn btn-success" @click="searchToggle = true">
+            Search Games
+          </button>
+        </div>
         <router-link class="navbar-brand d-flex p-2 ms-3" :to="{ name: 'Profile', params: {profileId: account.id} }">
           <i class="mdi mdi-account-outline f-20 "></i>
         </router-link>
@@ -69,6 +70,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+
       <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
