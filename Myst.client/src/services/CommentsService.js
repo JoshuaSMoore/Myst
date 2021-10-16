@@ -41,6 +41,4 @@ class CommentsService {
     }
   }
 }
-aa
-
 export const commentsService = new CommentsService()
