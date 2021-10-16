@@ -119,7 +119,14 @@
       <div class="bg-dark rounded uploadss text-light py-5">
         <h2>POSTS</h2>
         <div class="d-flex mx-4" v-if="posts">
+          <button class="btn btn-dark shadow" @click="postsOffset -=5" v-if="postsOffset > 0" title="Previous Page">
+            <i class="mdi mdi-chevron-left f-20 "></i>
+          </button>
           <Post v-for="p in posts" :key="p.id" :post="p" class="m-2" />
+          <button class="btn btn-dark shadow" @click="postsOffset +=5" v-if="postsOffset != postsOffset" title="Next Page">
+            <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
+            </i>
+          </button>
         </div>
         <div class="card shadow text-center text-light" v-else>
           <h4>This user has no posts</h4>
