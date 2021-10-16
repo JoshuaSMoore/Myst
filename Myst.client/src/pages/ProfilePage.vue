@@ -10,106 +10,104 @@
       </div>
     </div>
 
-    <div class="card mx-5 mb-2 bg-dark text-light">
-      <div class="row ">
-        <div class="col m-2">
-          <div class="bg-dark text-light d-flex justify-content-center align-items-center">
-            <iframe
-              :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
-              width="500px"
-              height="300px"
-            >
-            </iframe>
-          </div>
+    <div class="row m-5 bg-dark text-light rounded justify-content-center wow">
+      <div class="col m-2">
+        <div class="bg-dark text-light d-flex justify-content-center align-items-center">
+          <iframe
+            :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
+            width="500px"
+            height="300px"
+          >
+          </iframe>
         </div>
+      </div>
 
-        <div class="col m-2 text-center">
-          <img class="rounded wow" :src="profile.picture" alt="" height="400" width="400" />
-          <div v-if="profile.bio" class="m-1">
-            <h3 class="fw-bold">
-              About me..:
-            </h3> <h4 class="fw-bold">
-              {{ profile.bio }}
-            </h4>
-          </div>
+      <div class="col m-2 text-center">
+        <img class="rounded wow" :src="profile.picture" alt="" height="400" width="400" />
+        <div v-if="profile.bio" class="m-1">
+          <h3 class="fw-bold">
+            About me..:
+          </h3> <h4 class="fw-bold">
+            {{ profile.bio }}
+          </h4>
         </div>
-        <div class="m-2 row">
-          <ul class="text-center">
-            <li>
-              <div class="text-light bg-dark">
+      </div>
+      <div class="m-2 row">
+        <ul class="text-center">
+          <li>
+            <div class="text-light bg-dark">
               <!-- {{ profile.twitch }} -->
-              </div>
-              <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1">
-                <i class="mdi mdi-twitch icon"></i>
-              </a>
-            </li>
-            <li>
-              <a :href="profile.github" v-if="profile.github" class="m-1">
-                <i class="mdi mdi-github icon"></i>
-              </a>
-            </li>
-            <li>
-              <div class="text-light bg-dark">
+            </div>
+            <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1">
+              <i class="mdi mdi-twitch icon"></i>
+            </a>
+          </li>
+          <li>
+            <a :href="profile.github" v-if="profile.github" class="m-1">
+              <i class="mdi mdi-github icon"></i>
+            </a>
+          </li>
+          <li>
+            <div class="text-light bg-dark">
               <!-- {{ profile.steam }} -->
-              </div>
-              <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1">
-                <i class="mdi mdi-steam icon"></i>
-              </a>
-            </li>
+            </div>
+            <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1">
+              <i class="mdi mdi-steam icon"></i>
+            </a>
+          </li>
 
-            <li class="xbox" id="xbox">
-              <div class="text-light bg-dark">
-              </div>
-              <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1" title="Xbox">
-                <i class="mdi mdi-microsoft-xbox icon"></i>
-              </a>
-            </li>
+          <li class="xbox" id="xbox">
+            <div class="text-light bg-dark">
+            </div>
+            <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1" title="Xbox">
+              <i class="mdi mdi-microsoft-xbox icon"></i>
+            </a>
+          </li>
 
-            <li>
-              <div class="text-light bg-dark">
+          <li>
+            <div class="text-light bg-dark">
               <!-- {{ profile.playstation }} -->
-              </div>
-              <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1">
-                <i class="mdi mdi-sony-playstation icon"></i>
-              </a>
-            </li>
+            </div>
+            <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1">
+              <i class="mdi mdi-sony-playstation icon"></i>
+            </a>
+          </li>
 
-            <li>
-              <div class="text-light bg-dark">
+          <li>
+            <div class="text-light bg-dark">
               <!-- {{ profile.nintendo }} -->
-              </div>
-              <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1">
-                <i class="mdi mdi-nintendo-switch icon"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- NOTE end of cool things -->
-        <div class="row rounded text-light m-5 justify-content-center">
-          <h5 class="fw-bold m-2 rounded">
-            {{ profile.name }}, these are your friends!
-          </h5>
-          <div class="row rounded justify-content-center ">
-            <div class="col-1 on-hover">
-              <button class="btn btn-prev-next" @click="scroll('left', 'followScroll')" v-if="true">
-                <i class="mdi mdi-chevron-left f-20 text-light"></i>
+            </div>
+            <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1">
+              <i class="mdi mdi-nintendo-switch icon"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- NOTE end of cool things -->
+      <div class="row rounded text-light m-5 justify-content-center">
+        <h5 class="fw-bold m-2 rounded">
+          {{ profile.name }}, these are your friends!
+        </h5>
+        <div class="row rounded justify-content-center ">
+          <div class="col-1 on-hover">
+            <button class="btn btn-prev-next" @click="scroll('left', 'followScroll')" v-if="true">
+              <i class="mdi mdi-chevron-left f-20 text-light"></i>
+            </button>
+          </div>
+          <div class="col-10 d-flex screenshot-card smoothScroll" id="followScroll">
+            <Following v-for="f in following" :key="f.id" :following="f" class="m-3" />
+            <div class="col-1 text-center on-hover">
+              <button class="btn btn-prev-next" @click="scroll('right', 'followScroll')" v-if="true">
+                <i class="mdi mdi-chevron-right f-20 text-light"></i>
               </button>
             </div>
-            <div class="col-10 d-flex screenshot-card smoothScroll" id="followScroll">
-              <Following v-for="f in following" :key="f.id" :following="f" class="m-3" />
-              <div class="col-1 text-center on-hover">
-                <button class="btn btn-prev-next" @click="scroll('right', 'followScroll')" v-if="true">
-                  <i class="mdi mdi-chevron-right f-20 text-light"></i>
-                </button>
-              </div>
-            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12 d-flex justify-content-end">
-            <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
-            </i>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-end">
+          <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
+          </i>
         </div>
       </div>
     </div>
@@ -122,7 +120,7 @@
       >
         Game Library
       </h1>
-      <div class="row mb-4 mx-5 bg-dark rounded justify-content-center ">
+      <div class="row mb-4 mx-5 bg-dark rounded justify-content-center wow ">
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('left', 'gameScroll')" v-if="true">
             <i class="mdi mdi-chevron-left f-20 text-light"></i>
