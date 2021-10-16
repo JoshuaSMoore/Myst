@@ -188,6 +188,9 @@ export default {
       }
     })
     return {
+      gamesOffset,
+      postsOffset,
+      peopleOffset,
       profile: computed(() => AppState.otherUser),
       user: computed(() => AppState.user),
       posts: computed(() => AppState.usersPosts.slice(postsOffset.value, postsOffset.value + 5)),
