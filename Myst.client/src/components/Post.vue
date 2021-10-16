@@ -23,8 +23,8 @@
         <h5>{{ post.body }}</h5>
       </div>
     </div>
-    <div class=" bg-dark text-light shadow text-light ms-5" role="status" v-else>
-      <img src="../assets/img/transpine.png" class="spinner">
+    <div class=" bg-dark text-light shadow text-light ms-5 spinner" role="status" v-else>
+      <i class="mdi mdi-controller-classic-outline f-20 spinner"></i>
       <span class="visually-hidden text-light">Loading...</span>
     </div>
   </div>
