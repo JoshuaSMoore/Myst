@@ -61,6 +61,9 @@
     <h3 class="text-center">
       The Codeworks Team
     </h3>
+    <h3 class="text-center">
+      Hannah
+    </h3>
   </div>
   <div class="d-flex align-items-center justify-content-center parent">
     <figure class="aboutCard overlay">
