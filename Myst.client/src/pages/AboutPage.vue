@@ -150,7 +150,7 @@ export default {
   z-index: 1;
   max-width: 90px;
   opacity: 1;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(240, 240, 240, 0.863);
 }
 .aboutCard .follow {
   margin-right: 4%;
