@@ -61,14 +61,16 @@
     <h3 class="text-center">
       The Codeworks Team
     </h3>
-    <figure class="card">
-      <img src="../assets/img/lake.jpg" alt="sample74" />
+  </div>
+  <div class="d-flex align-items-center justify-content-center">
+    <figure class="aboutCard">
+      <img src="../assets/img/grave.jpg" alt="sample87" />
       <figcaption>
-        <img src="../assets/img/Kyle.jpg" alt="profile-sample2" class="profile" />
+        <img src="../assets/img/kyle.jpg" alt="profile-sample4" class="profile" />
         <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
-        <p>Placeholder Bio </p>
-        <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="follow">Linkedin</a>
-        <a href="https://github.com/KyleMHanna" class="info">GitHub</a>
+        <!-- <p>Placeholder Bio </p> -->
+        <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="">Linkedin</a>
+        <a href="https://github.com/KyleMHanna" class="">GitHub</a>
       </figcaption>
     </figure>
   </div>
