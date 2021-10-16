@@ -1,5 +1,5 @@
 <template>
-  <div class="col-2">
+  <div class="">
     <div class="card h-100  bg-dark text-light" width="50px">
       <router-link :to="{ name: 'Game', params: { gameId: followedGame.id }}">
         <img :src="followedGame.background_image" class="card-img-top" alt="...">
