@@ -191,7 +191,7 @@ export default {
         Pop.toast(error, 'error')
       }
       try {
-        await followService.getFollowing(AppState.account.id)
+        await followService.getFollowing(route.params.otheruserId)
         await followService.checkFollow()
       } catch (error) {
         Pop.toast(error.message, 'error')
