@@ -79,8 +79,9 @@ export default {
         Pop.toast(error, 'Error grabbing news')
       }
       try {
-        await accountService.getTrackedGames(AppState.profile.id)
-        await trackedGamesService.getTrackedGames()
+        logger.log('this is your user information on load', AppState.user)
+        // await accountService.getTrackedGames(AppState.user.id)
+        // await trackedGamesService.getTrackedGames()
       } catch (error) {
         Pop.toast(error, 'Error')
       }
@@ -88,6 +89,7 @@ export default {
     return {
       newsOffset,
       gamesOffset,
+      user: computed(() => AppState.user),
       profile: computed(() => AppState.profile),
       news: computed(() => AppState.news.slice(newsOffset.value, newsOffset.value + 10)),
       games: computed(() => AppState.games),
