@@ -154,7 +154,7 @@
           </button>
         </div>
         <div class="col-10 d-flex screenshot-card smoothScroll justify-content-center" id="postScroll">
-          <Post v-for="p in posts" :key="p.id" :post="p" />
+          <Post v-for="p in posts" :key="p.id" :post="p" /> 
         </div>
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('right', 'postScroll')" v-if="true">
