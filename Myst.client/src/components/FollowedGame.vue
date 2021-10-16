@@ -18,8 +18,10 @@
           </h5>
         </div>
       </router-link>
-      <i class="mdi mdi-heart f-20 text-light" type="button" title="favorite game" @click="favoriteGame(followedGame.id)">
+      <!-- <i class="mdi mdi-heart f-20 text-danger" type="button" title="favorite game" @click="favoriteGame(followedGame.id, account.id)" v-if="trackedGame">
       </i>
+      <i class="mdi mdi-heart f-20 text-light" type="button" title="favorite game" @click="favoriteGame(followedGame.id, account.id)" v-else>
+      </i> -->
     </div>
   </div>
 </template>
@@ -35,10 +37,12 @@ export default {
   },
   setup() {
     return {
+      account: computed(() => AppState.account),
       trackedGames: computed(() => AppState.trackedGames),
-      async favoriteGame(id) {
+      followedGames: computed(() => AppState.followedGames),
+      async favoriteGame(gameId, userId) {
         try {
-          await trackedGamesService.favoriteTrackedGame(id)
+          await trackedGamesService.favoriteTrackedGame(gameId, userId)
         } catch (error) {
           Pop.toast(error.message, 'error')
         }

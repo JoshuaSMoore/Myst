@@ -180,6 +180,8 @@ export default {
       followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 5)),
       userPosts: computed(() => AppState.userPosts),
       post: computed(() => AppState.post),
+      trackedGames: computed(() => AppState.trackedGames),
+
       following: computed(() => AppState.following.slice(peopleOffset.value, peopleOffset.value + 5)),
 
       canvasTest,
