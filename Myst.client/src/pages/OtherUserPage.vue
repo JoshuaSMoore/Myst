@@ -154,7 +154,7 @@
 </template>
 
 <script>
-import { computed, onMounted, ref } from '@vue/runtime-core'
+import { computed, onMounted, ref, watchEffect } from '@vue/runtime-core'
 import { useRoute } from 'vue-router'
 import { AppState } from '../AppState'
 import Pop from '../utils/Pop'
@@ -170,7 +170,10 @@ export default {
     const postsOffset = ref(0)
     const peopleOffset = ref(0)
     const route = useRoute()
-    onMounted(async() => {
+    watchEffect(async() => {
+      if (route.params.otheruserId) {
+        await accountService.getAccountById(route.params.otheruserId)
+      }
       try {
         await accountService.getAccountById(route.params.otheruserId)
       } catch (error) {
@@ -188,12 +191,36 @@ export default {
         Pop.toast(error, 'error')
       }
       try {
-        await followService.getFollowing(AppState.account.id)
+        await followService.getFollowing(route.params.otheruserId)
         await followService.checkFollow()
       } catch (error) {
         Pop.toast(error.message, 'error')
       }
     })
+    // onMounted(async() => {
+    //   try {
+    //     await accountService.getAccountById(route.params.otheruserId)
+    //   } catch (error) {
+    //     Pop.toast(error.message, 'error')
+    //   }
+    //   try {
+    //     await postsService.getPostByProfileId(route.params.otheruserId)
+    //   } catch (error) {
+    //     Pop.toast(error, 'Error getting Posts')
+    //   }
+    //   try {
+    //     await accountService.getTrackedGames(route.params.otheruserId)
+    //     await trackedGamesService.getTrackedGames()
+    //   } catch (error) {
+    //     Pop.toast(error, 'error')
+    //   }
+    //   try {
+    //     await followService.getFollowing(AppState.account.id)
+    //     await followService.checkFollow()
+    //   } catch (error) {
+    //     Pop.toast(error.message, 'error')
+    //   }
+    // })
     return {
       gamesOffset,
       postsOffset,
