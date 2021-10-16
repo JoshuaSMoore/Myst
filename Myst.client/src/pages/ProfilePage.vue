@@ -1,14 +1,16 @@
 <template>
-  <div class="container">
-    <div class="row">
+  <div class="d-fluid">
+    <div class="
+       row"
+    >
       <div class="col-12">
-        <h2 class="my-5">
+        <h2 class="m-5">
           Welcome, {{ profile.name }}
         </h2>
       </div>
     </div>
 
-    <div class="card bg-dark text-light">
+    <div class="card mx-5 mb-2 bg-dark text-light">
       <div class="row ">
         <div class="col m-2">
           <div class="bg-dark text-light d-flex justify-content-center align-items-center">
@@ -35,7 +37,7 @@
           <ul class="text-center">
             <li>
               <div class="text-light bg-dark">
-                <!-- {{ profile.twitch }} -->
+              <!-- {{ profile.twitch }} -->
               </div>
               <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1">
                 <i class="mdi mdi-twitch icon"></i>
@@ -48,7 +50,7 @@
             </li>
             <li>
               <div class="text-light bg-dark">
-                <!-- {{ profile.steam }} -->
+              <!-- {{ profile.steam }} -->
               </div>
               <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1">
                 <i class="mdi mdi-steam icon"></i>
@@ -65,7 +67,7 @@
 
             <li>
               <div class="text-light bg-dark">
-                <!-- {{ profile.playstation }} -->
+              <!-- {{ profile.playstation }} -->
               </div>
               <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1">
                 <i class="mdi mdi-sony-playstation icon"></i>
@@ -74,7 +76,7 @@
 
             <li>
               <div class="text-light bg-dark">
-                <!-- {{ profile.nintendo }} -->
+              <!-- {{ profile.nintendo }} -->
               </div>
               <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1">
                 <i class="mdi mdi-nintendo-switch icon"></i>
@@ -83,7 +85,7 @@
           </ul>
         </div>
         <!-- NOTE end of cool things -->
-        <div class="row rounded text-light m-2">
+        <div class="row rounded text-light m-5 justify-content-center">
           <h5 class="fw-bold m-2 rounded">
             {{ profile.name }}, these are your friends!
           </h5>
@@ -112,11 +114,15 @@
       </div>
     </div>
     <!-- NOTE followed games -->
-    <div class="row rounded text-light">
-      <h1 class="fw-bold ps-3 rounded">
+    <div class="mx-5 text-light ">
+      <h1 class="
+         fw-bold
+         ps-3
+         rounded"
+      >
         Game Library
       </h1>
-      <div class="row bg-dark rounded justify-content-center wow">
+      <div class="row mb-4 mx-5 bg-dark rounded justify-content-center ">
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('left', 'gameScroll')" v-if="true">
             <i class="mdi mdi-chevron-left f-20 text-light"></i>
@@ -133,21 +139,21 @@
       </div>
     </div>
     <!-- END FOLLOWED GAME NOTE START POSTS -->
-    <div class="row pb-2 rounded text-light">
+    <div class="mx-5 text-light ">
       <h2 class="fw-bold p-3 rounded">
         POSTS
-        <button v-if="user.isAuthenticated" class="btn btn-info w-25 ms-2 wow" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+        <button v-if="user.isAuthenticated" class="btn btn-info w-25 ms-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
           Create a Post
         </button>
       </h2>
-      <div class="row bg-dark rounded justify-content-center wow">
+      <div class="row m-5 bg-dark rounded justify-content-center wow">
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
             <i class="mdi mdi-chevron-left f-20 text-light"></i>
           </button>
         </div>
-        <div class="col-10 d-flex screenshot-card smoothScroll" id="postScroll">
-          <Post v-for="p in posts" :key="p.id" :post="p" class="m-3" />
+        <div class="col-10 d-flex screenshot-card smoothScroll justify-content-center" id="postScroll">
+          <Post v-for="p in posts" :key="p.id" :post="p" class="m-5" />
         </div>
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('right', 'postScroll')" v-if="true">

@@ -1,8 +1,8 @@
 <template>
-  <div class=" m-2">
+  <div class=" mx-4 my-2">
     <div class="card bg-info text-light shadow" style="width: 18rem" v-if="post.body != 'loading'">
       <div class="card-body container-fluid">
-        <img :src="post.thumbnailUrl" alt="post-thumbnail" class="img-fluid">
+        <img :src="post.thumbnailUrl" alt="post-thumbnail" class="img-fluid w-100">
         <!-- <img :src="post.mediaUrl"
              v-if="post.mediaUrl?.includes('Image')"
              width="300"
