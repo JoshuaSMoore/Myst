@@ -5,11 +5,11 @@
         <h2> PAGE {{ currentPage }} </h2>
       </div>
     </div>
-    <div v-if="games" class="row">
-      <GameSearchCard v-for="g in games" :key="g.id" :game="g" class="col-3 m-auto" />
+    <div v-if="games" class="row styles">
+      <GameSearchCard v-for="g in games" :key="g.id" :game="g" class="col-3 m-2 styles" />
     </div>
-    <div v-if="searchedAccounts" class="col-3 m-2">
-      <AccountSearchCard v-for="s in searchedAccounts" :key="s.id" :account="s" />
+    <div v-if="searchedAccounts" class="row styles">
+      <AccountSearchCard v-for="s in searchedAccounts" :key="s.id" :account="s" lass="col-3 m-2 styles" />
     </div>
     <div class="row">
       <div class="col-12 d-flex justify-content-around">
@@ -74,5 +74,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.styles{
+  display: flex;
+  justify-content: center;
+}
 </style>

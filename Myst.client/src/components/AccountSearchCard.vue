@@ -1,7 +1,7 @@
 <template>
-  <div class="card p-0" style="width: 25rem;">
+  <div class="card bg-dark m-2 " style="width: 25rem;">
     <router-link :to="{ name: 'OtherUserPage', params: {otheruserId: account.id}}">
-      <img :src="account.picture" class="card-img-top rounded" alt="...">
+      <img :src="account.picture" class="card-img-top rounded w-100" alt="...">
       <div class="card-body">
         <h5 class="card-title">
           {{ account.name }}
