@@ -178,8 +178,8 @@ export default {
 }
 
 .parent{
-  height:500px;
-  position:relative;
+  // height:500px;
+  // position:relative;
 
 }
 .overlay{
