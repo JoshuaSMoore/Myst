@@ -62,12 +62,12 @@
       The Codeworks Team
     </h3>
   </div>
-  <div class="d-flex align-items-center justify-content-center">
-    <figure class="aboutCard">
+  <div class="d-flex align-items-center justify-content-center parent">
+    <figure class="aboutCard overlay">
       <img src="../assets/img/grave.jpg" alt="sample87" />
       <figcaption>
-        <img src="../assets/img/kyle.jpg" alt="profile-sample4" class="profile" />
-        <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
+        <img src="../assets/img/kyle.jpg" alt="profile-sample4" class="profile sosad" />
+        <h2>Kyle Hanna<span>Spooky Dev</span></h2>
         <!-- <p>Placeholder Bio </p> -->
         <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="">Linkedin</a>
         <a href="https://github.com/KyleMHanna" class="">GitHub</a>
@@ -171,6 +171,35 @@ export default {
   font-size: 0.8em;
   letter-spacing: 1px;
   opacity: 0.8;
+}
+
+.sosad{
+  filter: grayscale(1);
+}
+
+.parent{
+  height:500px;
+  position:relative;
+
+}
+.overlay{
+  background-color:rgba(0,0,0,.5);
+  color:white;
+  // border:solid 1px white;
+  // position:absolute;
+  // left:0;
+  // top:0;
+  // right:0;
+  // bottom:0;
+  // margin:auto;
+  // width:80%;
+  // height:80%;
+  /*animate*/
+  transition:all .3s ease-in;
+}
+/* hover effect*/
+.parent:hover .overlay{
+  opacity:0;
 }
 
 </style>
