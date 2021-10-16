@@ -11,8 +11,8 @@
       <div class="col-12">
         <div class="profile-card container card bg-dark text-light">
           <div class="row">
-            <div class="col-md-4 m-auto">
-              <div class=" bg-dark text-light d-flex justify-content-center align-items-center">
+            <div class="col m-2">
+              <div class="bg-dark text-light d-flex justify-content-center align-items-center">
                 <iframe
                   :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
                   width="500px"
@@ -21,49 +21,79 @@
                 </iframe>
               </div>
             </div>
-            <div id="test-elm" class="col-md-8">
-              <div class="d-flex m-4">
-                <div>
-                  <img class="rounded" :src="profile.picture" alt="" height="200" width="200" />
-                </div>
-                <div class="mx-4">
-                  <p v-if="profile.bio" class="my-1">
-                    <b>Bio:</b> {{ profile.bio }}
-                  </p>
-                  <p v-if="profile.twitch" class="my-1">
-                    <b class="mdi mdi-twitch  mdi-24px"></b> {{ profile.twitch }}
-                  </p>
-                  <p v-if="profile.github" class="my-1">
-                    <b class="mdi mdi-github mdi-24px"></b> {{ profile.github }}
-                  </p>
-                  <p v-if="profile.steam" class="my-1">
-                    <b class="mdi mdi-steam mdi-24px"></b> {{ profile.steam }}
-                  </p>
-                  <p v-if="profile.xbox" class="my-1">
-                    <b class="mdi mdi-microsoft-xbox mdi-24px"></b> {{ profile.xbox }}
-                  </p>
-                  <p v-if="profile.playstation" class="my-1">
-                    <b class="mdi mdi-sony-playstation mdi-24px"></b> {{ profile.playstation }}
-                  </p>
-                  <p v-if="profile.nintendo" class="my-1">
-                    <b class="mdi mdi-nintendo-switch mdi-24px"></b> {{ profile.nintendo }}
-                  </p>
-                </div>
-              </div>
-              <div class="bg-secondary text-light  mx-5 text-center rounded">
-                <b>Who you are following</b>
-                <div class="d-flex">
-                  <button class="btn btn-secondary " @click="peopleOffset -=6" v-if="peopleOffset > 0" title="Previous Page">
-                    <i class="mdi mdi-chevron-left f-20"></i>
-                  </button>
-                  <Following v-for="f in following" :key="f.id" :following="f" class="m-2 shadow" />
-                  <button class="btn btn-secondary " @click="peopleOffset +=6" v-if="peopleOffset != peopleOffset" title="Next Page">
-                    <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
-                    </i>
-                  </button>
-                </div>
+
+            <div class="col m-2 text-center">
+              <img class="rounded" :src="profile.picture" alt="" height="400" width="400" />
+            </div>
+            <div class="m-2 row">
+              <p v-if="profile.bio" class="my-1">
+                <b>Bio:</b> {{ profile.bio }}
+              </p>
+              <ul class="text-center">
+                <li>
+                  <div class="text-light bg-dark">
+                    <!-- {{ profile.twitch }} -->
+                  </div>
+                  <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1">
+                    <i class="mdi mdi-twitch icon"></i>
+                  </a>
+                </li>
+                <li>
+                  <a :href="profile.github" v-if="profile.github" class="m-1">
+                    <i class="mdi mdi-github icon"></i>
+                  </a>
+                </li>
+                <li>
+                  <div class="text-light bg-dark">
+                    <!-- {{ profile.steam }} -->
+                  </div>
+                  <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1">
+                    <i class="mdi mdi-steam icon"></i>
+                  </a>
+                </li>
+
+                <li class="xbox" id="xbox">
+                  <div class="text-light bg-dark">
+                  </div>
+                  <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1" title="Xbox">
+                    <i class="mdi mdi-microsoft-xbox icon"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <div class="text-light bg-dark">
+                    <!-- {{ profile.playstation }} -->
+                  </div>
+                  <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1">
+                    <i class="mdi mdi-sony-playstation icon"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <div class="text-light bg-dark">
+                    <!-- {{ profile.nintendo }} -->
+                  </div>
+                  <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1">
+                    <i class="mdi mdi-nintendo-switch icon"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- NOTE end of cool things -->
+            <div class="row bg-dark text-light m-2">
+              <b>{{ profile.name }}, these are your friends!</b>
+              <div class="d-flex">
+                <!-- <button class="btn btn-secondary " @click="peopleOffset -=6" v-if="peopleOffset > 0" title="Previous Page">
+                  <i class="mdi mdi-chevron-left f-20"></i>
+                </button> -->
+                <Following v-for="f in following" :key="f.id" :following="f" class="m-2 shadow" />
+                <!-- <button class="btn btn-secondary " @click="peopleOffset +=6" v-if="peopleOffset != peopleOffset" title="Next Page">
+                  <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
+                  </i>
+                </button> -->
               </div>
             </div>
+
             <div class="row">
               <div class="col-12 d-flex justify-content-end">
                 <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
@@ -208,6 +238,86 @@ export default {
   z-index: 10;
   width: 40vh;
   height: 40vh;
+}
+body {
+  margin: 0;
+  padding:0;
+  background: #262626;
+}
+
+ul {
+  display: flex;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 80px;
+  font-size: 35px;
+  margin: 0 10px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+
+ul li a .icon {
+  position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+}
+
+ul li a:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+ul li a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: .5s;
+  z-index: 2;
+}
+
+ul li a:hover:before {
+  top: 0;
+}
+
+ul li:nth-child(1) a:before{
+  background: #a10fdb;
+}
+ul li:nth-child(2) a:before{
+  background: #5d5d5d;
+}
+ul li:nth-child(3) a:before{
+  background: #494848;
+}
+ul li:nth-child(4) a:before{
+  background: #04b63f;
+}
+ul li:nth-child(5) a:before{
+  background: #0018ee;
+}
+ul li:nth-child(6) a:before{
+  background: #db0f0f;
 }
 
 </style>

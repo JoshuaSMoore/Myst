@@ -12,7 +12,7 @@
           <slot name="modal-body"></slot>
         </div>
         <div class="modal-footer bg-dark text-light">
-          <img src="../assets/img/myst-logo.png" alt="MYST LOGO">
+          <img src="../assets/img/mystlight.png" alt="MYST LOGO">
         </div>
       </div>
     </div>
