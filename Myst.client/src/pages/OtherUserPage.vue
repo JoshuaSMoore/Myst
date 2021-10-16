@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <h2 class="my-5">
-          Welcome, {{ profile.name }}
+          Welcome to {{ profile.name }}'s Profile
         </h2>
       </div>
     </div>
@@ -22,13 +22,17 @@
               </div>
             </div>
             <!-- NOTE INFO -->
-            <div class="col m-2 text-center">
+            <div class="col m-2">
               <img class="rounded" :src="profile.picture" alt="" height="400" width="400" />
+              <div v-if="profile.bio" class="m-1">
+                <h3 class="fw-bold">
+                  About me..:
+                </h3> <h4 class="fw-bold">
+                  {{ profile.bio }}
+                </h4>
+              </div>
             </div>
             <div class="m-2 row">
-              <p v-if="profile.bio" class="my-1">
-                <b>Bio:</b> {{ profile.bio }}
-              </p>
               <ul class="text-center">
                 <li>
                   <div class="text-light bg-dark">
@@ -77,11 +81,26 @@
                 </li>
               </ul>
             </div>
+
             <!-- NOTE end of cool buttons -->
-            <div class="row text-light m-2">
-              <b>{{ profile.name }}'s friends</b>
-              <div class="d-flex">
-                <Following v-for="f in following" :key="f.id" :following="f" class="m-2" />
+            <div class="row roundedtext-light">
+              <h5 class="fw-bold ps-3 rounded">
+                {{ profile.name }}'s friends!
+              </h5>
+              <div class="row rounded justify-content-center">
+                <div class="col-1 text-center on-hover">
+                  <button class="btn btn-prev-next" @click="scroll('left', 'followScroll')" v-if="true">
+                    <i class="mdi mdi-chevron-left f-20 text-light"></i>
+                  </button>
+                </div>
+                <div class="col-10 d-flex screenshot-card smoothScroll" id="followScroll">
+                  <Following v-for="f in following" :key="f.id" :following="f" class="m-3" />
+                  <div class="col-1 text-center on-hover">
+                    <button class="btn btn-prev-next" @click="scroll('right', 'followScroll')" v-if="true">
+                      <i class="mdi mdi-chevron-right f-20 text-light"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -96,40 +115,45 @@
         </div>
       </div>
     </div>
-    <div class="row my-4">
-      <div class="col-12">
-        <h1 class="text-center fw-bold">
-          Game Library
-        </h1>
-        <div class="card library-card bg-dark text-light py-5 text-center">
-          <div class="d-flex">
-            <button class="btn btn-dark shadow" @click="gamesOffset -=5" v-if="gamesOffset > 0" title="Previous Page">
-              <i class="mdi mdi-chevron-left f-20 "></i>
-            </button>
-            <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-3" />
-            <button class="btn btn-dark shadow" @click="gamesOffset +=5" v-if="gamesOffset <= 4" title="Next Page">
-              <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
-              </i>
-            </button>
-          </div>
+    <!-- NOTE followed games -->
+    <div class="row rounded text-light">
+      <h1 class="fw-bold ps-3 rounded">
+        Game Library
+      </h1>
+      <div class="row bg-dark rounded justify-content-center wow">
+        <div class="col-1 text-center on-hover">
+          <button class="btn btn-prev-next" @click="scroll('left', 'gameScroll')" v-if="true">
+            <i class="mdi mdi-chevron-left f-20 text-light"></i>
+          </button>
+        </div>
+        <div class=" col-10 d-flex screenshot-card smoothScroll" id="gameScroll">
+          <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-3" />
+        </div>
+        <div class="col-1 text-center on-hover">
+          <button class="btn btn-prev-next" @click="scroll('right', 'gameScroll')" v-if="true">
+            <i class="mdi mdi-chevron-right f-20 text-light"></i>
+          </button>
         </div>
       </div>
     </div>
-    <div class="row my-4">
-      <div class="bg-dark rounded uploadss text-light py-5">
-        <h2>POSTS</h2>
-        <div class="d-flex mx-4" v-if="posts">
-          <button class="btn btn-dark shadow" @click="postsOffset -=5" v-if="postsOffset > 0" title="Previous Page">
-            <i class="mdi mdi-chevron-left f-20 "></i>
-          </button>
-          <Post v-for="p in posts" :key="p.id" :post="p" class="m-2" />
-          <button class="btn btn-dark shadow" @click="postsOffset +=5" v-if="postsOffset != postsOffset" title="Next Page">
-            <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
-            </i>
+    <!-- NOTE Posts -->
+    <div class="row pb-2 rounded text-light">
+      <h2 class="fw-bold p-3 rounded">
+        POSTS
+      </h2>
+      <div class="row bg-dark rounded justify-content-center wow">
+        <div class="col-1 text-center on-hover">
+          <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
+            <i class="mdi mdi-chevron-left f-20 text-light"></i>
           </button>
         </div>
-        <div class="card shadow text-center text-light" v-else>
-          <h4>This user has no posts</h4>
+        <div class="col-10 d-flex screenshot-card smoothScroll" id="postScroll">
+          <Post v-for="p in posts" :key="p.id" :post="p" class="m-3" />
+        </div>
+        <div class="col-1 text-center on-hover">
+          <button class="btn btn-prev-next" @click="scroll('right', 'postScroll')" v-if="true">
+            <i class="mdi mdi-chevron-right f-20 text-light"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -227,9 +251,9 @@ export default {
       peopleOffset,
       profile: computed(() => AppState.otherUser),
       user: computed(() => AppState.user),
-      posts: computed(() => AppState.usersPosts.slice(postsOffset.value, postsOffset.value + 5)),
-      followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 5)),
-      following: computed(() => AppState.following.slice(peopleOffset.value, peopleOffset.value + 5)),
+      posts: computed(() => AppState.usersPosts),
+      followedGames: computed(() => AppState.followedGames),
+      following: computed(() => AppState.following),
       async addFollower() {
         try {
           await followService.addFollower(route.params.otheruserId)
@@ -245,6 +269,18 @@ export default {
           Pop.toast("You've stopped following this Gamer", 'success')
         } catch (error) {
           Pop.toast(error.message, 'error')
+        }
+      },
+      scroll(dir, elementId) {
+        const scrollAmmount = 600
+        const element = document.getElementById(elementId)
+        switch (dir) {
+          case 'right':
+            element.scrollTo({ left: element.scrollLeft + scrollAmmount, behavior: 'smooth' })
+            break
+          case 'left':
+            element.scrollTo({ left: element.scrollLeft - scrollAmmount, behavior: 'smooth' })
+            break
         }
       }
     }

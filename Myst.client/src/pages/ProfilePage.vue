@@ -23,11 +23,15 @@
 
         <div class="col m-2 text-center">
           <img class="rounded wow" :src="profile.picture" alt="" height="400" width="400" />
+          <div v-if="profile.bio" class="m-1">
+            <h3 class="fw-bold">
+              About me..:
+            </h3> <h4 class="fw-bold">
+              {{ profile.bio }}
+            </h4>
+          </div>
         </div>
         <div class="m-2 row">
-          <p v-if="profile.bio" class="my-1">
-            <b>Bio:</b> {{ profile.bio }}
-          </p>
           <ul class="text-center">
             <li>
               <div class="text-light bg-dark">
@@ -79,12 +83,12 @@
           </ul>
         </div>
         <!-- NOTE end of cool things -->
-        <div class="row roundedtext-light">
-          <h5 class="fw-bold ps-3 rounded">
+        <div class="row rounded text-light m-2">
+          <h5 class="fw-bold m-2 rounded">
             {{ profile.name }}, these are your friends!
           </h5>
-          <div class="row rounded justify-content-center">
-            <div class="col-1 text-center on-hover">
+          <div class="row rounded justify-content-center ">
+            <div class="col-1 on-hover">
               <button class="btn btn-prev-next" @click="scroll('left', 'followScroll')" v-if="true">
                 <i class="mdi mdi-chevron-left f-20 text-light"></i>
               </button>
@@ -151,24 +155,24 @@
           </button>
         </div>
       </div>
-
-      <Modal id="profile-form">
-        <template #modal-title>
-          <h4>Update Profile</h4>
-        </template>
-        <template #modal-body>
-          <ProfileForm />
-        </template>
-      </Modal>
-      <Modal id="post-form">
-        <template #modal-title>
-          <h4>Create Post</h4>
-        </template>
-        <template #modal-body>
-          <PostForm />
-        </template>
-      </Modal>
     </div>
+
+    <Modal id="profile-form">
+      <template #modal-title>
+        <h4>Update Profile</h4>
+      </template>
+      <template #modal-body>
+        <ProfileForm />
+      </template>
+    </Modal>
+    <Modal id="post-form">
+      <template #modal-title>
+        <h4>Create Post</h4>
+      </template>
+      <template #modal-body>
+        <PostForm />
+      </template>
+    </Modal>
   </div>
 </template>
 
@@ -212,7 +216,7 @@ export default {
       postsOffset,
       profile: computed(() => AppState.profile),
       user: computed(() => AppState.user),
-      posts: computed(() => AppState.usersPosts.slice(postsOffset.value, postsOffset.value + 5)),
+      posts: computed(() => AppState.usersPosts),
       followedGames: computed(() => AppState.followedGames),
       userPosts: computed(() => AppState.userPosts),
       post: computed(() => AppState.post),
