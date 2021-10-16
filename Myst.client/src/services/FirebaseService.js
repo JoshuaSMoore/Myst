@@ -34,7 +34,7 @@ class FirebaseService {
     const typeIndex = mediaUrl.indexOf('spot.com/o/')
     const type = mediaUrl.slice(typeIndex + 11, typeIndex + 17)
     const fileName = mediaUrl.slice(mediaUrl.indexOf('%2F') + 3, mediaUrl.indexOf('?alt'))
-    logger.log('removing this ', type, fileName, body)
+
     const collection = storage.ref(type) // access sub folder in firebase (images or videos)
     const resource = collection.child(fileName) // this needs to be the name of the file
     await resource.delete()
@@ -43,7 +43,6 @@ class FirebaseService {
   async login() {
     try {
       const res = await api.get('/account/firebase-token')
-      logger.log('This is stuff', res.data.token)
       const firebaseAuthToken = res.data.token
       await fbAuth.signInWithCustomToken(firebaseAuthToken)
     } catch (e) {

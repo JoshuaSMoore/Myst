@@ -17,7 +17,7 @@ class AccountService {
   async getAccountById(id) {
     try {
       const res = await api.get(`account/${id}`)
-      logger.log(res.data)
+
       AppState.otherUser = res.data
     } catch (err) {
       logger.error('HAVE YOU STARTED YOUR SERVER YET???', err)
@@ -26,7 +26,7 @@ class AccountService {
 
   async editProfile(editable) {
     const res = await api.put('account', editable)
-    logger.log('editAccount', res)
+
     AppState.account = res.data
     AppState.profile = res.data
   }
@@ -34,16 +34,15 @@ class AccountService {
   async getTrackedGames(profileId) {
     AppState.trackedGames = []
     const res = await api.get(`api/profiles/${profileId}/trackedgames`)
-    logger.log('getTrackedGames', res)
+
     AppState.trackedGames = res.data
-    logger.log('AppstateTrackedGames', AppState.trackedGames)
   }
 
   async searchAccounts(query) {
     AppState.games = []
     const res = await api.get(`account/search/?name=${query}`)
     AppState.searchedAccounts = res.data
-    logger.log('searchAccounts', AppState.searchedAccounts)
+
     router.push({ name: 'Search' })
   }
 }

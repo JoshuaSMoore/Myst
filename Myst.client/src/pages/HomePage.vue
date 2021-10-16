@@ -79,7 +79,6 @@ export default {
         Pop.toast(error, 'Error grabbing news')
       }
       try {
-        logger.log(AppState.profile)
         await accountService.getTrackedGames(AppState.profile.id)
         await trackedGamesService.getTrackedGames()
       } catch (error) {
