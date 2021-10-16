@@ -74,7 +74,7 @@
               <i class="mdi mdi-chevron-left"></i>
             </button>
           </div>
-          <div class="col-10 d-flex related-game-card snappy-scroll" id="relatedScroll">
+          <div class="col-10 d-flex related-game-card smoothScroll" id="relatedScroll">
             <RelatedGame v-for="g in relatedGames" :key="g.id" :related-game="g" class="mx-2" />
           </div>
           <div class="col-1 text-center on-hover">
@@ -197,7 +197,7 @@ export default {
   display: none;
 }
 
-.snappy-scroll{
+.smoothScroll{
   flex-wrap: nowrap !important;
   overflow-x: scroll;
   overflow: hidden;
@@ -209,7 +209,7 @@ export default {
   &::-webkit-scrollbar-thumb{ background-color: rgba(255, 255, 255, 0.541); border-radius: 45%;}
   &::-webkit-scrollbar-corner{ / 6 */ }
 }
-.snappy-scroll div{
+.smoothScroll div{
   scroll-snap-align: start;
 }
 

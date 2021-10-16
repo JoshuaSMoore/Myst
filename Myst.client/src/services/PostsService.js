@@ -16,7 +16,6 @@ class PostsService {
     AppState.usersPosts = []
     try {
       const res = await api.get(`api/profiles/${profileId}/posts`)
-
       AppState.usersPosts = res.data
     } catch (error) {
       Pop.toast(error.message, error)

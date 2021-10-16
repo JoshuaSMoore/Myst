@@ -19,14 +19,13 @@ class FollowService {
     const following = AppState.following
     const foundFollowing = following.find(f => f.followingId === otherUserId)
     const res = await api.delete(`api/profiles/${otherUserId}/unfollow/${foundFollowing.id}`)
-
+    logger.log(res)
     AppState.following = AppState.following.filter(f => f.id !== foundFollowing.id)
   }
 
   async checkFollow() {
     const foundFollowing = AppState.following.find(f => f.creatorId === AppState.account.id)
     if (foundFollowing) {
-
     }
   }
 }

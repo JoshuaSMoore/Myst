@@ -7,161 +7,168 @@
         </h2>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="profile-card container card bg-dark text-light">
-          <div class="row">
-            <div class="col m-2">
-              <div class="bg-dark text-light d-flex justify-content-center align-items-center">
-                <iframe
-                  :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
-                  width="500px"
-                  height="300px"
-                >
-                </iframe>
-              </div>
-            </div>
 
-            <div class="col m-2 text-center">
-              <img class="rounded wow" :src="profile.picture" alt="" height="400" width="400" />
-            </div>
-            <div class="m-2 row">
-              <p v-if="profile.bio" class="my-1">
-                <b>Bio:</b> {{ profile.bio }}
-              </p>
-              <ul class="text-center">
-                <li>
-                  <div class="text-light bg-dark">
-                    <!-- {{ profile.twitch }} -->
-                  </div>
-                  <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1">
-                    <i class="mdi mdi-twitch icon"></i>
-                  </a>
-                </li>
-                <li>
-                  <a :href="profile.github" v-if="profile.github" class="m-1">
-                    <i class="mdi mdi-github icon"></i>
-                  </a>
-                </li>
-                <li>
-                  <div class="text-light bg-dark">
-                    <!-- {{ profile.steam }} -->
-                  </div>
-                  <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1">
-                    <i class="mdi mdi-steam icon"></i>
-                  </a>
-                </li>
-
-                <li class="xbox" id="xbox">
-                  <div class="text-light bg-dark">
-                  </div>
-                  <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1" title="Xbox">
-                    <i class="mdi mdi-microsoft-xbox icon"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <div class="text-light bg-dark">
-                    <!-- {{ profile.playstation }} -->
-                  </div>
-                  <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1">
-                    <i class="mdi mdi-sony-playstation icon"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <div class="text-light bg-dark">
-                    <!-- {{ profile.nintendo }} -->
-                  </div>
-                  <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1">
-                    <i class="mdi mdi-nintendo-switch icon"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- NOTE end of cool things -->
-            <div class="row bg-dark text-light m-2">
-              <b>{{ profile.name }}, these are your friends!</b>
-              <div class="d-flex">
-                <!-- <button class="btn btn-secondary " @click="peopleOffset -=6" v-if="peopleOffset > 0" title="Previous Page">
-                  <i class="mdi mdi-chevron-left f-20"></i>
-                </button> -->
-                <Following v-for="f in following" :key="f.id" :following="f" class="m-2 shadow" />
-                <!-- <button class="btn btn-secondary " @click="peopleOffset +=6" v-if="peopleOffset != peopleOffset" title="Next Page">
-                  <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
-                  </i>
-                </button> -->
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-12 d-flex justify-content-end">
-                <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
-                </i>
-              </div>
-            </div>
+    <div class="card bg-dark text-light">
+      <div class="row ">
+        <div class="col m-2">
+          <div class="bg-dark text-light d-flex justify-content-center align-items-center">
+            <iframe
+              :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
+              width="500px"
+              height="300px"
+            >
+            </iframe>
           </div>
         </div>
-      </div>
-      <div>
-        <div class="row my-4">
-          <div class="col-12">
-            <h1 class="text-center fw-bold">
-              Game Library
-            </h1>
-            <div class="card library-card bg-dark text-light py-5 text-center">
-              <div class="d-flex">
-                <button class="btn btn-dark shadow" @click="gamesOffset -=5" v-if="gamesOffset > 0" title="Previous Page">
-                  <i class="mdi mdi-chevron-left f-20 "></i>
-                </button>
-                <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-3" />
-                <button class="btn btn-dark shadow" @click="gamesOffset +=5" v-if="gamesOffset <= 4" title="Next Page">
-                  <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
-                  </i>
+
+        <div class="col m-2 text-center">
+          <img class="rounded wow" :src="profile.picture" alt="" height="400" width="400" />
+        </div>
+        <div class="m-2 row">
+          <p v-if="profile.bio" class="my-1">
+            <b>Bio:</b> {{ profile.bio }}
+          </p>
+          <ul class="text-center">
+            <li>
+              <div class="text-light bg-dark">
+                <!-- {{ profile.twitch }} -->
+              </div>
+              <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1">
+                <i class="mdi mdi-twitch icon"></i>
+              </a>
+            </li>
+            <li>
+              <a :href="profile.github" v-if="profile.github" class="m-1">
+                <i class="mdi mdi-github icon"></i>
+              </a>
+            </li>
+            <li>
+              <div class="text-light bg-dark">
+                <!-- {{ profile.steam }} -->
+              </div>
+              <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1">
+                <i class="mdi mdi-steam icon"></i>
+              </a>
+            </li>
+
+            <li class="xbox" id="xbox">
+              <div class="text-light bg-dark">
+              </div>
+              <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1" title="Xbox">
+                <i class="mdi mdi-microsoft-xbox icon"></i>
+              </a>
+            </li>
+
+            <li>
+              <div class="text-light bg-dark">
+                <!-- {{ profile.playstation }} -->
+              </div>
+              <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1">
+                <i class="mdi mdi-sony-playstation icon"></i>
+              </a>
+            </li>
+
+            <li>
+              <div class="text-light bg-dark">
+                <!-- {{ profile.nintendo }} -->
+              </div>
+              <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1">
+                <i class="mdi mdi-nintendo-switch icon"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- NOTE end of cool things -->
+        <div class="row roundedtext-light">
+          <h5 class="fw-bold ps-3 rounded">
+            {{ profile.name }}, these are your friends!
+          </h5>
+          <div class="row rounded justify-content-center">
+            <div class="col-1 text-center on-hover">
+              <button class="btn btn-prev-next" @click="scroll('left', 'followScroll')" v-if="true">
+                <i class="mdi mdi-chevron-left f-20 text-light"></i>
+              </button>
+            </div>
+            <div class="col-10 d-flex screenshot-card smoothScroll" id="followScroll">
+              <Following v-for="f in following" :key="f.id" :following="f" class="m-3" />
+              <div class="col-1 text-center on-hover">
+                <button class="btn btn-prev-next" @click="scroll('right', 'followScroll')" v-if="true">
+                  <i class="mdi mdi-chevron-right f-20 text-light"></i>
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <div class="row my-4">
-          <div class="bg-dark rounded uploadss text-light py-5">
-            <h2>POSTS</h2>
-            <div class="d-flex mx-4" v-if="posts">
-              <button class="btn btn-dark shadow" @click="postsOffset -=5" v-if="postsOffset > 0" title="Previous Page">
-                <i class="mdi mdi-chevron-left f-20 "></i>
-              </button>
-              <Post v-for="p in posts" :key="p.id" :post="p" class="m-2 p-2" />
-              <button class="btn btn-dark shadow" @click="postsOffset +=5" v-if="postsOffset != postsOffset" title="Next Page">
-                <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
-                </i>
-              </button>
-            </div>
-            <div class="card shadow text-center text-light" v-else>
-              <h4>This user has no posts</h4>
-            </div>
-            <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
-              Create Post
-            </button>
+        <div class="row">
+          <div class="col-12 d-flex justify-content-end">
+            <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
+            </i>
           </div>
         </div>
       </div>
     </div>
-    <Modal id="profile-form">
-      <template #modal-title>
-        <h4>Update Profile</h4>
-      </template>
-      <template #modal-body>
-        <ProfileForm />
-      </template>
-    </Modal>
-    <Modal id="post-form">
-      <template #modal-title>
-        <h4>Create Post</h4>
-      </template>
-      <template #modal-body>
-        <PostForm />
-      </template>
-    </Modal>
+    <!-- NOTE followed games -->
+    <div class="row rounded text-light">
+      <h1 class="fw-bold ps-3 rounded">
+        Game Library
+      </h1>
+      <div class="row bg-dark rounded justify-content-center wow">
+        <div class="col-1 text-center on-hover">
+          <button class="btn btn-prev-next" @click="scroll('left', 'gameScroll')" v-if="true">
+            <i class="mdi mdi-chevron-left f-20 text-light"></i>
+          </button>
+        </div>
+        <div class=" col-10 d-flex screenshot-card smoothScroll" id="gameScroll">
+          <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-3" />
+        </div>
+        <div class="col-1 text-center on-hover">
+          <button class="btn btn-prev-next" @click="scroll('right', 'gameScroll')" v-if="true">
+            <i class="mdi mdi-chevron-right f-20 text-light"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- END FOLLOWED GAME NOTE START POSTS -->
+    <div class="row pb-2 rounded text-light">
+      <h2 class="fw-bold p-3 rounded">
+        POSTS
+        <button v-if="user.isAuthenticated" class="btn btn-info w-25 ms-2 wow" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+          Create a Post
+        </button>
+      </h2>
+      <div class="row bg-dark rounded justify-content-center wow">
+        <div class="col-1 text-center on-hover">
+          <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
+            <i class="mdi mdi-chevron-left f-20 text-light"></i>
+          </button>
+        </div>
+        <div class="col-10 d-flex screenshot-card smoothScroll" id="postScroll">
+          <Post v-for="p in posts" :key="p.id" :post="p" class="m-3" />
+        </div>
+        <div class="col-1 text-center on-hover">
+          <button class="btn btn-prev-next" @click="scroll('right', 'postScroll')" v-if="true">
+            <i class="mdi mdi-chevron-right f-20 text-light"></i>
+          </button>
+        </div>
+      </div>
+
+      <Modal id="profile-form">
+        <template #modal-title>
+          <h4>Update Profile</h4>
+        </template>
+        <template #modal-body>
+          <ProfileForm />
+        </template>
+      </Modal>
+      <Modal id="post-form">
+        <template #modal-title>
+          <h4>Create Post</h4>
+        </template>
+        <template #modal-body>
+          <PostForm />
+        </template>
+      </Modal>
+    </div>
   </div>
 </template>
 
@@ -179,48 +186,55 @@ export default {
   setup() {
     const route = useRoute()
     const canvasTest = ref('')
-    const gamesOffset = ref(0)
     const postsOffset = ref(0)
-    const peopleOffset = ref(0)
     watchEffect(async() => {
-      if (route.params.otheruserId) {
+      if (route.params.profileId) {
         try {
           await postsService.getPostByProfileId(route.params.profileId)
         } catch (error) {
           Pop.toast(error, 'Error getting Posts')
         }
         try {
-          await accountService.getTrackedGames(AppState.profile.id)
+          await accountService.getTrackedGames(route.params.profileId)
           await trackedGamesService.getTrackedGames()
         } catch (error) {
           Pop.toast(error, 'error')
         }
         try {
-          await followService.getFollowing(AppState.profile.id)
+          await followService.getFollowing(route.params.profileId)
+          await followService.checkFollow()
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
       }
     })
     return {
-      gamesOffset,
       postsOffset,
-      peopleOffset,
       profile: computed(() => AppState.profile),
       user: computed(() => AppState.user),
       posts: computed(() => AppState.usersPosts.slice(postsOffset.value, postsOffset.value + 5)),
-      followedGames: computed(() => AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 5)),
+      followedGames: computed(() => AppState.followedGames),
       userPosts: computed(() => AppState.userPosts),
       post: computed(() => AppState.post),
       trackedGames: computed(() => AppState.trackedGames),
-
-      following: computed(() => AppState.following.slice(peopleOffset.value, peopleOffset.value + 5)),
-
+      following: computed(() => AppState.following),
       canvasTest,
       testCanvas() {
         const canvas = document.getElementById('canvas-test')
         const imageUrl = canvas.toDataURL('image/jpeg')
         const videoElm = document.getElementById('test')
+      },
+      scroll(dir, elementId) {
+        const scrollAmmount = 600
+        const element = document.getElementById(elementId)
+        switch (dir) {
+          case 'right':
+            element.scrollTo({ left: element.scrollLeft + scrollAmmount, behavior: 'smooth' })
+            break
+          case 'left':
+            element.scrollTo({ left: element.scrollLeft - scrollAmmount, behavior: 'smooth' })
+            break
+        }
       }
     }
   }
@@ -324,5 +338,29 @@ ul li:nth-child(6) a:before{
 
 .wow{
   box-shadow: 5px 5px 15px rgba(255, 0, 242, 0.863);
+}
+
+.smoothScroll{
+  flex-wrap: nowrap !important;
+  overflow-x: scroll;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+   &::-webkit-scrollbar{ }
+  &::-webkit-scrollbar-button{ /* 2 / }
+  &::-webkit-scrollbar-track{ / 3 / }
+  &::-webkit-scrollbar-track-piece{  background-color: rgba(255, 255, 255, 0.541); border-radius: 45%; }
+  &::-webkit-scrollbar-thumb{ background-color: rgba(255, 255, 255, 0.541); border-radius: 45%;}
+  &::-webkit-scrollbar-corner{ / 6 */ }
+
+}
+.smoothScroll div{
+  scroll-snap-align: start;
+}
+
+.btn-prev-next{
+  height: 100%;
+  background-color: rgba(211, 16, 245, 0.322);
+  color: black;
+  scroll-behavior: smooth;
 }
 </style>

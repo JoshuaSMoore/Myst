@@ -1,5 +1,5 @@
 <template>
-  <div class="post m-2">
+  <div class=" m-2">
     <div class="card bg-info text-light shadow" style="width: 18rem" v-if="post.body != 'loading'">
       <div class="card-body container-fluid">
         <img :src="post.thumbnailUrl" alt="post-thumbnail" class="img-fluid">

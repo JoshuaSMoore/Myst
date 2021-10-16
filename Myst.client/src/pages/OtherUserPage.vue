@@ -253,23 +253,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .live-card{
-//   height: 15rem;
-// }
 
-// .friend-card{
-//   height: 7rem;
-// }
-
-// .library-card{
-//   height: 20rem;
-//   overflow-x: scroll;
-//   overflow-y: hidden;
-// }
-// .uploadss{
-//   overflow-x: scroll;
-//   overflow-y: hidden;
-// }
 body {
   margin: 0;
   padding:0;
@@ -350,5 +334,25 @@ ul li:nth-child(5) a:before{
 ul li:nth-child(6) a:before{
   background: #db0f0f;
 }
+.wow{
+  box-shadow: 5px 5px 15px rgba(255, 0, 242, 0.863);
+}
 
+.smoothScroll{
+  flex-wrap: nowrap !important;
+  overflow-x: scroll;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+
+}
+.smoothScroll div{
+  scroll-snap-align: start;
+}
+
+.btn-prev-next{
+  height: 100%;
+  background-color: rgba(211, 16, 245, 0.322);
+  color: black;
+  scroll-behavior: smooth;
+}
 </style>
