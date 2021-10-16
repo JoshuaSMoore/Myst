@@ -13,7 +13,6 @@ const options = {
 class NewsService {
   async getNews() {
     axios.request(options).then(function(res) {
-      logger.log('the res', res)
       AppState.news = res.data
     })
   }

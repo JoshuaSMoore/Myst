@@ -85,7 +85,7 @@ export default {
       },
       filePicked(event) {
         files.value = event.target.files
-        logger.log('files ref value', files.value)
+
         const reader = new FileReader()
         reader.readAsDataURL(files.value[0])
         reader.onload = () => {
@@ -107,7 +107,7 @@ export default {
         const url = await firebaseService.upload(files.value[0], editable.value.type)
         editable.value.mediaUrl = url
         editable.value.thumbnailUrl = thumbnailUrl
-        logger.log(url)
+
         await this.createPost()
       },
       print() {
