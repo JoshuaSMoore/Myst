@@ -49,6 +49,9 @@
             <b> game description: </b>
             {{ game.description_raw }}
           </p>
+          <a :href="game.website">
+            Game Site
+          </a>
         </div>
         <div class="d-flex justify-content-around">
           <div>

@@ -23,7 +23,7 @@
             </div>
 
             <div class="col m-2 text-center">
-              <img class="rounded" :src="profile.picture" alt="" height="400" width="400" />
+              <img class="rounded wow" :src="profile.picture" alt="" height="400" width="400" />
             </div>
             <div class="m-2 row">
               <p v-if="profile.bio" class="my-1">
@@ -320,4 +320,7 @@ ul li:nth-child(6) a:before{
   background: #db0f0f;
 }
 
+.wow{
+  box-shadow: 5px 5px 15px rgba(255, 0, 242, 0.863);
+}
 </style>
