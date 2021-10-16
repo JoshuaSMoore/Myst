@@ -57,7 +57,7 @@
                     <i class="mdi mdi-chevron-left f-20"></i>
                   </button>
                   <Following v-for="f in following" :key="f.id" :following="f" class="m-2 shadow" />
-                  <button class="btn btn-secondary " @click="peopleOffset +=6" v-if="peopleOffset <= 6" title="Next Page">
+                  <button class="btn btn-secondary " @click="peopleOffset +=6" v-if="peopleOffset != peopleOffset" title="Next Page">
                     <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
                     </i>
                   </button>
@@ -85,7 +85,7 @@
                   <i class="mdi mdi-chevron-left f-20 "></i>
                 </button>
                 <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-3" />
-                <button class="btn btn-dark shadow" @click="gamesOffset +=5" v-if="gamesOffset <= 6" title="Next Page">
+                <button class="btn btn-dark shadow" @click="gamesOffset +=5" v-if="gamesOffset <= 4" title="Next Page">
                   <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
                   </i>
                 </button>
@@ -101,7 +101,7 @@
                 <i class="mdi mdi-chevron-left f-20 "></i>
               </button>
               <Post v-for="p in posts" :key="p.id" :post="p" class="m-2 p-2" />
-              <button class="btn btn-dark shadow" @click="postsOffset +=5" v-if="postsOffset < 5" title="Next Page">
+              <button class="btn btn-dark shadow" @click="postsOffset +=5" v-if="postsOffset != postsOffset" title="Next Page">
                 <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
                 </i>
               </button>

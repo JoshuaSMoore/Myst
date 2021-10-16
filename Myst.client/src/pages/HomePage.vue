@@ -12,7 +12,7 @@
           <i class="mdi mdi-chevron-left f-20 "></i>
         </button>
         <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-2 bg-dark  animate__animated animate__backInLeft" />
-        <button class="btn btn-dark shadow" @click="gamesOffset +=2" v-if="gamesOffset <= 6" title="Next Page">
+        <button class="btn btn-dark shadow" @click="gamesOffset +=2" v-if="gamesOffset <= 2" title="Next Page">
           <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
           </i>
         </button>
