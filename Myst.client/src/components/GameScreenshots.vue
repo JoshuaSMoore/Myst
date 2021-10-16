@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-2">
     <img :src="screenShot.image"
          width="300"
          alt=""

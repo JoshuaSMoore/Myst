@@ -95,7 +95,7 @@
             </button>
           </div>
           <div class="col-10 d-flex screenshot-card smoothScroll" id="followScroll">
-            <Following v-for="f in following" :key="f.id" :following="f" class="m-3" />
+            <Following v-for="f in following" :key="f.id" :following="f" />
             <div class="col-1 text-center on-hover">
               <button class="btn btn-prev-next" @click="scroll('right', 'followScroll')" v-if="true">
                 <i class="mdi mdi-chevron-right f-20 text-light"></i>
@@ -127,7 +127,7 @@
           </button>
         </div>
         <div class=" col-10 d-flex screenshot-card smoothScroll" id="gameScroll">
-          <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-3" />
+          <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" />
         </div>
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('right', 'gameScroll')" v-if="true">
@@ -154,7 +154,7 @@
           </button>
         </div>
         <div class="col-10 d-flex screenshot-card smoothScroll justify-content-center" id="postScroll">
-          <Post v-for="p in posts" :key="p.id" :post="p" class="m-5" />
+          <Post v-for="p in posts" :key="p.id" :post="p" />
         </div>
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('right', 'postScroll')" v-if="true">

@@ -25,7 +25,7 @@
             </button>
           </div>
           <div class="card d-flex bg-dark text-light my-2">
-            <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" class="m-2" />
+            <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" />
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
             </button>
           </div>
           <div class="col-10 d-flex related-game-card smoothScroll" id="relatedScroll">
-            <RelatedGame v-for="g in relatedGames" :key="g.id" :related-game="g" class="mx-2" />
+            <RelatedGame v-for="g in relatedGames" :key="g.id" :related-game="g" />
           </div>
           <div class="col-1 text-center on-hover">
             <button class="btn btn-prev-next" @click="scroll('right', 'relatedScroll')" v-if="true">
@@ -96,7 +96,7 @@
             </button>
           </div>
           <div class=" col-10 d-flex screenshot-card snappy-scroll" id="gameScroll">
-            <GameScreenshots v-for="g in gameScreenShots" :key="g.id" :screen-shot="g" class="mx-2" />
+            <GameScreenshots v-for="g in gameScreenShots" :key="g.id" :screen-shot="g" />
           </div>
           <div class="col-1 text-center on-hover">
             <button class="btn btn-prev-next" @click="scroll('right', 'gameScroll')" v-if="true">
