@@ -64,82 +64,75 @@
                 </div>
               </div>
             </div>
-            <!-- CANVAS ENDS HERE -->
-            <canvas class="canvas" id="canvas-test">
-            </canvas>
-            <button class="btn btn-outline-light" @click="testCanvas">
-              test canvas
-            </button>
-            <img :src="canvasTest" alt="nothing">
-          </div>
-          <div class="row">
-            <div class="col-12 d-flex justify-content-end">
-              <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
-              </i>
+            <div class="row">
+              <div class="col-12 d-flex justify-content-end">
+                <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
+                </i>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div class="row my-4">
-        <div class="col-12">
-          <h1 class="text-center fw-bold">
-            Game Library
-          </h1>
-          <div class="card library-card bg-dark text-light py-5 text-center">
-            <div class="d-flex">
-              <button class="btn btn-dark shadow" @click="gamesOffset -=5" v-if="gamesOffset > 0" title="Previous Page">
+      <div>
+        <div class="row my-4">
+          <div class="col-12">
+            <h1 class="text-center fw-bold">
+              Game Library
+            </h1>
+            <div class="card library-card bg-dark text-light py-5 text-center">
+              <div class="d-flex">
+                <button class="btn btn-dark shadow" @click="gamesOffset -=5" v-if="gamesOffset > 0" title="Previous Page">
+                  <i class="mdi mdi-chevron-left f-20 "></i>
+                </button>
+                <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-3" />
+                <button class="btn btn-dark shadow" @click="gamesOffset +=5" v-if="gamesOffset <= 6" title="Next Page">
+                  <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
+                  </i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-4">
+          <div class="bg-dark rounded uploadss text-light py-5">
+            <h2>POSTS</h2>
+            <div class="d-flex mx-4" v-if="posts">
+              <button class="btn btn-dark shadow" @click="postsOffset -=5" v-if="postsOffset > 0" title="Previous Page">
                 <i class="mdi mdi-chevron-left f-20 "></i>
               </button>
-              <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="mx-3" />
-              <button class="btn btn-dark shadow" @click="gamesOffset +=5" v-if="gamesOffset <= 6" title="Next Page">
+              <Post v-for="p in posts" :key="p.id" :post="p" class="m-2 p-2" />
+              <button class="btn btn-dark shadow" @click="postsOffset +=5" v-if="postsOffset < 5" title="Next Page">
                 <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
                 </i>
               </button>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="row my-4">
-        <div class="bg-dark rounded uploadss text-light py-5">
-          <h2>POSTS</h2>
-          <div class="d-flex mx-4" v-if="posts">
-            <button class="btn btn-dark shadow" @click="postsOffset -=5" v-if="postsOffset > 0" title="Previous Page">
-              <i class="mdi mdi-chevron-left f-20 "></i>
-            </button>
-            <Post v-for="p in posts" :key="p.id" :post="p" class="m-2 p-2" />
-            <button class="btn btn-dark shadow" @click="postsOffset +=5" v-if="postsOffset < 5" title="Next Page">
-              <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-right f-20 ">
-              </i>
+            <div class="card shadow text-center text-light" v-else>
+              <h4>This user has no posts</h4>
+            </div>
+            <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+              Create Post
             </button>
           </div>
-          <div class="card shadow text-center text-light" v-else>
-            <h4>This user has no posts</h4>
-          </div>
-          <button v-if="user.isAuthenticated" class="btn btn-info my-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
-            Create Post
-          </button>
         </div>
       </div>
     </div>
+    <Modal id="profile-form">
+      <template #modal-title>
+        <h4>Update Profile</h4>
+      </template>
+      <template #modal-body>
+        <ProfileForm />
+      </template>
+    </Modal>
+    <Modal id="post-form">
+      <template #modal-title>
+        <h4>Create Post</h4>
+      </template>
+      <template #modal-body>
+        <PostForm />
+      </template>
+    </Modal>
   </div>
-  <Modal id="profile-form">
-    <template #modal-title>
-      <h4>Update Profile</h4>
-    </template>
-    <template #modal-body>
-      <ProfileForm />
-    </template>
-  </Modal>
-  <Modal id="post-form">
-    <template #modal-title>
-      <h4>Create Post</h4>
-    </template>
-    <template #modal-body>
-      <PostForm />
-    </template>
-  </Modal>
 </template>
 
 <script>
