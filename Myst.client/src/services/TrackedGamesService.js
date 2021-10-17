@@ -58,6 +58,7 @@ class TrackedGamesService {
     const trackedGames = AppState.trackedGames
     const foundGame = trackedGames.find(f => f.gameId === gameId)
     const res = await api.delete(`api/trackedgames/${foundGame.id}`)
+    logger.log('deleteTrackedGame', res)
 
     AppState.trackedGames = AppState.trackedGames.filter(t => t.id !== foundGame.id)
     await this.getTrackedGamesByGameId(gameId)
