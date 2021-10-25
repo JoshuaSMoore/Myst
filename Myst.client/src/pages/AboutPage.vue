@@ -43,37 +43,14 @@
         <a href="https://github.com/DerekShain" class="info">GitHub</a>
       </figcaption>
     </figure>
-    <!-- Kyle RIP FIXME -->
-  </div>
-  <div class="row text-center">
-    <h3 class="text-center">
-      Thanks to (not our sponsors) Twitch
-    </h3>
-    <br />
-    <h3 class="text-center">
-      RAWG.Io
-    </h3>
-    <br />
-    <h3 class="text-center">
-      MMOBOMB
-    </h3>
-    <br />
-    <h3 class="text-center">
-      The Codeworks Team
-    </h3>
-    <h3 class="text-center">
-      Hannah
-    </h3>
-  </div>
-  <div class="d-flex align-items-center justify-content-center ">
     <figure class="aboutCard ">
       <img src="../assets/img/city.jpg" alt="sample87" />
       <figcaption>
-        <img src="../assets/img/kyle.jpg" alt="profile-sample4" class="profile sosad" />
+        <img src="../assets/img/kyle.jpg" alt="profile-sample4" class="profile" />
         <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
         <!-- <p>Placeholder Bio </p> -->
-        <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="">Linkedin</a>
-        <a href="https://github.com/KyleMHanna" class="">GitHub</a>
+        <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="follow">Linkedin</a>
+        <a href="https://github.com/KyleMHanna" class="info">GitHub</a>
       </figcaption>
     </figure>
   </div>
