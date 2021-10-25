@@ -153,10 +153,6 @@ export default {
   opacity: 0.8;
 }
 
-.sosad{
-  filter: grayscale(50%);
-}
-
 .parent{
   // height:500px;
   // position:relative;
