@@ -38,6 +38,13 @@ class AccountService {
     AppState.trackedGames = res.data
   }
 
+  async getProfileGames(profileId) {
+    AppState.trackedGames = []
+    const res = await api.get(`api/profiles/${profileId}/trackedgames`)
+
+    AppState.profileGames = res.data
+  }
+
   async searchAccounts(query) {
     AppState.games = []
     const res = await api.get(`account/search/?name=${query}`)

@@ -127,7 +127,7 @@
           </button>
         </div>
         <div class=" col-10 d-flex screenshot-card smoothScroll" id="gameScroll">
-          <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" class="m-3" />
+          <FollowedGame v-for="f in followedProfileGames" :key="f.id" :followed-game="f" class="m-3" />
         </div>
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('right', 'gameScroll')" v-if="true">
@@ -194,9 +194,10 @@ export default {
     const postsOffset = ref(0)
     const peopleOffset = ref(0)
     const route = useRoute()
-    watchEffect(async() => {
+    // vvvvvv -- changed from watchEffect my Nick 11/3/21
+    onMounted(async() => {
       if (route.params.otheruserId) {
-        await accountService.getAccountById(route.params.otheruserId)
+        // await accountService.getAccountById(route.params.otheruserId)
       }
       try {
         await accountService.getAccountById(route.params.otheruserId)
@@ -209,8 +210,8 @@ export default {
         Pop.toast(error, 'Error getting Posts')
       }
       try {
-        await accountService.getTrackedGames(route.params.otheruserId)
-        await trackedGamesService.getTrackedGames()
+        await accountService.getProfileGames(route.params.otheruserId)
+        await trackedGamesService.getProfileGames()
       } catch (error) {
         Pop.toast(error, 'error')
       }
@@ -252,7 +253,7 @@ export default {
       profile: computed(() => AppState.otherUser),
       user: computed(() => AppState.user),
       posts: computed(() => AppState.usersPosts),
-      followedGames: computed(() => AppState.followedGames),
+      followedProfileGames: computed(() => AppState.followedProfileGames),
       following: computed(() => AppState.following),
       async addFollower() {
         try {
