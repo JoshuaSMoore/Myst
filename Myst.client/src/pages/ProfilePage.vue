@@ -9,10 +9,10 @@
     </div>
 
     <div class="col-12">
-      <div class="profile-card container card bg-dark text-light">
+      <div class="profile-card container text-light">
         <div class="row">
           <div class="col m-2">
-            <div class=" bg-dark text-light d-flex justify-content-center align-items-center glow">
+            <div class=" text-light d-flex justify-content-center align-items-center">
               <iframe
                 :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
                 width="500px"
@@ -36,7 +36,7 @@
         <div class="m-2 row">
           <ul class="text-center center">
             <li>
-              <div class="text-light bg-dark">
+              <div class="text-light">
                 <!-- {{ profile.twitch }} -->
               </div>
               <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1 glow">
@@ -49,7 +49,7 @@
               </a>
             </li>
             <li>
-              <div class="text-light bg-dark">
+              <div class="text-light">
                 <!-- {{ profile.steam }} -->
               </div>
               <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1 glow">
@@ -58,14 +58,14 @@
             </li>
 
             <li class="xbox" id="xbox">
-              <div class="text-light bg-dark">
+              <div class="text-light">
               </div>
               <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1 glow" title="Xbox">
                 <i class="mdi mdi-microsoft-xbox icon"></i>
               </a>
             </li>
             <li>
-              <div class="text-light bg-dark">
+              <div class="text-light">
                 <!-- {{ profile.playstation }} -->
               </div>
               <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1 glow">
@@ -73,7 +73,7 @@
               </a>
             </li>
             <li>
-              <div class="text-light bg-dark">
+              <div class="text-light">
                 <!-- {{ profile.nintendo }} -->
               </div>
               <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1 glow">
@@ -146,7 +146,7 @@
         Create a Post
       </button>
     </h1>
-    <div class="row mx-5 mb-5 bg-dark rounded justify-content-center wow">
+    <div class="row mx-5 mb-5 rounded justify-content-center">
       <div class="col-1 text-center on-hover">
         <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
           <i class="mdi mdi-chevron-left f-20 text-light"></i>
