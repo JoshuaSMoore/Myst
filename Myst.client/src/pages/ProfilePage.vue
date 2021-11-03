@@ -17,13 +17,14 @@
                 :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
                 width="500px"
                 height="300px"
+                class="bigRound glow"
               >
               </iframe>
             </div>
           </div>
           <!-- NOTE INFO -->
           <div class="col m-2 display-flex align-items-center">
-            <img class="rounded glow" :src="profile.picture" alt="" height="400" width="400" />
+            <img class="bigRound glow" :src="profile.picture" alt="" height="400" width="400" />
             <div v-if="profile.bio" class="m-1">
               <h3 class="fw-bold">
                 About me..:
@@ -377,7 +378,9 @@ ul li:nth-child(6) a:before{
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.548);
   transition: 0.3s;
 }
-
+.bigRound{
+  border-radius: 50px;
+}
 /* On mouse-over, add a deeper shadow */
 .glow:hover {
   box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.829);

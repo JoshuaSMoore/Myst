@@ -9,21 +9,22 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <div class="profile-card container card bg-dark text-light">
+        <div class=" container text-light">
           <div class="row">
             <div class="col m-2">
-              <div class=" bg-dark text-light d-flex justify-content-center align-items-center">
+              <div class="  text-light d-flex justify-content-center align-items-center">
                 <iframe
                   :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
                   width="500px"
                   height="300px"
+                  class="bigRound glow"
                 >
                 </iframe>
               </div>
             </div>
             <!-- NOTE INFO -->
             <div class="col m-2">
-              <img class="rounded" :src="profile.picture" alt="" height="400" width="400" />
+              <img class="bigRound glow" :src="profile.picture" alt="" height="400" width="400" />
               <div v-if="profile.bio" class="m-1">
                 <h3 class="fw-bold">
                   About me..:
@@ -35,47 +36,47 @@
             <div class="m-2 row">
               <ul class="text-center">
                 <li>
-                  <div class="text-light bg-dark">
+                  <div class="text-light ">
                     <!-- {{ profile.twitch }} -->
                   </div>
-                  <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1">
+                  <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1 glow glow">
                     <i class="mdi mdi-twitch icon"></i>
                   </a>
                 </li>
                 <li>
-                  <a :href="profile.github" v-if="profile.github" class="m-1">
+                  <a :href="profile.github" v-if="profile.github" class="m-1 glow">
                     <i class="mdi mdi-github icon"></i>
                   </a>
                 </li>
                 <li>
-                  <div class="text-light bg-dark">
+                  <div class="text-light ">
                     <!-- {{ profile.steam }} -->
                   </div>
-                  <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1">
+                  <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1 glow">
                     <i class="mdi mdi-steam icon"></i>
                   </a>
                 </li>
 
                 <li class="xbox" id="xbox">
-                  <div class="text-light bg-dark">
+                  <div class="text-light ">
                   </div>
-                  <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1" title="Xbox">
+                  <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1 glow" title="Xbox">
                     <i class="mdi mdi-microsoft-xbox icon"></i>
                   </a>
                 </li>
                 <li>
-                  <div class="text-light bg-dark">
+                  <div class="text-light ">
                     <!-- {{ profile.playstation }} -->
                   </div>
-                  <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1">
+                  <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1 glow">
                     <i class="mdi mdi-sony-playstation icon"></i>
                   </a>
                 </li>
                 <li>
-                  <div class="text-light bg-dark">
+                  <div class="text-light ">
                     <!-- {{ profile.nintendo }} -->
                   </div>
-                  <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1">
+                  <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1 glow">
                     <i class="mdi mdi-nintendo-switch icon"></i>
                   </a>
                 </li>
@@ -120,7 +121,7 @@
       <h1 class="fw-bold ps-3 rounded">
         Game Library
       </h1>
-      <div class="row bg-dark rounded justify-content-center wow">
+      <div class="row  rounded justify-content-center">
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('left', 'gameScroll')" v-if="true">
             <i class="mdi mdi-chevron-left f-20 text-light"></i>
@@ -141,7 +142,7 @@
       <h2 class="fw-bold p-3 rounded">
         POSTS
       </h2>
-      <div class="row bg-dark rounded justify-content-center wow">
+      <div class="row  rounded justify-content-center ">
         <div class="col-1 text-center on-hover">
           <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
             <i class="mdi mdi-chevron-left f-20 text-light"></i>
@@ -391,5 +392,25 @@ ul li:nth-child(6) a:before{
   background-color: rgba(211, 16, 245, 0.322);
   color: black;
   scroll-behavior: smooth;
+}
+.glow {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.548);
+  transition: 0.3s;
+}
+.bigRound{
+  border-radius: 50px;
+}
+/* On mouse-over, add a deeper shadow */
+.glow:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.829);
+}
+.center{
+  display: flex;
+  justify-content: center;
+}
+.text-shadow{
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 </style>
