@@ -44,7 +44,7 @@ class TrackedGamesService {
     AppState.game = {}
     const game = {
       method: 'GET',
-      url: `https://api.rawg.io/api/games/${id}?key=004cc6f4ef734a4a8725e3082070efd6`
+      url: `https://api.rawg.io/api/games/${id}?key=24eec9d2cf3a43a49627ed6e8e5c78c0`
     }
     axios.request(game).then(function(res) {
       AppState.followedGames.push(res.data)

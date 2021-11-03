@@ -45,7 +45,7 @@ class GamesSearchService {
     AppState.games = []
     const oldGame = {
       method: 'GET',
-      url: `https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${AppState.currentPage}&search=${AppState.currentSearch}`
+      url: `https://api.rawg.io/api/games?key=24eec9d2cf3a43a49627ed6e8e5c78c0&page=${AppState.currentPage}&search=${AppState.currentSearch}`
     }
     await axios.request(oldGame).then(function(res) {
       AppState.page = res.data
@@ -62,7 +62,7 @@ class GamesSearchService {
     AppState.currentPage++
     const newGame = {
       method: 'GET',
-      url: `https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${AppState.currentPage}&search=${AppState.currentSearch}`
+      url: `https://api.rawg.io/api/games?key=24eec9d2cf3a43a49627ed6e8e5c78c0&page=${AppState.currentPage}&search=${AppState.currentSearch}`
     }
     await axios.request(newGame).then(function(res) {
       AppState.page = res.data
@@ -78,7 +78,7 @@ class GamesSearchService {
     AppState.game = {}
     const game = {
       method: 'GET',
-      url: `https://api.rawg.io/api/games/${id}?key=004cc6f4ef734a4a8725e3082070efd6`
+      url: `https://api.rawg.io/api/games/${id}?key=24eec9d2cf3a43a49627ed6e8e5c78c0`
     }
     await axios.request(game).then(function(res) {
       AppState.game = res.data
@@ -95,7 +95,7 @@ class GamesSearchService {
     AppState.gameScreenShots = {}
     const screenshots = {
       method: 'GET',
-      url: `https://api.rawg.io/api/games/${gameName}/screenshots?key=004cc6f4ef734a4a8725e3082070efd6`
+      url: `https://api.rawg.io/api/games/${gameName}/screenshots?key=24eec9d2cf3a43a49627ed6e8e5c78c0`
     }
     await axios.request(screenshots).then(function(res) {
       AppState.gameScreenShots = res.data.results
@@ -108,7 +108,7 @@ class GamesSearchService {
     AppState.relatedGames = []
     const relatedGames = {
       method: 'GET',
-      url: `https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&genres=${genreName}&page=1&page_size=5`
+      url: `https://api.rawg.io/api/games?key=24eec9d2cf3a43a49627ed6e8e5c78c0&genres=${genreName}&page=1&page_size=5`
     }
     await axios.request(relatedGames).then(function(res) {
       AppState.relatedGames = res.data.results
