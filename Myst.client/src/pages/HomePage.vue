@@ -80,8 +80,10 @@ export default {
       }
       try {
         logger.log('this is your user information on load', AppState.user)
-        await accountService.getTrackedGames(AppState.account.id)
-        await trackedGamesService.getTrackedGames()
+        if (AppState.user.isAuthenicated) {
+          await accountService.getTrackedGames(AppState.account.id)
+          await trackedGamesService.getTrackedGames()
+        }
       } catch (error) {
         Pop.toast(error, 'Error')
       }
