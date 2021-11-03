@@ -25,6 +25,14 @@ class TrackedGamesService {
     })
   }
 
+  async getProfileGames() {
+    AppState.followedProfileGames = []
+    const tracked = AppState.profileGames
+    tracked.forEach(async t => {
+      await this.getProfileGameById(t.gameId)
+    })
+  }
+
   // FIND THE GAME => FIND YOUR TRACKED GAME OF THAT GAME => FLIP THE BOOL
 
   async favoriteTrackedGame(gameId, userId) {
@@ -48,6 +56,19 @@ class TrackedGamesService {
     }
     axios.request(game).then(function(res) {
       AppState.followedGames.push(res.data)
+    }).catch(function(error) {
+      logger.error(error)
+    })
+  }
+
+  async getProfileGameById(id) {
+    AppState.game = {}
+    const game = {
+      method: 'GET',
+      url: `https://api.rawg.io/api/games/${id}?key=24eec9d2cf3a43a49627ed6e8e5c78c0`
+    }
+    axios.request(game).then(function(res) {
+      AppState.followedProfileGames.push(res.data)
     }).catch(function(error) {
       logger.error(error)
     })
