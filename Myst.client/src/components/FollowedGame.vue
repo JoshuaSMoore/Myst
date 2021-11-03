@@ -1,12 +1,12 @@
 <template>
-  <div class="m-2 bg-dark  animate__animated animate__backInDown">
-    <div class="card h-100  bg-dark text-light" width="50px">
+  <div class="m-2 bg-dark animate__animated animate__backInDown">
+    <div class="card h-100  bg-dark text-light" width="75px">
       <router-link :to="{ name: 'Game', params: { gameId: followedGame.id }}">
         <img :src="followedGame.background_image" class="card-img-top" alt="...">
         <div class="card-body bg-dark text-light">
-          <h5 class="card-title">
+          <h6 class="card-title">
             {{ followedGame.name }}
-          </h5>
+          </h6>
         </div>
       </router-link>
       <!-- <i class="mdi mdi-heart f-20 text-danger" type="button" title="favorite game" @click="favoriteGame(followedGame.id, account.id)" v-if="trackedGame">
@@ -45,5 +45,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.548);
+  transition: 0.3s;
+}
 
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.829);
+}
 </style>
