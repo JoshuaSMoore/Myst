@@ -88,7 +88,7 @@
         <h5 class="fw-bold ps-3 rounded">
           {{ profile.name }}'s friends!
         </h5>
-        <div class="row rounded mb-2 bg-dark">
+        <div class="row rounded mb-2">
           <div class="col-1 text-center on-hover">
             <button class="btn btn-prev-next" @click="scroll('left', 'followScroll')" v-if="true">
               <i class="mdi mdi-chevron-left f-20 text-light"></i>
