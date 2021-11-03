@@ -1,186 +1,184 @@
 <template>
-  <div class="d-fluid">
-    <div class="
-       row"
-    >
+  <div class="container" v-if="profile">
+    <div class="row">
       <div class="col-12">
-        <h2 class="m-5">
-          Welcome, {{ profile.name }}
+        <h2 class="my-5">
+          Welcome to {{ profile.name }}'s Profile
         </h2>
       </div>
     </div>
 
-    <div class="row m-5 bg-dark text-light rounded justify-content-center wow">
-      <div class="col m-5">
-        <div class="bg-dark m-5 text-light d-flex justify-content-center align-items-center">
-          <iframe
-            :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
-            width="800px"
-            height="400px"
-          >
-          </iframe>
+    <div class="col-12">
+      <div class="profile-card container card bg-dark text-light">
+        <div class="row">
+          <div class="col m-2">
+            <div class=" bg-dark text-light d-flex justify-content-center align-items-center glow">
+              <iframe
+                :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
+                width="500px"
+                height="300px"
+              >
+              </iframe>
+            </div>
+          </div>
+          <!-- NOTE INFO -->
+          <div class="col m-2 display-flex align-items-center">
+            <img class="rounded glow" :src="profile.picture" alt="" height="400" width="400" />
+            <div v-if="profile.bio" class="m-1">
+              <h3 class="fw-bold">
+                About me..:
+              </h3> <h4 class="fw-bold">
+                {{ profile.bio }}
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="m-2 row">
+          <ul class="text-center center">
+            <li>
+              <div class="text-light bg-dark">
+                <!-- {{ profile.twitch }} -->
+              </div>
+              <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1 glow">
+                <i class="mdi mdi-twitch icon"></i>
+              </a>
+            </li>
+            <li>
+              <a :href="profile.github" v-if="profile.github" class="m-1 glow">
+                <i class="mdi mdi-github icon"></i>
+              </a>
+            </li>
+            <li>
+              <div class="text-light bg-dark">
+                <!-- {{ profile.steam }} -->
+              </div>
+              <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1 glow">
+                <i class="mdi mdi-steam icon"></i>
+              </a>
+            </li>
+
+            <li class="xbox" id="xbox">
+              <div class="text-light bg-dark">
+              </div>
+              <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1 glow" title="Xbox">
+                <i class="mdi mdi-microsoft-xbox icon"></i>
+              </a>
+            </li>
+            <li>
+              <div class="text-light bg-dark">
+                <!-- {{ profile.playstation }} -->
+              </div>
+              <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1 glow">
+                <i class="mdi mdi-sony-playstation icon"></i>
+              </a>
+            </li>
+            <li>
+              <div class="text-light bg-dark">
+                <!-- {{ profile.nintendo }} -->
+              </div>
+              <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1 glow">
+                <i class="mdi mdi-nintendo-switch icon"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-
-      <div class="col mx-5 text-center">
-        <img class="rounded justify-content-center m-5 wow" :src="profile.picture" alt="" height="400" width="400" />
-        <div v-if="profile.bio" class="m-1">
-          <h3 class="fw-bold">
-            About me..:
-          </h3> <h4 class="fw-bold">
-            {{ profile.bio }}
-          </h4>
-        </div>
-      </div>
-      <div class="row">
-        <ul class="text-center justify-content-center">
-          <li>
-            <div class="text-light bg-dark">
-              <!-- {{ profile.twitch }} -->
-            </div>
-            <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1">
-              <i class="mdi mdi-twitch icon"></i>
-            </a>
-          </li>
-          <li>
-            <a :href="profile.github" v-if="profile.github" class="m-1">
-              <i class="mdi mdi-github icon"></i>
-            </a>
-          </li>
-          <li>
-            <div class="text-light bg-dark">
-              <!-- {{ profile.steam }} -->
-            </div>
-            <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1">
-              <i class="mdi mdi-steam icon"></i>
-            </a>
-          </li>
-
-          <li class="xbox" id="xbox">
-            <div class="text-light bg-dark">
-            </div>
-            <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1" title="Xbox">
-              <i class="mdi mdi-microsoft-xbox icon"></i>
-            </a>
-          </li>
-
-          <li>
-            <div class="text-light bg-dark">
-              <!-- {{ profile.playstation }} -->
-            </div>
-            <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1">
-              <i class="mdi mdi-sony-playstation icon"></i>
-            </a>
-          </li>
-
-          <li>
-            <div class="text-light bg-dark">
-              <!-- {{ profile.nintendo }} -->
-            </div>
-            <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1">
-              <i class="mdi mdi-nintendo-switch icon"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <!-- NOTE end of cool things -->
-      <div class="row rounded text-light m-5 justify-content-center">
-        <h5 class="fw-bold ms-5 rounded">
-          {{ profile.name }}, these are your friends!
+      <!-- NOTE end of cool buttons -->
+      <div class="row text-shadow rounded m-1 center">
+        <h5 class="fw-bold ps-3 rounded">
+          {{ profile.name }}'s friends!
         </h5>
-        <div class="row mx-5 rounded justify-content-center ">
-          <div class="col-1 on-hover">
+        <div class="row rounded mb-2 bg-dark">
+          <div class="col-1 text-center on-hover">
             <button class="btn btn-prev-next" @click="scroll('left', 'followScroll')" v-if="true">
               <i class="mdi mdi-chevron-left f-20 text-light"></i>
             </button>
           </div>
-          <div class="col-10 d-flex screenshot-card smoothScroll" id="followScroll">
+          <div class="col-10 center screenshot-card smoothScroll mb-2" id="followScroll">
             <Following v-for="f in following" :key="f.id" :following="f" />
-            <div class="col-1 text-center on-hover">
-              <button class="btn btn-prev-next" @click="scroll('right', 'followScroll')" v-if="true">
-                <i class="mdi mdi-chevron-right f-20 text-light"></i>
-              </button>
-            </div>
+          </div>
+          <div class="col-1 text-center on-hover">
+            <button class="btn btn-prev-next" @click="scroll('right', 'followScroll')" v-if="true">
+              <i class="mdi mdi-chevron-right f-20 text-light"></i>
+            </button>
           </div>
         </div>
       </div>
-      <div class="row mx-5">
-        <div class="d-flex justify-content-end">
-          <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
-          </i>
-        </div>
+    </div>
+    <div class="row mx-5">
+      <div class="d-flex justify-content-end">
+        <i class="mdi mdi-cog f-20 text-light" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
+        </i>
       </div>
     </div>
-    <!-- NOTE followed games -->
-    <div class="mx-5 text-light ">
-      <h1 class="
-         fw-bold
-         ps-3
-         rounded"
-      >
-        Game Library
-      </h1>
-      <div class="row mb-4 mx-5 bg-dark rounded justify-content-center wow ">
-        <div class="col-1 text-center on-hover">
-          <button class="btn btn-prev-next" @click="scroll('left', 'gameScroll')" v-if="true">
-            <i class="mdi mdi-chevron-left f-20 text-light"></i>
-          </button>
-        </div>
-        <div class=" col-10 d-flex screenshot-card smoothScroll" id="gameScroll">
-          <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" />
-        </div>
-        <div class="col-1 text-center on-hover">
-          <button class="btn btn-prev-next" @click="scroll('right', 'gameScroll')" v-if="true">
-            <i class="mdi mdi-chevron-right f-20 text-light"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- END FOLLOWED GAME NOTE START POSTS -->
-    <div class="mx-5 text-light ">
-      <h1 class="fw-bold
-         ps-3
-         rounded"
-      >
-        Posts
-        <button v-if="user.isAuthenticated" class="btn btn-outline-primary w-25 ms-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
-          Create a Post
-        </button>
-      </h1>
-      <div class="row mx-5 mb-5 bg-dark rounded justify-content-center wow">
-        <div class="col-1 text-center on-hover">
-          <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
-            <i class="mdi mdi-chevron-left f-20 text-light"></i>
-          </button>
-        </div>
-        <div class="col-10 d-flex screenshot-card smoothScroll justify-content-center" id="postScroll">
-          <Post v-for="p in posts" :key="p.id" :post="p" />
-        </div>
-        <div class="col-1 text-center on-hover">
-          <button class="btn btn-prev-next" @click="scroll('right', 'postScroll')" v-if="true">
-            <i class="mdi mdi-chevron-right f-20 text-light"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <Modal id="profile-form">
-      <template #modal-title>
-        <h4>Update Profile</h4>
-      </template>
-      <template #modal-body>
-        <ProfileForm />
-      </template>
-    </Modal>
-    <Modal id="post-form">
-      <template #modal-title>
-        <h4>Create Post</h4>
-      </template>
-      <template #modal-body>
-        <PostForm />
-      </template>
-    </Modal>
   </div>
+
+  <!-- NOTE followed games -->
+  <div class="mx-5 text-light ">
+    <h1 class="fw-bold ps-3 rounded">
+      Game Library
+    </h1>
+    <div class="row">
+      <div class="col-1 text-center on-hover">
+        <button class="btn btn-prev-next" @click="scroll('left', 'gameScroll')" v-if="true">
+          <i class="mdi mdi-chevron-left f-20 text-light"></i>
+        </button>
+      </div>
+      <div class=" col-10 d-flex screenshot-card smoothScroll" id="gameScroll">
+        <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" />
+      </div>
+      <div class="col-1 text-center on-hover">
+        <button class="btn btn-prev-next" @click="scroll('right', 'gameScroll')" v-if="true">
+          <i class="mdi mdi-chevron-right f-20 text-light"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- END FOLLOWED GAME NOTE START POSTS -->
+  <div class="mx-5 text-light ">
+    <h1 class="fw-bold
+         ps-3
+         rounded"
+    >
+      Posts
+      <button v-if="user.isAuthenticated" class="btn btn-outline-primary w-25 ms-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+        Create a Post
+      </button>
+    </h1>
+    <div class="row mx-5 mb-5 bg-dark rounded justify-content-center wow">
+      <div class="col-1 text-center on-hover">
+        <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
+          <i class="mdi mdi-chevron-left f-20 text-light"></i>
+        </button>
+      </div>
+      <div class="col-10 d-flex screenshot-card smoothScroll justify-content-center" id="postScroll">
+        <Post v-for="p in posts" :key="p.id" :post="p" />
+      </div>
+      <div class="col-1 text-center on-hover">
+        <button class="btn btn-prev-next" @click="scroll('right', 'postScroll')" v-if="true">
+          <i class="mdi mdi-chevron-right f-20 text-light"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <Modal id="profile-form">
+    <template #modal-title>
+      <h4>Update Profile</h4>
+    </template>
+    <template #modal-body>
+      <ProfileForm />
+    </template>
+  </Modal>
+  <Modal id="post-form">
+    <template #modal-title>
+      <h4>Create Post</h4>
+    </template>
+    <template #modal-body>
+      <PostForm />
+    </template>
+  </Modal>
 </template>
 
 <script>
@@ -373,5 +371,23 @@ ul li:nth-child(6) a:before{
   background-color: rgba(211, 16, 245, 0.322);
   color: black;
   scroll-behavior: smooth;
+}
+.glow {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.548);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.glow:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.829);
+}
+.center{
+  display: flex;
+  justify-content: center;
+}
+.text-shadow{
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 </style>

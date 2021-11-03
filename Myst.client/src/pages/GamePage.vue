@@ -24,7 +24,7 @@
               Follow game
             </button>
           </div>
-          <div class="card d-flex bg-dark text-light my-2">
+          <div class="card friends bg-dark text-light my-2">
             <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" />
           </div>
         </div>
@@ -218,5 +218,9 @@ export default {
   background-color: rgba(255, 255, 255, 0.63);
   color: black;
   scroll-behavior: smooth;
+}
+.friends{
+  display: flex;
+  flex-direction: row;
 }
 </style>
