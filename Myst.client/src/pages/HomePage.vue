@@ -8,7 +8,7 @@
         <h4>
           Your Current Library..
         </h4>
-        <div class="card bg-dark text-light rounded order-2 order-md-1" v-if="followedGames">
+        <div class="card bg-dark text-light rounded order-2 order-md-1 centerGame" v-if="followedGames">
           <button class="btn btn-dark shadow" @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
             <i class="mdi mdi-chevron-up f-20 "></i>
           </button>
@@ -169,5 +169,9 @@ html {
   justify-content: center;
   justify-content: space-around;
   align-self: center;
+}
+.centerGame{
+  display: flex;
+  justify-content: center;
 }
 </style>
