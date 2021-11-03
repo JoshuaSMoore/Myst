@@ -8,7 +8,7 @@ import { logger } from '../utils/Logger'
 
 const options = {
   method: 'GET',
-  url: 'https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6'
+  url: 'https://api.rawg.io/api/games?key=24eec9d2cf3a43a49627ed6e8e5c78c0'
 
 }
 
@@ -27,7 +27,7 @@ class GamesSearchService {
     AppState.currentPage = 1
     const searchGames = {
       method: 'GET',
-      url: `https://api.rawg.io/api/games?key=004cc6f4ef734a4a8725e3082070efd6&page=${page}&search=${query}&search_precise=true`
+      url: `https://api.rawg.io/api/games?key=24eec9d2cf3a43a49627ed6e8e5c78c0&page=${page}&search=${query}&search_precise=true`
     }
     await axios.request(searchGames).then(function(res) {
       AppState.next = res.data.next
