@@ -143,7 +143,7 @@
          rounded"
       >
         Posts
-        <button v-if="user.isAuthenticated" class="btn btn-info w-25 ms-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+        <button v-if="user.isAuthenticated" class="btn btn-outline-primary w-25 ms-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
           Create a Post
         </button>
       </h1>
