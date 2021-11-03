@@ -1,5 +1,5 @@
 <template>
-  <div class="card m-2 bg-dark text-light elevation-5" style="max-width: 1000px;">
+  <div class="card m-2 bg-dark text-light newsCard" style="max-width: 1000px;">
     <div class="row g-0">
       <div class="col-md-4 p-1">
         <img :src="news.thumbnail" class="img-fluid rounded-start selectable p-1  animate__animated animate__tada" data-bs-toggle="modal" :data-bs-target="'#a-modal-'+ news.id" alt="Picture">
@@ -48,5 +48,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.newsCard {
+
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.newsCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
 </style>
