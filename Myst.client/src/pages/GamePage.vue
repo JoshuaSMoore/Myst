@@ -9,17 +9,17 @@
     </div>
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-lg-4 me-2 card bg-dark rounded-5 shadow-lg">
+      <div class="col-lg-4 me-2 roundedNew">
         <img :src="game.background_image" alt="" class="img-fluid rounded my-2">
         <div class="">
           <div v-if="gameFollowCheck">
-            <button @click="deleteTrackedGame(game.id)" class="btn btn-warning">
+            <button @click="deleteTrackedGame(game.id)" class="btn btn-outline-warning">
               Unfollow game
             </button>
           </div>
           <div v-else>
-            <button @click="createTrackedGame(game.id)" class="btn btn-info">
-              Follow game
+            <button @click="createTrackedGame(game.id)" class="btn btn-outline-primary">
+              <b>Follow game</b>
             </button>
           </div>
           <div class="card friends bg-dark text-light my-2">
@@ -59,20 +59,19 @@
         </div>
       </div>
     </div>
-    <div class="row pt-4">
-      <div class="col-1"></div>
-      <div class="col-5 me-2 p-3 card bg-dark text-light mb-3">
-        <h3 class="mb-5">
+    <div class="row center">
+      <!-- NOTE Related Games -->
+      <div class="col-5 m-2  text-shadow m-3">
+        <h3>
           Related Games
         </h3>
-        <!-- NOTE Related Games -->
         <div class="row justify-content-center">
           <div class="col-1 text-center on-hover">
             <button class="btn btn-prev-next" @click="scroll('left', 'relatedScroll')" v-if="true">
               <i class="mdi mdi-chevron-left"></i>
             </button>
           </div>
-          <div class="col-10 d-flex related-game-card smoothScroll" id="relatedScroll">
+          <div class="col-10 d-flex scrollCard smoothScroll" id="relatedScroll">
             <RelatedGame v-for="g in relatedGames" :key="g.id" :related-game="g" />
           </div>
           <div class="col-1 text-center on-hover">
@@ -82,18 +81,18 @@
           </div>
         </div>
       </div>
-      <div class="col-5 ms-2 p-5 card bg-dark text-light mb-3">
-        <h3 class="mb-5">
+      <!-- NOTE SCREENSHOTS -->
+      <div class="col-5 m-2 text-shadow m-3">
+        <h3>
           Game Screenshots
         </h3>
-        <!-- NOTE SCREENSHOTS -->
         <div class="row justify-content-center">
           <div class="col-1 text-center on-hover">
             <button class="btn btn-prev-next" @click="scroll('left', 'gameScroll')" v-if="true">
               <i class="mdi mdi-chevron-left"></i>
             </button>
           </div>
-          <div class=" col-10 d-flex screenshot-card snappy-scroll" id="gameScroll">
+          <div class=" col-10 d-flex scrollCard smoothScroll" id="gameScroll">
             <GameScreenshots v-for="g in gameScreenShots" :key="g.id" :screen-shot="g" />
           </div>
           <div class="col-1 text-center on-hover">
@@ -177,12 +176,7 @@ export default {
 .description-card{
   height: 25rem;
 }
-.related-game-card{
-  height: 15rem;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-.screenshot-card{
+.scroll-card{
   height: 15rem;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -224,5 +218,21 @@ export default {
 .text-shadow{
   color: white;
   text-shadow: 2px 2px 4px #000000;
+}
+.center{
+  display: flex;
+  justify-content: center;
+}
+.roundedNew{
+  border-radius:35px;
+}
+.glow {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.548);
+  transition: 0.3s;
+}
+/* On mouse-over, add a deeper shadow */
+.glow:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.829);
 }
 </style>

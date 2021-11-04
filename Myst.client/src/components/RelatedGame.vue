@@ -1,10 +1,10 @@
 <template>
-  <div class="mx-2">
+  <div class="mx-2 screenshot">
     <router-link :to="{ name: 'Game', params: { gameId:relatedGame.id }}">
-      <h5 class="text-light">
+      <img :src="relatedGame.background_image" width="250" class="roundedNew">
+      <h5 class="text-shadow mt-2">
         {{ relatedGame.name }}
       </h5>
-      <img :src="relatedGame.background_image" width="300" alt="">
     </router-link>
   </div>
 </template>
@@ -22,5 +22,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.roundedNew{
+  border-radius:15px;
+}
+.screenshot{
+  display:flex;
+  align-items:center;
+}
+.text-shadow{
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
 </style>

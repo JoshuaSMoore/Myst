@@ -1,9 +1,9 @@
 <template>
-  <div class="mx-2">
+  <div class="mx-2 screenshot">
     <img :src="screenShot.image"
          width="300"
          alt=""
-         class="selectable"
+         class="selectable roundedNew"
          data-bs-toggle="modal"
          :data-bs-target="`#i-modal-` +screenShot.id"
     >
@@ -31,5 +31,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.screenshot{
+  display:flex;
+  align-items:center;
+}
+.roundedNew{
+  border-radius:15px;
+}
 </style>
