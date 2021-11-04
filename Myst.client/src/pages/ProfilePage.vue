@@ -24,7 +24,7 @@
           </div>
           <!-- NOTE INFO -->
           <div class="col m-2 display-flex align-items-center">
-            <img class="bigRound glow" :src="profile.picture" alt="" height="400" width="400" />
+            <img class="bigRound glow img-fluid" :src="profile.picture" alt="" height="400" width="400" />
             <div v-if="profile.bio" class="m-1">
               <h3 class="fw-bold">
                 About me..:
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="m-2 row">
-          <ul class="text-center center">
+          <ul class="text-center center wrapper">
             <li>
               <div class="text-light">
                 <!-- {{ profile.twitch }} -->
@@ -137,23 +137,26 @@
   </div>
 
   <!-- END FOLLOWED GAME NOTE START POSTS -->
-  <div class="mx-5 text-light ">
-    <h1 class="fw-bold
-         ps-3
-         rounded"
-    >
-      Posts
-      <button v-if="user.isAuthenticated" class="btn btn-outline-primary w-25 ms-2" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
-        Create a Post
-      </button>
-    </h1>
-    <div class="row mx-5 mb-5 rounded justify-content-center">
+  <div class="text-light ">
+    <div class="row d-flex">
+      <div class="col-2 center mx-2">
+        <h1 class="fw-bold ps-3 rounded">
+          Posts
+        </h1>
+      </div>
+      <div class="col mx-1 btn-center">
+        <button v-if="user.isAuthenticated" class="btn btn-outline-primary " type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+          Create a Post
+        </button>
+      </div>
+    </div>
+    <div class="row rounded justify-content-space-evenly center">
       <div class="col-1 text-center on-hover">
         <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
           <i class="mdi mdi-chevron-left f-20 text-light"></i>
         </button>
       </div>
-      <div class="col-10 d-flex screenshot-card smoothScroll justify-content-center" id="postScroll">
+      <div class="col-8 screenshot-card smoothScroll d-flex" id="postScroll">
         <Post v-for="p in posts" :key="p.id" :post="p" />
       </div>
       <div class="col-1 text-center on-hover">
@@ -389,8 +392,15 @@ ul li:nth-child(6) a:before{
   display: flex;
   justify-content: center;
 }
+.btn-center{
+  display: flex;
+  align-items: center;
+}
 .text-shadow{
   color: white;
   text-shadow: 2px 2px 4px #000000;
+}
+.wrapper{
+  flex-wrap: inherit;
 }
 </style>
