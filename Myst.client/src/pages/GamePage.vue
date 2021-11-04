@@ -1,14 +1,14 @@
 <template>
-  <div class="container-fluid pt-5">
+  <div class="container-fluid mt-5">
     <!--NOTE Game Picture and Description -->
-    <div class="row center">
+    <div class="row center underline mt-2">
       <div class="col-lg-4 me-2 roundedNew">
         <img
           :src="game.background_image"
           alt=""
           class="img-fluid rounded my-2"
         />
-        <div class="">
+        <div class="m-2">
           <div v-if="gameFollowCheck">
             <button
               @click="deleteTrackedGame(game.id)"
@@ -104,7 +104,12 @@
       </div>
     </div>
     <!-- NOTE Game Followers -->
-    <div class="row center">
+    <div class="row center m-2">
+      <h3 class="center text-shadow">
+        Friends who follow this game:
+      </h3>
+    </div>
+    <div class="row center underline">
       <div class="col-1 text-center on-hover">
         <button
           class="btn btn-prev-next"
@@ -128,10 +133,14 @@
       </div>
     </div>
     <!-- NOTE Related Games and ScreenShots -->
-    <div class="row center">
+    <div class="row otherCenter">
       <!-- NOTE Related Games -->
       <div class="col-5 m-2 text-shadow m-3">
-        <h3>Related Games</h3>
+        <div class="row text-center">
+          <h3>
+            Related Games
+          </h3>
+        </div>
         <div class="row justify-content-center">
           <div class="col-1 text-center on-hover">
             <button
@@ -162,7 +171,9 @@
       </div>
       <!-- NOTE SCREENSHOTS -->
       <div class="col-5 m-2 text-shadow m-3">
-        <h3>Game Screenshots</h3>
+        <div class="row text-center">
+          <h3>Game Screenshots</h3>
+        </div>
         <div class="row justify-content-center">
           <div class="col-1 text-center on-hover">
             <button
@@ -336,5 +347,9 @@ display: flex;
 }
 .underline{
   border-bottom: 2px solid #fff;
+}
+.otherCenter{
+  display: flex;
+  justify-content: center;
 }
 </style>
