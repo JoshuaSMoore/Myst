@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid pt-5">
-    <div class="row">
-      <div class="col-1"></div>
+    <!--NOTE Game Picture and Description -->
+    <div class="row center">
       <div class="col-lg-4 me-2 roundedNew">
         <img
           :src="game.background_image"
@@ -25,11 +25,9 @@
               <b>Follow game</b>
             </button>
           </div>
-          <div class="card friends bg-dark text-light my-2">
-            <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" />
-          </div>
         </div>
       </div>
+      <!-- NOTE Description -->
       <div class="col-lg-6 ms-2 text-shadow description-card scrollable-y">
         <div class="row center" v-if="game.esrb_rating">
           <div class="col">
@@ -104,67 +102,92 @@
           </div>
         </div>
       </div>
-      <div class="row center">
-        <!-- NOTE Related Games -->
-        <div class="col-5 m-2 text-shadow m-3">
-          <h3>Related Games</h3>
-          <div class="row justify-content-center">
-            <div class="col-1 text-center on-hover">
-              <button
-                class="btn btn-prev-next"
-                @click="scroll('left', 'relatedScroll')"
-                v-if="true"
-              >
-                <i class="mdi mdi-chevron-left"></i>
-              </button>
-            </div>
-            <div class="col-10 d-flex scrollCard smoothScroll" id="relatedScroll">
-              <RelatedGame
-                v-for="g in relatedGames"
-                :key="g.id"
-                :related-game="g"
-              />
-            </div>
-            <div class="col-1 text-center on-hover">
-              <button
-                class="btn btn-prev-next"
-                @click="scroll('right', 'relatedScroll')"
-                v-if="true"
-              >
-                <i class="mdi mdi-chevron-right"></i>
-              </button>
-            </div>
+    </div>
+    <!-- NOTE Game Followers -->
+    <div class="row center">
+      <div class="col-1 text-center on-hover">
+        <button
+          class="btn btn-prev-next"
+          @click="scroll('left', 'friendScroll')"
+          v-if="true"
+        >
+          <i class="mdi mdi-chevron-left"></i>
+        </button>
+      </div>
+      <div class="col-10 friends text-light my-2 scrollCard smoothScroll" id="friendScroll">
+        <GameFollower v-for="t in gameFollowers" :key="t.id" :tracker="t" />
+      </div>
+      <div class="col-1 text-center on-hover">
+        <button
+          class="btn btn-prev-next"
+          @click="scroll('right', 'friendScroll')"
+          v-if="true"
+        >
+          <i class="mdi mdi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    <!-- NOTE Related Games and ScreenShots -->
+    <div class="row center">
+      <!-- NOTE Related Games -->
+      <div class="col-5 m-2 text-shadow m-3">
+        <h3>Related Games</h3>
+        <div class="row justify-content-center">
+          <div class="col-1 text-center on-hover">
+            <button
+              class="btn btn-prev-next"
+              @click="scroll('left', 'relatedScroll')"
+              v-if="true"
+            >
+              <i class="mdi mdi-chevron-left"></i>
+            </button>
+          </div>
+          <div class="col-10 d-flex scrollCard smoothScroll" id="relatedScroll">
+            <RelatedGame
+              v-for="g in relatedGames"
+              :key="g.id"
+              :related-game="g"
+            />
+          </div>
+          <div class="col-1 text-center on-hover">
+            <button
+              class="btn btn-prev-next"
+              @click="scroll('right', 'relatedScroll')"
+              v-if="true"
+            >
+              <i class="mdi mdi-chevron-right"></i>
+            </button>
           </div>
         </div>
-        <!-- NOTE SCREENSHOTS -->
-        <div class="col-5 m-2 text-shadow m-3">
-          <h3>Game Screenshots</h3>
-          <div class="row justify-content-center">
-            <div class="col-1 text-center on-hover">
-              <button
-                class="btn btn-prev-next"
-                @click="scroll('left', 'gameScroll')"
-                v-if="true"
-              >
-                <i class="mdi mdi-chevron-left"></i>
-              </button>
-            </div>
-            <div class="col-10 d-flex scrollCard smoothScroll" id="gameScroll">
-              <GameScreenshots
-                v-for="g in gameScreenShots"
-                :key="g.id"
-                :screen-shot="g"
-              />
-            </div>
-            <div class="col-1 text-center on-hover">
-              <button
-                class="btn btn-prev-next"
-                @click="scroll('right', 'gameScroll')"
-                v-if="true"
-              >
-                <i class="mdi mdi-chevron-right"></i>
-              </button>
-            </div>
+      </div>
+      <!-- NOTE SCREENSHOTS -->
+      <div class="col-5 m-2 text-shadow m-3">
+        <h3>Game Screenshots</h3>
+        <div class="row justify-content-center">
+          <div class="col-1 text-center on-hover">
+            <button
+              class="btn btn-prev-next"
+              @click="scroll('left', 'gameScroll')"
+              v-if="true"
+            >
+              <i class="mdi mdi-chevron-left"></i>
+            </button>
+          </div>
+          <div class="col-10 d-flex scrollCard smoothScroll" id="gameScroll">
+            <GameScreenshots
+              v-for="g in gameScreenShots"
+              :key="g.id"
+              :screen-shot="g"
+            />
+          </div>
+          <div class="col-1 text-center on-hover">
+            <button
+              class="btn btn-prev-next"
+              @click="scroll('right', 'gameScroll')"
+              v-if="true"
+            >
+              <i class="mdi mdi-chevron-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -295,7 +318,7 @@ export default {
   text-shadow: 2px 2px 4px #000000;
 }
 .center {
-  display: flex;
+display: flex;
   justify-content: center;
   align-items: center;
 }
