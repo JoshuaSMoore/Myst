@@ -8,11 +8,11 @@
           alt=""
           class="img-fluid rounded my-2"
         />
-        <div class="m-2">
+        <div class="m-2 text-shadow ">
           <div v-if="gameFollowCheck">
             <button
               @click="deleteTrackedGame(game.id)"
-              class="btn btn-outline-warning"
+              class="btn btn-outline-danger glow"
             >
               Unfollow game
             </button>
@@ -20,7 +20,7 @@
           <div v-else>
             <button
               @click="createTrackedGame(game.id)"
-              class="btn btn-outline-primary"
+              class="btn btn-outline-light glow"
             >
               <b>Follow game</b>
             </button>
