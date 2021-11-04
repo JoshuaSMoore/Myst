@@ -2,10 +2,8 @@
   <div class="container-fluid pt-5 text-center">
     <div class="row">
       <div class="col-12 d-flex justify-content-around my-4">
-        <h1 class="">
-          <b>
-            {{ game.name }}
-          </b>
+        <h1 class="text-shadow">
+          {{ game.name }}
         </h1>
       </div>
     </div>
@@ -222,5 +220,9 @@ export default {
 .friends{
   display: flex;
   flex-direction: row;
+}
+.text-shadow{
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="container" v-if="profile">
     <div class="row">
       <div class="col-12">
-        <h2 class="my-5">
+        <h2 class="my-5 text-shadow">
           Welcome to {{ profile.name }}'s Profile
         </h2>
       </div>
