@@ -1,6 +1,6 @@
 <template>
-  <div class="component">
-    <p>{{ platform.platform.name }}</p>
+  <div class="me-2">
+    <p> {{ platform.platform.name }} </p>
   </div>
 </template>
 

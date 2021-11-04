@@ -1,6 +1,6 @@
 <template>
-  <div class="component">
-    <p>{{ genre.name }}</p>
+  <div class="me-2">
+    <p> {{ genre.name }} </p>
   </div>
 </template>
 
