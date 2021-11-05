@@ -30,6 +30,7 @@ AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function() {
   socketService.authenticate(AuthService.bearer)
   // NOTE if there is something you want to do once the user is authenticated, place that here
   await firebaseService.login()
+  //    vvvvvvv theres are causing the game to get blown away on gamePage refresh
   await accountService.getTrackedGames(AppState.account.id)
   await trackedGamesService.getTrackedGames()
 })
