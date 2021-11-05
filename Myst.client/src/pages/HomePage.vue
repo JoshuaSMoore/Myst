@@ -21,8 +21,8 @@
           </button>
         </div>
       </div>
-      <div class="col-6 rounded align-self-center order-1 order-md-2">
-        <img src="../assets/img/Logo-Final2.gif" alt="MYST LOGO" class="img-flex rounded shadow-lg  animate__animated animate__bounceIn w-100">
+      <div class="col-6  align-self-center order-1 order-md-2">
+        <img src="../assets/img/Logo-Final2.gif" alt="MYST LOGO" class="img-flex midRound shadow-lg  animate__animated animate__bounceIn w-100">
       </div>
     </div>
   </div>
