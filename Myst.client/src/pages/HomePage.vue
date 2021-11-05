@@ -8,13 +8,15 @@
         <h4>
           Your Current Library..
         </h4>
-        <div class="card bg-dark text-light rounded order-2 order-md-1 centerGame" v-if="followedGames">
-          <button class="btn btn-dark shadow" @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
-            <i class="mdi mdi-chevron-up f-20 "></i>
-          </button>
+        <div class="downStack text-light rounded order-2 order-md-1 centerGame" v-if="followedGames">
+          <small>
+            <button class="btn btn-outline text-shadow glow bigRound " @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
+              <i class="mdi mdi-chevron-up f-20 text-shadow"></i>
+            </button>
+          </small>
           <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" />
-          <button class="btn btn-dark shadow" @click="gamesOffset +=2" v-if="gamesOffset <= 2" title="Next Page">
-            <i class="mdi f-20 "></i> <i class="mdi mdi-chevron-down f-20 ">
+          <button class="btn btn-outline text-shadow glow bigRound" @click="gamesOffset +=2" v-if="gamesOffset <= 2" title="Next Page">
+            <i class="mdi mdi-chevron-down f-20 text-shadow">
             </i>
           </button>
         </div>
@@ -25,7 +27,7 @@
     </div>
   </div>
   <div class="news d-flex m-2 p-1 flex-column align-items-center justify-content-center">
-    <div class="row news-card rounded shadow bg-primary">
+    <div class="row news-card midRound glow bg-primary">
       <div class="row p-2">
         <div class="d-flex text-shadow animate__animated animate__jackInTheBox" title="Daily Gaming News">
           <h1>The Daily News Drop!</h1>
@@ -174,4 +176,24 @@ html {
   display: flex;
   justify-content: center;
 }
+.downStack{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
+.glow {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.548);
+  transition: 0.3s;
+}
+/* On mouse-over, add a deeper shadow */
+.glow:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.829);
+}
+ .bigRound{
+    border-radius: 35px;
+  }
+  .midRound{
+    border-radius: 15px;
+  }
 </style>
