@@ -1,10 +1,10 @@
 <template>
-  <div class="m-2 bg-dark animate__animated animate__backInDown centerGame">
-    <div class="card h-100 size bg-dark text-light">
+  <div class="m-2 bg-dark animate__animated animate__backInDown centerGame bigRound">
+    <div class="card h-100 size bg-dark text-light bigRound">
       <router-link :to="{ name: 'Game', params: { gameId: followedGame.id }}">
-        <img :src="followedGame.background_image" class="card-img-top" alt="...">
-        <div class="card-body bg-dark text-light">
-          <h6 class="card-title">
+        <img :src="followedGame.background_image" class="card-img-top bigRoundTop" alt="...">
+        <div class="card-body bg-dark text-light bigRound ">
+          <h6 class="card-title text-shadow">
             {{ followedGame.name }}
           </h6>
         </div>
@@ -57,5 +57,25 @@ export default {
 }
 .size{
   width: 15rem;
+}
+ .bigRound{
+    border-radius: 35px;
+  }
+  .bigRoundTop{
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+  }
+  .glow {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.548);
+  transition: 0.3s;
+}
+/* On mouse-over, add a deeper shadow */
+.glow:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.829);
+}
+.text-shadow{
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 </style>
