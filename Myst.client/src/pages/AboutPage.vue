@@ -53,6 +53,23 @@
         <a href="https://github.com/KyleMHanna" class="info">GitHub</a>
       </figcaption>
     </figure>
+    <div class="row text-center">
+      <h3 class="text-center">
+        Thanks to (not our sponsors) Twitch
+      </h3>
+      <br />
+      <h3 class="text-center">
+        <a href="https://rawg.io/">RAWG.Io</a>
+      </h3>
+      <br />
+      <h3 class="text-center">
+        <a href="https://www.mmobomb.com/">MMOBOMB</a>
+      </h3>
+      <br />
+      <h3 class="text-center">
+        <a href="https://boisecodeworks.com/">The Codeworks Team</a>
+      </h3>
+    </div>
   </div>
 </template>
 
