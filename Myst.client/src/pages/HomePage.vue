@@ -10,12 +10,12 @@
         </h4>
         <div class="downStack text-light rounded order-2 order-md-1 centerGame" v-if="followedGames">
           <small>
-            <button class="btn btn-outline text-shadow glow bigRound " @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
+            <button class="btn btn-outline text-shadow glow bigRound m-2" @click="gamesOffset -=2" v-if="gamesOffset > 0" title="Previous Page">
               <i class="mdi mdi-chevron-up f-20 text-shadow"></i>
             </button>
           </small>
           <FollowedGame v-for="f in followedGames" :key="f.id" :followed-game="f" />
-          <button class="btn btn-outline text-shadow glow bigRound" @click="gamesOffset +=2" v-if="gamesOffset <= 2" title="Next Page">
+          <button class="btn btn-outline text-shadow glow bigRound m-2" @click="gamesOffset +=2" v-if="gamesOffset <= 2" title="Next Page">
             <i class="mdi mdi-chevron-down f-20 text-shadow">
             </i>
           </button>
