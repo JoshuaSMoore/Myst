@@ -40,12 +40,12 @@
               <div class="text-light">
                 <!-- {{ profile.twitch }} -->
               </div>
-              <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1 glow">
+              <a :href=" `https://www.twitch.com/`+profile.twitch" v-if="profile.twitch" class="m-1 glow" target="_blank" rel="noreferrer noopener">
                 <i class="mdi mdi-twitch icon"></i>
               </a>
             </li>
             <li>
-              <a :href="profile.github" v-if="profile.github" class="m-1 glow">
+              <a :href="profile.github" v-if="profile.github" class="m-1 glow" target="_blank" rel="noreferrer noopener">
                 <i class="mdi mdi-github icon"></i>
               </a>
             </li>
@@ -53,7 +53,7 @@
               <div class="text-light">
                 <!-- {{ profile.steam }} -->
               </div>
-              <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1 glow">
+              <a :href="`https://steamcommunity.com/id/`+profile.steam" v-if="profile.steam" class="m-1 glow" target="_blank" rel="noreferrer noopener">
                 <i class="mdi mdi-steam icon"></i>
               </a>
             </li>
@@ -61,7 +61,13 @@
             <li class="xbox" id="xbox">
               <div class="text-light">
               </div>
-              <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox" v-if="profile.xbox" class="m-1 glow" title="Xbox">
+              <a :href="`https://account.xbox.com/en-us/profile?gamertag=`+profile.xbox"
+                 v-if="profile.xbox"
+                 class="m-1 glow"
+                 title="Xbox"
+                 target="_blank"
+                 rel="noreferrer noopener"
+              >
                 <i class="mdi mdi-microsoft-xbox icon"></i>
               </a>
             </li>
@@ -69,7 +75,7 @@
               <div class="text-light">
                 <!-- {{ profile.playstation }} -->
               </div>
-              <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1 glow">
+              <a :href="`https://psnprofiles.com/`+profile.playstation" v-if="profile.playstation" class="m-1 glow" target="_blank" rel="noreferrer noopener">
                 <i class="mdi mdi-sony-playstation icon"></i>
               </a>
             </li>
@@ -77,7 +83,7 @@
               <div class="text-light">
                 <!-- {{ profile.nintendo }} -->
               </div>
-              <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1 glow">
+              <a :href="`https://www.google.com/search?q=nintendo+user`+profile.nintendo" v-if="profile.nintendo" class="m-1 glow" target="_blank" rel="noreferrer noopener">
                 <i class="mdi mdi-nintendo-switch icon"></i>
               </a>
             </li>
