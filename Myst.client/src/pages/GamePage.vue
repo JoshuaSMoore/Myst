@@ -81,7 +81,7 @@
           </p>
         </div>
         <div class="text-end">
-          <a :href="game.website" class="btn btn-outline-light"> Visit Site </a>
+          <a :href="game.website" class="btn btn-outline-light" target="_blank" rel="noreferrer noopener"> Visit Site </a>
         </div>
         <div class="row underline">
           <h5><em>Platforms</em></h5>

@@ -1,56 +1,120 @@
 <template>
-  <div class="flex-grow-1 d-flex align-items-center justify-content-center m-5 p-5">
+  <div
+    class="flex-grow-1 d-flex align-items-center justify-content-center m-5 p-5"
+  >
     <figure class="aboutCard">
       <img src="../assets/img/space1.jpg" alt="sample87" />
       <figcaption>
-        <img src="../assets/img/Josh.jpg" alt="profile-sample4" class="profile" />
+        <img
+          src="../assets/img/Josh.jpg"
+          alt="profile-sample4"
+          class="profile"
+        />
         <h2>Joshua Moore<span>Full Stack Developer</span></h2>
         <!-- <p>Placeholder Bio </p> -->
-        <a href="https://www.linkedin.com/in/joshuasmoore7/" class="follow">Linkedin</a>
-        <a href="https://github.com/JoshuaSMoore" class="info">GitHub</a>
+        <a
+          href="https://www.linkedin.com/in/joshuasmoore7/"
+          class="follow"
+          target="_blank"
+          rel="noreferrer noopener"
+        >Linkedin</a>
+        <a
+          href="https://github.com/JoshuaSMoore"
+          class="info"
+          target="_blank"
+          rel="noreferrer noopener"
+        >GitHub</a>
       </figcaption>
     </figure>
 
     <figure class="aboutCard">
       <img src="../assets/img/city.jpg" alt="sample69" />
       <figcaption>
-        <img src="../assets/img/Talan.jpg" alt="profile-sample5" class="profile" />
+        <img
+          src="../assets/img/Talan.jpg"
+          alt="profile-sample5"
+          class="profile"
+        />
         <h2>Talan Weeks<span>Full Stack Developer</span></h2>
         <!-- <p>Placeholder Bio </p> -->
-        <a href="https://www.linkedin.com/in/talan-weeks/" class="follow">Linkedin</a>
-        <a href="https://github.com/TalanWeeks" class="info">GitHub</a>
+        <a
+          href="https://www.linkedin.com/in/talan-weeks/"
+          class="follow"
+          target="_blank"
+          rel="noreferrer noopener"
+        >Linkedin</a>
+        <a
+          href="https://github.com/TalanWeeks"
+          class="info"
+          target="_blank"
+          rel="noreferrer noopener"
+        >GitHub</a>
       </figcaption>
     </figure>
     <figure class="aboutCard">
       <img src="../assets/img/lake2.jpg" alt="sample87" />
       <figcaption>
-        <img src="../assets/img/Nick.jpg" alt="profile-sample4" class="profile" />
+        <img
+          src="../assets/img/Nick.jpg"
+          alt="profile-sample4"
+          class="profile"
+        />
         <h2>Nick Sondrup<span>Full Stack Developer</span></h2>
         <!-- <p>Placeholder Bio </p> -->
-        <a href="https://www.linkedin.com/in/nicholas-sondrup/" class="follow">Linkedin</a>
-        <a href="https://github.com/NickSondrup" class="info">GitHub</a>
+        <a
+          href="https://www.linkedin.com/in/nicholas-sondrup/"
+          class="follow"
+          target="_blank"
+          rel="noreferrer noopener"
+        >Linkedin</a>
+        <a
+          href="https://github.com/NickSondrup"
+          class="info"
+          target="_blank"
+          rel="noreferrer noopener"
+        >GitHub</a>
       </figcaption>
     </figure>
     <figure class="aboutCard">
       <img src="../assets/img/space2.jpg" alt="sample87" />
       <figcaption>
-        <img src="../assets/img/Derek.jpg" alt="profile-sample4" class="profile" />
+        <img
+          src="../assets/img/Derek.jpg"
+          alt="profile-sample4"
+          class="profile"
+        />
         <h2>Derek Shain<span>Full Stack Developer</span></h2>
         <!-- <p>Placeholder Bio </p> -->
-        <a href="https://www.linkedin.com/in/derekshain"
-           class="follow"
+        <a
+          href="https://www.linkedin.com/in/derekshain"
+          class="follow"
+          target="_blank"
+          rel="noreferrer noopener"
         >Linkedin</a>
-        <a href="https://github.com/DerekShain" class="info">GitHub</a>
+        <a
+          href="https://github.com/DerekShain"
+          class="info"
+          target="_blank"
+          rel="noreferrer noopener"
+        >GitHub</a>
       </figcaption>
     </figure>
-    <figure class="aboutCard ">
+    <figure class="aboutCard">
       <img src="../assets/img/city.jpg" alt="sample87" />
       <figcaption>
-        <img src="../assets/img/kyle.jpg" alt="profile-sample4" class="profile" />
+        <img
+          src="../assets/img/kyle.jpg"
+          alt="profile-sample4"
+          class="profile"
+        />
         <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
         <!-- <p>Placeholder Bio </p> -->
-        <a href="https://www.linkedin.com/in/kyle-m-hanna/" class="follow">Linkedin</a>
-        <a href="https://github.com/KyleMHanna" class="info">GitHub</a>
+        <a href="https://www.linkedin.com/in/kyle-m-hanna/"
+           class="follow"
+           target="_blank"
+           rel="noreferrer noopener"
+        >Linkedin</a>
+        <a href="https://github.com/KyleMHanna" class="info" target="_blank" rel="noreferrer noopener">GitHub</a>
       </figcaption>
     </figure>
     <div class="row text-center">
@@ -59,15 +123,15 @@
       </h3>
       <br />
       <h3 class="text-center">
-        <a href="https://rawg.io/">RAWG.Io</a>
+        <a href="https://rawg.io/" target="_blank" rel="noreferrer noopener">RAWG.Io</a>
       </h3>
       <br />
       <h3 class="text-center">
-        <a href="https://www.mmobomb.com/">MMOBOMB</a>
+        <a href="https://www.mmobomb.com/" target="_blank" rel="noreferrer noopener">MMOBOMB</a>
       </h3>
       <br />
       <h3 class="text-center">
-        <a href="https://boisecodeworks.com/">The Codeworks Team</a>
+        <a href="https://boisecodeworks.com/" target="_blank" rel="noreferrer noopener">The Codeworks Team</a>
       </h3>
     </div>
   </div>
@@ -80,7 +144,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .aboutCard {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   position: relative;
   overflow: hidden;
   margin: 10px;
@@ -102,7 +166,6 @@ export default {
   max-width: 100%;
   vertical-align: top;
   opacity: 0.85;
-
 }
 .aboutCard figcaption {
   width: 100%;
@@ -112,7 +175,7 @@ export default {
 }
 .aboutCard figcaption:before {
   position: absolute;
-  content: '';
+  content: "";
   bottom: 100%;
   left: 0;
   width: 0;
@@ -170,19 +233,17 @@ export default {
   opacity: 0.8;
 }
 
-.parent{
+.parent {
   // height:500px;
   // position:relative;
-
 }
-.overlay{
-  background-color:rgba(0,0,0,.5);
-  color:white;
-  transition:all .3s ease-in;
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  transition: all 0.3s ease-in;
 }
 /* hover effect*/
-.parent:hover .overlay{
-  opacity:0;
+.parent:hover .overlay {
+  opacity: 0;
 }
-
 </style>
