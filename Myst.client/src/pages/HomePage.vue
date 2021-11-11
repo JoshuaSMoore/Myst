@@ -2,7 +2,7 @@
   <div class="d-fluid row align-items-center">
     <div class="row banner">
       <h2
-        class="text-shadow animate__animated animate__rotateInDownLeft center mt-4"
+        class="text-shadow animate__animated animate__fadeIn center mt-4"
         v-if="profile.name"
       >
         Welcome, {{ profile.name }}
