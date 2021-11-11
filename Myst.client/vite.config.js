@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [vue()],
   build: {
-    outDir: '../myst/myst.client',
+    outDir: '../Myst/client',
     sourcemap: false
   },
   server: {
