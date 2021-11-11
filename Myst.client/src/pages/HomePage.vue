@@ -79,7 +79,7 @@
       <div class="row p-2">
         <div class="col d-flex justify-content-start">
           <button
-            class="btn btn-outline-dark shadow"
+            class="btn btn-outline-dark glow"
             @click="newsOffset -= 10"
             v-if="newsOffset > 0"
             title="Previous Page"
@@ -89,7 +89,7 @@
         </div>
         <div class="col d-flex justify-content-end">
           <button
-            class="btn btn-outline-dark shadow"
+            class="btn btn-outline-dark glow"
             @click="newsOffset += 10"
             v-if="newsOffset < 40"
             title="Next Page"

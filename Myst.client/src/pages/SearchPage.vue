@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid">
     <div class="row my-5 p-0 align-items-center d-flex justify-content-center">
-      <div class="text-muted text-dark text-center mt-3">
-        <h2> PAGE {{ currentPage }} </h2>
+      <div class="text-muted text-Light mt-3">
+        <h2>Search Results Page {{ currentPage }} </h2>
       </div>
     </div>
     <div v-if="games" class="row styles">
@@ -11,17 +11,18 @@
     <div v-if="searchedAccounts" class="row styles">
       <AccountSearchCard v-for="s in searchedAccounts" :key="s.id" :account="s" lass="col-3 m-2 styles" />
     </div>
-    <div class="row">
+    <div class="row mb-5">
       <div class="col-12 d-flex justify-content-around">
-        <button class="btn btn-secondary" @click="getOld()" v-if="previous">
-          Previous
+        <button class="btn btn-outline-secondary glow" @click="getOld()" v-if="previous">
+          <i class="mdi mdi-chevron-triple-left f-20">Previous</i>
         </button>
         <div v-if="!previous"></div>
-        <div class="text-muted text-dark">
-          <h2> PAGE {{ currentPage }} </h2>
+        <div class="text-muted text-Light m-2">
+          <h2>Search Results Page {{ currentPage }} </h2>
         </div>
-        <button class="btn btn-secondary" @click="getNew()" v-if="next">
-          Next
+        <button class="btn btn-outline-secondary glow" @click="getNew()" v-if="next">
+          <i class="mdi f-20">Next</i>
+          <i class="mdi mdi-chevron-triple-right f-20"> </i>
         </button>
         <div v-if="!next"></div>
       </div>
@@ -77,5 +78,14 @@ export default {
 .styles{
   display: flex;
   justify-content: center;
+}
+.glow {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.548);
+  transition: 0.3s;
+}
+/* On mouse-over, add a deeper shadow */
+.glow:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.829);
 }
 </style>
