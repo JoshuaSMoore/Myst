@@ -24,22 +24,20 @@
       </div>
     </div>
     <div class="row center">
-      <div class="col-3 text-shadow mt-4">
-        <h4>Your Current Library..</h4>
-        <div
-          class="text-light rounded order-2 order-md-1 centerGame"
-          v-if="followedGames"
-        >
-          <small>
-            <button
-              class="btn btn-outline text-shadow glow bigRound m-2"
-              @click="gamesOffset -= 2"
-              v-if="gamesOffset > 0"
-              title="Previous Page"
-            >
-              <i class="mdi mdi-chevron-up f-20 text-shadow"></i>
-            </button>
-          </small>
+      <div class=" text-shadow mt-4">
+        <h4 class="center">
+          Your Current Library..
+        </h4>
+        <div class="text-light rounded order-2 order-md-1 centerGame" v-if="followedGames">
+          <button
+            class="btn btn-outline text-shadow glow bigRound m-2"
+            @click="gamesOffset -= 2"
+            v-if="gamesOffset > 0"
+            title="Previous Page"
+          >
+            <i class="mdi mdi-chevron-left f-20 text-shadow"></i>
+          </button>
+
           <FollowedGame
             v-for="f in followedGames"
             :key="f.id"
@@ -51,7 +49,7 @@
             v-if="gamesOffset <= 2"
             title="Next Page"
           >
-            <i class="mdi mdi-chevron-down f-20 text-shadow"> </i>
+            <i class="mdi mdi-chevron-right f-20 text-shadow"> </i>
           </button>
         </div>
       </div>
