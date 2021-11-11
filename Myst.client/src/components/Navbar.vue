@@ -11,15 +11,16 @@
         <!-- NOTE magnify -->
         <div class="container-fluid d-flex">
           <button
-            class="navbar-toggler"
+            class="navbarFog"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo03"
             aria-controls="navbarTogglerDemo03"
             aria-expanded="false"
+            title="Search Games and Users"
             aria-label="Toggle search"
           >
-            <i class="mdi mdi-magnify"></i>
+            <i class="mdi mdi-magnify text-light"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <form @submit.prevent="searchGames(query)" v-if="searchToggle">
@@ -80,7 +81,7 @@
           class="navbar-brand d-flex p-2 ms-3"
           :to="{ name: 'Profile', params: { profileId: account.id } }"
         >
-          <i class="mdi mdi-account-outline f-20"></i>
+          <i class="mdi mdi-account-outline f-20" title="Profile"></i>
         </router-link>
         <button
           class="
@@ -97,14 +98,14 @@
           Login
         </button>
         <button
-          class="navbar-toggler"
+          class="navbarFog"
           v-else
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon" title="Menu"></span>
         </button>
       </div>
 
@@ -533,5 +534,38 @@ export default {
 }
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
+}
+
+.navbarFog {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbarFog {
+    transition: none;
+  }
+}
+.navbarFog:hover {
+  text-decoration: none;
+}
+.navbarFog:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 </style>
