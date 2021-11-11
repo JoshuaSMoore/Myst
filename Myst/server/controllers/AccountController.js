@@ -1,6 +1,6 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { accountService } from '../services/AccountService'
-import { firebaseService } from '../services/FirebaseService.js'
+import { firebaseService } from '../services/FirebaseService'
 import BaseController from '../utils/BaseController'
 
 export class AccountController extends BaseController {
