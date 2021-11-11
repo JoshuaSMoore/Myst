@@ -143,7 +143,7 @@ export default {
       ),
       games: computed(() => AppState.games),
       followedGames: computed(() =>
-        AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 2)
+        AppState.followedGames.slice(gamesOffset.value, gamesOffset.value + 3)
       )
     }
   }

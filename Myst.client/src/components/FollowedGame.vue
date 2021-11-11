@@ -1,5 +1,5 @@
 <template>
-  <div class="m-2 bg-dark animate__animated animate__backInDown centerGame bigRound">
+  <div class="m-2 bg-dark animate__animated animate__fadeIn centerGame bigRound">
     <div class="card h-100 size bg-dark text-light bigRound">
       <router-link :to="{ name: 'Game', params: { gameId: followedGame.id }}">
         <img :src="followedGame.background_image" class="card-img-top bigRoundTop" alt="...">
