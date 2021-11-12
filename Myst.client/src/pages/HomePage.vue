@@ -267,27 +267,27 @@ html {
   background-blend-mode: multiply;
 
   &:nth-of-type(1) {
-    --img: url(/assets/img/Game.jpg);
+    --img: url(https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80);
   }
 
   &:nth-of-type(2) {
-    --img: url(/assets/img/Game.jpg);
+    --img: url(https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80);
   }
 
   &:nth-of-type(3) {
-    --img: url(/assets/img/Game.jpg);
+    --img: url(https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80);
   }
 
   &:nth-of-type(4) {
-    --img: url(/assets/img/Game.jpg);
+    --img: url(https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80);
   }
 
   &:nth-of-type(5) {
-    --img: url(/assets/img/Game.jpg);
+    --img: url(https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80);
   }
 
   &:nth-of-type(6) {
-    --img: url(/assets/img/Game.jpg);
+    --img: url(https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80);
   }
 }
 </style>
