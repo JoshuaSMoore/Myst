@@ -117,23 +117,28 @@
         <a href="https://github.com/KyleMHanna" class="info" target="_blank" rel="noreferrer noopener">GitHub</a>
       </figcaption>
     </figure>
-    <div class="row text-center">
-      <h3 class="text-center">
-        Thanks to (not our sponsors) Twitch
-      </h3>
-      <br />
-      <h3 class="text-center">
-        <a href="https://rawg.io/" target="_blank" rel="noreferrer noopener">RAWG.Io</a>
-      </h3>
-      <br />
-      <h3 class="text-center">
-        <a href="https://www.mmobomb.com/" target="_blank" rel="noreferrer noopener">MMOBOMB</a>
-      </h3>
-      <br />
-      <h3 class="text-center">
-        <a href="https://boisecodeworks.com/" target="_blank" rel="noreferrer noopener">The Codeworks Team</a>
-      </h3>
-    </div>
+  </div>
+  <div class="row text-center text-shadow">
+    <h3 class="text-center">
+      Thanks to (not our sponsors)
+    </h3>
+    <br />
+    <h3 class="text-center">
+      <a href="http://twitch.com" target="_blank" rel="noreferrer noopener">
+        Twitch
+      </a>
+    </h3>
+    <h3 class="text-center">
+      <a href="https://rawg.io/" target="_blank" rel="noreferrer noopener">RAWG.Io</a>
+    </h3>
+    <br />
+    <h3 class="text-center">
+      <a href="https://www.mmobomb.com/" target="_blank" rel="noreferrer noopener">MMOBOMB</a>
+    </h3>
+    <br />
+    <h3 class="text-center">
+      <a href="https://boisecodeworks.com/" target="_blank" rel="noreferrer noopener">The Codeworks Team</a>
+    </h3>
   </div>
 </template>
 
@@ -245,5 +250,9 @@ export default {
 /* hover effect*/
 .parent:hover .overlay {
   opacity: 0;
+}
+.text-shadow {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 </style>

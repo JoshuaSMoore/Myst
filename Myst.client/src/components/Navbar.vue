@@ -20,7 +20,7 @@
             title="Search Games and Users"
             aria-label="Toggle search"
           >
-            <i class="mdi mdi-magnify text-light"></i>
+            <i class="mdi mdi-magnify text-light f-20"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <form @submit.prevent="searchGames(query)" v-if="searchToggle">
@@ -105,7 +105,7 @@
           data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar"
         >
-          <span class="navbar-toggler-icon" title="Menu"></span>
+          <i class="mdi mdi-menu f-20 text-light" title="Menu"></i>
         </button>
       </div>
 
