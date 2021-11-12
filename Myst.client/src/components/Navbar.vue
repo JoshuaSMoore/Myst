@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar header navbar-dark fixed-top text-light">
+  <nav class="navbar header navbar-dark fixed-top text-light mx-2">
     <div class="container-fluid">
       <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-        <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center mt-2">
           <img alt="logo" src="../assets/img/mystlight.png" height="45" />
         </div>
       </router-link>

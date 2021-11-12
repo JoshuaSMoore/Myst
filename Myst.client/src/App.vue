@@ -2,7 +2,7 @@
   <header>
     <Navbar />
   </header>
-  <main class="bg-bg-grad mt-5">
+  <main class="bg-bg-grad">
     <router-view />
   </main>
 </template>

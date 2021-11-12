@@ -144,7 +144,7 @@
 
   <!-- END FOLLOWED GAME NOTE START POSTS -->
   <div class="text-light ">
-    <div class="row d-flex">
+    <div class="d-flex">
       <div class="col-2 center mx-2">
         <h1 class="fw-bold ps-3 rounded">
           Posts
@@ -156,7 +156,7 @@
         </button>
       </div>
     </div>
-    <div class="row rounded justify-content-space-evenly center">
+    <div class="rounded justify-content-space-evenly center">
       <div class="col-1 text-center on-hover">
         <button class="btn btn-prev-next" @click="scroll('left', 'postScroll')" v-if="true">
           <i class="mdi mdi-chevron-left f-20 text-light"></i>

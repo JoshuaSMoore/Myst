@@ -1,5 +1,5 @@
 <template>
-  <div class="d-fluid row align-items-center">
+  <div class="align-items-center">
     <div class="row banner">
       <h2
         class="text-shadow animate__animated animate__fadeIn center mt-4"
@@ -11,19 +11,19 @@
         <img
           src="../assets/img/Logo-Final2.gif"
           alt="MYST LOGO"
+          style="width: 57vw;"
           class="
-            img-flex
+            img-fluid
             midRound
             shadow-lg
             animate__animated animate__bounceIn
-            w-50
-            h-75
             center
+            m-5
           "
         />
       </div>
     </div>
-    <div class="row center">
+    <div class="center">
       <div class=" text-shadow mt-4">
         <h4 class="center">
           Your Current Library..
@@ -261,7 +261,7 @@ html {
   margin-left: 0;
   width: 100%;
   // height: 100vh;
-  min-height: 15em;
+  min-height: 40vh;
   background: linear-gradient(#000, transparent, #000), var(--img) 50% / cover;
   background-attachment: fixed;
   background-blend-mode: multiply;
