@@ -267,27 +267,27 @@ html {
   background-blend-mode: multiply;
 
   &:nth-of-type(1) {
-    --img: url(../src/assets/img/Game.jpg);
+    --img: url(/assets/img/Game.jpg);
   }
 
   &:nth-of-type(2) {
-    --img: url(../src/assets/img/Game.jpg);
+    --img: url(/assets/img/Game.jpg);
   }
 
   &:nth-of-type(3) {
-    --img: url(../src/assets/img/Game.jpg);
+    --img: url(/assets/img/Game.jpg);
   }
 
   &:nth-of-type(4) {
-    --img: url(../src/assets/img/Game.jpg);
+    --img: url(/assets/img/Game.jpg);
   }
 
   &:nth-of-type(5) {
-    --img: url(../src/assets/img/Game.jpg);
+    --img: url(/assets/img/Game.jpg);
   }
 
   &:nth-of-type(6) {
-    --img: url(../src/assets/img/Game.jpg);
+    --img: url(/assets/img/Game.jpg);
   }
 }
 </style>
