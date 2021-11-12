@@ -121,10 +121,12 @@
           </h5>
           <button
             type="button"
-            class="btn-close text-light"
+            class="btn btn-outline-primary"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-          ></button>
+          >
+            <i class="mdi mdi-close text-light"></i>
+          </button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">

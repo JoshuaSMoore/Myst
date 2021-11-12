@@ -99,7 +99,7 @@
         >GitHub</a>
       </figcaption>
     </figure>
-    <figure class="aboutCard">
+    <!-- <figure class="aboutCard">
       <img src="../assets/img/city.jpg" alt="sample87" />
       <figcaption>
         <img
@@ -108,15 +108,15 @@
           class="profile"
         />
         <h2>Kyle Hanna<span>Full Stack Developer</span></h2>
-        <!-- <p>Placeholder Bio </p> -->
+        <p>Placeholder Bio </p>
         <a href="https://www.linkedin.com/in/kyle-m-hanna/"
            class="follow"
            target="_blank"
            rel="noreferrer noopener"
         >Linkedin</a>
         <a href="https://github.com/KyleMHanna" class="info" target="_blank" rel="noreferrer noopener">GitHub</a>
-      </figcaption>
-    </figure>
+      </figcaption> -->
+    <!-- </figure> -->
   </div>
   <div class="row text-center text-shadow">
     <h3 class="text-center">

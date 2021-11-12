@@ -6,7 +6,9 @@
           <h5 class="modal-title" id="exampleModalLabel">
             <slot name="modal-title"></slot>
           </h5>
-          <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" aria-label="Close">
+            <i class="mdi mdi-close text-light" title="Close"></i>
+          </button>
         </div>
         <div class="modal-body bg-dark text-light">
           <slot name="modal-body"></slot>
