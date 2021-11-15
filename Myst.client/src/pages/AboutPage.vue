@@ -99,7 +99,7 @@
         >GitHub</a>
       </figcaption>
     </figure>
-    <!-- <figure class="aboutCard">
+    <figure class="aboutCard">
       <img src="../assets/img/city.jpg" alt="sample87" />
       <figcaption>
         <img
@@ -115,8 +115,8 @@
            rel="noreferrer noopener"
         >Linkedin</a>
         <a href="https://github.com/KyleMHanna" class="info" target="_blank" rel="noreferrer noopener">GitHub</a>
-      </figcaption> -->
-    <!-- </figure> -->
+      </figcaption>
+    </figure>
   </div>
   <div class="row text-center text-shadow">
     <h3 class="text-center">
