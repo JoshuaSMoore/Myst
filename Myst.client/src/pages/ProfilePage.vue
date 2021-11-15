@@ -14,7 +14,7 @@
           <div class="col m-2">
             <div class=" text-light d-flex justify-content-center align-items-center">
               <iframe
-                :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=localhost`"
+                :src="`https://player.twitch.tv/?channel=${profile.twitch}&parent=mystgaming.herokuapp.com`"
                 width="500px"
                 height="300px"
                 class="bigRound glow"
