@@ -44,7 +44,7 @@
           rel="noreferrer noopener"
         >Linkedin</a>
         <a
-          href="https://github.com/TalanWeeks"
+          href="https://talanweeks.github.io/Landing-Page/"
           class="info"
           target="_blank"
           rel="noreferrer noopener"
@@ -92,7 +92,7 @@
           rel="noreferrer noopener"
         >Linkedin</a>
         <a
-          href="https://github.com/DerekShain"
+          href="https://derekshain.github.io"
           class="info"
           target="_blank"
           rel="noreferrer noopener"
